@@ -6,7 +6,7 @@
   <title>But What Can You Do? | Your Voice. Your Vote. No More Weapons.</title>
   <meta name="description" content="A nonpartisan campaign to vote out every member of Congress who supports sending weapons to a government killing civilians. Find your rep. Use your voice. Vote in November 2026.">
   <meta property="og:title" content="But What Can You Do?">
-  <meta property="og:description" content="Everyone kept asking. Here's the answer.">
+  <meta property="og:description" content="Find out if your representative voted to send weapons to a government responsible for tens of thousands of civilian deaths — and what you can do about it in November 2026.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://butwhatcanyoudo.org">
   <link rel="stylesheet" href="/css/style.css">
@@ -62,8 +62,27 @@
     </div>
   </section>
 
-  <!-- The Three Actions -->
+  <!-- District Lookup (primary conversion point) -->
   <section class="section section-dark">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h2 style="margin-bottom: 12px;">Find your voice.</h2>
+        <p class="text-muted" style="max-width: 550px; margin: 0 auto 32px;">
+          Enter your zip code. We'll show you who represents you, how they
+          voted, and exactly what you can do about it &mdash; from the ballot
+          box to your next town hall.
+        </p>
+        <div class="zip-input-group">
+          <input type="text" id="zipInput" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+          <button class="btn btn-red" id="zipSubmit" onclick="lookupZip()">Go</button>
+        </div>
+        <div id="zipResult" class="mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Three Actions -->
+  <section class="section section-darker">
     <div class="container">
       <div class="fade-in text-center">
         <h2 style="margin-bottom: 12px;">Here's where you start.</h2>
@@ -92,25 +111,6 @@
     </div>
   </section>
 
-  <!-- District Lookup -->
-  <section class="section section-darker">
-    <div class="container text-center">
-      <div class="fade-in">
-        <h2 style="margin-bottom: 12px;">Find your voice.</h2>
-        <p class="text-muted" style="max-width: 550px; margin: 0 auto 32px;">
-          Enter your zip code. We'll show you who represents you, how they
-          voted, and exactly what you can do about it &mdash; from the ballot
-          box to your next town hall.
-        </p>
-        <div class="zip-input-group">
-          <input type="text" id="zipInput" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
-          <button class="btn btn-red" id="zipSubmit" onclick="lookupZip()">Go</button>
-        </div>
-        <div id="zipResult" class="mt-4"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- The Proof -->
   <section class="section section-dark">
     <div class="container">
@@ -123,12 +123,13 @@
         <p class="text-muted" style="font-size: 1.05rem; max-width: 650px; margin: 0 auto;">
           Thomas Massie, a Republican congressman from Kentucky, started voting
           against weapons packages to the government of Israel as the civilian
-          death toll climbed. His own party spent heavily to primary him out of office.
+          death toll climbed. The Republican establishment spent heavily to
+          primary him out &mdash; removing one of their own for breaking ranks.
         </p>
         <p class="text-muted" style="font-size: 1.05rem; max-width: 650px; margin: 0 auto; margin-top: 24px;">
-          In New York, Zohran Mamdani &mdash; a Democrat &mdash; ran on the same
-          principle against a well-funded establishment candidate backed by millions
-          in lobby money. He won.
+          In New York, the Democratic establishment did the same thing &mdash;
+          pouring millions into a candidate to stop Zohran Mamdani, a Democrat
+          who opposed the weapons packages. Voters chose Mamdani anyway.
         </p>
         <p style="margin-top: 32px; font-weight: 500;">
           The establishment will fight back.
@@ -163,10 +164,10 @@
   <section class="section section-darker">
     <div class="container text-center">
       <div class="fade-in">
+        <p class="text-mono text-red" style="font-size: 2rem; font-weight: 700; margin-bottom: 8px;" id="countdown"></p>
         <h2 style="margin-bottom: 16px;">What are you waiting for?</h2>
         <p class="text-muted" style="max-width: 500px; margin: 0 auto 32px;">
           Download posters. Join a local group. Share with everyone you know.
-          November is coming.
         </p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
           <a href="/posters/" class="btn btn-red">Get posters</a>
@@ -179,18 +180,29 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div>
-        <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+    <div class="footer-inner" style="flex-direction: column; gap: 32px;">
+      <!-- Email signup -->
+      <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
+        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+          <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
+        </form>
       </div>
-      <ul class="footer-links">
-        <li><a href="/about/">About</a></li>
-        <li><a href="/talk/">Talking Points</a></li>
-        <li><a href="/support/">Support</a></li>
-        <li><a href="/how-to/">How to Print</a></li>
-      </ul>
-      <div class="footer-hashtag">
-        #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+      <!-- Footer links -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
+        <div>
+          <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+        </div>
+        <ul class="footer-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/talk/">Talking Points</a></li>
+          <li><a href="/support/">Support</a></li>
+          <li><a href="/how-to/">How to Print</a></li>
+        </ul>
+        <div class="footer-hashtag">
+          #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+        </div>
       </div>
     </div>
   </footer>

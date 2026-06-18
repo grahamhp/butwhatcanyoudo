@@ -107,18 +107,27 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div>
-        <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+    <div class="footer-inner" style="flex-direction: column; gap: 32px;">
+      <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
+        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+          <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
+        </form>
       </div>
-      <ul class="footer-links">
-        <li><a href="/about/">About</a></li>
-        <li><a href="/talk/">Talking Points</a></li>
-        <li><a href="/support/">Support</a></li>
-        <li><a href="/how-to/">How to Print</a></li>
-      </ul>
-      <div class="footer-hashtag">
-        #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
+        <div>
+          <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+        </div>
+        <ul class="footer-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/talk/">Talking Points</a></li>
+          <li><a href="/support/">Support</a></li>
+          <li><a href="/how-to/">How to Print</a></li>
+        </ul>
+        <div class="footer-hashtag">
+          #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+        </div>
       </div>
     </div>
   </footer>

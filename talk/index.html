@@ -86,14 +86,14 @@
   <section class="section section-dark">
     <div class="container">
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
-        <h2 style="margin-bottom: 24px;">What <span class="text-red">not</span> to say</h2>
-        <p class="text-muted" style="margin-bottom: 16px;">This campaign deliberately avoids language that has been used to dismiss or marginalize the cause. Here's what to steer clear of and why:</p>
+        <h2 style="margin-bottom: 24px;">Why some approaches <span class="text-red">backfire</span></h2>
+        <p class="text-muted" style="margin-bottom: 16px;">You can say whatever you want. But if the goal is reaching the people we need to reach &mdash; people who aren't already on our side &mdash; some approaches work better than others. Here's what we've found shuts people down before they can hear the message:</p>
         <div class="card" style="padding: 24px;">
           <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"><span class="text-red">Avoid:</span> Protest chants and slogans &mdash; <span class="text-muted">They signal "activist" and most voters tune out immediately.</span></li>
-            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"><span class="text-red">Avoid:</span> Partisan framing &mdash; <span class="text-muted">Never blame one party. Both are complicit. Say so.</span></li>
-            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"><span class="text-red">Avoid:</span> Academic jargon &mdash; <span class="text-muted">Terms that require explanation lose people. Keep it simple.</span></li>
-            <li style="padding: 12px 0;"><span class="text-red">Avoid:</span> Personal attacks &mdash; <span class="text-muted">Attack the votes and the money, not the person. Stay factual.</span></li>
+            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"><span class="text-yellow">Less effective:</span> Protest chants and slogans &mdash; <span class="text-muted">They signal "activist" and the people we need to reach tend to tune out before listening.</span></li>
+            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"><span class="text-yellow">Less effective:</span> Partisan framing &mdash; <span class="text-muted">The moment it sounds like one party blaming another, half the room stops listening. Both parties are complicit. Say so.</span></li>
+            <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"><span class="text-yellow">Less effective:</span> Academic jargon &mdash; <span class="text-muted">If a term needs explanation, it's a barrier. Plain language reaches more people.</span></li>
+            <li style="padding: 12px 0;"><span class="text-yellow">Less effective:</span> Personal attacks &mdash; <span class="text-muted">Attacking the person makes it easy to dismiss you. Attacking the votes and the money &mdash; that's harder to argue with.</span></li>
           </ul>
         </div>
       </div>
@@ -126,18 +126,27 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div>
-        <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+    <div class="footer-inner" style="flex-direction: column; gap: 32px;">
+      <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
+        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+          <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
+        </form>
       </div>
-      <ul class="footer-links">
-        <li><a href="/about/">About</a></li>
-        <li><a href="/talk/">Talking Points</a></li>
-        <li><a href="/support/">Support</a></li>
-        <li><a href="/how-to/">How to Print</a></li>
-      </ul>
-      <div class="footer-hashtag">
-        #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
+        <div>
+          <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+        </div>
+        <ul class="footer-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/talk/">Talking Points</a></li>
+          <li><a href="/support/">Support</a></li>
+          <li><a href="/how-to/">How to Print</a></li>
+        </ul>
+        <div class="footer-hashtag">
+          #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+        </div>
       </div>
     </div>
   </footer>

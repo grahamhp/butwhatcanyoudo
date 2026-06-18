@@ -82,3 +82,14 @@ if (zipInput) {
     }
   });
 }
+
+// --- Countdown to Election Day (November 3, 2026) ---
+const countdownEl = document.getElementById('countdown');
+if (countdownEl) {
+  const electionDay = new Date('2026-11-03T00:00:00');
+  const now = new Date();
+  const days = Math.ceil((electionDay - now) / (1000 * 60 * 60 * 24));
+  if (days > 0) {
+    countdownEl.textContent = days + ' days until Election Day.';
+  }
+}
