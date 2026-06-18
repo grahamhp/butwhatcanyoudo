@@ -9,7 +9,22 @@
   <meta property="og:description" content="Find out if your representative voted to send weapons to a government responsible for tens of thousands of civilian deaths — and what you can do about it in November 2026.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://butwhatcanyoudo.org">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="canonical" href="https://butwhatcanyoudo.org/">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "But What Can You Do?",
+    "url": "https://butwhatcanyoudo.org",
+    "description": "A nonpartisan campaign to vote out every member of Congress who supports sending weapons to a government killing civilians.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://butwhatcanyoudo.org/lookup/?zip={zip}",
+      "query-input": "required name=zip"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -81,8 +96,23 @@
     </div>
   </section>
 
-  <!-- The Three Actions -->
+  <!-- Tax Dollar Context -->
   <section class="section section-darker">
+    <div class="container">
+      <div class="fade-in text-center" style="max-width: 750px; margin: 0 auto;">
+        <p class="text-muted" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">Your money</p>
+        <h2 style="margin-bottom: 24px;">
+          The average American household has paid over
+          <span class="text-yellow">$1,000</span>
+          toward weapons sent to the government of Israel since October 2023.
+        </h2>
+        <p class="text-muted" style="font-size: 1.05rem;">That's your money. You didn't get a vote on it &mdash; but the people who sent it are on the ballot in November. Every single one of them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Three Actions -->
+  <section class="section" style="background: var(--black)">
     <div class="container">
       <div class="fade-in text-center">
         <h2 style="margin-bottom: 12px;">Here's where you start.</h2>
@@ -208,6 +238,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/js/main.js"></script>
+  <script src="/js/candidates.js?v=2"></script>
+  <script src="/js/lookup.js?v=2"></script>
+  <script src="/js/main.js?v=2"></script>
 </body>
 </html>

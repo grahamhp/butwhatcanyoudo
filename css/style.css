@@ -19,6 +19,7 @@
   --yellow: #FFC500;
   --font-headline: 'Oswald', 'Impact', 'Arial Black', sans-serif;
   --font-body: 'Inter', 'Source Sans Pro', system-ui, sans-serif;
+  --charcoal: #1A1A1A;
   --font-mono: 'Source Code Pro', 'Courier New', monospace;
 }
 
@@ -533,4 +534,40 @@ select option {
   .zip-input-group .btn {
     border-radius: 2px;
   }
+}
+
+/* --- Print Styles --- */
+@media print {
+  body {
+    background: #fff;
+    color: #111;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  .nav, .nav-toggle, .hero-scroll-hint,
+  .footer, .btn, form, .zip-input-group,
+  button, .poster-filter {
+    display: none !important;
+  }
+  .section, .section-dark, .section-darker {
+    background: #fff !important;
+    color: #111 !important;
+    padding: 24px 0;
+  }
+  .card {
+    background: #f5f5f5 !important;
+    border: 1px solid #ccc !important;
+    color: #111 !important;
+    page-break-inside: avoid;
+  }
+  .text-muted { color: #444 !important; }
+  .text-red { color: #cc0000 !important; }
+  .text-blue { color: #005f99 !important; }
+  .text-yellow { color: #996600 !important; }
+  a { color: #111 !important; text-decoration: underline; }
+  h1, h2, h3, h4 { color: #111 !important; }
+  .hero { min-height: auto; padding: 40px 0; }
+  .hero-question, .hero-answer { animation: none !important; opacity: 1 !important; }
+  .fade-in { opacity: 1 !important; transform: none !important; }
+  .page-header { padding: 40px 0 20px; }
 }

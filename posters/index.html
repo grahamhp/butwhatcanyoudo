@@ -374,7 +374,7 @@
 
       if (result && result.primaryCandidate) {
         const c = result.primaryCandidate;
-        const aipacStatus = c.aipacEndorsed ? 'AIPAC Endorsed.' : '';
+        const aipacStatus = c.aipacEndorsed ? 'Lobby Endorsed.' : '';
         const votedYes = Object.values(c.keyVotes).some(v => v === 'Yes');
         
         resultDiv.innerHTML = `

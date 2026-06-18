@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Races | But What Can You Do?</title>
-  <meta name="description" content="Search the full database of members of Congress who voted to send weapons to the government of Israel. See who took the money, how they voted, and whether they're up for re-election in 2026.">
+  <meta name="description" content="Search the full database of 2026 congressional races. See who took lobby money, how they voted on weapons packages, and which toss-up seats are in play this November.">
   <meta property="og:title" content="The Races | But What Can You Do?">
-  <meta property="og:description" content="Every member of Congress who voted yes. The lobby money. The votes. The races to watch.">
+  <meta property="og:description" content="Every member of Congress who voted yes. The lobby money. The votes. The races to watch in November 2026.">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
 </head>
 <body>
 
@@ -32,109 +32,123 @@
   <section class="page-header">
     <div class="container">
       <h1 class="fade-in">The <span class="text-red">Races</span></h1>
-      <p class="fade-in text-muted">Every member of Congress who voted to send weapons. The lobby money they took. The votes they cast. The races to watch in November 2026.</p>
+      <p class="fade-in text-muted">Every toss-up seat where your vote can replace a lobby-funded incumbent. The money they took. The votes they cast. The races to watch in November 2026.</p>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="section-darker" style="padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <div class="container">
+      <div class="fade-in" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center;">
+        <div>
+          <div class="text-yellow text-mono" style="font-size: 2rem; font-weight: 700;" id="statAipacTotal">$126.9M</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Pro-Israel lobby spent in 2024 cycle</div>
+        </div>
+        <div>
+          <div class="text-red text-mono" style="font-size: 2rem; font-weight: 700;" id="statRacesCount">18</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Toss-up races tracked</div>
+        </div>
+        <div>
+          <div class="text-blue text-mono" style="font-size: 2rem; font-weight: 700;">6</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">States redistricted</div>
+        </div>
+        <div>
+          <div class="text-red text-mono" style="font-size: 2rem; font-weight: 700;">$32M</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Spent to defeat ONE dissenter</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Massie + Mamdani Story -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in" style="max-width: 900px; margin: 0 auto;">
+        <h2 style="margin-bottom: 24px;">The proof it <span class="text-blue">works</span></h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div class="card" style="padding: 28px;">
+            <p class="text-mono text-red" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">They removed their own</p>
+            <h3 style="margin-bottom: 12px;">Thomas Massie <span class="text-muted" style="font-size: 0.8em;">(R-KY)</span></h3>
+            <p class="text-muted" style="margin-bottom: 12px;">The only Republican who consistently voted against weapons packages to the government of Israel. He introduced a bill to require the pro-Israel lobby to register as a foreign agent.</p>
+            <p style="margin-bottom: 12px;">Pro-Israel lobby groups spent <span class="text-yellow text-mono" style="font-weight: 700;">$9 million</span> to defeat him. Total outside spending in his primary: <span class="text-yellow text-mono" style="font-weight: 700;">$32 million</span>.</p>
+            <p class="text-muted" style="font-size: 0.85rem;">He lost his primary on May 19, 2026 to Trump-backed Ed Gallrein (57,822 to 47,539 votes).</p>
+            <p style="margin-top: 12px; font-size: 0.9rem; font-weight: 500;" class="text-red">Both parties punish dissent on this issue.</p>
+            <p class="text-mono text-muted" style="font-size: 0.75rem; margin-top: 12px;">Source: KY Secretary of State, AP, FEC filings</p>
+          </div>
+          <div class="card" style="padding: 28px;">
+            <p class="text-mono text-blue" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">The people won anyway</p>
+            <h3 style="margin-bottom: 12px;">Zohran Mamdani <span class="text-muted" style="font-size: 0.8em;">(D-NYC)</span></h3>
+            <p class="text-muted" style="margin-bottom: 12px;">The Democratic establishment poured millions into backing Andrew Cuomo against Mamdani, who opposed weapons packages to the government of Israel.</p>
+            <p style="margin-bottom: 12px;">Voters chose Mamdani anyway: <span class="text-blue text-mono" style="font-weight: 700;">50.78%</span> to Cuomo's 41.32%.</p>
+            <p class="text-muted" style="font-size: 0.85rem;">He became the first Muslim mayor of NYC, the first of South Asian heritage, and the youngest mayor in over a century. Took office January 1, 2026.</p>
+            <p style="margin-top: 12px; font-size: 0.9rem; font-weight: 500;" class="text-blue">When enough people show up, they win.</p>
+            <p class="text-mono text-muted" style="font-size: 0.75rem; margin-top: 12px;">Source: NYC Board of Elections, AP</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Search and Filter -->
-  <section class="section section-dark">
+  <section class="section section-darker" id="database">
     <div class="container">
       <div class="fade-in">
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
-          <input type="text" placeholder="Search by name, state, or district..." style="flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
-          <select style="padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
-            <option>All Parties</option>
-            <option>Democrat</option>
-            <option>Republican</option>
+        <h2 style="margin-bottom: 8px;">The database</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">Search toss-up races where lobby-funded incumbents are most vulnerable. Every data point is sourced from public records.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+          <input type="text" id="raceSearch" placeholder="Search by name, state, or district..." style="flex: 1; min-width: 200px;">
+          <select id="partyFilter">
+            <option value="all">All Parties</option>
+            <option value="D">Democrat</option>
+            <option value="R">Republican</option>
           </select>
-          <select style="padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
-            <option>All States</option>
-            <option>Alabama</option>
-            <option>Alaska</option>
-            <!-- Additional states will be populated dynamically -->
+          <select id="stateFilter">
+            <option value="all">All States</option>
           </select>
-          <button class="btn btn-red">Search</button>
+          <button class="btn btn-red" onclick="applyFilters()">Search</button>
         </div>
-        <p class="text-muted" style="font-size: 0.85rem;">Showing placeholder data. The full searchable database will be populated with real data before launch.</p>
+        <p class="text-muted" style="font-size: 0.8rem;" id="resultsCount"></p>
       </div>
     </div>
   </section>
 
-  <!-- Results Table (placeholder) -->
+  <!-- Results -->
+  <section class="section-darker" style="padding: 0 0 60px;">
+    <div class="container">
+      <div id="raceResults"></div>
+    </div>
+  </section>
+
+  <!-- Races to Watch -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in" style="max-width: 900px; margin: 0 auto;">
+        <h2 style="margin-bottom: 8px;">Races to <span class="text-yellow">watch</span></h2>
+        <p class="text-muted" style="margin-bottom: 32px;">These are the races where your vote — and your voice — can have the biggest impact.</p>
+        <div id="racesToWatch"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Redistricting Alert -->
   <section class="section section-darker">
     <div class="container">
-      <div class="fade-in">
-        <div style="overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-            <thead>
-              <tr style="border-bottom: 2px solid var(--red);">
-                <th style="padding: 12px; text-align: left;">Representative</th>
-                <th style="padding: 12px; text-align: left;">Party</th>
-                <th style="padding: 12px; text-align: left;">State / District</th>
-                <th style="padding: 12px; text-align: right;">Lobby $</th>
-                <th style="padding: 12px; text-align: center;">Voted Yes</th>
-                <th style="padding: 12px; text-align: center;">Up in 2026</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                <td style="padding: 12px;">[Placeholder Name]</td>
-                <td style="padding: 12px;"><span class="text-blue">D</span></td>
-                <td style="padding: 12px;">CA-12</td>
-                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
-                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
-                <td style="padding: 12px; text-align: center;">Yes</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                <td style="padding: 12px;">[Placeholder Name]</td>
-                <td style="padding: 12px;"><span class="text-red">R</span></td>
-                <td style="padding: 12px;">TX-07</td>
-                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
-                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
-                <td style="padding: 12px; text-align: center;">Yes</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                <td style="padding: 12px;">[Placeholder Name]</td>
-                <td style="padding: 12px;"><span class="text-blue">D</span></td>
-                <td style="padding: 12px;">NY-03</td>
-                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
-                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
-                <td style="padding: 12px; text-align: center;">Yes</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-                <td style="padding: 12px;">[Placeholder Name]</td>
-                <td style="padding: 12px;"><span class="text-red">R</span></td>
-                <td style="padding: 12px;">FL-15</td>
-                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
-                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
-                <td style="padding: 12px; text-align: center;">Yes</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-muted" style="margin-top: 24px; font-size: 0.85rem; text-align: center;">[Pagination and full data will be added before launch]</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Races to Watch -->
-  <section class="section section-dark">
-    <div class="container">
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
-        <h2 style="margin-bottom: 16px;">Races to watch</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">Placeholder: Featured races where lobby-funded incumbents are most vulnerable &mdash; competitive districts, strong challengers, and races where your vote can flip the seat.</p>
-        <p class="text-muted" style="font-style: italic;">[Coming soon]</p>
+        <h2 style="margin-bottom: 16px;">Redistricted <span class="text-red">states</span></h2>
+        <p class="text-muted" style="margin-bottom: 24px;">Six states have new congressional district maps for 2026 — the largest coordinated mid-decade redistricting in modern American history. If you live in one of these states, your district may have changed. New voters, new lines, new opportunities.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;" id="redistrictedGrid"></div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section section-darker">
+  <section class="section section-dark">
     <div class="container text-center">
       <div class="fade-in">
         <h2 style="margin-bottom: 16px;">Found your district?</h2>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="/posters/" class="btn btn-red">Get the poster</a>
+          <a href="/lookup/" class="btn btn-red">Look up your rep</a>
+          <a href="/posters/" class="btn btn-outline">Get a poster</a>
           <a href="/talk/" class="btn btn-outline">Talking points</a>
         </div>
       </div>
@@ -168,6 +182,158 @@
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/candidates.js?v=2"></script>
+  <script src="/js/main.js?v=2"></script>
+  <script>
+    // Populate state dropdown
+    const stateFilter = document.getElementById('stateFilter');
+    US_STATES.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.abbr;
+      opt.textContent = s.name;
+      stateFilter.appendChild(opt);
+    });
+
+    // Render race card
+    function renderRaceCard(c) {
+      const partyColor = c.party === 'D' ? 'text-blue' : 'text-red';
+      const partyLabel = c.party === 'D' ? 'Democrat' : 'Republican';
+      const isOpen = c.isOpenSeat;
+      
+      // Build votes HTML
+      let votesHtml = '';
+      KEY_VOTES.forEach(v => {
+        const vote = c.keyVotes[v.id];
+        const label = getVoteLabel(vote);
+        votesHtml += `<span class="${label.class}" style="margin-right: 12px; font-size: 0.85rem;">
+          ${v.id.toUpperCase()}: <strong>${label.text}</strong>
+        </span>`;
+      });
+
+      // AIPAC status
+      let aipacHtml = '';
+      if (c.aipacEndorsed) {
+        aipacHtml += '<span class="text-yellow" style="font-size: 0.85rem; font-weight: 600;">Lobby Endorsed</span>';
+      }
+      if (c.aipacTrip) {
+        aipacHtml += '<span class="text-muted" style="font-size: 0.8rem; margin-left: 8px;">• Lobby-funded trip</span>';
+      }
+      if (c.aipacFunding) {
+        aipacHtml += `<span class="text-yellow text-mono" style="font-size: 0.85rem; margin-left: 8px;">${formatCurrency(c.aipacFunding)}</span>`;
+      }
+
+      // Notable actions
+      let actionsHtml = '';
+      if (c.notableActions) {
+        actionsHtml = `<p class="text-muted" style="font-size: 0.85rem; margin-top: 8px; font-style: italic;">${c.notableActions}</p>`;
+      }
+
+      // Challenger
+      let challengerHtml = '';
+      if (c.challenger && c.challenger !== 'TBD') {
+        challengerHtml = `<p style="font-size: 0.85rem; margin-top: 8px;">Challenger: <strong>${c.challenger}</strong></p>`;
+      }
+      if (c.primaryChallenger) {
+        challengerHtml += `<p style="font-size: 0.85rem; color: var(--yellow);">Primary challenger: ${c.primaryChallenger}</p>`;
+      }
+
+      // Redistricting badge
+      let redistrictBadge = c.redistricted ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(255,197,0,0.15); color: var(--yellow); font-size: 0.75rem; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px;">Redistricted</span>' : '';
+
+      // Open seat badge
+      let openBadge = isOpen ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(0,168,232,0.15); color: var(--blue); font-size: 0.75rem; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 8px;">Open Seat</span>' : '';
+
+      return `
+        <div class="card" style="padding: 24px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h3 style="margin-bottom: 4px;">${c.name}</h3>
+              <p>
+                <span class="${partyColor}" style="font-weight: 600;">${partyLabel}</span>
+                <span class="text-muted"> — ${c.districtLabel}</span>
+                ${redistrictBadge}
+                ${openBadge}
+              </p>
+            </div>
+            <div style="text-align: right;">
+              <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${c.rating}</span>
+            </div>
+          </div>
+          ${aipacHtml ? `<div style="margin-top: 12px;">${aipacHtml}</div>` : ''}
+          ${actionsHtml}
+          <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 4px;">
+            ${votesHtml}
+          </div>
+          ${challengerHtml}
+          ${c.demographics ? `<p class="text-muted" style="font-size: 0.8rem; margin-top: 8px;">${c.demographics.notes}</p>` : ''}
+          <p class="text-mono text-muted" style="font-size: 0.7rem; margin-top: 8px;">Source: ${c.source}</p>
+        </div>
+      `;
+    }
+
+    // Apply filters and render results
+    function applyFilters() {
+      const query = document.getElementById('raceSearch').value;
+      const party = document.getElementById('partyFilter').value;
+      const state = document.getElementById('stateFilter').value;
+      const results = filterCandidates(query, party, state);
+      
+      const container = document.getElementById('raceResults');
+      const countEl = document.getElementById('resultsCount');
+      
+      if (results.length === 0) {
+        container.innerHTML = '<div class="card" style="padding: 32px; text-align: center;"><p class="text-muted">No races found matching your search. Try broadening your filters.</p></div>';
+        countEl.textContent = '0 races found';
+        return;
+      }
+
+      countEl.textContent = results.length + ' race' + (results.length !== 1 ? 's' : '') + ' found';
+      container.innerHTML = results.map(renderRaceCard).join('');
+    }
+
+    // Render Races to Watch
+    function renderRacesToWatch() {
+      const container = document.getElementById('racesToWatch');
+      container.innerHTML = RACES_TO_WATCH.map(r => {
+        const colorClass = r.color === 'red' ? 'text-red' : r.color === 'blue' ? 'text-blue' : 'text-yellow';
+        return `
+          <div class="card" style="padding: 24px; margin-bottom: 16px; border-left: 3px solid var(--${r.color});">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <h3 class="${colorClass}">${r.title}</h3>
+              <span class="${r.party === 'D' ? 'text-blue' : 'text-red'}" style="font-size: 0.85rem; font-weight: 600;">${r.party === 'D' ? 'Democrat' : 'Republican'}</span>
+            </div>
+            <p class="text-muted" style="margin-top: 8px;">${r.description}</p>
+            <p style="margin-top: 12px; font-weight: 500; font-size: 0.9rem;">Why it matters: <span class="${colorClass}">${r.whyItMatters}</span></p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render redistricted states
+    function renderRedistricted() {
+      const container = document.getElementById('redistrictedGrid');
+      container.innerHTML = REDISTRICTED_STATES.map(s => `
+        <div class="card" style="padding: 20px;">
+          <h3 class="text-yellow" style="font-size: 1.1rem;">${s.state} <span class="text-muted" style="font-size: 0.8em;">(${s.abbreviation})</span></h3>
+          <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">${s.notes}</p>
+        </div>
+      `).join('');
+    }
+
+    // Initialize
+    applyFilters();
+    renderRacesToWatch();
+    renderRedistricted();
+
+    // Live search on typing
+    document.getElementById('raceSearch').addEventListener('input', applyFilters);
+    document.getElementById('partyFilter').addEventListener('change', applyFilters);
+    document.getElementById('stateFilter').addEventListener('change', applyFilters);
+
+    // Enter key support
+    document.getElementById('raceSearch').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') applyFilters();
+    });
+  </script>
 </body>
 </html>
