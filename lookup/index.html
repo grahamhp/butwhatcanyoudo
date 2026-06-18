@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Fight | But What Can You Do?</title>
+  <meta name="description" content="Enter your zip code to find your congressional district, see who represents you, how much AIPAC money they took, and how they voted on weapons packages.">
+  <meta property="og:title" content="Find Your Fight | But What Can You Do?">
+  <meta property="og:description" content="Enter your zip code. Find out who your rep is and what they voted for.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">But What Can You <span>Do</span>?</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/lookup/" class="active">Find Your Fight</a></li>
+        <li><a href="/races/">The Races</a></li>
+        <li><a href="/posters/">Posters</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/volunteer/">Get Involved</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="fade-in">Find Your <span class="text-red">Fight</span></h1>
+      <p class="fade-in text-muted">Enter your zip code. We'll tell you who represents you, how much AIPAC money they took, and how they voted.</p>
+    </div>
+  </section>
+
+  <!-- Zip Code Lookup -->
+  <section class="section section-dark">
+    <div class="container text-center">
+      <div class="fade-in">
+        <div class="zip-input-group">
+          <input type="text" id="zipInput" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+          <button class="btn btn-red" id="zipSubmit" onclick="lookupZip()">Go</button>
+        </div>
+        <div id="zipResult" class="mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Area (placeholder) -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 16px;">What you'll see</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">After entering your zip code, you'll get:</p>
+        <div class="action-grid">
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-blue">Your Representative</h3>
+            <p class="text-muted">Name, party, district, and photo of your current House member.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-yellow">The Money</h3>
+            <p class="text-muted">How much AIPAC money they've accepted &mdash; career total and this cycle.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-red">The Votes</h3>
+            <p class="text-muted">How they voted on key weapons packages and foreign aid bills.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section section-dark">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h2 style="margin-bottom: 16px;">Know your rep. Share what you find.</h2>
+        <p class="text-muted" style="max-width: 500px; margin: 0 auto 24px;">Once you see their record, download a poster for your district and help spread the word.</p>
+        <a href="/posters/" class="btn btn-outline">Get posters</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-to/">How to Print</a></li>
+      </ul>
+      <div class="footer-hashtag">
+        #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

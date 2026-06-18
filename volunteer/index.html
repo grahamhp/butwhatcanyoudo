@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved | But What Can You Do?</title>
+  <meta name="description" content="Volunteer with the But What Can You Do campaign. Print posters, organize locally, create content, or help with research. Sign up and we'll match you with what needs doing.">
+  <meta property="og:title" content="Get Involved | But What Can You Do?">
+  <meta property="og:description" content="Stop asking what you can do. Start doing it. Volunteer now.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">But What Can You <span>Do</span>?</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/lookup/">Find Your Fight</a></li>
+        <li><a href="/races/">The Races</a></li>
+        <li><a href="/posters/">Posters</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/volunteer/" class="active">Get Involved</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="fade-in">Get <span class="text-blue">Involved</span></h1>
+      <p class="fade-in text-muted">Stop asking what you can do. Start doing it.</p>
+    </div>
+  </section>
+
+  <!-- Ways to Help -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 24px;">Ways you can help</h2>
+        <div class="action-grid">
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-yellow">Print &amp; hang posters</h3>
+            <p class="text-muted">Download posters for your district. Print them at home or at a shop. Hang them where people will see them.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-blue">Organize locally</h3>
+            <p class="text-muted">Start or join a local group in your area. Coordinate poster drops, share resources, and keep each other motivated.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-red">Create content</h3>
+            <p class="text-muted">Good at social media, video, writing, or design? Help create shareable content that spreads the message.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-yellow">Research</h3>
+            <p class="text-muted">Help track AIPAC donations, voting records, and candidate information. We need people who are good with data.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-blue">Spread the word</h3>
+            <p class="text-muted">Talk to people. Share the site. Post the link. Sometimes the simplest thing is the most powerful.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-red">Something else</h3>
+            <p class="text-muted">Have a skill or idea we haven't thought of? We want to hear from you. Every campaign needs surprises.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Signup Form -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="fade-in" style="max-width: 600px; margin: 0 auto;">
+        <h2 style="margin-bottom: 8px;">Sign up</h2>
+        <p class="text-muted" style="margin-bottom: 32px;">Fill out the form below and we'll reach out with next steps. No spam. No selling your info. Just the work.</p>
+
+        <form name="volunteer" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="volunteer">
+
+          <div style="margin-bottom: 20px;">
+            <label for="name" style="display: block; margin-bottom: 6px; font-weight: 500;">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="email" style="display: block; margin-bottom: 6px; font-weight: 500;">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="zip" style="display: block; margin-bottom: 6px; font-weight: 500;">Zip Code</label>
+            <input type="text" id="zip" name="zip" required placeholder="12345" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem;">
+          </div>
+
+          <div style="margin-bottom: 28px;">
+            <label for="help" style="display: block; margin-bottom: 6px; font-weight: 500;">How do you want to help?</label>
+            <select id="help" name="help" required style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem;">
+              <option value="" disabled selected>Choose one...</option>
+              <option value="print">Print posters</option>
+              <option value="hang">Hang posters</option>
+              <option value="content">Create content</option>
+              <option value="organize">Organize locally</option>
+              <option value="research">Research</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-red" style="width: 100%; font-size: 1.1rem; padding: 14px;">Sign up to volunteer</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-dark">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h2 style="margin-bottom: 16px;">Not ready to volunteer?</h2>
+        <p class="text-muted" style="max-width: 500px; margin: 0 auto 24px;">That's okay. You can still help right now by downloading a poster or sharing the site.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/posters/" class="btn btn-outline">Get posters</a>
+          <a href="/talk/" class="btn btn-outline">Talking points</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-to/">How to Print</a></li>
+      </ul>
+      <div class="footer-hashtag">
+        #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

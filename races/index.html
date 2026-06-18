@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Races | But What Can You Do?</title>
+  <meta name="description" content="Search the full database of AIPAC-funded members of Congress. See who took the money, how they voted, and whether they're up for re-election in 2026.">
+  <meta property="og:title" content="The Races | But What Can You Do?">
+  <meta property="og:description" content="Every AIPAC-funded member of Congress. The money. The votes. The races to watch.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">But What Can You <span>Do</span>?</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/lookup/">Find Your Fight</a></li>
+        <li><a href="/races/" class="active">The Races</a></li>
+        <li><a href="/posters/">Posters</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/volunteer/">Get Involved</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="fade-in">The <span class="text-red">Races</span></h1>
+      <p class="fade-in text-muted">Every AIPAC-funded member of Congress. The money they took. The votes they cast. The races to watch in November 2026.</p>
+    </div>
+  </section>
+
+  <!-- Search and Filter -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
+          <input type="text" placeholder="Search by name, state, or district..." style="flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
+          <select style="padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
+            <option>All Parties</option>
+            <option>Democrat</option>
+            <option>Republican</option>
+          </select>
+          <select style="padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
+            <option>All States</option>
+            <option>Alabama</option>
+            <option>Alaska</option>
+            <!-- Additional states will be populated dynamically -->
+          </select>
+          <button class="btn btn-red">Search</button>
+        </div>
+        <p class="text-muted" style="font-size: 0.85rem;">Showing placeholder data. The full searchable database will be populated with real data before launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Table (placeholder) -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="fade-in">
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--red);">
+                <th style="padding: 12px; text-align: left;">Representative</th>
+                <th style="padding: 12px; text-align: left;">Party</th>
+                <th style="padding: 12px; text-align: left;">State / District</th>
+                <th style="padding: 12px; text-align: right;">AIPAC $</th>
+                <th style="padding: 12px; text-align: center;">Voted Yes</th>
+                <th style="padding: 12px; text-align: center;">Up in 2026</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 12px;">[Placeholder Name]</td>
+                <td style="padding: 12px;"><span class="text-blue">D</span></td>
+                <td style="padding: 12px;">CA-12</td>
+                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
+                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
+                <td style="padding: 12px; text-align: center;">Yes</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 12px;">[Placeholder Name]</td>
+                <td style="padding: 12px;"><span class="text-red">R</span></td>
+                <td style="padding: 12px;">TX-07</td>
+                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
+                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
+                <td style="padding: 12px; text-align: center;">Yes</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 12px;">[Placeholder Name]</td>
+                <td style="padding: 12px;"><span class="text-blue">D</span></td>
+                <td style="padding: 12px;">NY-03</td>
+                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
+                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
+                <td style="padding: 12px; text-align: center;">Yes</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 12px;">[Placeholder Name]</td>
+                <td style="padding: 12px;"><span class="text-red">R</span></td>
+                <td style="padding: 12px;">FL-15</td>
+                <td style="padding: 12px; text-align: right;" class="text-mono">$XXX,XXX</td>
+                <td style="padding: 12px; text-align: center;" class="text-red">Yes</td>
+                <td style="padding: 12px; text-align: center;">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted" style="margin-top: 24px; font-size: 0.85rem; text-align: center;">[Pagination and full data will be added before launch]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Races to Watch -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 16px;">Races to watch</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">Placeholder: Featured races where AIPAC-funded incumbents are most vulnerable &mdash; competitive districts, strong challengers, and races where your vote can flip the seat.</p>
+        <p class="text-muted" style="font-style: italic;">[Coming soon]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-darker">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h2 style="margin-bottom: 16px;">Found your district?</h2>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/posters/" class="btn btn-red">Get the poster</a>
+          <a href="/talk/" class="btn btn-outline">Talking points</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-to/">How to Print</a></li>
+      </ul>
+      <div class="footer-hashtag">
+        #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

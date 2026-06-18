@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>But What Can You Do? | Vote Out Every AIPAC-Funded Member of Congress</title>
+  <meta name="description" content="A nonpartisan campaign to remove every member of Congress who accepts AIPAC money and votes to send weapons used against civilians. Learn who your rep is. Share the truth. Vote in November.">
+  <meta property="og:title" content="But What Can You Do?">
+  <meta property="og:description" content="Everyone kept asking. Here's the answer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://butwhatcanyoudo.org">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">But What Can You <span>Do</span>?</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/lookup/">Find Your Fight</a></li>
+        <li><a href="/races/">The Races</a></li>
+        <li><a href="/posters/">Posters</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/volunteer/">Get Involved</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero: The Question -->
+  <section class="hero">
+    <div class="hero-question" id="heroQuestion">
+      "What can you do, anyway?"
+    </div>
+    <div class="hero-answer" id="heroAnswer">
+      <h1 class="text-red">This.</h1>
+    </div>
+    <div class="hero-scroll-hint">
+      Scroll
+    </div>
+  </section>
+
+  <!-- Impact Section: The Problem -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="fade-in text-center" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 24px;">
+          Your representatives are voting to send
+          <span class="text-yellow">billions of your tax dollars</span>
+          to a government that has killed
+          <span class="text-red">tens of thousands of civilians</span>.
+        </h2>
+        <p class="text-muted" style="font-size: 1.1rem; max-width: 650px; margin: 0 auto;">
+          Members of Congress &mdash; in both parties &mdash; accept millions from AIPAC
+          and then vote yes on every weapons package. They do it because they think you
+          won't notice. They think you can't do anything about it.
+        </p>
+        <p style="font-size: 1.3rem; margin-top: 32px; font-weight: 500;">
+          They're wrong.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Three Actions -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in text-center">
+        <h2 style="margin-bottom: 12px;">Here's what you can do.</h2>
+        <p class="text-muted">Three steps. That's it.</p>
+      </div>
+      <div class="action-grid fade-in">
+        <div class="action-card card">
+          <div class="action-number text-blue">1</div>
+          <h3>Learn</h3>
+          <p>Find out who your representative is, how much AIPAC money they took, and what they voted for.</p>
+          <a href="/lookup/" class="btn btn-outline mt-3">Find your rep</a>
+        </div>
+        <div class="action-card card">
+          <div class="action-number text-yellow">2</div>
+          <h3>Share</h3>
+          <p>Download a poster. Print it. Hang it where people will see it. Share it online. Make it impossible to ignore.</p>
+          <a href="/posters/" class="btn btn-outline mt-3">Get posters</a>
+        </div>
+        <div class="action-card card">
+          <div class="action-number text-red">3</div>
+          <h3>Vote</h3>
+          <p>November 2026. Vote out every member of Congress who accepted AIPAC money and voted to arm a government committing atrocities.</p>
+          <a href="/races/" class="btn btn-outline mt-3">See the races</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- District Lookup -->
+  <section class="section section-darker">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h2 style="margin-bottom: 12px;">Find your fight.</h2>
+        <p class="text-muted" style="max-width: 550px; margin: 0 auto 32px;">
+          Enter your zip code. We'll tell you who your representative is,
+          how much they took, and what you can do about it.
+        </p>
+        <div class="zip-input-group">
+          <input type="text" id="zipInput" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+          <button class="btn btn-red" id="zipSubmit" onclick="lookupZip()">Go</button>
+        </div>
+        <div id="zipResult" class="mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Proof -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in text-center" style="max-width: 800px; margin: 0 auto;">
+        <p class="text-muted" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">It's already working</p>
+        <h2 style="margin-bottom: 24px;">
+          <span class="text-blue">Mamdani</span> beat Cuomo.
+          <span class="text-blue">AIPAC-backed candidates</span> lost.
+        </h2>
+        <p class="text-muted" style="font-size: 1.05rem; max-width: 600px; margin: 0 auto;">
+          When people show up, the money loses. In New York, AIPAC spent millions &mdash;
+          and their candidates still lost. This isn't a fantasy. It's happening.
+        </p>
+        <p style="margin-top: 32px;">
+          <span class="text-muted">Thomas Massie &mdash; one of the only Republicans who voted against weapons to
+          the government of Israel &mdash; was primaried out by his own party.</span>
+        </p>
+        <p style="margin-top: 16px; font-weight: 500;">
+          Both parties punish dissent on this issue.
+          <span class="text-red">That's why this isn't about parties. It's about people.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not Left, Not Right -->
+  <section class="section" style="background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h1 class="text-blue" style="margin-bottom: 24px;">
+          Not left. Not right.<br>Just human.
+        </h1>
+        <p style="max-width: 650px; margin: 0 auto; font-size: 1.1rem; color: var(--light-gray);">
+          This campaign is not pro-Democrat or pro-Republican. It's not pro-any-party.
+          It is for every American who believes that their tax dollars should not fund
+          the killing of civilians &mdash; and who wants to do something about it.
+        </p>
+        <p style="margin-top: 24px; font-size: 1.1rem;">
+          If there's one issue that can bring us together,
+          <span class="text-red">saying no to genocide should be it.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA: Get Involved -->
+  <section class="section section-darker">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h2 style="margin-bottom: 16px;">What are you waiting for?</h2>
+        <p class="text-muted" style="max-width: 500px; margin: 0 auto 32px;">
+          Download posters. Join a local group. Share with everyone you know.
+          November is coming.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/posters/" class="btn btn-red">Get posters</a>
+          <a href="/volunteer/" class="btn btn-outline">Volunteer</a>
+          <a href="/talk/" class="btn btn-outline">Talking points</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/talk/">Talking Points</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-to/">How to Print</a></li>
+      </ul>
+      <div class="footer-hashtag">
+        #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+</body>
+</html>
