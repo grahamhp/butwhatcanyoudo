@@ -392,11 +392,11 @@ select option {
 }
 
 .hero-scroll-hint::after {
-  content: '\2193';  /* ↓ down arrow */
+  content: '\25BD';  /* ▽ down chevron */
   display: block;
-  font-size: 1.2rem;
-  margin: 10px auto 0;
-  animation: pulse 2s ease-in-out infinite;
+  font-size: 1.4rem;
+  margin: 12px auto 0;
+  animation: scrollBlink 2.5s ease-in-out infinite;
 }
 
 /* --- Homepage Sections --- */
@@ -482,6 +482,11 @@ select option {
 @keyframes pulse {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 1; }
+}
+
+@keyframes scrollBlink {
+  0%, 100% { opacity: 0; transform: translateY(0); }
+  40%, 60% { opacity: 1; transform: translateY(6px); }
 }
 
 /* --- Responsive --- */
