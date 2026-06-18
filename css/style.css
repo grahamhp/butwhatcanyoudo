@@ -262,6 +262,12 @@ textarea:focus {
   color: var(--mid-gray);
 }
 
+/* Fix dropdown option colors across browsers */
+select option {
+  background: #1A1A1A;
+  color: var(--white);
+}
+
 /* --- Zip Code Lookup --- */
 .zip-input-group {
   display: flex;
@@ -386,11 +392,9 @@ textarea:focus {
 }
 
 .hero-scroll-hint::after {
-  content: '';
+  content: '\2193';  /* ↓ down arrow */
   display: block;
-  width: 1px;
-  height: 40px;
-  background: var(--mid-gray);
+  font-size: 1.2rem;
   margin: 10px auto 0;
   animation: pulse 2s ease-in-out infinite;
 }
