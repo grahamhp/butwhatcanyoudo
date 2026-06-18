@@ -4,11 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Posters | But What Can You Do?</title>
-  <meta name="description" content="Download free, printable posters that expose how much lobby money your representative took. Print them, hang them, share them.">
+  <meta name="description" content="Download high-impact posters designed to reach people who aren’t already convinced. Black and white reality. Bold, bright truth. Print them. Hang them. Start conversations.">
   <meta property="og:title" content="Posters | But What Can You Do?">
-  <meta property="og:description" content="Free downloadable posters. Print them. Hang them. Make it impossible to ignore.">
+  <meta property="og:description" content="High-impact posters for the campaign. Black and white reality. Bold, bright truth. Print them. Hang them.">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <style>
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .poster-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .poster-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .poster-preview {
+      aspect-ratio: 3/4;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .poster-preview::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+      z-index: 1;
+    }
+    .poster-preview > * {
+      position: relative;
+      z-index: 2;
+    }
+    .poster-preview h2 {
+      font-family: 'Oswald', 'Bebas Neue', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+      line-height: 1.1;
+    }
+    .poster-preview .poster-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--mid-gray);
+      margin-top: 12px;
+    }
+    .poster-info {
+      padding: 16px 20px;
+    }
+    .poster-info h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .poster-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .poster-tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tag-general { background: rgba(255,65,54,0.15); color: var(--red); }
+    .tag-christian { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .tag-veteran { background: rgba(255,197,0,0.15); color: var(--yellow); }
+    .tag-parent { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .tag-fiscal { background: rgba(255,197,0,0.15); color: var(--yellow); }
+    .tag-student { background: rgba(255,65,54,0.15); color: var(--red); }
+  </style>
 </head>
 <body>
 
@@ -31,72 +111,67 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1 class="fade-in"><span class="text-yellow">Posters</span></h1>
-      <p class="fade-in text-muted">Free. Downloadable. Printable. Hang them everywhere.</p>
+      <h1 class="fade-in">The <span class="text-red">Posters</span></h1>
+      <p class="fade-in text-muted">Black and white reality. Bold, bright truth. Print them. Hang them. Start conversations that matter.</p>
     </div>
   </section>
 
-  <!-- How It Works -->
+  <!-- Design Philosophy -->
   <section class="section section-dark">
-    <div class="container text-center">
-      <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
-        <h2 style="margin-bottom: 16px;">How it works</h2>
-        <p class="text-muted">Each poster carries a message designed to connect with voters in your area and make them think twice. Bold words over real images. Tailored to the people and places that need to see them. Download, print, and put them where they'll be seen.</p>
+    <div class="container">
+      <div class="fade-in" style="max-width: 750px; margin: 0 auto;">
+        <h2 style="margin-bottom: 16px;">The design <span class="text-yellow">philosophy</span></h2>
+        <p class="text-muted" style="margin-bottom: 16px;">Every poster follows the same principles: black-and-white photography — always real, never AI-generated — with bold, bright text that stops people in their tracks. The images show reality. The words make it personal.</p>
+        <p class="text-muted" style="margin-bottom: 16px;">Different posters work in different communities. A poster for a Christian neighborhood is different from one near a college campus. Use the tags to find posters that resonate with the people you want to reach.</p>
+        <p class="text-muted">All posters are available in 11×17” (standard tabloid size) for easy printing. See our <a href="/how-to/" style="color: var(--blue);">printing guide</a> for supplies and tips.</p>
       </div>
     </div>
   </section>
 
-  <!-- Poster Gallery (placeholder) -->
-  <section class="section section-darker">
+  <!-- Poster Filter -->
+  <section class="section section-darker" id="gallery">
     <div class="container">
       <div class="fade-in">
-        <h2 style="margin-bottom: 8px;">Browse posters</h2>
-        <p class="text-muted" style="margin-bottom: 32px;">Filter by state or search by representative name.</p>
-
-        <!-- Placeholder filter bar -->
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px;">
-          <input type="text" placeholder="Search by name or state..." style="flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
-          <button class="btn btn-outline">Filter</button>
+        <h2 style="margin-bottom: 16px;">Browse posters</h2>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;">
+          <button class="btn btn-red poster-filter active-filter" data-filter="all" onclick="filterPosters('all', this)">All</button>
+          <button class="btn btn-outline poster-filter" data-filter="general" onclick="filterPosters('general', this)">General</button>
+          <button class="btn btn-outline poster-filter" data-filter="christian" onclick="filterPosters('christian', this)">Faith-Based</button>
+          <button class="btn btn-outline poster-filter" data-filter="veteran" onclick="filterPosters('veteran', this)">Veterans</button>
+          <button class="btn btn-outline poster-filter" data-filter="parent" onclick="filterPosters('parent', this)">Parents</button>
+          <button class="btn btn-outline poster-filter" data-filter="fiscal" onclick="filterPosters('fiscal', this)">Fiscal</button>
+          <button class="btn btn-outline poster-filter" data-filter="student" onclick="filterPosters('student', this)">Students</button>
         </div>
 
-        <!-- Placeholder poster grid -->
-        <div class="action-grid">
-          <div class="card" style="padding: 24px; text-align: center;">
-            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 60px 20px; margin-bottom: 16px;">
-              <p class="text-muted">[Poster preview]</p>
-            </div>
-            <h3>Rep. Name (R/D-ST)</h3>
-            <p class="text-muted text-mono" style="font-size: 0.9rem;">$X,XXX,XXX in lobby money</p>
-            <button class="btn btn-red mt-3">Download PDF</button>
-          </div>
-          <div class="card" style="padding: 24px; text-align: center;">
-            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 60px 20px; margin-bottom: 16px;">
-              <p class="text-muted">[Poster preview]</p>
-            </div>
-            <h3>Rep. Name (R/D-ST)</h3>
-            <p class="text-muted text-mono" style="font-size: 0.9rem;">$X,XXX,XXX in lobby money</p>
-            <button class="btn btn-red mt-3">Download PDF</button>
-          </div>
-          <div class="card" style="padding: 24px; text-align: center;">
-            <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 60px 20px; margin-bottom: 16px;">
-              <p class="text-muted">[Poster preview]</p>
-            </div>
-            <h3>Rep. Name (R/D-ST)</h3>
-            <p class="text-muted text-mono" style="font-size: 0.9rem;">$X,XXX,XXX in lobby money</p>
-            <button class="btn btn-red mt-3">Download PDF</button>
-          </div>
+        <div class="poster-grid" id="posterGrid">
+          <!-- Posters rendered by JS -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Printing CTA -->
+  <!-- Custom Poster CTA -->
   <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in" style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <h2 style="margin-bottom: 16px;">Make it <span class="text-blue">personal</span></h2>
+        <p class="text-muted" style="margin-bottom: 16px;">Want a poster with your representative’s name, lobby funding amount, and voting record? Enter your zip code and we’ll customize one for your district.</p>
+        <div class="zip-input-group" style="max-width: 400px; margin: 0 auto 16px;">
+          <input type="text" id="posterZip" placeholder="Your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+          <button class="btn btn-red" onclick="generateCustomPoster()">Create poster</button>
+        </div>
+        <div id="customPosterResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Print -->
+  <section class="section section-darker">
     <div class="container text-center">
       <div class="fade-in">
         <h2 style="margin-bottom: 16px;">Ready to print?</h2>
-        <p class="text-muted" style="max-width: 500px; margin: 0 auto 24px;">Check our printing guide for tips on paper, sizes, and where to hang them for maximum impact.</p>
-        <a href="/how-to/" class="btn btn-outline">How to print &amp; display</a>
+        <p class="text-muted" style="max-width: 500px; margin: 0 auto 24px;">Check out our guide on how to print, where to hang, and how to organize poster runs in your area.</p>
+        <a href="/how-to/" class="btn btn-red">Printing guide →</a>
       </div>
     </div>
   </section>
@@ -105,7 +180,7 @@
   <footer class="footer">
     <div class="footer-inner" style="flex-direction: column; gap: 32px;">
       <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
+        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep’s votes and what’s happening in your district.</p>
         <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
           <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
           <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
@@ -128,6 +203,204 @@
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/candidates.js?v=2"></script>
+  <script src="/js/lookup.js?v=2"></script>
+  <script src="/js/main.js?v=2"></script>
+  <script>
+    // Poster data
+    const POSTERS = [
+      {
+        id: 'p1',
+        headline: 'The government<br>of Israel told us to.',
+        subtext: '— Every lobby-funded politician',
+        headlineColor: '#FF4136',
+        tags: ['general'],
+        description: 'General accountability poster — works everywhere.',
+        bgStyle: 'background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0d0d0d 100%);'
+      },
+      {
+        id: 'p2',
+        headline: '$26<br>Billion.',
+        subtext: 'Your tax dollars. Their weapons. Your vote.',
+        headlineColor: '#FFC500',
+        tags: ['general', 'fiscal'],
+        description: 'Fiscal impact poster — great for conservative areas.',
+        bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);'
+      },
+      {
+        id: 'p3',
+        headline: 'They bombed<br>the churches too.',
+        subtext: 'The Holy Family Catholic Parish. Gaza. American weapons.',
+        headlineColor: '#00A8E8',
+        tags: ['christian'],
+        description: 'Faith-based poster — for Christian communities.',
+        bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);'
+      },
+      {
+        id: 'p4',
+        headline: 'What will you<br>tell your kids?',
+        subtext: '10,000+ children. American bombs. Your representative voted yes.',
+        headlineColor: '#FF4136',
+        tags: ['parent'],
+        description: 'For suburban neighborhoods and schools.',
+        bgStyle: 'background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);'
+      },
+      {
+        id: 'p5',
+        headline: 'Our weapons.<br>Their civilians.',
+        subtext: 'We swore an oath to defend. Not this.',
+        headlineColor: '#FFC500',
+        tags: ['veteran'],
+        description: 'For areas near military bases and veteran communities.',
+        bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);'
+      },
+      {
+        id: 'p6',
+        headline: 'History<br>is watching.',
+        subtext: 'So are you. November 2026.',
+        headlineColor: '#00A8E8',
+        tags: ['student'],
+        description: 'For college campuses and young voter areas.',
+        bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #111 100%);'
+      },
+      {
+        id: 'p7',
+        headline: '$126.9 Million.',
+        subtext: 'That’s how much one lobbying group spent in 2024 to buy Congress.',
+        headlineColor: '#FFC500',
+        tags: ['general', 'fiscal'],
+        description: 'Money-in-politics poster — works with all audiences.',
+        bgStyle: 'background: linear-gradient(135deg, #111 0%, #0d0d0d 100%);'
+      },
+      {
+        id: 'p8',
+        headline: 'They spent $32M<br>to silence ONE voice.',
+        subtext: 'Thomas Massie voted no. They spent $32 million to remove him.',
+        headlineColor: '#FF4136',
+        tags: ['general'],
+        description: 'The Massie story — shows both parties punish dissent.',
+        bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);'
+      },
+      {
+        id: 'p9',
+        headline: 'First they<br>came for<br>the hospitals.',
+        subtext: 'Then the schools. Then the churches. With American weapons.',
+        headlineColor: '#FF4136',
+        tags: ['christian', 'general'],
+        description: 'Adapted Niemöller framework — powerful for faith communities.',
+        bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);'
+      },
+      {
+        id: 'p10',
+        headline: 'Your rep<br>voted yes.',
+        subtext: 'butwhatcanyoudo.org — Look them up.',
+        headlineColor: '#00A8E8',
+        tags: ['general'],
+        description: 'URL-driven poster to drive traffic to the site.',
+        bgStyle: 'background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);'
+      },
+      {
+        id: 'p11',
+        headline: '6 votes.',
+        subtext: 'That’s how close it was in Iowa. Your vote matters.',
+        headlineColor: '#FFC500',
+        tags: ['general'],
+        description: 'Voter motivation poster — shows elections are decided by small margins.',
+        bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);'
+      },
+      {
+        id: 'p12',
+        headline: 'Not left.<br>Not right.<br>Just right.',
+        subtext: 'This isn’t partisan. It’s human. November 2026.',
+        headlineColor: '#00A8E8',
+        tags: ['general'],
+        description: 'Nonpartisan framing poster — bridges political divides.',
+        bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #111 100%);'
+      }
+    ];
+
+    // Render posters
+    function renderPosters(filter) {
+      const grid = document.getElementById('posterGrid');
+      const filtered = filter === 'all' ? POSTERS : POSTERS.filter(p => p.tags.includes(filter));
+      
+      grid.innerHTML = filtered.map(p => {
+        const tagHtml = p.tags.map(t => {
+          const tagClass = 'tag-' + t;
+          const tagLabel = t.charAt(0).toUpperCase() + t.slice(1);
+          return `<span class="poster-tag ${tagClass}">${tagLabel}</span>`;
+        }).join('');
+
+        return `
+          <div class="poster-card" data-tags="${p.tags.join(',')}">
+            <div class="poster-preview" style="${p.bgStyle}">
+              <h2 style="color: ${p.headlineColor}; font-size: 2rem;">${p.headline}</h2>
+              <p class="poster-sub">${p.subtext}</p>
+            </div>
+            <div class="poster-info">
+              <h3>${p.description}</h3>
+              <div class="poster-tags">${tagHtml}</div>
+              <p style="margin-top: 12px; font-size: 0.8rem;" class="text-muted">Print size: 11×17” (tabloid) • High-res PDF</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Filter posters
+    function filterPosters(filter, btn) {
+      // Update active filter button
+      document.querySelectorAll('.poster-filter').forEach(b => {
+        b.classList.remove('active-filter');
+        b.className = b.className.replace('btn-red', 'btn-outline');
+      });
+      btn.classList.add('active-filter');
+      btn.className = btn.className.replace('btn-outline', 'btn-red');
+      
+      renderPosters(filter);
+    }
+
+    // Custom poster generator
+    function generateCustomPoster() {
+      const zip = document.getElementById('posterZip').value.trim();
+      const resultDiv = document.getElementById('customPosterResult');
+
+      if (!zip || zip.length !== 5 || !/^\d{5}$/.test(zip)) {
+        resultDiv.innerHTML = '<p style="color: var(--red);">Please enter a valid 5-digit zip code.</p>';
+        return;
+      }
+
+      const result = lookupDistrict(zip);
+
+      if (result && result.primaryCandidate) {
+        const c = result.primaryCandidate;
+        const aipacStatus = c.aipacEndorsed ? 'AIPAC Endorsed.' : '';
+        const votedYes = Object.values(c.keyVotes).some(v => v === 'Yes');
+        
+        resultDiv.innerHTML = `
+          <div class="poster-card" style="max-width: 400px; margin: 24px auto 0;">
+            <div class="poster-preview" style="background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);">
+              <h2 style="color: #FF4136; font-size: 1.8rem;">${c.name}<br><span style="color: #FFC500; font-size: 1.2rem;">${c.districtLabel}</span></h2>
+              <p class="poster-sub">${aipacStatus} ${votedYes ? 'Voted yes on weapons packages.' : ''}<br>butwhatcanyoudo.org</p>
+            </div>
+            <div class="poster-info">
+              <h3>Custom poster for ${c.districtLabel}</h3>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">Personalized with your representative’s name and record. Print at 11×17” for best results.</p>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px; font-style: italic;">Full-resolution PDF downloads coming before launch. For now, you can screenshot this preview or use our template designs with your rep’s info.</p>
+            </div>
+          </div>
+        `;
+      } else {
+        resultDiv.innerHTML = `
+          <div class="card" style="padding: 20px; max-width: 400px; margin: 24px auto 0;">
+            <p class="text-muted">Your district isn’t in our toss-up database yet, but you can still use any of the general posters above — they work everywhere.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Initialize
+    renderPosters('all');
+  </script>
 </body>
 </html>
