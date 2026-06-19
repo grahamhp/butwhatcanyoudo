@@ -167,7 +167,7 @@ const MESSAGING_TEMPLATES = {
       'Christian communities in Gaza and Lebanon have been bombed with American weapons.',
       'The Holy Family Catholic Parish in Gaza — one of the oldest churches in the world — was damaged by military strikes.',
       'As people of faith, we are called to protect the vulnerable, not arm those who attack them.',
-      'Your representative took lobby money and voted yes. You can vote no in November.'
+      'Your representative took foreign lobby money and voted yes. You can vote no in November.'
     ],
     tone: 'faith-based-accountability'
   },
@@ -188,7 +188,7 @@ const MESSAGING_TEMPLATES = {
     talkingPoints: [
       'Over 10,000 children have been killed in Gaza since October 2023, according to the UN.',
       'American-made weapons, funded by your tax dollars, were used in these attacks.',
-      'Your representative accepted lobby money and voted to keep sending weapons.',
+      'Your representative accepted money from the foreign lobby for the government of Israel and voted to keep sending weapons.',
       'You can\'t control what happens overseas. But you can control your vote in November.'
     ],
     tone: 'moral-personal'
@@ -206,9 +206,9 @@ const MESSAGING_TEMPLATES = {
   },
   'college': {
     headline: 'History is watching. So are you.',
-    subtext: 'Every generation faces a moral test. This is yours. Your representative chose lobby money over human lives. November is your chance to hold them accountable.',
+    subtext: 'Every generation faces a moral test. This is yours. Your representative chose foreign lobby money over human lives. November is your chance to hold them accountable.',
     talkingPoints: [
-      'Your representative took money from the pro-Israel lobby and voted to arm a government committing mass atrocities.',
+      'Your representative took money from the foreign lobby for the government of Israel and voted to arm a government committing mass atrocities.',
       'This isn\'t ancient history — it\'s happening now, with weapons your taxes paid for.',
       'Previous generations asked "how did people let it happen?" Now you know.',
       'You can vote in November. It takes 10 minutes. And it matters more than you think.'
@@ -221,14 +221,14 @@ const MESSAGING_TEMPLATES = {
     talkingPoints: [
       '$26 billion of taxpayer money sent to a foreign government without conditions.',
       'No oversight on how the weapons are used. No accountability when civilians die.',
-      'Your representative didn\'t ask you. They just voted yes and took the lobby money.',
+      'Your representative didn\'t ask you. They just voted yes and took the foreign lobby money.',
       'This isn\'t a partisan issue — it\'s a government accountability issue. Vote in November.'
     ],
     tone: 'government-overreach'
   },
   'default': {
     headline: 'Your representative voted yes.',
-    subtext: 'They accepted lobby money and voted to send your tax dollars to a government responsible for tens of thousands of civilian deaths. Now it\'s your turn to vote.',
+    subtext: 'They accepted money from the foreign lobby for the government of Israel and voted to send your tax dollars to a government responsible for tens of thousands of civilian deaths. Now it\'s your turn to vote.',
     talkingPoints: [
       'Your representative in Congress accepted money from lobbying groups tied to the government of Israel.',
       'They then voted to send billions in weapons — your tax dollars — with no conditions on civilian harm.',

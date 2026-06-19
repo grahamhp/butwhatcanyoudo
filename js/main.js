@@ -92,8 +92,8 @@ function lookupZip() {
             <span class="text-muted"> — ${c.districtLabel}</span>
             ${c.redistricted ? '<span style="display: inline-block; padding: 2px 6px; background: rgba(255,197,0,0.15); color: var(--yellow); font-size: 0.7rem; border-radius: 2px; margin-left: 6px;">REDISTRICTED</span>' : ''}
           </p>
-          ${c.aipacEndorsed ? '<p class="text-yellow" style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Lobby Endorsed</p>' : ''}
-          ${c.aipacTrip ? '<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 8px;">Accepted lobby-funded trip</p>' : ''}
+          ${c.aipacEndorsed ? '<p class="text-yellow" style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Foreign Lobby Endorsed</p>' : ''}
+          ${c.aipacTrip ? '<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 8px;">Accepted foreign lobby-funded trip</p>' : ''}
           ${voteSummary ? '<div style="margin-bottom: 12px;">' + voteSummary + '</div>' : ''}
           ${c.notableActions ? '<p class="text-muted" style="font-size: 0.85rem; font-style: italic; margin-bottom: 12px;">' + c.notableActions + '</p>' : ''}
           <div style="margin-top: 16px; padding: 16px; background: rgba(255,65,54,0.05); border-radius: 2px;">

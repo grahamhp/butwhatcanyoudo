@@ -155,7 +155,7 @@
     <div class="container">
       <div class="fade-in" style="max-width: 700px; margin: 0 auto; text-align: center;">
         <h2 style="margin-bottom: 16px;">Make it <span class="text-blue">personal</span></h2>
-        <p class="text-muted" style="margin-bottom: 16px;">Want a poster with your representative’s name, lobby funding amount, and voting record? Enter your zip code and we’ll customize one for your district.</p>
+        <p class="text-muted" style="margin-bottom: 16px;">Want a poster with your representative’s name, foreign lobby funding amount, and voting record? Enter your zip code and we’ll customize one for your district.</p>
         <div class="zip-input-group" style="max-width: 400px; margin: 0 auto 16px;">
           <input type="text" id="posterZip" placeholder="Your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
           <button class="btn btn-red" onclick="generateCustomPoster()">Create poster</button>
@@ -212,7 +212,7 @@
       {
         id: 'p1',
         headline: 'The government<br>of Israel told us to.',
-        subtext: '— Every lobby-funded politician',
+        subtext: '— Every foreign lobby-funded politician',
         headlineColor: '#FF4136',
         tags: ['general'],
         description: 'General accountability poster — works everywhere.',
@@ -266,7 +266,7 @@
       {
         id: 'p7',
         headline: '$126.9 Million.',
-        subtext: 'That’s how much one lobbying group spent in 2024 to buy Congress.',
+        subtext: 'That’s how much one foreign lobbying group spent in 2024 to buy Congress.',
         headlineColor: '#FFC500',
         tags: ['general', 'fiscal'],
         description: 'Money-in-politics poster — works with all audiences.',
@@ -374,7 +374,7 @@
 
       if (result && result.primaryCandidate) {
         const c = result.primaryCandidate;
-        const aipacStatus = c.aipacEndorsed ? 'Lobby Endorsed.' : '';
+        const aipacStatus = c.aipacEndorsed ? 'Foreign Lobby Endorsed.' : '';
         const votedYes = Object.values(c.keyVotes).some(v => v === 'Yes');
         
         resultDiv.innerHTML = `

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Find Your Voice | But What Can You Do?</title>
-  <meta name="description" content="Enter your zip code to find your congressional district, see who represents you, how much lobby money they took, and what you can do about it in November 2026.">
+  <meta name="description" content="Enter your zip code to find your congressional district, see who represents you, how much foreign lobby money they took, and what you can do about it in November 2026.">
   <meta property="og:title" content="Find Your Voice | But What Can You Do?">
   <meta property="og:description" content="Enter your zip code. Find out who your rep is and what they voted for.">
   <meta property="og:type" content="website">
@@ -93,7 +93,7 @@
     <div class="container">
       <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
         <h2 style="margin-bottom: 16px;">What if both candidates <span class="text-red">support</span> weapons packages?</h2>
-        <p class="text-muted" style="margin-bottom: 16px;">In some districts, both the incumbent and challenger may be lobby-funded. If that's the case, you still have options:</p>
+        <p class="text-muted" style="margin-bottom: 16px;">In some districts, both the incumbent and challenger may be funded by the foreign lobby for the government of Israel. If that's the case, you still have options:</p>
         <div class="card" style="padding: 24px; margin-bottom: 16px;">
           <h3 class="text-blue">Write in a name</h3>
           <p class="text-muted" style="margin-bottom: 12px;">Most states allow write-in votes for congressional races. You can write in the name of someone who represents your values — a religious figure, a community leader, or simply the words “No More.”</p>
@@ -101,7 +101,7 @@
           <p class="text-muted" style="font-size: 0.85rem;"><strong>States with easiest write-in rules:</strong> Alabama, Iowa, New Hampshire, New Jersey, Pennsylvania, Rhode Island (no candidate registration required).</p>
           <p class="text-mono text-muted" style="font-size: 0.75rem; margin-top: 8px;">Source: NCSL, individual state election codes. Always verify with your state's Secretary of State.</p>
         </div>
-        <p class="text-muted">The point is not whether your write-in candidate wins. The point is that the data will show: a measurable number of voters in this district refused to support either lobby-funded candidate. That data matters. It puts future candidates on notice.</p>
+        <p class="text-muted">The point is not whether your write-in candidate wins. The point is that the data will show: a measurable number of voters in this district refused to support either foreign lobby-funded candidate. That data matters. It puts future candidates on notice.</p>
       </div>
     </div>
   </section>
@@ -219,9 +219,9 @@
       let aipacSection = '';
       if (c.aipacEndorsed || c.aipacTrip || c.aipacFunding) {
         let badges = [];
-        if (c.aipacEndorsed) badges.push('<span class="text-yellow" style="font-weight: 600;">Lobby Endorsed</span>');
-        if (c.aipacTrip) badges.push('<span class="text-muted">Lobby-funded trip</span>');
-        if (c.aipacFunding) badges.push('<span class="text-yellow text-mono">' + formatCurrency(c.aipacFunding) + ' in lobby funding</span>');
+        if (c.aipacEndorsed) badges.push('<span class="text-yellow" style="font-weight: 600;">Foreign Lobby Endorsed</span>');
+        if (c.aipacTrip) badges.push('<span class="text-muted">Foreign lobby-funded trip</span>');
+        if (c.aipacFunding) badges.push('<span class="text-yellow text-mono">' + formatCurrency(c.aipacFunding) + ' in foreign lobby funding</span>');
         aipacSection = `
           <div class="card" style="padding: 20px; margin-bottom: 16px; border-left: 3px solid var(--yellow);">
             <h3 class="text-yellow" style="margin-bottom: 8px;">Lobby Connection</h3>
@@ -338,7 +338,7 @@
 
     // Share functionality
     function shareResult(district, name) {
-      const text = `I just looked up my congressional district (${district}) on butwhatcanyoudo.org. ${name} took lobby money and voted to send weapons to the government of Israel while it kills civilians. Check yours: #ButWhatCanYouDo #WhoVotedYes`;
+      const text = `I just looked up my congressional district (${district}) on butwhatcanyoudo.org. ${name} took money from the foreign lobby for the government of Israel and voted to send weapons to the government of Israel while it kills civilians. Check yours: #ButWhatCanYouDo #WhoVotedYes`;
       
       if (navigator.share) {
         navigator.share({

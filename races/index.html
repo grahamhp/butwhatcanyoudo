@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Races | But What Can You Do?</title>
-  <meta name="description" content="Search the full database of 2026 congressional races. See who took lobby money, how they voted on weapons packages, and which toss-up seats are in play this November.">
+  <meta name="description" content="Search the full database of 2026 congressional races. See who took foreign lobby money, how they voted on weapons packages, and which toss-up seats are in play this November.">
   <meta property="og:title" content="The Races | But What Can You Do?">
-  <meta property="og:description" content="Every member of Congress who voted yes. The lobby money. The votes. The races to watch in November 2026.">
+  <meta property="og:description" content="Every member of Congress who voted yes. The foreign lobby money. The votes. The races to watch in November 2026.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/style.css?v=2">
 </head>
@@ -32,7 +32,7 @@
   <section class="page-header">
     <div class="container">
       <h1 class="fade-in">The <span class="text-red">Races</span></h1>
-      <p class="fade-in text-muted">Every toss-up seat where your vote can replace a lobby-funded incumbent. The money they took. The votes they cast. The races to watch in November 2026.</p>
+      <p class="fade-in text-muted">Every toss-up seat where your vote can replace a foreign lobby-funded incumbent. The money they took. The votes they cast. The races to watch in November 2026.</p>
     </div>
   </section>
 
@@ -42,7 +42,7 @@
       <div class="fade-in" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center;">
         <div>
           <div class="text-yellow text-mono" style="font-size: 2rem; font-weight: 700;" id="statAipacTotal">$126.9M</div>
-          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Pro-Israel lobby spent in 2024 cycle</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Foreign lobby for the gov't of Israel spent in 2024 cycle</div>
         </div>
         <div>
           <div class="text-red text-mono" style="font-size: 2rem; font-weight: 700;" id="statRacesCount">18</div>
@@ -60,6 +60,31 @@
     </div>
   </section>
 
+
+  <!-- Interactive Map -->
+  <section class="section section-darker" id="mapSection">
+    <div class="container">
+      <div class="fade-in" style="max-width: 960px; margin: 0 auto;">
+        <h2 style="margin-bottom: 8px;">Find your <span class="text-red">state</span></h2>
+        <p class="text-muted" style="margin-bottom: 24px;">14 states. 18 toss-up races. Click a highlighted state to see the full picture — who represents you, how they voted, who funds them, and what you can do.</p>
+        <div id="usMapContainer" style="width: 100%; max-width: 960px; margin: 0 auto;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- State Detail Panel (hidden until a state is clicked) -->
+  <section class="section section-dark" id="stateDetailSection" style="display: none;">
+    <div class="container">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <h2 id="stateDetailTitle"></h2>
+          <button onclick="closeStateDetail()" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">← Back to map</button>
+        </div>
+        <div id="stateDetailContent"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- The Massie + Mamdani Story -->
   <section class="section section-dark">
     <div class="container">
@@ -69,8 +94,8 @@
           <div class="card" style="padding: 28px;">
             <p class="text-mono text-red" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">They removed their own</p>
             <h3 style="margin-bottom: 12px;">Thomas Massie <span class="text-muted" style="font-size: 0.8em;">(R-KY)</span></h3>
-            <p class="text-muted" style="margin-bottom: 12px;">The only Republican who consistently voted against weapons packages to the government of Israel. He introduced a bill to require the pro-Israel lobby to register as a foreign agent.</p>
-            <p style="margin-bottom: 12px;">Pro-Israel lobby groups spent <span class="text-yellow text-mono" style="font-weight: 700;">$9 million</span> to defeat him. Total outside spending in his primary: <span class="text-yellow text-mono" style="font-weight: 700;">$32 million</span>.</p>
+            <p class="text-muted" style="margin-bottom: 12px;">The only Republican who consistently voted against weapons packages to the government of Israel. He introduced a bill to require the foreign lobby for the government of Israel to register as a foreign agent.</p>
+            <p style="margin-bottom: 12px;">Foreign lobby groups spent <span class="text-yellow text-mono" style="font-weight: 700;">$9 million</span> to defeat him. Total outside spending in his primary: <span class="text-yellow text-mono" style="font-weight: 700;">$32 million</span>.</p>
             <p class="text-muted" style="font-size: 0.85rem;">He lost his primary on May 19, 2026 to Trump-backed Ed Gallrein (57,822 to 47,539 votes).</p>
             <p style="margin-top: 12px; font-size: 0.9rem; font-weight: 500;" class="text-red">Both parties punish dissent on this issue.</p>
             <p class="text-mono text-muted" style="font-size: 0.75rem; margin-top: 12px;">Source: KY Secretary of State, AP, FEC filings</p>
@@ -94,7 +119,7 @@
     <div class="container">
       <div class="fade-in">
         <h2 style="margin-bottom: 8px;">The database</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">Search toss-up races where lobby-funded incumbents are most vulnerable. Every data point is sourced from public records.</p>
+        <p class="text-muted" style="margin-bottom: 24px;">Search toss-up races where foreign lobby-funded incumbents are most vulnerable. Every data point is sourced from public records.</p>
         <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
           <input type="text" id="raceSearch" placeholder="Search by name, state, or district..." style="flex: 1; min-width: 200px;">
           <select id="partyFilter">
@@ -183,6 +208,7 @@
   </footer>
 
   <script src="/js/candidates.js?v=2"></script>
+  <script src="/js/map.js?v=2"></script>
   <script src="/js/main.js?v=2"></script>
   <script>
     // Populate state dropdown
@@ -213,10 +239,10 @@
       // AIPAC status
       let aipacHtml = '';
       if (c.aipacEndorsed) {
-        aipacHtml += '<span class="text-yellow" style="font-size: 0.85rem; font-weight: 600;">Lobby Endorsed</span>';
+        aipacHtml += '<span class="text-yellow" style="font-size: 0.85rem; font-weight: 600;">Foreign Lobby Endorsed</span>';
       }
       if (c.aipacTrip) {
-        aipacHtml += '<span class="text-muted" style="font-size: 0.8rem; margin-left: 8px;">• Lobby-funded trip</span>';
+        aipacHtml += '<span class="text-muted" style="font-size: 0.8rem; margin-left: 8px;">• Foreign lobby-funded trip</span>';
       }
       if (c.aipacFunding) {
         aipacHtml += `<span class="text-yellow text-mono" style="font-size: 0.85rem; margin-left: 8px;">${formatCurrency(c.aipacFunding)}</span>`;
@@ -319,6 +345,165 @@
         </div>
       `).join('');
     }
+
+    // Initialize map
+    if (typeof renderUSMap === 'function') {
+      renderUSMap('usMapContainer');
+    }
+
+    // Show state detail when a state is clicked on the map
+    window.showStateDetail = function(stateAbbr) {
+      const stateCandidates = CANDIDATES.filter(c => c.state === stateAbbr);
+      if (stateCandidates.length === 0) return;
+
+      const stateNames = {
+        AZ:'Arizona', CA:'California', CO:'Colorado', IA:'Iowa', ME:'Maine',
+        MI:'Michigan', NC:'North Carolina', NE:'Nebraska', NM:'New Mexico',
+        NY:'New York', OH:'Ohio', PA:'Pennsylvania', TX:'Texas', WA:'Washington'
+      };
+
+      const stateName = stateNames[stateAbbr] || stateAbbr;
+      document.getElementById('stateDetailTitle').innerHTML = stateName + ' <span class="text-red">races</span>';
+
+      let html = '';
+
+      // Redistricting notice
+      const redistricted = REDISTRICTED_STATES.find(s => s.abbreviation === stateAbbr);
+      if (redistricted) {
+        html += `<div class="card" style="padding: 16px; margin-bottom: 20px; border-left: 3px solid var(--yellow);">
+          <p><strong class="text-yellow">Redistricted State</strong> — ${redistricted.notes}</p>
+        </div>`;
+      }
+
+      // Each candidate in this state
+      stateCandidates.forEach(c => {
+        const partyColor = c.party === 'D' ? 'text-blue' : 'text-red';
+        const partyLabel = c.party === 'D' ? 'Democrat' : 'Republican';
+
+        // Vote record
+        let voteRows = '';
+        KEY_VOTES.forEach(v => {
+          const vote = c.keyVotes[v.id];
+          const label = getVoteLabel(vote);
+          voteRows += `<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+            <div>
+              <p style="font-weight: 500; font-size: 0.85rem;">${v.title}</p>
+              <p class="text-muted" style="font-size: 0.75rem;">${v.date} — ${v.result}</p>
+            </div>
+            <span class="${label.class}" style="font-weight: 700; font-size: 0.9rem; white-space: nowrap;">${label.icon} ${label.text}</span>
+          </div>`;
+        });
+
+        // Lobby connection
+        let lobbyHtml = '';
+        if (c.aipacEndorsed || c.aipacTrip || c.aipacFunding) {
+          let badges = [];
+          if (c.aipacEndorsed) badges.push('<span class="text-yellow" style="font-weight: 600;">Endorsed by the foreign lobby</span>');
+          if (c.aipacTrip) badges.push('<span class="text-muted">Accepted foreign lobby-funded trip</span>');
+          if (c.aipacFunding) badges.push('<span class="text-yellow text-mono">' + formatCurrency(c.aipacFunding) + ' in foreign lobby funding</span>');
+          lobbyHtml = `<div style="margin-top: 16px; padding: 16px; background: rgba(255,197,0,0.05); border-left: 3px solid var(--yellow); border-radius: 0 4px 4px 0;">
+            <h4 class="text-yellow" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Foreign Lobby Connection</h4>
+            <p>${badges.join(' &nbsp;&bull;&nbsp; ')}</p>
+            ${c.notableActions ? '<p class="text-muted" style="margin-top: 8px; font-size: 0.85rem; font-style: italic;">' + c.notableActions + '</p>' : ''}
+          </div>`;
+        }
+
+        // Demographics & strategy
+        let demoHtml = '';
+        if (c.demographics) {
+          demoHtml = `<div style="margin-top: 16px; padding: 16px; background: rgba(0,168,232,0.05); border-left: 3px solid var(--blue); border-radius: 0 4px 4px 0;">
+            <h4 class="text-blue" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">District Profile</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 8px;">
+              <div><span class="text-muted" style="font-size: 0.75rem;">Type:</span> <span style="font-size: 0.85rem;">${c.demographics.type}</span></div>
+              <div><span class="text-muted" style="font-size: 0.75rem;">Setting:</span> <span style="font-size: 0.85rem;">${c.demographics.urbanRural}</span></div>
+              <div><span class="text-muted" style="font-size: 0.75rem;">Religion:</span> <span style="font-size: 0.85rem;">${c.demographics.religionDominant}</span></div>
+            </div>
+            <p class="text-muted" style="font-size: 0.85rem;">${c.demographics.notes}</p>
+          </div>`;
+        }
+
+        // Poster recommendation based on demographics
+        let posterHtml = '';
+        if (c.demographics) {
+          let posterStyle = 'general';
+          let posterNote = 'Bold black and white imagery with a call to accountability works here.';
+          const dt = c.demographics.type.toLowerCase();
+          const rel = (c.demographics.religionDominant || '').toLowerCase();
+          if (rel.includes('evangelical') || rel.includes('baptist') || rel.includes('christian')) {
+            posterStyle = 'faith';
+            posterNote = 'Faith-based imagery is powerful here. Bombed churches, scripture about protecting the innocent. "First they came for..." resonates.';
+          } else if (dt.includes('veteran') || dt.includes('military')) {
+            posterStyle = 'veteran';
+            posterNote = 'Military community respects service and sacrifice. "They sent weapons to kill civilians in your name" framing works.';
+          } else if (dt.includes('suburban') || dt.includes('college')) {
+            posterStyle = 'suburban';
+            posterNote = 'Tax dollar accountability framing — "$X of your taxes sent weapons used on civilians." Factual, fiscal, no slogans.';
+          } else if (dt.includes('rural') || dt.includes('blue-collar')) {
+            posterStyle = 'rural';
+            posterNote = 'Economic accountability and government overreach framing. "Your tax dollars, their bombs." Direct and factual.';
+          }
+          posterHtml = `<div style="margin-top: 16px; padding: 16px; background: rgba(255,65,54,0.05); border-left: 3px solid var(--red); border-radius: 0 4px 4px 0;">
+            <h4 class="text-red" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Recommended Poster Approach</h4>
+            <p class="text-muted" style="font-size: 0.85rem;">${posterNote}</p>
+            <a href="/posters/" class="btn btn-outline" style="margin-top: 12px; padding: 8px 16px; font-size: 0.8rem;">Browse posters →</a>
+          </div>`;
+        }
+
+        // Challenger info
+        let challengerHtml = '';
+        if (c.challenger && c.challenger !== 'TBD') {
+          challengerHtml = `<p style="font-size: 0.9rem; margin-top: 12px;">Challenger: <strong>${c.challenger}</strong></p>`;
+        }
+
+        html += `
+          <div class="card" style="padding: 28px; margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+              <div>
+                <h3 style="margin-bottom: 4px;">${c.name} ${c.isOpenSeat ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(0,168,232,0.15); color: var(--blue); font-size: 0.7rem; border-radius: 2px; text-transform: uppercase;">Open Seat</span>' : ''}</h3>
+                <p>
+                  <span class="${partyColor}" style="font-weight: 600;">${partyLabel}</span>
+                  <span class="text-muted"> — ${c.districtLabel}</span>
+                  ${c.redistricted ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(255,197,0,0.15); color: var(--yellow); font-size: 0.7rem; border-radius: 2px; margin-left: 8px; text-transform: uppercase;">Redistricted</span>' : ''}
+                </p>
+                ${challengerHtml}
+              </div>
+              <div style="text-align: right;">
+                <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${c.rating}</span>
+              </div>
+            </div>
+
+            <!-- Vote Record -->
+            <h4 class="text-red" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Vote Record</h4>
+            ${voteRows}
+            <p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 8px;">Source: clerk.house.gov roll call records</p>
+
+            ${lobbyHtml}
+            ${demoHtml}
+            ${posterHtml}
+
+            <p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 16px;">Source: ${c.source}</p>
+          </div>
+        `;
+      });
+
+      // Action buttons at bottom
+      html += `
+        <div style="text-align: center; margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="/lookup/" class="btn btn-red" style="padding: 12px 24px; font-size: 0.85rem;">Look up your zip code</a>
+          <a href="/posters/" class="btn btn-outline" style="padding: 12px 24px; font-size: 0.85rem;">Get posters</a>
+          <a href="/talk/" class="btn btn-outline" style="padding: 12px 24px; font-size: 0.85rem;">Talking points</a>
+        </div>
+      `;
+
+      document.getElementById('stateDetailContent').innerHTML = html;
+      document.getElementById('stateDetailSection').style.display = 'block';
+      document.getElementById('stateDetailSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    window.closeStateDetail = function() {
+      document.getElementById('stateDetailSection').style.display = 'none';
+      document.getElementById('mapSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
     // Initialize
     applyFilters();

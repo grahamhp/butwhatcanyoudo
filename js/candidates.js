@@ -183,7 +183,7 @@ const CANDIDATES = [
       type: 'rural-veteran',
       religionDominant: 'Christian',
       urbanRural: 'Rural',
-      notes: 'Rural Maine. Golden was a Marine veteran and major pro-Israel lobby recipient (~$800K+ career). Open seat — both parties\' nominees TBD.'
+      notes: 'Rural Maine. Golden was a Marine veteran and major recipient of funding from the foreign lobby for the government of Israel (~$800K+ career). Open seat — both parties\' nominees TBD.'
     },
     isOpenSeat: true,
     source: 'Cook Political Report, Ballotpedia, OpenSecrets'
@@ -203,7 +203,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on subsequent packages. Boycotted Netanyahu\'s address to Congress. Called for ceasefire. ~$5.5K in pro-Israel PAC contributions.',
+    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on subsequent packages. Boycotted Netanyahu\'s address to Congress. Called for ceasefire. ~$5.5K in foreign lobby-aligned PAC contributions.',
     challenger: 'Gregory G. Cunningham (R)',
     redistricted: false,
     demographics: {
@@ -229,7 +229,7 @@ const CANDIDATES = [
     aipacTrip: true,
     keyVotes: { hr6126: null, hr8034: null, hr815: null, hr8369: null },
     quotes: [],
-    notableActions: 'Went on a lobby-sponsored trip in August 2025. Made statements supporting the government of Israel.',
+    notableActions: 'Went on a trip sponsored by the foreign lobby for the government of Israel in August 2025. Made statements supporting the government of Israel.',
     challenger: 'TBD',
     primaryChallenger: 'Taylor Darling (D) — primary June 23, 2026',
     redistricted: false,
@@ -256,7 +256,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: '#8 highest pro-Israel lobby recipient in all of Congress (~$4M career). Voted Yes on every weapons package. Lobby endorsed.',
+    notableActions: '#8 highest recipient of foreign lobby funding in all of Congress (~$4M career). Voted Yes on every weapons package. Endorsed by the foreign lobby for the government of Israel.',
     challenger: 'Laurie Buckhout (R)',
     redistricted: true,
     demographics: {
@@ -282,7 +282,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on subsequent weapons packages. Longest-serving woman in House history. ~$5.5K in pro-Israel PAC contributions.',
+    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on subsequent weapons packages. Longest-serving woman in House history. ~$5.5K in foreign lobby-aligned PAC contributions.',
     challenger: 'Derek Merrin (R)',
     redistricted: true,
     demographics: {
@@ -308,7 +308,7 @@ const CANDIDATES = [
     aipacTrip: true,
     keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Voted No on first weapons package, then switched to Yes on subsequent packages. Went on a lobby-sponsored trip. ~$35K in pro-Israel PAC contributions. Unopposed in May 5 primary.',
+    notableActions: 'Voted No on first weapons package, then switched to Yes on subsequent packages. Went on a trip sponsored by the foreign lobby. ~$35K in foreign lobby contributions. Unopposed in May 5 primary.',
     challenger: 'TBD',
     redistricted: true,
     demographics: {
@@ -360,7 +360,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on subsequent weapons packages. ~$285K career pro-Israel lobby funding. Confronted at town halls about accepting lobby money.',
+    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on subsequent weapons packages. ~$285K career funding from the foreign lobby for the government of Israel. Confronted at town halls about accepting foreign lobby money.',
     challenger: 'TBD — primary August 4, 2026',
     redistricted: false,
     demographics: {
@@ -418,7 +418,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Received ~$619K from the pro-Israel lobby in 2024 cycle. Voted Yes on every weapons package. Seeking 3rd term.',
+    notableActions: 'Received ~$619K from the foreign lobby for the government of Israel in 2024 cycle. Voted Yes on every weapons package. Seeking 3rd term.',
     challenger: 'TBD',
     redistricted: false,
     demographics: {
@@ -469,7 +469,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Voted Yes on every weapons package. ~$66K career pro-Israel lobby funding. Won June 2 primary with ~71.6%.',
+    notableActions: 'Voted Yes on every weapons package. ~$66K career funding from the foreign lobby for the government of Israel. Won June 2 primary with ~71.6%.',
     challenger: 'Christina Bohannan (D) — rematch from 2024',
     redistricted: false,
     demographics: {
@@ -576,7 +576,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: 'Yes', hr8034: 'No', hr815: null, hr8369: 'No' },
     quotes: [],
-    notableActions: 'Former Freedom Caucus chair. Voted Yes on first weapons package, then No on subsequent packages. The pro-Israel lobby paused fundraising for Perry after his No votes. Career lobby funding ~$132K.',
+    notableActions: 'Former Freedom Caucus chair. Voted Yes on first weapons package, then No on subsequent packages. The foreign lobby for the government of Israel paused fundraising for Perry after his No votes. Career foreign lobby funding ~$132K.',
     challenger: 'Janelle Stelson (D) — rematch from 2024',
     redistricted: false,
     demographics: {
@@ -602,8 +602,8 @@ const MASSIE_STORY = {
   trumpEndorsed: true,
   aipacSpendingAgainst: 9000000,
   totalOutsideSpending: 32000000,
-  keyContext: 'Massie was consistently the ONLY Republican to vote against Israel-related legislation. He introduced a bill to require the pro-Israel lobby to register as a foreign agent under FARA. He voted against H.Res. 888 (affirming Israel\'s right to exist) — one of only 14 total members to do so.',
-  campaignNarrative: 'The Republican establishment and pro-Israel lobby groups spent over $32 million — including $9 million from lobby-affiliated groups alone — to defeat one of their own members because he voted against weapons packages to the government of Israel. This proves the issue crosses party lines: BOTH parties punish dissent.',
+  keyContext: 'Massie was consistently the ONLY Republican to vote against Israel-related legislation. He introduced a bill to require the foreign lobby for the government of Israel to register as a foreign agent under FARA. He voted against H.Res. 888 (affirming Israel\'s right to exist) — one of only 14 total members to do so.',
+  campaignNarrative: 'The Republican establishment and foreign lobby groups for the government of Israel spent over $32 million — including $9 million from foreign lobby-affiliated groups alone — to defeat one of their own members because he voted against weapons packages to the government of Israel. This proves the issue crosses party lines: BOTH parties punish dissent.',
   source: 'Kentucky Secretary of State, AP, FEC, OpenSecrets'
 };
 
@@ -632,8 +632,8 @@ const RACES_TO_WATCH = [
     title: 'Don Davis — NC-01',
     party: 'D',
     candidateId: 'nc1-davis',
-    description: 'Heavily redistricted seat in northeastern North Carolina. Davis received significant financial support from the pro-Israel lobby and voted yes on weapons packages. New district lines redrawn by state Republicans to lean more Republican — bringing in voters who haven\'t locked in yet.',
-    whyItMatters: 'New voters + new lines + lobby funding = maximum impact for grassroots pressure.',
+    description: 'Heavily redistricted seat in northeastern North Carolina. Davis received significant financial support from the foreign lobby for the government of Israel and voted yes on weapons packages. New district lines redrawn by state Republicans to lean more Republican — bringing in voters who haven\'t locked in yet.',
+    whyItMatters: 'New voters + new lines + foreign lobby funding = maximum impact for grassroots pressure.',
     color: 'blue'
   },
   {
@@ -648,7 +648,7 @@ const RACES_TO_WATCH = [
     title: 'Emilia Sykes — OH-13',
     party: 'D',
     candidateId: 'oh13-sykes',
-    description: 'Akron-area district, redistricted to be more competitive. Sykes went on a lobby-sponsored trip and signed statements supporting the government of Israel. Considered a "must-win" for Democrats.',
+    description: 'Akron-area district, redistricted to be more competitive. Sykes went on a trip sponsored by the foreign lobby and signed statements supporting the government of Israel. Considered a "must-win" for Democrats.',
     whyItMatters: 'Redistricting made this seat competitive. A strong challenger could flip it.',
     color: 'yellow'
   },
@@ -656,8 +656,8 @@ const RACES_TO_WATCH = [
     title: 'Marie Gluesenkamp Perez — WA-03',
     party: 'D',
     candidateId: 'wa3-perez',
-    description: 'Rural southwestern Washington. Perez received pro-Israel lobby campaign contributions and has been confronted at town halls about it. A moderate Democrat in a deep-red district — she depends on swing voters.',
-    whyItMatters: 'When constituents show up at town halls and ask about lobby money, representatives notice.',
+    description: 'Rural southwestern Washington. Perez received campaign contributions from the foreign lobby for the government of Israel and has been confronted at town halls about it. A moderate Democrat in a deep-red district — she depends on swing voters.',
+    whyItMatters: 'When constituents show up at town halls and ask about foreign lobby money, representatives notice.',
     color: 'blue'
   },
   {
@@ -739,7 +739,7 @@ function filterCandidates(query, party, state) {
 function formatCurrency(amount) {
   if (amount === null || amount === undefined) return 'Data pending';
   if (amount >= 1000000) return '$' + (amount / 1000000).toFixed(1) + 'M';
-  if (amount >= 1000) return '$' + (amount / 1000).toFixed(0) + 'K';
+  if (amount >= 1000) return '$' + (amount / 1000).toFixed(amount % 1000 === 0 ? 0 : 1) + 'K';
   return '$' + amount.toLocaleString();
 }
 
