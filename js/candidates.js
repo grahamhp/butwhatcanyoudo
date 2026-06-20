@@ -309,7 +309,7 @@ const CANDIDATES = [
     keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
     notableActions: 'Voted No on first weapons package, then switched to Yes on subsequent packages. Went on a trip sponsored by the foreign lobby. ~$35K in foreign lobby contributions. Unopposed in May 5 primary.',
-    challenger: 'TBD',
+    challenger: 'Carey Coleman (R)',
     redistricted: true,
     demographics: {
       type: 'urban',
@@ -317,7 +317,33 @@ const CANDIDATES = [
       urbanRural: 'Urban',
       notes: 'Akron area. Considered "must-win" for Democrats. Redistricted to be more competitive.'
     },
-    source: 'Cook Political Report, Ballotpedia'
+    source: 'Cook Political Report, Ballotpedia, Ohio Capital Journal'
+  },
+  {
+    id: 'oh1-landsman',
+    name: 'Greg Landsman',
+    party: 'D',
+    state: 'OH',
+    district: 1,
+    districtLabel: 'OH-01',
+    incumbent: true,
+    running: true,
+    rating: 'Toss-up',
+    aipacFunding: 1730000,
+    aipacEndorsed: true,
+    aipacTrip: false,
+    keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: null },
+    quotes: [],
+    notableActions: 'One of only 22 Democrats who voted to censure Rep. Tlaib for criticizing the government of Israel. Received ~$1.73M from the foreign lobby and aligned donors. Voted No on first weapons package, then Yes on $26.38B package.',
+    challenger: 'Eric Conroy (R)',
+    redistricted: true,
+    demographics: {
+      type: 'suburban-urban',
+      religionDominant: 'Christian-Mixed',
+      urbanRural: 'Urban-Suburban',
+      notes: 'Cincinnati area. District shifted from Biden+6.5 to Trump+2.5 after redistricting. Conroy is Air Force vet, former CIA case officer, Trump-endorsed.'
+    },
+    source: 'Cook Political Report, Ballotpedia, clerk.house.gov, Mondoweiss, FEC'
   },
   {
     id: 'tx34-gonzalez',
@@ -752,4 +778,227 @@ function getVoteLabel(vote) {
 function canWriteIn(stateName) {
   if (WRITE_IN_PROHIBITED.includes(stateName)) return false;
   return true;
+}
+
+// ============================================
+// GAZA TIMELINE — Casualty data at each congressional vote date
+// Sources: UN OCHA, Gaza Ministry of Health, UNRWA, ICJ/ICC Press Releases
+// LAST UPDATED: June 20, 2026
+// ============================================
+const GAZA_TIMELINE = {
+  hr6126: {
+    voteDate: 'November 2, 2023',
+    daysIntoConflict: 26,
+    killed: 8805,
+    children: 3648,
+    women: 2187,
+    injured: 22240,
+    displaced: 1400000,
+    keyEvents: [
+      'Ground invasion of northern Gaza began October 27',
+      'Jabalia refugee camp struck multiple times (Oct 31–Nov 1)',
+      'Communications blackout imposed across Gaza',
+      'Hospitals overwhelmed, surgeries without anesthesia reported'
+    ],
+    legalContext: 'No international legal proceedings had yet been filed.',
+    source: 'Gaza Ministry of Health via UN OCHA, Nov 2 2023 report'
+  },
+  hr8034: {
+    voteDate: 'April 20, 2024',
+    daysIntoConflict: 196,
+    killed: 34049,
+    children: 14500,
+    women: 9500,
+    injured: 77000,
+    displaced: 1700000,
+    keyEvents: [
+      'Al-Shifa Hospital besieged and destroyed (March 18–April 1)',
+      'World Central Kitchen aid workers killed by Israeli strike (April 1)',
+      'Flour massacre at aid distribution point killed over 100 (Feb 29)',
+      'Mass graves discovered at Nasser and Al-Shifa Hospitals (April)'
+    ],
+    legalContext: 'ICJ had ordered provisional measures on Jan 26, finding plausible risk of genocide. Second ICJ order on March 28 demanded unhindered humanitarian aid delivery.',
+    source: 'Gaza Ministry of Health via UN OCHA, ICJ Press Releases'
+  },
+  hr8369: {
+    voteDate: 'May 16, 2024',
+    daysIntoConflict: 222,
+    killed: 35272,
+    children: 15000,
+    women: 9800,
+    injured: 79000,
+    displaced: 1700000,
+    keyEvents: [
+      'Rafah ground invasion preparations underway',
+      'UN warned of imminent famine across northern Gaza',
+      'Over 100 UNRWA staff members killed',
+      'Over 100 journalists killed (CPJ count)',
+      'Al-Mawasi "safe zone" struck repeatedly'
+    ],
+    legalContext: 'Two ICJ provisional measures orders already issued. ICC prosecutor would request arrest warrants for Netanyahu and Gallant 4 days later (May 20).',
+    source: 'Gaza Ministry of Health via UN OCHA, CPJ, UNRWA, ICC Press Releases'
+  }
+};
+
+const LEGAL_TIMELINE = [
+  { date: 'December 29, 2023', event: 'South Africa files genocide case against the government of Israel at the ICJ', type: 'icj' },
+  { date: 'January 26, 2024', event: 'ICJ orders provisional measures: finds plausible risk of genocide, orders Israel to prevent genocidal acts and ensure humanitarian aid', type: 'icj' },
+  { date: 'March 28, 2024', event: 'ICJ orders additional provisional measures: Israel must ensure unhindered provision of humanitarian aid at scale', type: 'icj' },
+  { date: 'May 20, 2024', event: 'ICC Prosecutor requests arrest warrants for Netanyahu and Gallant for war crimes and crimes against humanity', type: 'icc' },
+  { date: 'May 24, 2024', event: 'ICJ orders Israel to immediately halt its military offensive in Rafah', type: 'icj' },
+  { date: 'July 19, 2024', event: 'ICJ advisory opinion: Israeli occupation of Palestinian territories is illegal under international law', type: 'icj' },
+  { date: 'November 21, 2024', event: 'ICC issues arrest warrants for Netanyahu and Gallant for war crimes including using starvation as a method of warfare, and crimes against humanity', type: 'icc' }
+];
+
+// ============================================
+// STATE RACES — Comprehensive state-level race data
+// Proof of concept: Ohio and Arizona
+// ============================================
+const STATE_RACES = {
+  OH: {
+    name: 'Ohio',
+    redistricted: true,
+    redistrictingNote: 'New congressional maps approved October 31, 2025. Three Democrat-held seats (OH-1, OH-9, OH-13) became significantly more competitive after districts were redrawn to favor Republicans.',
+    governor: {
+      rating: 'Lean R',
+      candidates: [
+        { name: 'Vivek Ramaswamy', party: 'R', background: 'Biotech billionaire, 2024 presidential candidate. Running with Senate President Rob McColley.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Broadly hawkish on foreign policy. Supported military aid to the government of Israel during 2024 presidential campaign.', lobbyConnection: null, source: 'Ballotpedia, campaign statements' },
+        { name: 'Amy Acton', party: 'D', background: 'Former Ohio Health Director who led COVID-19 response. Running with David Pepper (former OH Democratic Party chair).', incumbentOrChallenger: 'challenger', foreignPolicyPosition: null, lobbyConnection: null, source: 'Ballotpedia, Ohio Capital Journal' }
+      ]
+    },
+    senate: {
+      type: 'special',
+      note: 'Special election to fill the seat vacated by VP JD Vance. Term through January 2029.',
+      rating: 'Lean R',
+      candidates: [
+        { name: 'Jon Husted', party: 'R', background: 'Appointed to fill Vance\'s seat in January 2025. Former Lt. Governor and Secretary of State.', incumbentOrChallenger: 'incumbent', foreignPolicyPosition: 'Has not cast votes on Israel-related legislation as a Senator (appointed after key votes).', lobbyConnection: null, source: 'Ballotpedia, NBC News' },
+        { name: 'Sherrod Brown', party: 'D', background: 'Former longtime Senator (2007–2025). Lost 2024 Senate race to Bernie Moreno. Seeking return.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'As Senator, voted for H.R. 815 (National Security Supplemental, April 23, 2024). Generally supported Israel aid but expressed concern about civilian casualties.', senateVotes: { hr815: 'Yes' }, lobbyConnection: 'Received significant pro-Israel PAC contributions during Senate tenure', source: 'Ballotpedia, congress.gov, Roll Call' }
+      ]
+    },
+    competitiveHouse: [
+      {
+        district: 1, label: 'OH-01', area: 'Cincinnati', rating: 'Toss-up', redistricted: true,
+        redistrictingImpact: 'Shifted from Biden+6.5 (2024) to Trump+2.5 under new map.',
+        incumbent: { name: 'Greg Landsman', party: 'D', termStart: 2023, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: null }, lobbyFunding: 1730000, lobbyEndorsed: true, lobbyTrip: false, notableActions: ['One of only 22 Democrats who voted to censure Rep. Rashida Tlaib for criticizing the government of Israel', 'Received approximately $1.73 million from the foreign lobby for the government of Israel and aligned donors', 'Voted No on first weapons package (Nov 2023, 8,805 dead), then Yes on $26.38B package (April 2024, 34,000+ dead)'], source: 'clerk.house.gov Roll Call 152, Mondoweiss, FEC filings, OpenSecrets' },
+        challenger: { name: 'Eric Conroy', party: 'R', background: 'Air Force veteran, former CIA case officer. Won Republican primary. Endorsed by President Trump (April 14, 2026).', foreignPolicyPosition: null, lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, The Hill' }
+      },
+      {
+        district: 9, label: 'OH-09', area: 'Toledo / Northwest Ohio', rating: 'Toss-up', redistricted: true,
+        redistrictingImpact: 'District redrawn to Trump+11 under new map. Kaptur\'s toughest race in 40+ years.',
+        incumbent: { name: 'Marcy Kaptur', party: 'D', termStart: 1983, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: null }, lobbyFunding: 5500, lobbyEndorsed: false, lobbyTrip: false, notableActions: ['Longest-serving woman in U.S. House history', 'Voted No on first weapons package (Nov 2023, 8,805 dead), then Yes on $26.38B package (April 2024, 34,000+ dead)', 'Approximately $5,500 in foreign lobby-aligned PAC contributions'], source: 'clerk.house.gov Roll Call 152, kaptur.house.gov, FEC' },
+        challenger: { name: 'Derek Merrin', party: 'R', background: 'Former state representative. Lost to Kaptur by ~2,400 votes in 2024. Won 2026 Republican primary. Rematch.', foreignPolicyPosition: null, lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, CBS News, Roll Call' }
+      },
+      {
+        district: 13, label: 'OH-13', area: 'Akron / Canton', rating: 'Toss-up', redistricted: true,
+        redistrictingImpact: 'Redrawn slightly bluer but still highly competitive. "Must-win" for Democrats.',
+        incumbent: { name: 'Emilia Sykes', party: 'D', termStart: 2023, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: null }, lobbyFunding: 35000, lobbyEndorsed: true, lobbyTrip: true, notableActions: ['Voted No on first weapons package, then switched to Yes on subsequent packages', 'Accepted a trip sponsored by the foreign lobby for the government of Israel', 'Approximately $35,000 in foreign lobby contributions', 'Endorsed by the foreign lobby for the government of Israel'], source: 'clerk.house.gov Roll Call 152, Ballotpedia, FEC' },
+        challenger: { name: 'Carey Coleman', party: 'R', background: 'Won Republican primary May 5, 2026 with 47.3% of the vote.', foreignPolicyPosition: null, lobbyFunding: null, lobbyEndorsed: false, source: 'Ohio Capital Journal, Ballotpedia' }
+      }
+    ]
+  },
+  AZ: {
+    name: 'Arizona',
+    redistricted: false,
+    redistrictingNote: null,
+    governor: {
+      rating: 'Toss-up',
+      note: 'Republican primary July 21, 2026. Key candidates include Andy Biggs and David Schweikert — both current House members with voting records on Israel.',
+      candidates: [
+        { name: 'Katie Hobbs', party: 'D', background: 'Incumbent governor seeking re-election. Former Secretary of State.', incumbentOrChallenger: 'incumbent', foreignPolicyPosition: null, lobbyConnection: null, source: 'Ballotpedia' },
+        { name: 'Andy Biggs', party: 'R', background: 'U.S. Representative AZ-5. Voted NO on all Israel weapons packages — one of few Republicans to do so.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Voted No on H.R. 6126, H.R. 8034, and H.R. 8369. Opposition rooted in fiscal conservatism and non-interventionism.', houseVotes: { hr6126: 'No', hr8034: 'No', hr8369: 'No' }, lobbyConnection: null, source: 'clerk.house.gov Roll Call 152, Ballotpedia' },
+        { name: 'David Schweikert', party: 'R', background: 'U.S. Representative AZ-1 (leaving for governor race). Voted YES on all Israel weapons packages.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Voted Yes on H.R. 6126, H.R. 8034, and H.R. 8369. Supported every weapons package.', houseVotes: { hr6126: 'Yes', hr8034: 'Yes', hr8369: 'Yes' }, lobbyConnection: null, source: 'clerk.house.gov Roll Call 152 and 577, Ballotpedia' }
+      ]
+    },
+    senate: null,
+    senateNote: 'No U.S. Senate race in Arizona in 2026. Sen. Mark Kelly (D) up in 2028, Sen. Ruben Gallego (D) up in 2030.',
+    competitiveHouse: [
+      {
+        district: 1, label: 'AZ-01', area: 'Phoenix suburbs / Scottsdale', rating: 'Toss-up', redistricted: false, isOpenSeat: true,
+        openSeatReason: 'David Schweikert running for Governor',
+        predecessorVotes: { hr6126: 'Yes', hr8034: 'Yes', hr8369: 'Yes' },
+        note: 'Republican primary July 21. 13+ candidates filed — one of the most contested open seats nationally. R+5 lean, but Schweikert won by only 4 points in 2024.',
+        democraticCandidates: [
+          { name: 'Amish Shah', note: 'Lost to Schweikert by ~4 points in 2024. Early frontrunner.' },
+          { name: 'Marlene Galan Woods', note: 'Finished third in 2024 Democratic primary.' },
+          { name: 'Mark Robert Gordon', note: 'Attorney and activist.' }
+        ],
+        republicanCandidates: [
+          { name: 'Matt Gress', note: 'State Representative.' },
+          { name: 'Justin Wilmeth', note: 'State Representative.' },
+          { name: 'Joseph Chaplik', note: 'State Representative.' }
+        ],
+        source: 'Ballotpedia, Inside Elections, Arizona Mirror'
+      },
+      {
+        district: 6, label: 'AZ-06', area: 'Tucson area', rating: 'Toss-up', redistricted: false,
+        incumbent: { name: 'Juan Ciscomani', party: 'R', termStart: 2023, keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, lobbyFunding: 618522, lobbyEndorsed: false, lobbyTrip: false, notableActions: ['The foreign lobby for the government of Israel is his largest campaign donor (~$619K in 2024 cycle)', 'Voted Yes on every weapons package to the government of Israel', 'Seeking third term in a Toss-up district with R+3 lean'], source: 'clerk.house.gov Roll Call 152 and 577, OpenSecrets, FEC' },
+        challengerNote: 'Democratic primary July 21, 2026',
+        democraticCandidates: [
+          { name: 'Johnathan Buma', note: 'Democratic primary candidate.' },
+          { name: 'Chris Donat', note: 'Democratic primary candidate.' },
+          { name: 'JoAnna Mendoza', note: 'Democratic primary candidate.' },
+          { name: 'Carter Weeks', note: 'Democratic primary candidate.' }
+        ],
+        source: 'Ballotpedia, USPollingData.com'
+      }
+    ],
+    otherNotableMembers: [
+      { name: 'Eli Crane', party: 'R', district: 2, label: 'AZ-02', keyVotes: { hr8034: 'No' }, note: 'One of 21 Republicans who voted No on H.R. 8034. Former Navy SEAL.', source: 'clerk.house.gov Roll Call 152' },
+      { name: 'Paul Gosar', party: 'R', district: 9, label: 'AZ-09', keyVotes: { hr8034: 'No' }, note: 'Voted No on H.R. 8034. Non-interventionist.', source: 'clerk.house.gov Roll Call 152' }
+    ]
+  }
+};
+
+// ============================================
+// CONFRONTATION QUESTION GENERATOR
+// Generates data-driven questions for town halls/rallies
+// ============================================
+function generateConfrontationQuestions(candidate, race) {
+  const questions = [];
+  const votes = candidate.keyVotes || {};
+  const funding = candidate.lobbyFunding;
+
+  const votedNoFirst = votes.hr6126 === 'No';
+  const votedYesLater = votes.hr8034 === 'Yes' || votes.hr8369 === 'Yes';
+  const switchedVote = votedNoFirst && votedYesLater;
+
+  if (votes.hr8034 === 'Yes') {
+    const t = GAZA_TIMELINE.hr8034;
+    let q = 'On ' + t.voteDate + ', you voted to send $26.38 billion in weapons to the government of Israel. By that date, more than ' + t.killed.toLocaleString() + ' Palestinians had been killed, including over ' + t.children.toLocaleString() + ' children. The International Court of Justice had already found a plausible risk of genocide and ordered provisional measures.';
+    if (funding && funding > 100000) q += ' You have also received ' + formatCurrency(funding) + ' from the foreign lobby for the government of Israel.';
+    q += ' How do you explain that vote to your constituents?';
+    questions.push({ text: q, context: 'H.R. 8034 — $26.38B Israel weapons package', severity: 'high', dataPoints: [t.killed.toLocaleString() + ' killed', t.children.toLocaleString() + ' children', 'ICJ genocide warning issued', funding ? formatCurrency(funding) + ' in lobby funding' : null].filter(Boolean) });
+  }
+
+  if (switchedVote) {
+    const t1 = GAZA_TIMELINE.hr6126, t2 = GAZA_TIMELINE.hr8034;
+    let q = 'In November 2023, when ' + t1.killed.toLocaleString() + ' Palestinians had been killed, you voted No on sending weapons to the government of Israel. By April 2024, more than ' + t2.killed.toLocaleString() + ' had been killed — including over ' + t2.children.toLocaleString() + ' children — the ICJ had found a plausible risk of genocide, and mass graves had been discovered at hospitals. What changed between those two votes that made you decide to send more weapons?';
+    questions.push({ text: q, context: 'Vote switch: No on H.R. 6126 → Yes on H.R. 8034', severity: 'high', dataPoints: [t1.killed.toLocaleString() + ' killed at first vote', t2.killed.toLocaleString() + ' killed at second vote', 'ICJ genocide finding between votes', 'Mass graves discovered between votes'] });
+  }
+
+  if (votes.hr8369 === 'Yes') {
+    const t = GAZA_TIMELINE.hr8369;
+    let q = 'On ' + t.voteDate + ', you voted to force the delivery of 2,000-pound bombs to the government of Israel after President Biden had paused the shipment due to concerns about civilian casualties. By that date, over ' + t.killed.toLocaleString() + ' Palestinians had been killed, including ' + t.children.toLocaleString() + ' children. The ICC prosecutor was about to request arrest warrants for Israeli leaders. Why did you vote to override a pause meant to protect civilians?';
+    questions.push({ text: q, context: 'H.R. 8369 — Force weapons delivery despite Biden pause', severity: 'critical', dataPoints: [t.killed.toLocaleString() + ' killed', t.children.toLocaleString() + ' children', 'Biden paused bombs over civilian concerns', 'ICC warrants requested 4 days later'] });
+  }
+
+  if (funding && funding > 50000) {
+    const area = race ? race.area : 'your district';
+    let q = 'You have received ' + formatCurrency(funding) + ' from the foreign lobby for the government of Israel';
+    if (candidate.lobbyEndorsed) q += ' and are endorsed by them';
+    q += '. Every dollar of that money comes with an expectation. When you vote on weapons packages, are you representing the people of ' + area + ', or the interests of your largest donor?';
+    questions.push({ text: q, context: 'Foreign lobby funding: ' + formatCurrency(funding), severity: 'high', dataPoints: [formatCurrency(funding) + ' in lobby funding', candidate.lobbyEndorsed ? 'Endorsed by the foreign lobby' : null, candidate.lobbyTrip ? 'Accepted lobby-funded trip' : null].filter(Boolean) });
+  }
+
+  if (votes.hr6126 === 'Yes') {
+    const t = GAZA_TIMELINE.hr6126;
+    let q = 'On ' + t.voteDate + ', just ' + t.daysIntoConflict + ' days into the conflict, you voted to send $14.3 billion in weapons to the government of Israel. By that date, ' + t.killed.toLocaleString() + ' Palestinians had already been killed, including ' + t.children.toLocaleString() + ' children. Hospitals were being bombed and refugee camps were being struck. Looking back, with over 100,000 now dead, do you still stand by that vote?';
+    questions.push({ text: q, context: 'H.R. 6126 — $14.3B emergency weapons package, 26 days into conflict', severity: 'medium', dataPoints: [t.killed.toLocaleString() + ' killed (26 days in)', t.children.toLocaleString() + ' children killed', 'Refugee camps being struck', 'Hospitals under bombardment'] });
+  }
+
+  if (candidate.notableActions && Array.isArray(candidate.notableActions) && candidate.notableActions.some(a => a.toLowerCase().includes('censure') && a.toLowerCase().includes('tlaib'))) {
+    questions.push({ text: 'You voted to censure Representative Rashida Tlaib for speaking out against the killing of Palestinian civilians. Since that vote, the International Court of Justice has found a plausible risk of genocide, the ICC has issued arrest warrants for Israeli leaders, and the death toll has surpassed 100,000. Was Tlaib wrong to raise concerns?', context: 'Voted to censure the only Palestinian-American in Congress', severity: 'high', dataPoints: ['Voted to silence Palestinian-American colleague', 'ICJ later found plausible genocide', 'ICC issued arrest warrants', 'Death toll exceeded 100,000'] });
+  }
+
+  return questions;
 }

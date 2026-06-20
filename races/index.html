@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Races | But What Can You Do?</title>
-  <meta name="description" content="Search the full databaseh of 2026 congressional races. See who took foreign lobby money, how they voted on weapons packages, and which toss-up seats are in play this November.">
+  <meta name="description" content="Search the full database of 2026 congressional races. See who took foreign lobby money, how they voted on weapons packages, and which toss-up seats are in play this November.">
   <meta property="og:title" content="The Races | But What Can You Do?">
   <meta property="og:description" content="Every member of Congress who voted yes. The foreign lobby money. The votes. The races to watch in November 2026.">
   <meta property="og:type" content="website">
@@ -207,7 +207,7 @@
     </div>
   </footer>
 
-  <script src="/js/candidates.js?v=3"></script>
+  <script src="/js/candidates.js?v=4"></script>
   <script src="/js/map.js?v=4"></script>
   <script src="/js/main.js?v=3"></script>
   <script>
@@ -351,149 +351,398 @@
       renderUSMap('usMapContainer');
     }
 
-    // Show state detail when a state is clicked on the map
-    window.showStateDetail = function(stateAbbr) {
-      const stateCandidates = CANDIDATES.filter(c => c.state === stateAbbr);
-      if (stateCandidates.length === 0) return;
+    // ============================================
+    // ENHANCED STATE DETAIL PANEL
+    // Uses STATE_RACES when available, falls back to CANDIDATES
+    // ============================================
 
+    // Helper: render a vote row with Gaza timeline context
+    function renderVoteWithContext(voteId, vote) {
+      const voteInfo = KEY_VOTES.find(v => v.id === voteId);
+      if (!voteInfo) return '';
+      const label = getVoteLabel(vote);
+      const timeline = GAZA_TIMELINE[voteId];
+      let contextHtml = '';
+      if (timeline && vote === 'Yes') {
+        contextHtml = `<div style="margin-top: 6px; padding: 8px 12px; background: rgba(255,65,54,0.06); border-radius: 4px; font-size: 0.78rem;">
+          <span class="text-red" style="font-weight: 600;">${timeline.daysIntoConflict} days into the conflict</span>
+          <span class="text-muted"> — ${timeline.killed.toLocaleString()} killed including ${timeline.children.toLocaleString()} children</span>
+          ${timeline.legalContext ? '<br><span class="text-muted" style="font-size: 0.75rem;">' + timeline.legalContext + '</span>' : ''}
+        </div>`;
+      }
+      return `<div style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <p style="font-weight: 500; font-size: 0.85rem;">${voteInfo.title}</p>
+            <p class="text-muted" style="font-size: 0.75rem;">${voteInfo.date} — ${voteInfo.result}</p>
+          </div>
+          <span class="${label.class}" style="font-weight: 700; font-size: 0.9rem; white-space: nowrap;">${label.icon} ${label.text}</span>
+        </div>
+        ${contextHtml}
+      </div>`;
+    }
+
+    // Helper: render a confrontation question card
+    function renderQuestionCard(q, index) {
+      const severityColors = { critical: 'var(--red)', high: 'var(--yellow)', medium: 'var(--blue)' };
+      const borderColor = severityColors[q.severity] || 'var(--mid-gray)';
+      return `<div style="padding: 20px; margin-bottom: 16px; background: rgba(255,255,255,0.02); border-left: 3px solid ${borderColor}; border-radius: 0 4px 4px 0;">
+        <p class="text-muted" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Question ${index + 1} — ${q.context}</p>
+        <p style="font-size: 0.9rem; line-height: 1.6;">${q.text}</p>
+        <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px;">
+          ${q.dataPoints.map(d => '<span style="display: inline-block; padding: 3px 8px; background: rgba(255,255,255,0.04); border-radius: 3px; font-size: 0.75rem;" class="text-muted">' + d + '</span>').join('')}
+        </div>
+      </div>`;
+    }
+
+    // Helper: render the "better/worse" comparison indicator
+    function renderComparisonBadge(incumbent, challenger) {
+      // If incumbent voted Yes on weapons packages and has lobby funding, they're the problem
+      const incVotes = incumbent.keyVotes || {};
+      const yesCount = Object.values(incVotes).filter(v => v === 'Yes').length;
+      const funding = incumbent.lobbyFunding || 0;
+
+      if (yesCount > 0 || funding > 50000) {
+        return `<div style="display: flex; gap: 16px; margin-bottom: 20px; padding: 12px 16px; background: rgba(255,65,54,0.06); border-radius: 6px;">
+          <div style="flex: 1; text-align: center; padding: 8px; border-right: 1px solid rgba(255,255,255,0.06);">
+            <span class="text-red" style="font-size: 1.4rem; font-weight: 700;">&#x2717;</span>
+            <p style="font-size: 0.8rem; font-weight: 600; margin-top: 4px;">${incumbent.name}</p>
+            <p class="text-muted" style="font-size: 0.72rem;">${yesCount} Yes vote${yesCount !== 1 ? 's' : ''} on weapons${funding > 0 ? ' · ' + formatCurrency(funding) + ' lobby $' : ''}</p>
+          </div>
+          <div style="flex: 1; text-align: center; padding: 8px;">
+            <span class="text-blue" style="font-size: 1.4rem; font-weight: 700;">?</span>
+            <p style="font-size: 0.8rem; font-weight: 600; margin-top: 4px;">${challenger.name || 'Challenger TBD'}</p>
+            <p class="text-muted" style="font-size: 0.72rem;">${challenger.foreignPolicyPosition ? 'Has stated position' : 'No weapons voting record yet'}</p>
+          </div>
+        </div>`;
+      }
+      return '';
+    }
+
+    // Helper: render a House race card (enhanced)
+    function renderHouseRace(race) {
+      let html = '';
+      const inc = race.incumbent;
+      const isOpen = race.isOpenSeat;
+
+      // Section header
+      html += `<div class="card" style="padding: 28px; margin-bottom: 24px;">`;
+      html += `<div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+        <div>
+          <h3 style="margin-bottom: 4px;">${race.label} — ${race.area}
+            ${isOpen ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(0,168,232,0.15); color: var(--blue); font-size: 0.7rem; border-radius: 2px; text-transform: uppercase; margin-left: 8px;">Open Seat</span>' : ''}
+            ${race.redistricted ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(255,197,0,0.15); color: var(--yellow); font-size: 0.7rem; border-radius: 2px; text-transform: uppercase; margin-left: 8px;">Redistricted</span>' : ''}
+          </h3>
+          ${race.redistrictingImpact ? '<p class="text-muted" style="font-size: 0.8rem;">' + race.redistrictingImpact + '</p>' : ''}
+        </div>
+        <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${race.rating}</span>
+      </div>`;
+
+      if (isOpen) {
+        // Open seat rendering
+        html += `<div style="padding: 16px; background: rgba(0,168,232,0.05); border-left: 3px solid var(--blue); border-radius: 0 4px 4px 0; margin-bottom: 16px;">
+          <p class="text-blue" style="font-weight: 600; font-size: 0.85rem;">Open Seat</p>
+          <p class="text-muted" style="font-size: 0.85rem;">${race.openSeatReason || 'Incumbent not running.'}</p>
+          ${race.note ? '<p class="text-muted" style="font-size: 0.85rem; margin-top: 6px;">' + race.note + '</p>' : ''}
+        </div>`;
+
+        // Show predecessor votes if available
+        if (race.predecessorVotes) {
+          html += `<h4 class="text-red" style="font-size: 0.8rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Previous Rep's Vote Record</h4>`;
+          Object.keys(race.predecessorVotes).forEach(vid => {
+            html += renderVoteWithContext(vid, race.predecessorVotes[vid]);
+          });
+          html += `<p class="text-muted" style="font-size: 0.75rem; margin-top: 6px; margin-bottom: 16px;">The outgoing representative voted Yes on every weapons package. This seat's next occupant matters.</p>`;
+        }
+
+        // Candidate lists
+        if (race.republicanCandidates && race.republicanCandidates.length) {
+          html += `<h4 class="text-red" style="font-size: 0.8rem; margin-top: 16px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Republican Candidates</h4>`;
+          race.republicanCandidates.forEach(c => {
+            html += `<p style="font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03);"><strong>${c.name}</strong> <span class="text-muted">— ${c.note}</span></p>`;
+          });
+        }
+        if (race.democraticCandidates && race.democraticCandidates.length) {
+          html += `<h4 class="text-blue" style="font-size: 0.8rem; margin-top: 16px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Democratic Candidates</h4>`;
+          race.democraticCandidates.forEach(c => {
+            html += `<p style="font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03);"><strong>${c.name}</strong> <span class="text-muted">— ${c.note}</span></p>`;
+          });
+        }
+      } else if (inc) {
+        // Incumbent vs challenger rendering
+        const challenger = race.challenger || {};
+        const chalName = typeof challenger === 'string' ? challenger : challenger.name;
+        const chalObj = typeof challenger === 'string' ? { name: challenger } : challenger;
+
+        // Comparison badge
+        html += renderComparisonBadge(inc, chalObj);
+
+        // Incumbent detail
+        const incPartyColor = inc.party === 'D' ? 'text-blue' : 'text-red';
+        html += `<div style="margin-bottom: 20px;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 12px;">
+            <span class="${incPartyColor}" style="font-weight: 700;">${inc.name}</span>
+            <span class="text-muted" style="font-size: 0.8em;"> (${inc.party}) — Incumbent since ${inc.termStart}</span>
+          </h4>`;
+
+        // Vote record with timeline context
+        html += `<h4 class="text-red" style="font-size: 0.8rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Vote Record</h4>`;
+        if (inc.keyVotes) {
+          Object.keys(inc.keyVotes).forEach(vid => {
+            if (inc.keyVotes[vid] !== null && inc.keyVotes[vid] !== undefined) {
+              html += renderVoteWithContext(vid, inc.keyVotes[vid]);
+            }
+          });
+        }
+
+        // Lobby funding
+        if (inc.lobbyFunding || inc.lobbyEndorsed || inc.lobbyTrip) {
+          let badges = [];
+          if (inc.lobbyEndorsed) badges.push('<span class="text-yellow" style="font-weight: 600;">Endorsed by the foreign lobby</span>');
+          if (inc.lobbyTrip) badges.push('<span class="text-muted">Accepted lobby-funded trip</span>');
+          if (inc.lobbyFunding) badges.push('<span class="text-yellow text-mono">' + formatCurrency(inc.lobbyFunding) + ' in foreign lobby funding</span>');
+          html += `<div style="margin-top: 16px; padding: 16px; background: rgba(255,197,0,0.05); border-left: 3px solid var(--yellow); border-radius: 0 4px 4px 0;">
+            <h4 class="text-yellow" style="font-size: 0.8rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Foreign Lobby Connection</h4>
+            <p style="font-size: 0.85rem;">${badges.join(' &nbsp;&bull;&nbsp; ')}</p>
+          </div>`;
+        }
+
+        // Notable actions
+        if (inc.notableActions && Array.isArray(inc.notableActions)) {
+          html += `<div style="margin-top: 12px;">`;
+          inc.notableActions.forEach(a => {
+            html += `<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 4px; font-style: italic;">• ${a}</p>`;
+          });
+          html += `</div>`;
+        }
+
+        html += `</div>`; // close incumbent detail
+
+        // Challenger detail
+        html += `<div style="padding: 16px; background: rgba(0,168,232,0.04); border-left: 3px solid var(--blue); border-radius: 0 4px 4px 0; margin-bottom: 16px;">
+          <h4 style="font-size: 0.85rem; margin-bottom: 8px;">
+            <span class="text-blue" style="font-weight: 600;">Challenger:</span> ${chalObj.name || 'TBD'}
+            ${chalObj.party ? ' <span class="text-muted">(' + chalObj.party + ')</span>' : ''}
+          </h4>
+          ${chalObj.background ? '<p class="text-muted" style="font-size: 0.85rem;">' + chalObj.background + '</p>' : ''}
+          ${chalObj.foreignPolicyPosition ? '<p style="font-size: 0.85rem; margin-top: 6px;"><strong>Position:</strong> ' + chalObj.foreignPolicyPosition + '</p>' : '<p class="text-muted" style="font-size: 0.82rem; margin-top: 6px;">No public record on weapons votes or foreign lobby ties.</p>'}
+        </div>`;
+
+        // Multiple democratic candidates if primary pending
+        if (race.challengerNote) {
+          html += `<p class="text-muted" style="font-size: 0.8rem; font-style: italic; margin-bottom: 8px;">${race.challengerNote}</p>`;
+        }
+        if (race.democraticCandidates && race.democraticCandidates.length) {
+          html += `<h4 class="text-blue" style="font-size: 0.8rem; margin-top: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Primary Candidates</h4>`;
+          race.democraticCandidates.forEach(c => {
+            html += `<p style="font-size: 0.85rem; padding: 4px 0;"><strong>${c.name}</strong> <span class="text-muted">— ${c.note}</span></p>`;
+          });
+        }
+
+        // Confrontation questions
+        const questions = generateConfrontationQuestions(inc, race);
+        if (questions.length > 0) {
+          html += `<div style="margin-top: 24px;">
+            <h4 style="font-size: 0.9rem; margin-bottom: 4px;">Town Hall <span class="text-red">Questions</span></h4>
+            <p class="text-muted" style="font-size: 0.78rem; margin-bottom: 16px;">Data-driven questions for rallies and town halls. Every number is sourced from official records.</p>
+            ${questions.map((q, i) => renderQuestionCard(q, i)).join('')}
+          </div>`;
+        }
+      }
+
+      html += `<p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 12px;">Source: ${race.source || (inc ? inc.source : 'Ballotpedia')}</p>`;
+      html += `</div>`; // close card
+      return html;
+    }
+
+    // Helper: render a statewide race (governor or senate)
+    function renderStatewideRace(race, raceType, note) {
+      if (!race) return '';
+      let html = `<div class="card" style="padding: 28px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3>${raceType}${race.type === 'special' ? ' <span class="text-yellow" style="font-size: 0.75em;">(Special Election)</span>' : ''}</h3>
+          <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${race.rating}</span>
+        </div>`;
+      if (race.note) {
+        html += `<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 16px;">${race.note}</p>`;
+      }
+      if (note) {
+        html += `<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 16px;">${note}</p>`;
+      }
+      if (race.candidates) {
+        race.candidates.forEach(c => {
+          const pc = c.party === 'D' ? 'text-blue' : 'text-red';
+          const incBadge = c.incumbentOrChallenger === 'incumbent' ? '<span style="display: inline-block; padding: 2px 6px; background: rgba(255,255,255,0.06); font-size: 0.7rem; border-radius: 2px; margin-left: 6px; text-transform: uppercase;">Incumbent</span>' : '';
+          html += `<div style="padding: 16px; margin-bottom: 12px; background: rgba(255,255,255,0.02); border-radius: 6px; border: 1px solid rgba(255,255,255,0.04);">
+            <h4 style="font-size: 0.95rem;"><span class="${pc}" style="font-weight: 700;">${c.name}</span> <span class="text-muted">(${c.party})</span>${incBadge}</h4>
+            <p class="text-muted" style="font-size: 0.85rem; margin-top: 6px;">${c.background}</p>`;
+          if (c.foreignPolicyPosition) {
+            html += `<p style="font-size: 0.85rem; margin-top: 8px;"><strong>On weapons to the gov't of Israel:</strong> ${c.foreignPolicyPosition}</p>`;
+          }
+          if (c.houseVotes) {
+            html += `<div style="margin-top: 8px;">`;
+            Object.keys(c.houseVotes).forEach(vid => {
+              html += renderVoteWithContext(vid, c.houseVotes[vid]);
+            });
+            html += `</div>`;
+          }
+          if (c.senateVotes) {
+            html += `<div style="margin-top: 8px;">`;
+            Object.keys(c.senateVotes).forEach(vid => {
+              const voteInfo = KEY_VOTES.find(v => v.id === vid);
+              const label = getVoteLabel(c.senateVotes[vid]);
+              html += `<div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0;">
+                <span style="font-size: 0.85rem;">${voteInfo ? voteInfo.title : vid}</span>
+                <span class="${label.class}" style="font-weight: 700;">${label.icon} ${label.text}</span>
+              </div>`;
+            });
+            html += `</div>`;
+          }
+          if (c.lobbyConnection) {
+            html += `<p class="text-yellow" style="font-size: 0.82rem; margin-top: 8px;">⚠ ${c.lobbyConnection}</p>`;
+          }
+          html += `<p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 8px;">Source: ${c.source}</p>`;
+          html += `</div>`;
+        });
+      }
+      html += `</div>`;
+      return html;
+    }
+
+    // MAIN: Show state detail when a state is clicked on the map
+    window.showStateDetail = function(stateAbbr) {
       const stateNames = {
         AZ:'Arizona', CA:'California', CO:'Colorado', IA:'Iowa', ME:'Maine',
         MI:'Michigan', NC:'North Carolina', NE:'Nebraska', NM:'New Mexico',
         NY:'New York', OH:'Ohio', PA:'Pennsylvania', TX:'Texas', WA:'Washington'
       };
 
-      const stateName = stateNames[stateAbbr] || stateAbbr;
+      const sr = (typeof STATE_RACES !== 'undefined') ? STATE_RACES[stateAbbr] : null;
+      const stateCandidates = CANDIDATES.filter(c => c.state === stateAbbr);
+
+      if (!sr && stateCandidates.length === 0) return;
+
+      const stateName = sr ? sr.name : (stateNames[stateAbbr] || stateAbbr);
       document.getElementById('stateDetailTitle').innerHTML = stateName + ' <span class="text-red">races</span>';
 
       let html = '';
 
-      // Redistricting notice
-      const redistricted = REDISTRICTED_STATES.find(s => s.abbreviation === stateAbbr);
-      if (redistricted) {
-        html += `<div class="card" style="padding: 16px; margin-bottom: 20px; border-left: 3px solid var(--yellow);">
-          <p><strong class="text-yellow">Redistricted State</strong> — ${redistricted.notes}</p>
-        </div>`;
-      }
-
-      // Each candidate in this state
-      stateCandidates.forEach(c => {
-        const partyColor = c.party === 'D' ? 'text-blue' : 'text-red';
-        const partyLabel = c.party === 'D' ? 'Democrat' : 'Republican';
-
-        // Vote record
-        let voteRows = '';
-        KEY_VOTES.forEach(v => {
-          const vote = c.keyVotes[v.id];
-          const label = getVoteLabel(vote);
-          voteRows += `<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
-            <div>
-              <p style="font-weight: 500; font-size: 0.85rem;">${v.title}</p>
-              <p class="text-muted" style="font-size: 0.75rem;">${v.date} — ${v.result}</p>
-            </div>
-            <span class="${label.class}" style="font-weight: 700; font-size: 0.9rem; white-space: nowrap;">${label.icon} ${label.text}</span>
-          </div>`;
-        });
-
-        // Lobby connection
-        let lobbyHtml = '';
-        if (c.aipacEndorsed || c.aipacTrip || c.aipacFunding) {
-          let badges = [];
-          if (c.aipacEndorsed) badges.push('<span class="text-yellow" style="font-weight: 600;">Endorsed by the foreign lobby</span>');
-          if (c.aipacTrip) badges.push('<span class="text-muted">Accepted foreign lobby-funded trip</span>');
-          if (c.aipacFunding) badges.push('<span class="text-yellow text-mono">' + formatCurrency(c.aipacFunding) + ' in foreign lobby funding</span>');
-          lobbyHtml = `<div style="margin-top: 16px; padding: 16px; background: rgba(255,197,0,0.05); border-left: 3px solid var(--yellow); border-radius: 0 4px 4px 0;">
-            <h4 class="text-yellow" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Foreign Lobby Connection</h4>
-            <p>${badges.join(' &nbsp;&bull;&nbsp; ')}</p>
-            ${c.notableActions ? '<p class="text-muted" style="margin-top: 8px; font-size: 0.85rem; font-style: italic;">' + c.notableActions + '</p>' : ''}
+      // ===== ENHANCED RENDERING (STATE_RACES available) =====
+      if (sr) {
+        // Redistricting notice
+        if (sr.redistricted) {
+          html += `<div class="card" style="padding: 16px; margin-bottom: 20px; border-left: 3px solid var(--yellow);">
+            <p><strong class="text-yellow">Redistricted State</strong> — ${sr.redistrictingNote}</p>
           </div>`;
         }
 
-        // Demographics & strategy
-        let demoHtml = '';
-        if (c.demographics) {
-          demoHtml = `<div style="margin-top: 16px; padding: 16px; background: rgba(0,168,232,0.05); border-left: 3px solid var(--blue); border-radius: 0 4px 4px 0;">
-            <h4 class="text-blue" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">District Profile</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 8px;">
-              <div><span class="text-muted" style="font-size: 0.75rem;">Type:</span> <span style="font-size: 0.85rem;">${c.demographics.type}</span></div>
-              <div><span class="text-muted" style="font-size: 0.75rem;">Setting:</span> <span style="font-size: 0.85rem;">${c.demographics.urbanRural}</span></div>
-              <div><span class="text-muted" style="font-size: 0.75rem;">Religion:</span> <span style="font-size: 0.85rem;">${c.demographics.religionDominant}</span></div>
-            </div>
-            <p class="text-muted" style="font-size: 0.85rem;">${c.demographics.notes}</p>
+        // Governor
+        if (sr.governor) {
+          html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: var(--mid-gray);">Governor</h2>`;
+          html += renderStatewideRace(sr.governor, 'Governor');
+        }
+
+        // Senate
+        if (sr.senate) {
+          html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; color: var(--mid-gray);">U.S. Senate</h2>`;
+          html += renderStatewideRace(sr.senate, 'U.S. Senate');
+        } else if (sr.senateNote) {
+          html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; color: var(--mid-gray);">U.S. Senate</h2>`;
+          html += `<div class="card" style="padding: 20px; margin-bottom: 24px;">
+            <p class="text-muted">${sr.senateNote}</p>
           </div>`;
         }
 
-        // Poster recommendation based on demographics
-        let posterHtml = '';
-        if (c.demographics) {
-          let posterStyle = 'general';
-          let posterNote = 'Bold black and white imagery with a call to accountability works here.';
-          const dt = c.demographics.type.toLowerCase();
-          const rel = (c.demographics.religionDominant || '').toLowerCase();
-          if (rel.includes('evangelical') || rel.includes('baptist') || rel.includes('christian')) {
-            posterStyle = 'faith';
-            posterNote = 'Faith-based imagery is powerful here. Bombed churches, scripture about protecting the innocent. "First they came for..." resonates.';
-          } else if (dt.includes('veteran') || dt.includes('military')) {
-            posterStyle = 'veteran';
-            posterNote = 'Military community respects service and sacrifice. "They sent weapons to kill civilians in your name" framing works.';
-          } else if (dt.includes('suburban') || dt.includes('college')) {
-            posterStyle = 'suburban';
-            posterNote = 'Tax dollar accountability framing — "$X of your taxes sent weapons used on civilians." Factual, fiscal, no slogans.';
-          } else if (dt.includes('rural') || dt.includes('blue-collar')) {
-            posterStyle = 'rural';
-            posterNote = 'Economic accountability and government overreach framing. "Your tax dollars, their bombs." Direct and factual.';
+        // Competitive House Races
+        if (sr.competitiveHouse && sr.competitiveHouse.length) {
+          html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; color: var(--mid-gray);">Competitive House Races</h2>`;
+          sr.competitiveHouse.forEach(race => {
+            html += renderHouseRace(race);
+          });
+        }
+
+        // Other notable members
+        if (sr.otherNotableMembers && sr.otherNotableMembers.length) {
+          html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; color: var(--mid-gray);">Other Notable Members</h2>`;
+          sr.otherNotableMembers.forEach(m => {
+            html += `<div class="card" style="padding: 20px; margin-bottom: 12px;">
+              <h4><span class="${m.party === 'D' ? 'text-blue' : 'text-red'}" style="font-weight: 700;">${m.name}</span> <span class="text-muted">(${m.party}) — ${m.label}</span></h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 6px;">${m.note}</p>
+              ${m.keyVotes ? '<div style="margin-top: 8px;">' + Object.keys(m.keyVotes).map(vid => renderVoteWithContext(vid, m.keyVotes[vid])).join('') + '</div>' : ''}
+              <p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 8px;">Source: ${m.source}</p>
+            </div>`;
+          });
+        }
+
+      } else {
+        // ===== FALLBACK RENDERING (no STATE_RACES data) =====
+        const redistricted = REDISTRICTED_STATES.find(s => s.abbreviation === stateAbbr);
+        if (redistricted) {
+          html += `<div class="card" style="padding: 16px; margin-bottom: 20px; border-left: 3px solid var(--yellow);">
+            <p><strong class="text-yellow">Redistricted State</strong> — ${redistricted.notes}</p>
+          </div>`;
+        }
+
+        stateCandidates.forEach(c => {
+          const partyColor = c.party === 'D' ? 'text-blue' : 'text-red';
+          const partyLabel = c.party === 'D' ? 'Democrat' : 'Republican';
+
+          let voteRows = '';
+          KEY_VOTES.forEach(v => {
+            const vote = c.keyVotes[v.id];
+            const label = getVoteLabel(vote);
+            voteRows += `<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+              <div>
+                <p style="font-weight: 500; font-size: 0.85rem;">${v.title}</p>
+                <p class="text-muted" style="font-size: 0.75rem;">${v.date} — ${v.result}</p>
+              </div>
+              <span class="${label.class}" style="font-weight: 700; font-size: 0.9rem; white-space: nowrap;">${label.icon} ${label.text}</span>
+            </div>`;
+          });
+
+          let lobbyHtml = '';
+          if (c.aipacEndorsed || c.aipacTrip || c.aipacFunding) {
+            let badges = [];
+            if (c.aipacEndorsed) badges.push('<span class="text-yellow" style="font-weight: 600;">Endorsed by the foreign lobby</span>');
+            if (c.aipacTrip) badges.push('<span class="text-muted">Accepted foreign lobby-funded trip</span>');
+            if (c.aipacFunding) badges.push('<span class="text-yellow text-mono">' + formatCurrency(c.aipacFunding) + ' in foreign lobby funding</span>');
+            lobbyHtml = `<div style="margin-top: 16px; padding: 16px; background: rgba(255,197,0,0.05); border-left: 3px solid var(--yellow); border-radius: 0 4px 4px 0;">
+              <h4 class="text-yellow" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Foreign Lobby Connection</h4>
+              <p>${badges.join(' &nbsp;&bull;&nbsp; ')}</p>
+              ${c.notableActions ? '<p class="text-muted" style="margin-top: 8px; font-size: 0.85rem; font-style: italic;">' + c.notableActions + '</p>' : ''}
+            </div>`;
           }
-          posterHtml = `<div style="margin-top: 16px; padding: 16px; background: rgba(255,65,54,0.05); border-left: 3px solid var(--red); border-radius: 0 4px 4px 0;">
-            <h4 class="text-red" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Recommended Poster Approach</h4>
-            <p class="text-muted" style="font-size: 0.85rem;">${posterNote}</p>
-            <a href="/posters/" class="btn btn-outline" style="margin-top: 12px; padding: 8px 16px; font-size: 0.8rem;">Browse posters →</a>
-          </div>`;
-        }
 
-        // Challenger info
-        let challengerHtml = '';
-        if (c.challenger && c.challenger !== 'TBD') {
-          challengerHtml = `<p style="font-size: 0.9rem; margin-top: 12px;">Challenger: <strong>${c.challenger}</strong></p>`;
-        }
+          let challengerHtml = '';
+          if (c.challenger && c.challenger !== 'TBD') {
+            challengerHtml = `<p style="font-size: 0.9rem; margin-top: 12px;">Challenger: <strong>${c.challenger}</strong></p>`;
+          }
 
-        html += `
-          <div class="card" style="padding: 28px; margin-bottom: 24px;">
+          html += `<div class="card" style="padding: 28px; margin-bottom: 24px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
               <div>
-                <h3 style="margin-bottom: 4px;">${c.name} ${c.isOpenSeat ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(0,168,232,0.15); color: var(--blue); font-size: 0.7rem; border-radius: 2px; text-transform: uppercase;">Open Seat</span>' : ''}</h3>
-                <p>
-                  <span class="${partyColor}" style="font-weight: 600;">${partyLabel}</span>
-                  <span class="text-muted"> — ${c.districtLabel}</span>
+                <h3 style="margin-bottom: 4px;">${c.name}</h3>
+                <p><span class="${partyColor}" style="font-weight: 600;">${partyLabel}</span><span class="text-muted"> — ${c.districtLabel}</span>
                   ${c.redistricted ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(255,197,0,0.15); color: var(--yellow); font-size: 0.7rem; border-radius: 2px; margin-left: 8px; text-transform: uppercase;">Redistricted</span>' : ''}
                 </p>
                 ${challengerHtml}
               </div>
-              <div style="text-align: right;">
-                <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${c.rating}</span>
-              </div>
+              <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${c.rating}</span>
             </div>
-
-            <!-- Vote Record -->
             <h4 class="text-red" style="font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Vote Record</h4>
             ${voteRows}
-            <p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 8px;">Source: clerk.house.gov roll call records</p>
-
             ${lobbyHtml}
-            ${demoHtml}
-            ${posterHtml}
-
             <p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 16px;">Source: ${c.source}</p>
-          </div>
-        `;
-      });
+          </div>`;
+        });
+      }
 
-      // Action buttons at bottom
-      html += `
-        <div style="text-align: center; margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="/lookup/" class="btn btn-red" style="padding: 12px 24px; font-size: 0.85rem;">Look up your zip code</a>
-          <a href="/posters/" class="btn btn-outline" style="padding: 12px 24px; font-size: 0.85rem;">Get posters</a>
-          <a href="/talk/" class="btn btn-outline" style="padding: 12px 24px; font-size: 0.85rem;">Talking points</a>
-        </div>
-      `;
+      // Action buttons
+      html += `<div style="text-align: center; margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="/lookup/" class="btn btn-red" style="padding: 12px 24px; font-size: 0.85rem;">Look up your zip code</a>
+        <a href="/posters/" class="btn btn-outline" style="padding: 12px 24px; font-size: 0.85rem;">Get posters</a>
+        <a href="/talk/" class="btn btn-outline" style="padding: 12px 24px; font-size: 0.85rem;">Talking points</a>
+      </div>`;
 
       document.getElementById('stateDetailContent').innerHTML = html;
       document.getElementById('stateDetailSection').style.display = 'block';
