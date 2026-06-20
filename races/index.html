@@ -229,7 +229,10 @@
       // Build votes HTML
       let votesHtml = '';
       KEY_VOTES.forEach(v => {
-        const vote = c.keyVotes[v.id];
+        let vote = c.keyVotes[v.id];
+        if (vote === null || vote === undefined) {
+          vote = v.id === 'hr815' ? 'N/A (Senate vote)' : 'Did not vote';
+        }
         const label = getVoteLabel(vote);
         votesHtml += `<span class="${label.class}" style="margin-right: 12px; font-size: 0.85rem;">
           ${v.id.toUpperCase()}: <strong>${label.text}</strong>
@@ -510,9 +513,11 @@
         html += `<h4 class="text-red" style="font-size: 0.8rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Vote Record</h4>`;
         if (inc.keyVotes) {
           Object.keys(inc.keyVotes).forEach(vid => {
-            if (inc.keyVotes[vid] !== null && inc.keyVotes[vid] !== undefined) {
-              html += renderVoteWithContext(vid, inc.keyVotes[vid]);
+            let voteValue = inc.keyVotes[vid];
+            if (voteValue === null || voteValue === undefined) {
+              voteValue = vid === 'hr815' ? 'N/A (Senate vote)' : 'Did not vote';
             }
+            html += renderVoteWithContext(vid, voteValue);
           });
         }
 
@@ -738,7 +743,13 @@
             html += `<div class="card" style="padding: 20px; margin-bottom: 12px;">
               <h4><span class="${m.party === 'D' ? 'text-blue' : 'text-red'}" style="font-weight: 700;">${m.name}</span> <span class="text-muted">(${m.party}) — ${m.label}</span></h4>
               <p class="text-muted" style="font-size: 0.85rem; margin-top: 6px;">${m.note}</p>
-              ${m.keyVotes ? '<div style="margin-top: 8px;">' + Object.keys(m.keyVotes).map(vid => renderVoteWithContext(vid, m.keyVotes[vid])).join('') + '</div>' : ''}
+              ${m.keyVotes ? '<div style="margin-top: 8px;">' + Object.keys(m.keyVotes).map(vid => {
+                let voteValue = m.keyVotes[vid];
+                if (voteValue === null || voteValue === undefined) {
+                  voteValue = vid === 'hr815' ? 'N/A (Senate vote)' : 'Did not vote';
+                }
+                return renderVoteWithContext(vid, voteValue);
+              }).join('') + '</div>' : ''}
               <p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 8px;">Source: ${m.source}</p>
             </div>`;
           });
@@ -759,7 +770,10 @@
 
           let voteRows = '';
           KEY_VOTES.forEach(v => {
-            const vote = c.keyVotes[v.id];
+            let vote = c.keyVotes[v.id];
+            if (vote === null || vote === undefined) {
+              vote = v.id === 'hr815' ? 'N/A (Senate vote)' : 'Did not vote';
+            }
             const label = getVoteLabel(vote);
             voteRows += `<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
               <div>
