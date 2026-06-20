@@ -397,12 +397,34 @@
 
     // Helper: render the "better/worse" comparison indicator
     function renderComparisonBadge(incumbent, challenger) {
-      // If incumbent voted Yes on weapons packages and has lobby funding, they're the problem
       const incVotes = incumbent.keyVotes || {};
       const yesCount = Object.values(incVotes).filter(v => v === 'Yes').length;
       const funding = incumbent.lobbyFunding || 0;
+      const incBad = yesCount > 0 || funding > 50000;
 
-      if (yesCount > 0 || funding > 50000) {
+      // Determine if challenger is also problematic
+      const chalSupports = (challenger.foreignPolicyPosition && challenger.foreignPolicyPosition.toLowerCase().includes('support')) ||
+                           (challenger.quotes && challenger.quotes.length > 0 && challenger.quotes.some(q => q.text.toLowerCase().includes('support'))) ||
+                           (challenger.lobbyFunding && challenger.lobbyFunding > 50000);
+
+      if (!incBad) return '';
+
+      if (incBad && chalSupports) {
+        // Both bad
+        return `<div style="display: flex; gap: 16px; margin-bottom: 20px; padding: 12px 16px; background: rgba(255,65,54,0.08); border-radius: 6px; border: 1px solid rgba(255,65,54,0.15);">
+          <div style="flex: 1; text-align: center; padding: 8px; border-right: 1px solid rgba(255,255,255,0.06);">
+            <span class="text-red" style="font-size: 1.4rem; font-weight: 700;">&#x2717;</span>
+            <p style="font-size: 0.8rem; font-weight: 600; margin-top: 4px;">${incumbent.name}</p>
+            <p class="text-muted" style="font-size: 0.72rem;">${yesCount} Yes vote${yesCount !== 1 ? 's' : ''} on weapons${funding > 0 ? ' · ' + formatCurrency(funding) + ' lobby $' : ''}</p>
+          </div>
+          <div style="flex: 1; text-align: center; padding: 8px;">
+            <span class="text-red" style="font-size: 1.4rem; font-weight: 700;">&#x2717;</span>
+            <p style="font-size: 0.8rem; font-weight: 600; margin-top: 4px;">${challenger.name || 'Challenger TBD'}</p>
+            <p class="text-muted" style="font-size: 0.72rem;">Publicly supports weapons to the gov't of Israel</p>
+          </div>
+        </div>`;
+      } else {
+        // Only incumbent is bad
         return `<div style="display: flex; gap: 16px; margin-bottom: 20px; padding: 12px 16px; background: rgba(255,65,54,0.06); border-radius: 6px;">
           <div style="flex: 1; text-align: center; padding: 8px; border-right: 1px solid rgba(255,255,255,0.06);">
             <span class="text-red" style="font-size: 1.4rem; font-weight: 700;">&#x2717;</span>
@@ -412,11 +434,10 @@
           <div style="flex: 1; text-align: center; padding: 8px;">
             <span class="text-blue" style="font-size: 1.4rem; font-weight: 700;">?</span>
             <p style="font-size: 0.8rem; font-weight: 600; margin-top: 4px;">${challenger.name || 'Challenger TBD'}</p>
-            <p class="text-muted" style="font-size: 0.72rem;">${challenger.foreignPolicyPosition ? 'Has stated position' : 'No weapons voting record yet'}</p>
+            <p class="text-muted" style="font-size: 0.72rem;">No record on weapons votes or lobby ties</p>
           </div>
         </div>`;
       }
-      return '';
     }
 
     // Helper: render a House race card (enhanced)
@@ -471,15 +492,15 @@
       } else if (inc) {
         // Incumbent vs challenger rendering
         const challenger = race.challenger || {};
-        const chalName = typeof challenger === 'string' ? challenger : challenger.name;
         const chalObj = typeof challenger === 'string' ? { name: challenger } : challenger;
+        const stateAbbr = race.label ? race.label.split('-')[0] : '';
 
-        // Comparison badge
+        // Comparison badge (updated for both-bad scenarios)
         html += renderComparisonBadge(inc, chalObj);
 
-        // Incumbent detail
+        // ── INCUMBENT SECTION ──
         const incPartyColor = inc.party === 'D' ? 'text-blue' : 'text-red';
-        html += `<div style="margin-bottom: 20px;">
+        html += `<div style="margin-bottom: 24px; padding: 20px; background: rgba(255,255,255,0.015); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
           <h4 style="font-size: 0.95rem; margin-bottom: 12px;">
             <span class="${incPartyColor}" style="font-weight: 700;">${inc.name}</span>
             <span class="text-muted" style="font-size: 0.8em;"> (${inc.party}) — Incumbent since ${inc.termStart}</span>
@@ -516,17 +537,67 @@
           html += `</div>`;
         }
 
-        html += `</div>`; // close incumbent detail
+        // Incumbent confrontation questions
+        const incQuestions = generateConfrontationQuestions(inc, race);
+        if (incQuestions.length > 0) {
+          html += `<div style="margin-top: 20px;">
+            <h4 style="font-size: 0.85rem; margin-bottom: 4px;">Questions for <span class="text-red">${inc.name}</span></h4>
+            <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 12px;">Data-driven questions for town halls and rallies. Every number is from official records.</p>
+            ${incQuestions.map((q, i) => renderQuestionCard(q, i)).join('')}
+          </div>`;
+        }
 
-        // Challenger detail
-        html += `<div style="padding: 16px; background: rgba(0,168,232,0.04); border-left: 3px solid var(--blue); border-radius: 0 4px 4px 0; margin-bottom: 16px;">
-          <h4 style="font-size: 0.85rem; margin-bottom: 8px;">
-            <span class="text-blue" style="font-weight: 600;">Challenger:</span> ${chalObj.name || 'TBD'}
-            ${chalObj.party ? ' <span class="text-muted">(' + chalObj.party + ')</span>' : ''}
+        html += `</div>`; // close incumbent section
+
+        // ── CHALLENGER SECTION ──
+        const chalPartyColor = chalObj.party === 'R' ? 'text-red' : chalObj.party === 'D' ? 'text-blue' : 'text-muted';
+        html += `<div style="margin-bottom: 24px; padding: 20px; background: rgba(255,255,255,0.015); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+          <h4 style="font-size: 0.95rem; margin-bottom: 8px;">
+            <span class="${chalPartyColor}" style="font-weight: 700;">${chalObj.name || 'TBD'}</span>
+            ${chalObj.party ? '<span class="text-muted" style="font-size: 0.8em;"> (' + chalObj.party + ') — Challenger</span>' : ''}
           </h4>
-          ${chalObj.background ? '<p class="text-muted" style="font-size: 0.85rem;">' + chalObj.background + '</p>' : ''}
-          ${chalObj.foreignPolicyPosition ? '<p style="font-size: 0.85rem; margin-top: 6px;"><strong>Position:</strong> ' + chalObj.foreignPolicyPosition + '</p>' : '<p class="text-muted" style="font-size: 0.82rem; margin-top: 6px;">No public record on weapons votes or foreign lobby ties.</p>'}
-        </div>`;
+          ${chalObj.background ? '<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 8px;">' + chalObj.background + '</p>' : ''}`;
+
+        // Challenger's stated position
+        if (chalObj.foreignPolicyPosition) {
+          html += `<div style="margin-bottom: 12px; padding: 12px; background: rgba(255,65,54,0.05); border-left: 3px solid var(--red); border-radius: 0 4px 4px 0;">
+            <p style="font-size: 0.85rem;"><strong>Stated position:</strong> ${chalObj.foreignPolicyPosition}</p>
+          </div>`;
+        }
+
+        // Challenger quotes
+        if (chalObj.quotes && chalObj.quotes.length > 0) {
+          chalObj.quotes.forEach(q => {
+            html += `<div style="margin-bottom: 12px; padding: 12px 16px; border-left: 3px solid var(--mid-gray); background: rgba(255,255,255,0.02); border-radius: 0 4px 4px 0;">
+              <p style="font-size: 0.85rem; font-style: italic; line-height: 1.5;">"${q.text}"</p>
+              <p class="text-mono text-muted" style="font-size: 0.7rem; margin-top: 6px;">— ${q.source}${q.date ? ', ' + q.date : ''}</p>
+            </div>`;
+          });
+        }
+
+        // Challenger lobby ties
+        if (chalObj.lobbyFunding && chalObj.lobbyFunding > 0) {
+          html += `<div style="margin-top: 12px; padding: 12px; background: rgba(255,197,0,0.05); border-left: 3px solid var(--yellow); border-radius: 0 4px 4px 0;">
+            <p class="text-yellow" style="font-size: 0.85rem;">${formatCurrency(chalObj.lobbyFunding)} in foreign lobby funding</p>
+          </div>`;
+        }
+
+        // If no position info at all
+        if (!chalObj.foreignPolicyPosition && (!chalObj.quotes || chalObj.quotes.length === 0) && (!chalObj.lobbyFunding || chalObj.lobbyFunding === 0)) {
+          html += `<p class="text-muted" style="font-size: 0.82rem;">No public record on weapons votes or foreign lobby ties. Check their website and public statements for their position.</p>`;
+        }
+
+        // Challenger confrontation questions
+        const chalQuestions = (typeof generateChallengerQuestions === 'function') ? generateChallengerQuestions(chalObj, race) : [];
+        if (chalQuestions.length > 0) {
+          html += `<div style="margin-top: 20px;">
+            <h4 style="font-size: 0.85rem; margin-bottom: 4px;">Questions for <span class="text-red">${chalObj.name}</span></h4>
+            <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 12px;">Based on their public statements. Ask them to reconsider.</p>
+            ${chalQuestions.map((q, i) => renderQuestionCard(q, i)).join('')}
+          </div>`;
+        }
+
+        html += `</div>`; // close challenger section
 
         // Multiple democratic candidates if primary pending
         if (race.challengerNote) {
@@ -539,13 +610,12 @@
           });
         }
 
-        // Confrontation questions
-        const questions = generateConfrontationQuestions(inc, race);
-        if (questions.length > 0) {
-          html += `<div style="margin-top: 24px;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 4px;">Town Hall <span class="text-red">Questions</span></h4>
-            <p class="text-muted" style="font-size: 0.78rem; margin-bottom: 16px;">Data-driven questions for rallies and town halls. Every number is sourced from official records.</p>
-            ${questions.map((q, i) => renderQuestionCard(q, i)).join('')}
+        // ── BOTH-BAD ASSESSMENT ──
+        const bothBadGuidance = (typeof assessBothCandidates === 'function') ? assessBothCandidates(inc, chalObj, stateAbbr) : null;
+        if (bothBadGuidance) {
+          html += `<div style="margin-top: 24px; padding: 20px; background: rgba(255,197,0,0.06); border: 1px solid rgba(255,197,0,0.2); border-radius: 8px;">
+            <h4 style="font-size: 0.9rem; margin-bottom: 8px;">Neither candidate? <span class="text-yellow">You still have a voice.</span></h4>
+            <p style="font-size: 0.88rem; line-height: 1.65;">${bothBadGuidance}</p>
           </div>`;
         }
       }

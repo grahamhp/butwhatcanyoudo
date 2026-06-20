@@ -880,7 +880,7 @@ const STATE_RACES = {
         district: 1, label: 'OH-01', area: 'Cincinnati', rating: 'Toss-up', redistricted: true,
         redistrictingImpact: 'Shifted from Biden+6.5 (2024) to Trump+2.5 under new map.',
         incumbent: { name: 'Greg Landsman', party: 'D', termStart: 2023, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: null }, lobbyFunding: 1730000, lobbyEndorsed: true, lobbyTrip: false, notableActions: ['One of only 22 Democrats who voted to censure Rep. Rashida Tlaib for criticizing the government of Israel', 'Received approximately $1.73 million from the foreign lobby for the government of Israel and aligned donors', 'Voted No on first weapons package (Nov 2023, 8,805 dead), then Yes on $26.38B package (April 2024, 34,000+ dead)'], source: 'clerk.house.gov Roll Call 152, Mondoweiss, FEC filings, OpenSecrets' },
-        challenger: { name: 'Eric Conroy', party: 'R', background: 'Air Force veteran, former CIA case officer. Won Republican primary. Endorsed by President Trump (April 14, 2026).', foreignPolicyPosition: null, lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, The Hill' }
+        challenger: { name: 'Eric Conroy', party: 'R', background: 'Air Force veteran, former CIA case officer. Won Republican primary. Endorsed by President Trump (April 14, 2026).', foreignPolicyPosition: 'Explicitly supports continued military aid to the government of Israel.', quotes: [{ text: 'Eric strongly supports the U.S.-Israel relationship and Israel\'s right to defend itself against terrorism and threats to its existence. He supports continued military aid to Israel.', source: 'ericconroyforcongress.com', date: '2026' }], lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, The Hill, ericconroyforcongress.com' }
       },
       {
         district: 9, label: 'OH-09', area: 'Toledo / Northwest Ohio', rating: 'Toss-up', redistricted: true,
@@ -1001,4 +1001,62 @@ function generateConfrontationQuestions(candidate, race) {
   }
 
   return questions;
+}
+
+// ============================================
+// CHALLENGER QUESTION GENERATOR
+// Generates questions for challengers based on public statements
+// ============================================
+function generateChallengerQuestions(challenger, race) {
+  const questions = [];
+  if (!challenger) return questions;
+
+  if (challenger.quotes && challenger.quotes.length > 0) {
+    challenger.quotes.forEach(q => {
+      const qText = 'On your website, you state: "' + q.text + '" Since that statement, over 100,000 Palestinians have been killed, including tens of thousands of children. The International Court of Justice has found a plausible risk of genocide, and the ICC has issued arrest warrants for Israeli leaders for war crimes. Given what has happened, do you still support sending weapons that are being used to kill civilians, including children?';
+      questions.push({ text: qText, context: 'Public statement supporting military aid', severity: 'high', dataPoints: ['Stated support for military aid', 'Over 100,000 killed', 'ICJ found plausible genocide', 'ICC arrest warrants issued'] });
+    });
+  }
+
+  if (challenger.foreignPolicyPosition && !challenger.quotes) {
+    questions.push({ text: 'You have publicly stated your support for continued military aid to the government of Israel. Over 100,000 Palestinians have been killed, including tens of thousands of children. The International Court of Justice has found a plausible risk of genocide. The ICC has issued arrest warrants for Israeli leaders. Under what circumstances, if any, would you vote to stop sending weapons?', context: 'Stated support for military aid', severity: 'high', dataPoints: ['Supports continued military aid', 'Over 100,000 killed', 'ICJ found plausible genocide', 'ICC arrest warrants issued'] });
+  }
+
+  if (challenger.lobbyFunding && challenger.lobbyFunding > 50000) {
+    const area = race ? race.area : 'your district';
+    questions.push({ text: 'You have received ' + formatCurrency(challenger.lobbyFunding) + ' from the foreign lobby for the government of Israel. Will you represent the people of ' + area + ', or the interests of your donors?', context: 'Foreign lobby funding: ' + formatCurrency(challenger.lobbyFunding), severity: 'high', dataPoints: [formatCurrency(challenger.lobbyFunding) + ' in lobby funding'] });
+  }
+
+  return questions;
+}
+
+// ============================================
+// BOTH-BAD ASSESSMENT
+// Determines if both candidates in a race are problematic
+// Returns guidance text or null
+// ============================================
+function assessBothCandidates(incumbent, challenger, stateAbbr) {
+  if (!incumbent || !challenger) return null;
+
+  const incVotes = incumbent.keyVotes || {};
+  const incYesCount = Object.values(incVotes).filter(v => v === 'Yes').length;
+  const incFunding = incumbent.lobbyFunding || 0;
+  const incBad = incYesCount > 0 || incFunding > 50000;
+
+  const chalBad = (challenger.foreignPolicyPosition && challenger.foreignPolicyPosition.toLowerCase().includes('support')) ||
+                  (challenger.quotes && challenger.quotes.length > 0) ||
+                  (challenger.lobbyFunding && challenger.lobbyFunding > 50000);
+
+  if (incBad && chalBad) {
+    const writeIn = (typeof canWriteIn === 'function') ? canWriteIn(stateAbbr) : true;
+    let guidance = 'Both candidates in this race have indicated support for sending weapons to the government of Israel while it faces charges of genocide at the International Court of Justice. ';
+    guidance += 'That does not mean your voice doesn\'t matter — it means it matters more. Show up to their town halls and rallies. Ask the questions above, in public, on camera. Make them answer for their positions. See if either has reconsidered.';
+    if (writeIn) {
+      guidance += ' If neither candidate represents your values, you can write in a candidate — the founder of your faith, a historical figure you consider a moral example, or anyone who represents the kind of leadership you believe in. A write-in is not a wasted vote. It is a statement that you showed up, and neither option was acceptable.';
+    } else {
+      guidance += ' This state does not allow write-in candidates for federal races. But you can still make your voice heard — show up, ask questions publicly, and make it clear that support for sending weapons used to kill civilians has a political cost.';
+    }
+    return guidance;
+  }
+  return null;
 }
