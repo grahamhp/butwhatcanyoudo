@@ -280,9 +280,9 @@ const CANDIDATES = [
     aipacFunding: 5500,
     aipacEndorsed: false,
     aipacTrip: false,
-    keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' },
+    keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on subsequent weapons packages. Longest-serving woman in House history. ~$5.5K in foreign lobby-aligned PAC contributions.',
+    notableActions: 'Voted No on first Israel aid bill, then switched to Yes on all subsequent weapons packages. One of only 16 Democrats who voted to force delivery of 2,000-lb bombs after Biden paused the shipment. Longest-serving woman in House history. ~$5.5K in foreign lobby-aligned PAC contributions.',
     challenger: 'Derek Merrin (R)',
     redistricted: true,
     demographics: {
@@ -306,9 +306,9 @@ const CANDIDATES = [
     aipacFunding: 35000,
     aipacEndorsed: true,
     aipacTrip: true,
-    keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' },
+    keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Voted No on first weapons package, then switched to Yes on subsequent packages. Went on a trip sponsored by the foreign lobby. ~$35K in foreign lobby contributions. Unopposed in May 5 primary.',
+    notableActions: 'Voted No on first weapons package, then switched to Yes on all subsequent packages. One of only 16 Democrats who voted to force delivery of 2,000-lb bombs after Biden paused the shipment. Went on a trip sponsored by the foreign lobby. ~$35K in foreign lobby contributions.',
     challenger: 'Carey Coleman (R)',
     redistricted: true,
     demographics: {
@@ -332,9 +332,9 @@ const CANDIDATES = [
     aipacFunding: 1730000,
     aipacEndorsed: true,
     aipacTrip: false,
-    keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' },
+    keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'One of only 22 Democrats who voted to censure Rep. Tlaib for criticizing the government of Israel. Received ~$1.73M from the foreign lobby and aligned donors. Voted No on first weapons package, then Yes on $26.38B package.',
+    notableActions: 'One of only 22 Democrats who voted to censure Rep. Tlaib for criticizing the government of Israel. Received ~$1.73M from the foreign lobby and aligned donors. Voted No on first weapons package, then Yes on $26.38B package. One of only 16 Democrats who voted to force delivery of 2,000-lb bombs after Biden paused the shipment.',
     challenger: 'Eric Conroy (R)',
     redistricted: true,
     demographics: {
@@ -881,19 +881,19 @@ const STATE_RACES = {
       {
         district: 1, label: 'OH-01', area: 'Cincinnati', rating: 'Toss-up', redistricted: true,
         redistrictingImpact: 'Shifted from Biden+6.5 (2024) to Trump+2.5 under new map.',
-        incumbent: { name: 'Greg Landsman', party: 'D', termStart: 2023, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' }, lobbyFunding: 1730000, lobbyEndorsed: true, lobbyTrip: false, notableActions: ['One of only 22 Democrats who voted to censure Rep. Rashida Tlaib for criticizing the government of Israel', 'Received approximately $1.73 million from the foreign lobby for the government of Israel and aligned donors', 'Voted No on first weapons package (Nov 2023, 8,805 dead), then Yes on $26.38B package (April 2024, 34,000+ dead)'], source: 'clerk.house.gov Roll Call 152, Mondoweiss, FEC filings, OpenSecrets' },
+        incumbent: { name: 'Greg Landsman', party: 'D', termStart: 2023, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, lobbyFunding: 1730000, lobbyEndorsed: true, lobbyTrip: false, notableActions: ['One of only 22 Democrats who voted to censure Rep. Rashida Tlaib for criticizing the government of Israel', 'Received approximately $1.73 million from the foreign lobby for the government of Israel and aligned donors', 'Voted No on first weapons package (Nov 2023, 8,805 dead), then Yes on $26.38B package (April 2024, 34,000+ dead)', 'One of only 16 Democrats who voted Yes on H.R. 8369 to force delivery of 2,000-lb bombs after Biden paused the shipment'], source: 'clerk.house.gov Roll Call 152 and 209, Mondoweiss, FEC filings, OpenSecrets' },
         challenger: { name: 'Eric Conroy', party: 'R', background: 'Air Force veteran, former CIA case officer. Won Republican primary. Endorsed by President Trump (April 14, 2026).', foreignPolicyPosition: 'Explicitly supports continued military aid to the government of Israel.', quotes: [{ text: 'Eric strongly supports the U.S.-Israel relationship and Israel\'s right to defend itself against terrorism and threats to its existence. He supports continued military aid to Israel.', source: 'ericconroyforcongress.com', date: '2026' }], lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, The Hill, ericconroyforcongress.com' }
       },
       {
         district: 9, label: 'OH-09', area: 'Toledo / Northwest Ohio', rating: 'Toss-up', redistricted: true,
         redistrictingImpact: 'District redrawn to Trump+11 under new map. Kaptur\'s toughest race in 40+ years.',
-        incumbent: { name: 'Marcy Kaptur', party: 'D', termStart: 1983, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' }, lobbyFunding: 5500, lobbyEndorsed: false, lobbyTrip: false, notableActions: ['Longest-serving woman in U.S. House history', 'Voted No on first weapons package (Nov 2023, 8,805 dead), then Yes on $26.38B package (April 2024, 34,000+ dead)', 'Approximately $5,500 in foreign lobby-aligned PAC contributions'], source: 'clerk.house.gov Roll Call 152, kaptur.house.gov, FEC' },
+        incumbent: { name: 'Marcy Kaptur', party: 'D', termStart: 1983, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, lobbyFunding: 5500, lobbyEndorsed: false, lobbyTrip: false, notableActions: ['Longest-serving woman in U.S. House history', 'Voted No on first weapons package (Nov 2023, 8,805 dead), then Yes on $26.38B package (April 2024, 34,000+ dead)', 'One of only 16 Democrats who voted Yes on H.R. 8369 to force delivery of 2,000-lb bombs after Biden paused the shipment', 'Approximately $5,500 in foreign lobby-aligned PAC contributions'], source: 'clerk.house.gov Roll Call 152 and 209, kaptur.house.gov, FEC' },
         challenger: { name: 'Derek Merrin', party: 'R', background: 'Former state representative. Lost to Kaptur by ~2,400 votes in 2024. Won 2026 Republican primary. Rematch.', foreignPolicyPosition: 'Strongly supports the government of Israel. Signed solidarity statements and co-sponsored state legislation recognizing Jerusalem as Israel\'s capital.', lobbyFunding: null, lobbyEndorsed: true, source: 'Ballotpedia, Republican Jewish Coalition, Ohio Jewish Communities' }
       },
       {
         district: 13, label: 'OH-13', area: 'Akron / Canton', rating: 'Toss-up', redistricted: true,
         redistrictingImpact: 'Redrawn slightly bluer but still highly competitive. "Must-win" for Democrats.',
-        incumbent: { name: 'Emilia Sykes', party: 'D', termStart: 2023, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' }, lobbyFunding: 35000, lobbyEndorsed: true, lobbyTrip: true, notableActions: ['Voted No on first weapons package, then switched to Yes on subsequent packages', 'Accepted a trip sponsored by the foreign lobby for the government of Israel', 'Approximately $35,000 in foreign lobby contributions', 'Endorsed by the foreign lobby for the government of Israel'], source: 'clerk.house.gov Roll Call 152, Ballotpedia, FEC' },
+        incumbent: { name: 'Emilia Sykes', party: 'D', termStart: 2023, keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, lobbyFunding: 35000, lobbyEndorsed: true, lobbyTrip: true, notableActions: ['Voted No on first weapons package, then switched to Yes on all subsequent packages', 'One of only 16 Democrats who voted Yes on H.R. 8369 to force delivery of 2,000-lb bombs after Biden paused the shipment', 'Accepted a trip sponsored by the foreign lobby for the government of Israel', 'Approximately $35,000 in foreign lobby contributions', 'Endorsed by the foreign lobby for the government of Israel'], source: 'clerk.house.gov Roll Call 152 and 209, Ballotpedia, FEC' },
         challenger: { name: 'Carey Coleman', party: 'R', background: 'Won Republican primary May 5, 2026 with 47.3% of the vote. Conservative radio commentator.', foreignPolicyPosition: 'Campaign focuses heavily on "strong national security" and conservative principles, though no specific policy paper on Israel was published.', lobbyFunding: null, lobbyEndorsed: false, source: 'Ohio Capital Journal, Ballotpedia, campaign website' }
       }
     ]
@@ -908,7 +908,7 @@ const STATE_RACES = {
       candidates: [
         { name: 'Katie Hobbs', party: 'D', background: 'Incumbent governor seeking re-election. Former Secretary of State.', incumbentOrChallenger: 'incumbent', foreignPolicyPosition: null, lobbyConnection: null, source: 'Ballotpedia' },
         { name: 'Andy Biggs', party: 'R', background: 'U.S. Representative AZ-5. Voted NO on all Israel weapons packages — one of few Republicans to do so.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Voted No on H.R. 6126, H.R. 8034, and H.R. 8369. Opposition rooted in fiscal conservatism, lack of spending offsets, and opposition to omnibus packages, rather than opposition to Israel itself.', houseVotes: { hr6126: 'No', hr8034: 'No', hr8369: 'No' }, lobbyConnection: null, source: 'clerk.house.gov Roll Call 152, Ballotpedia, public statements' },
-        { name: 'David Schweikert', party: 'R', background: 'U.S. Representative AZ-1 (leaving for governor race). Voted YES on all Israel weapons packages.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Voted Yes on H.R. 6126, H.R. 8034, and H.R. 8369. Supported every weapons package.', houseVotes: { hr6126: 'Yes', hr8034: 'Yes', hr8369: 'Yes' }, lobbyConnection: 'Significant pro-Israel PAC contributions tracked by OpenSecrets', source: 'clerk.house.gov Roll Call 152 and 577, Ballotpedia, OpenSecrets' }
+        { name: 'David Schweikert', party: 'R', background: 'U.S. Representative AZ-1 (leaving for governor race). Voted Yes on initial weapons packages, No on forcing bomb delivery.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Voted Yes on H.R. 6126 and H.R. 8034 (initial weapons packages), but voted No on H.R. 8369 (forcing delivery of 2,000-lb bombs after Biden paused the shipment).', houseVotes: { hr6126: 'Yes', hr8034: 'Yes', hr8369: 'No' }, lobbyConnection: 'Significant pro-Israel PAC contributions tracked by OpenSecrets', source: 'clerk.house.gov Roll Call 152, 209, and 577, Ballotpedia, OpenSecrets' }
       ]
     },
     senate: null,
@@ -945,8 +945,8 @@ const STATE_RACES = {
       }
     ],
     otherNotableMembers: [
-      { name: 'Eli Crane', party: 'R', district: 2, label: 'AZ-02', keyVotes: { hr8034: 'No' }, note: 'One of 21 Republicans who voted No on H.R. 8034. Former Navy SEAL.', source: 'clerk.house.gov Roll Call 152' },
-      { name: 'Paul Gosar', party: 'R', district: 9, label: 'AZ-09', keyVotes: { hr8034: 'No' }, note: 'Voted No on H.R. 8034. Non-interventionist.', source: 'clerk.house.gov Roll Call 152' }
+      { name: 'Eli Crane', party: 'R', district: 2, label: 'AZ-02', keyVotes: { hr6126: 'Yes', hr8034: 'No', hr815: null, hr8369: 'No' }, note: 'One of 21 Republicans who voted No on H.R. 8034 and also No on H.R. 8369 (forcing bomb delivery). Former Navy SEAL. Voted Yes only on the initial Nov 2023 package.', source: 'clerk.house.gov Roll Call 152 and 209' },
+      { name: 'Paul Gosar', party: 'R', district: 9, label: 'AZ-09', keyVotes: { hr6126: 'No', hr8034: 'No', hr815: null, hr8369: 'No' }, note: 'Voted No on all Israel weapons packages. Non-interventionist and fiscal conservative.', source: 'clerk.house.gov Roll Call 152 and 209' }
     ]
   }
 };

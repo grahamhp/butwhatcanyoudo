@@ -207,7 +207,7 @@
     </div>
   </footer>
 
-  <script src="/js/candidates.js?v=4"></script>
+  <script src="/js/candidates.js?v=5"></script>
   <script src="/js/map.js?v=4"></script>
   <script src="/js/main.js?v=3"></script>
   <script>
@@ -587,9 +587,12 @@
           </div>`;
         }
 
-        // If no position info at all
+        // If no position info at all — flag for research
         if (!chalObj.foreignPolicyPosition && (!chalObj.quotes || chalObj.quotes.length === 0) && (!chalObj.lobbyFunding || chalObj.lobbyFunding === 0)) {
-          html += `<p class="text-muted" style="font-size: 0.82rem;">No public record on weapons votes or foreign lobby ties. Check their website and public statements for their position.</p>`;
+          html += `<div style="padding: 10px 12px; background: rgba(255,197,0,0.05); border-left: 3px solid var(--yellow); border-radius: 0 4px 4px 0;">
+            <p class="text-yellow" style="font-size: 0.82rem; font-weight: 600;">Position under investigation</p>
+            <p class="text-muted" style="font-size: 0.8rem;">We are actively researching this candidate's position on weapons to the government of Israel. If you have information — a campaign website quote, a public statement, a town hall answer — <a href="/volunteer/" style="color: var(--blue);">send it to us</a>.</p>
+          </div>`;
         }
 
         // Challenger confrontation questions
