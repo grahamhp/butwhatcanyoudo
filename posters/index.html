@@ -88,6 +88,19 @@
     .tag-parent { background: rgba(0,168,232,0.15); color: var(--blue); }
     .tag-fiscal { background: rgba(255,197,0,0.15); color: var(--yellow); }
     .tag-student { background: rgba(255,65,54,0.15); color: var(--red); }
+    .tag-faith { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .tag-suburban { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .tag-college { background: rgba(255,65,54,0.15); color: var(--red); }
+    .tag-working-class { background: rgba(255,197,0,0.15); color: var(--yellow); }
+    .tag-libertarian { background: rgba(255,197,0,0.15); color: var(--yellow); }
+    .tag-humanitarian { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .tag-jewish { background: rgba(255,197,0,0.15); color: var(--yellow); }
+    .tag-interfaith { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .tag-urban { background: rgba(255,65,54,0.15); color: var(--red); }
+    .tag-arts { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .tag-reflective { background: rgba(255,255,255,0.10); color: var(--light-gray); }
+    .tag-anti-bigotry { background: rgba(255,255,255,0.10); color: var(--light-gray); }
+    .tag-high-care { background: rgba(255,197,0,0.18); color: var(--yellow); border: 1px solid rgba(255,197,0,0.35); }
   </style>
 </head>
 <body>
@@ -122,7 +135,7 @@
       <div class="fade-in" style="max-width: 750px; margin: 0 auto;">
         <h2 style="margin-bottom: 16px;">The design <span class="text-yellow">philosophy</span></h2>
         <p class="text-muted" style="margin-bottom: 16px;">Every poster follows the same principles: black-and-white photography — always real, never AI-generated — with bold, bright text that stops people in their tracks. The images show reality. The words make it personal.</p>
-        <p class="text-muted" style="margin-bottom: 16px;">Different posters work in different communities. A poster for a Christian neighborhood is different from one near a college campus. Use the tags to find posters that resonate with the people you want to reach.</p>
+        <p class="text-muted" style="margin-bottom: 16px;">Different posters work in different communities. A poster for a faith-heavy district is different from one near a college campus or in a working-class tax-accountability district. Use the filters to match posters to the people you want to reach.</p>
         <p class="text-muted">All posters are available in 11×17” (standard tabloid size) for easy printing. See our <a href="/how-to/" style="color: var(--blue);">printing guide</a> for supplies and tips.</p>
       </div>
     </div>
@@ -136,11 +149,13 @@
         <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;">
           <button class="btn btn-red poster-filter active-filter" data-filter="all" onclick="filterPosters('all', this)">All</button>
           <button class="btn btn-outline poster-filter" data-filter="general" onclick="filterPosters('general', this)">General</button>
-          <button class="btn btn-outline poster-filter" data-filter="christian" onclick="filterPosters('christian', this)">Faith-Based</button>
-          <button class="btn btn-outline poster-filter" data-filter="veteran" onclick="filterPosters('veteran', this)">Veterans</button>
+          <button class="btn btn-outline poster-filter" data-filter="faith" onclick="filterPosters('faith', this)">Faith / Interfaith</button>
           <button class="btn btn-outline poster-filter" data-filter="parent" onclick="filterPosters('parent', this)">Parents</button>
           <button class="btn btn-outline poster-filter" data-filter="fiscal" onclick="filterPosters('fiscal', this)">Fiscal</button>
-          <button class="btn btn-outline poster-filter" data-filter="student" onclick="filterPosters('student', this)">Students</button>
+          <button class="btn btn-outline poster-filter" data-filter="veteran" onclick="filterPosters('veteran', this)">Veterans</button>
+          <button class="btn btn-outline poster-filter" data-filter="college" onclick="filterPosters('college', this)">College</button>
+          <button class="btn btn-outline poster-filter" data-filter="jewish" onclick="filterPosters('jewish', this)">Jewish Audiences</button>
+          <button class="btn btn-outline poster-filter" data-filter="high-care" onclick="filterPosters('high-care', this)">High-Care</button>
         </div>
 
         <div class="poster-grid" id="posterGrid">
@@ -155,9 +170,9 @@
     <div class="container">
       <div class="fade-in" style="max-width: 700px; margin: 0 auto; text-align: center;">
         <h2 style="margin-bottom: 16px;">Make it <span class="text-blue">personal</span></h2>
-        <p class="text-muted" style="margin-bottom: 16px;">Want a poster with your representative’s name, foreign lobby funding amount, and voting record? Enter your zip code and we’ll customize one for your district.</p>
+        <p class="text-muted" style="margin-bottom: 16px;">Want a poster with your representative’s name, foreign lobby funding amount, and voting record? Enter a ZIP code for an estimated district preview.</p>
         <div class="zip-input-group" style="max-width: 400px; margin: 0 auto 16px;">
-          <input type="text" id="posterZip" placeholder="Your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+          <input type="text" id="posterZip" placeholder="ZIP code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
           <button class="btn btn-red" onclick="generateCustomPoster()">Create poster</button>
         </div>
         <div id="customPosterResult"></div>
@@ -207,15 +222,37 @@
   <script src="/js/lookup.js?v=3"></script>
   <script src="/js/main.js?v=3"></script>
   <script>
-    // Poster data
+    const TARGET_LABELS = {
+      general: 'General',
+      faith: 'Faith',
+      christian: 'Christian areas',
+      interfaith: 'Interfaith',
+      veteran: 'Veterans',
+      parent: 'Parents',
+      suburban: 'Suburban',
+      fiscal: 'Fiscal',
+      libertarian: 'Libertarian',
+      'working-class': 'Working class',
+      college: 'College',
+      student: 'Students',
+      jewish: 'Jewish audiences',
+      urban: 'Urban',
+      arts: 'Arts districts',
+      reflective: 'Reflective audiences',
+      humanitarian: 'Humanitarian',
+      'anti-bigotry': 'Anti-bigotry'
+    };
+
     const POSTERS = [
       {
         id: 'p1',
         headline: 'The government<br>of Israel told us to.',
-        subtext: '— Every foreign lobby-funded politician',
+        subtext: '- Every foreign lobby-funded politician',
         headlineColor: '#FF4136',
-        tags: ['general'],
-        description: 'General accountability poster — works everywhere.',
+        themes: ['accountability', 'foreign lobby funding'],
+        districtTargets: ['general'],
+        careLevel: 'normal',
+        description: 'General accountability poster - works everywhere.',
         bgStyle: 'background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0d0d0d 100%);'
       },
       {
@@ -223,8 +260,10 @@
         headline: '$26<br>Billion.',
         subtext: 'Your tax dollars. Their weapons. Your vote.',
         headlineColor: '#FFC500',
-        tags: ['general', 'fiscal'],
-        description: 'Fiscal impact poster — great for conservative areas.',
+        themes: ['tax dollars', 'weapons funding'],
+        districtTargets: ['general', 'fiscal', 'libertarian', 'working-class'],
+        careLevel: 'normal',
+        description: 'Fiscal impact poster - strong for tax-accountability districts.',
         bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);'
       },
       {
@@ -232,8 +271,10 @@
         headline: 'They bombed<br>the churches too.',
         subtext: 'The Holy Family Catholic Parish. Gaza. American weapons.',
         headlineColor: '#00A8E8',
-        tags: ['christian'],
-        description: 'Faith-based poster — for Christian communities.',
+        themes: ['churches', 'faith communities'],
+        districtTargets: ['faith', 'christian', 'interfaith'],
+        careLevel: 'normal',
+        description: 'Faith-based poster - for Christian and interfaith communities.',
         bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);'
       },
       {
@@ -241,8 +282,10 @@
         headline: 'What will you<br>tell your kids?',
         subtext: '10,000+ children. American bombs. Your representative voted yes.',
         headlineColor: '#FF4136',
-        tags: ['parent'],
-        description: 'For suburban neighborhoods and schools.',
+        themes: ['children', 'family accountability'],
+        districtTargets: ['parent', 'suburban', 'general'],
+        careLevel: 'normal',
+        description: 'For suburban neighborhoods and family-heavy districts.',
         bgStyle: 'background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);'
       },
       {
@@ -250,7 +293,9 @@
         headline: 'Our weapons.<br>Their civilians.',
         subtext: 'We swore an oath to defend. Not this.',
         headlineColor: '#FFC500',
-        tags: ['veteran'],
+        themes: ['military ethics', 'civilian harm'],
+        districtTargets: ['veteran', 'general'],
+        careLevel: 'normal',
         description: 'For areas near military bases and veteran communities.',
         bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);'
       },
@@ -259,17 +304,21 @@
         headline: 'History<br>is watching.',
         subtext: 'So are you. November 2026.',
         headlineColor: '#00A8E8',
-        tags: ['student'],
+        themes: ['history', 'moral witness'],
+        districtTargets: ['college', 'student', 'urban'],
+        careLevel: 'normal',
         description: 'For college campuses and young voter areas.',
         bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #111 100%);'
       },
       {
         id: 'p7',
         headline: '$126.9 Million.',
-        subtext: 'That’s how much one foreign lobbying group spent in 2024 to buy Congress.',
+        subtext: 'That is how much one foreign lobbying group spent in 2024 to buy Congress.',
         headlineColor: '#FFC500',
-        tags: ['general', 'fiscal'],
-        description: 'Money-in-politics poster — works with all audiences.',
+        themes: ['money in politics', 'lobby spending'],
+        districtTargets: ['general', 'fiscal', 'libertarian'],
+        careLevel: 'normal',
+        description: 'Money-in-politics poster - works with accountability audiences.',
         bgStyle: 'background: linear-gradient(135deg, #111 0%, #0d0d0d 100%);'
       },
       {
@@ -277,8 +326,10 @@
         headline: 'They spent $32M<br>to silence ONE voice.',
         subtext: 'Thomas Massie voted no. They spent $32 million to remove him.',
         headlineColor: '#FF4136',
-        tags: ['general'],
-        description: 'The Massie story — shows both parties punish dissent.',
+        themes: ['Massie', 'political punishment'],
+        districtTargets: ['general', 'libertarian', 'fiscal'],
+        careLevel: 'normal',
+        description: 'The Massie story - shows both parties punish dissent.',
         bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);'
       },
       {
@@ -286,81 +337,220 @@
         headline: 'First they<br>came for<br>the hospitals.',
         subtext: 'Then the schools. Then the churches. With American weapons.',
         headlineColor: '#FF4136',
-        tags: ['christian', 'general'],
-        description: 'Adapted Niemöller framework — powerful for faith communities.',
+        themes: ['hospitals', 'schools', 'churches'],
+        districtTargets: ['faith', 'christian', 'general'],
+        careLevel: 'normal',
+        description: 'Adapted historical framework - powerful for faith communities.',
         bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);'
       },
       {
         id: 'p10',
         headline: 'Your rep<br>voted yes.',
-        subtext: 'butwhatcanyoudo.org — Look them up.',
+        subtext: 'butwhatcanyoudo.org - Look them up.',
         headlineColor: '#00A8E8',
-        tags: ['general'],
+        themes: ['district lookup', 'vote record'],
+        districtTargets: ['general'],
+        careLevel: 'normal',
         description: 'URL-driven poster to drive traffic to the site.',
         bgStyle: 'background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);'
       },
       {
         id: 'p11',
         headline: '6 votes.',
-        subtext: 'That’s how close it was in Iowa. Your vote matters.',
+        subtext: 'That is how close it was in Iowa. Your vote matters.',
         headlineColor: '#FFC500',
-        tags: ['general'],
-        description: 'Voter motivation poster — shows elections are decided by small margins.',
+        themes: ['close elections', 'voter motivation'],
+        districtTargets: ['general', 'fiscal', 'working-class'],
+        careLevel: 'normal',
+        description: 'Voter motivation poster - shows elections are decided by small margins.',
         bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);'
       },
       {
         id: 'p12',
         headline: 'Not left.<br>Not right.<br>Just right.',
-        subtext: 'This isn’t partisan. It’s human. November 2026.',
+        subtext: 'This is not partisan. It is human. November 2026.',
         headlineColor: '#00A8E8',
-        tags: ['general'],
-        description: 'Nonpartisan framing poster — bridges political divides.',
+        themes: ['nonpartisan', 'humanitarian'],
+        districtTargets: ['general', 'suburban', 'interfaith'],
+        careLevel: 'normal',
+        description: 'Nonpartisan framing poster - bridges political divides.',
         bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #111 100%);'
+      },
+      {
+        id: 'p13',
+        headline: 'Someone tucked<br>them in.',
+        subtext: 'Someone voted yes.',
+        headlineColor: '#FF4136',
+        themes: ['children', 'family grief', 'vote accountability'],
+        districtTargets: ['parent', 'suburban', 'general'],
+        careLevel: 'normal',
+        description: 'Quiet parent-focused concept for family-heavy districts.',
+        bgStyle: 'background: radial-gradient(circle at 50% 35%, #1a1a1a 0%, #0d0d0d 62%, #050505 100%);'
+      },
+      {
+        id: 'p14',
+        headline: 'They called<br>it aid.',
+        subtext: 'It arrived as metal.',
+        headlineColor: '#FFC500',
+        themes: ['aid language', 'weapons funding'],
+        districtTargets: ['fiscal', 'libertarian', 'working-class', 'general'],
+        careLevel: 'normal',
+        description: 'For fiscal conservatives, small-government voters, and working-class tax accountability.',
+        bgStyle: 'background: linear-gradient(145deg, #0a0a0a 0%, #191919 48%, #050505 100%);'
+      },
+      {
+        id: 'p15',
+        headline: 'No mother should<br>have to learn<br>the sound.',
+        subtext: 'Not there. Not anywhere.',
+        headlineColor: '#00A8E8',
+        themes: ['mothers', 'civilian harm', 'humanitarian grief'],
+        districtTargets: ['parent', 'faith', 'humanitarian', 'suburban'],
+        careLevel: 'normal',
+        description: 'Soft humanitarian framing for parents and faith communities.',
+        bgStyle: 'background: linear-gradient(180deg, #111 0%, #050505 100%);'
+      },
+      {
+        id: 'p16',
+        headline: 'Some histories<br>should make us<br>more careful.',
+        subtext: 'Not more silent.',
+        headlineColor: '#FFC500',
+        themes: ['historical comparison', 'moral memory'],
+        districtTargets: ['jewish', 'college', 'urban', 'faith'],
+        careLevel: 'high-care',
+        description: 'High-care historical-memory concept for carefully chosen audiences.',
+        bgStyle: 'background: linear-gradient(135deg, #050505 0%, #171717 54%, #0d0d0d 100%);'
+      },
+      {
+        id: 'p17',
+        headline: 'The old photographs<br>warned us.',
+        subtext: 'The new ones are asking us.',
+        headlineColor: '#00A8E8',
+        themes: ['historical comparison', 'photographic witness'],
+        districtTargets: ['college', 'urban', 'arts', 'reflective'],
+        careLevel: 'high-care',
+        description: 'Reflective high-care concept for college, arts, and urban districts.',
+        bgStyle: 'background: linear-gradient(180deg, #070707 0%, #181818 58%, #050505 100%);'
+      },
+      {
+        id: 'p18',
+        headline: 'Never again<br>was not meant<br>for one people only.',
+        subtext: '',
+        headlineColor: '#FFC500',
+        themes: ['Never Again', 'shared moral warning'],
+        districtTargets: ['jewish', 'interfaith', 'faith'],
+        careLevel: 'high-care',
+        description: 'High-care concept for Jewish voices and interfaith audiences.',
+        bgStyle: 'background: radial-gradient(circle at 50% 40%, #202020 0%, #0d0d0d 64%, #050505 100%);'
+      },
+      {
+        id: 'p19',
+        headline: 'You do not have<br>to hate anyone<br>to say stop.',
+        subtext: 'But you do have to mean it.',
+        headlineColor: '#FF4136',
+        themes: ['anti-bigotry', 'moral clarity'],
+        districtTargets: ['general', 'suburban', 'faith', 'interfaith'],
+        careLevel: 'normal',
+        description: 'Reassurance poster for mixed-faith and broad persuadable districts.',
+        bgStyle: 'background: linear-gradient(135deg, #111 0%, #050505 50%, #1a1a1a 100%);'
       }
     ];
 
-    // Render posters
+    function getTargetLabel(target) {
+      return TARGET_LABELS[target] || target.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function posterMatchesFilter(poster, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'high-care') return poster.careLevel === 'high-care';
+      return poster.districtTargets.includes(filter);
+    }
+
     function renderPosters(filter) {
       const grid = document.getElementById('posterGrid');
-      const filtered = filter === 'all' ? POSTERS : POSTERS.filter(p => p.tags.includes(filter));
-      
+      const filtered = POSTERS.filter(p => posterMatchesFilter(p, filter));
+
       grid.innerHTML = filtered.map(p => {
-        const tagHtml = p.tags.map(t => {
+        const targetTags = p.districtTargets.map(t => {
           const tagClass = 'tag-' + t;
-          const tagLabel = t.charAt(0).toUpperCase() + t.slice(1);
-          return `<span class="poster-tag ${tagClass}">${tagLabel}</span>`;
+          return `<span class="poster-tag ${tagClass}">${getTargetLabel(t)}</span>`;
         }).join('');
+        const careTag = p.careLevel === 'high-care'
+          ? '<span class="poster-tag tag-high-care">High-care use</span>'
+          : '';
+        const subtext = p.subtext ? `<p class="poster-sub">${p.subtext}</p>` : '';
 
         return `
-          <div class="poster-card" data-tags="${p.tags.join(',')}">
+          <div class="poster-card" data-targets="${p.districtTargets.join(',')}" data-care="${p.careLevel}">
             <div class="poster-preview" style="${p.bgStyle}">
               <h2 style="color: ${p.headlineColor}; font-size: 2rem;">${p.headline}</h2>
-              <p class="poster-sub">${p.subtext}</p>
+              ${subtext}
             </div>
             <div class="poster-info">
               <h3>${p.description}</h3>
-              <div class="poster-tags">${tagHtml}</div>
-              <p style="margin-top: 12px; font-size: 0.8rem;" class="text-muted">Print size: 11×17” (tabloid) • High-res PDF</p>
+              <p class="text-muted" style="font-size: 0.78rem; margin-top: 6px;">Best for district types:</p>
+              <div class="poster-tags">${targetTags}${careTag}</div>
+              <p style="margin-top: 12px; font-size: 0.8rem;" class="text-muted">Print size: 11x17 in. (tabloid) - High-res PDF placeholder</p>
             </div>
           </div>
         `;
       }).join('');
     }
 
-    // Filter posters
     function filterPosters(filter, btn) {
-      // Update active filter button
       document.querySelectorAll('.poster-filter').forEach(b => {
         b.classList.remove('active-filter');
         b.className = b.className.replace('btn-red', 'btn-outline');
       });
       btn.classList.add('active-filter');
       btn.className = btn.className.replace('btn-outline', 'btn-red');
-      
       renderPosters(filter);
     }
 
-    // Custom poster generator
+    function getDistrictTargetKeys(candidate) {
+      const targets = new Set(['general']);
+      if (!candidate || !candidate.demographics) return targets;
+
+      const type = (candidate.demographics.type || '').toLowerCase();
+      const religion = (candidate.demographics.religionDominant || '').toLowerCase();
+      const notes = (candidate.demographics.notes || '').toLowerCase();
+
+      if (type.includes('suburban')) targets.add('suburban');
+      if (type.includes('rural') || type.includes('libertarian')) targets.add('libertarian');
+      if (type.includes('working') || type.includes('urban')) targets.add('working-class');
+      if (type.includes('urban')) targets.add('urban');
+      if (type.includes('college') || type.includes('university') || notes.includes('college')) targets.add('college');
+      if (type.includes('veteran') || type.includes('military')) targets.add('veteran');
+      if (religion.includes('christian') || religion.includes('catholic') || religion.includes('baptist')) targets.add('faith');
+      if (religion.includes('jewish')) targets.add('jewish');
+      if (type.includes('suburban') || notes.includes('famil')) targets.add('parent');
+      if (type.includes('border') || type.includes('working') || type.includes('rural')) targets.add('fiscal');
+
+      return targets;
+    }
+
+    function getRecommendedPostersForDistrict(candidate) {
+      const targets = getDistrictTargetKeys(candidate);
+      return POSTERS
+        .map(p => {
+          const score = p.districtTargets.reduce((total, target) => total + (targets.has(target) ? 1 : 0), 0);
+          return { poster: p, score };
+        })
+        .filter(item => item.score > 0 && (item.poster.careLevel !== 'high-care' || targets.has('jewish') || targets.has('college') || targets.has('urban') || targets.has('faith')))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 4)
+        .map(item => item.poster);
+    }
+
+    function renderPosterRecommendationList(posters) {
+      if (!posters.length) return '';
+      return `
+        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); text-align: left;">
+          <h4 class="text-blue" style="font-size: 0.9rem; margin-bottom: 8px;">Suggested poster directions for this district</h4>
+          ${posters.map(p => `<p style="font-size: 0.85rem; margin-bottom: 8px;"><strong>${p.headline.replace(/<br>/g, ' ')}</strong>${p.subtext ? ' <span class="text-muted">' + p.subtext + '</span>' : ''}</p>`).join('')}
+        </div>
+      `;
+    }
+
     function generateCustomPoster() {
       const zip = document.getElementById('posterZip').value.trim();
       const resultDiv = document.getElementById('customPosterResult');
@@ -376,31 +566,33 @@
         const c = result.primaryCandidate;
         const aipacStatus = c.aipacEndorsed ? 'Foreign Lobby Endorsed.' : '';
         const votedYes = Object.values(c.keyVotes).some(v => v === 'Yes');
-        
+        const recommendations = getRecommendedPostersForDistrict(c);
+
         resultDiv.innerHTML = `
-          <div class="poster-card" style="max-width: 400px; margin: 24px auto 0;">
+          <div class="poster-card" style="max-width: 460px; margin: 24px auto 0;">
             <div class="poster-preview" style="background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);">
               <h2 style="color: #FF4136; font-size: 1.8rem;">${c.name}<br><span style="color: #FFC500; font-size: 1.2rem;">${c.districtLabel}</span></h2>
               <p class="poster-sub">${aipacStatus} ${votedYes ? 'Voted yes on weapons packages.' : ''}<br>butwhatcanyoudo.org</p>
             </div>
             <div class="poster-info">
               <h3>Custom poster for ${c.districtLabel}</h3>
-              <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">Personalized with your representative’s name and record. Print at 11×17” for best results.</p>
-              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px; font-style: italic;">Full-resolution PDF downloads coming before launch. For now, you can screenshot this preview or use our template designs with your rep’s info.</p>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">Personalized with your representative's name and record. Print at 11x17 in. for best results.</p>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px; font-style: italic;">Full-resolution PDF downloads coming before launch. For now, this preview shows the data and district-targeting direction.</p>
+              ${renderPosterRecommendationList(recommendations)}
             </div>
           </div>
         `;
       } else {
         resultDiv.innerHTML = `
           <div class="card" style="padding: 20px; max-width: 400px; margin: 24px auto 0;">
-            <p class="text-muted">Your district isn’t in our toss-up database yet, but you can still use any of the general posters above — they work everywhere.</p>
+            <p class="text-muted">Your district is not in our toss-up database yet, but you can still use any of the general posters above.</p>
           </div>
         `;
       }
     }
 
-    // Initialize
     renderPosters('all');
   </script>
 </body>
 </html>
+

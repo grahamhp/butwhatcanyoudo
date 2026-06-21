@@ -12,13 +12,13 @@
 
   var TRACKED_STATES = {
     AZ: true, CA: true, CO: true, IA: true, ME: true, MI: true, NC: true,
-    NE: true, NM: true, NY: true, OH: true, PA: true, TX: true, WA: true
+    NE: true, NM: true, NY: true, OH: true, PA: true, TX: true, WA: true, MO: true, UT: true
   };
 
   var RACE_COUNTS = {
     AZ: 2, CA: 2, CO: 1, IA: 1, ME: 1, MI: 1,
-    NC: 1, NE: 1, NM: 1, NY: 1, OH: 2, PA: 2,
-    TX: 1, WA: 1
+    NC: 1, NE: 1, NM: 1, NY: 1, OH: 3, PA: 2,
+    TX: 1, WA: 1, MO: 0, UT: 0
   };
 
   var STATE_NAMES = {
@@ -205,8 +205,12 @@
     var tr = !!TRACKED_STATES[abbr];
     var h = '<strong style="color:#F5F5F5">' + nm + '</strong>';
     if (tr) {
-      var c = RACE_COUNTS[abbr] || 1;
-      h += '<br><span style="color:#FF4136;font-size:11px">' + c + (c === 1 ? ' race' : ' races') + ' tracked</span>';
+      var c = Object.prototype.hasOwnProperty.call(RACE_COUNTS, abbr) ? RACE_COUNTS[abbr] : 1;
+      if (c === 0) {
+        h += '<br><span style="color:#FF4136;font-size:11px">state context tracked</span>';
+      } else {
+        h += '<br><span style="color:#FF4136;font-size:11px">' + c + (c === 1 ? ' race' : ' races') + ' tracked</span>';
+      }
       h += '<br><span style="color:#888;font-size:11px">Click for details</span>';
     }
     tip.innerHTML = h;

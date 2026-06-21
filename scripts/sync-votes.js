@@ -8,7 +8,9 @@
  *   node scripts/sync-votes.js --verify  # Verify only (no writes, just report mismatches)
  *   node scripts/sync-votes.js --download-only  # Download XMLs without updating
  *
- * The XMLs are saved to data/rollcalls/ so the site stays fully static.
+ * Manual update tool only: do not schedule this as a nightly job.
+ * The XMLs are saved to data/rollcalls/ so the site stays fully static,
+ * reviewable in GitHub, and backed by source snapshots.
  * This script is the single source of truth for House vote data.
  */
 

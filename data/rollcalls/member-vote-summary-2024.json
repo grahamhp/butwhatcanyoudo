@@ -1,0 +1,8150 @@
+{
+  "generatedAt": "2026-06-21T06:08:47.836Z",
+  "source": "Official House Clerk XML snapshots committed in data/rollcalls/",
+  "updatePolicy": "Generated manually from saved XML. Review before commit.",
+  "rollCalls": {
+    "hr6126": {
+      "label": "H.R. 6126",
+      "file": "hr6126_roll577_2023.xml",
+      "totalVotes": 432,
+      "yea": 225,
+      "nay": 196,
+      "notVoting": 11
+    },
+    "hr8034": {
+      "label": "H.R. 8034",
+      "file": "hr8034_roll152_2024.xml",
+      "totalVotes": 430,
+      "yea": 365,
+      "nay": 58,
+      "notVoting": 7
+    },
+    "hr8369": {
+      "label": "H.R. 8369",
+      "file": "hr8369_roll217_2024.xml",
+      "totalVotes": 429,
+      "yea": 223,
+      "nay": 187,
+      "notVoting": 19
+    }
+  },
+  "members": [
+    {
+      "name": "Chu",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "C001080"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garamendi",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "G000559"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lee (CA)",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "L000551"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Takano",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "T000472"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Waters",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "W000187"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Frost",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "F000476"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Johnson (GA)",
+      "party": "D",
+      "state": "GA",
+      "bioguideIds": [
+        "J000288"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tokuda",
+      "party": "D",
+      "state": "HI",
+      "bioguideIds": [
+        "T000487"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garcia (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "G000586"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jackson (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "J000309"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ramirez",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "R000617"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McGovern",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "M000312"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pressley",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "P000617"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Raskin",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "R000606"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pingree",
+      "party": "D",
+      "state": "ME",
+      "bioguideIds": [
+        "P000597"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kildee",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "K000380"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tlaib",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "T000481"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Omar",
+      "party": "D",
+      "state": "MN",
+      "bioguideIds": [
+        "O000173"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bush",
+      "party": "D",
+      "state": "MO",
+      "bioguideIds": [
+        "B001224"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Thompson (MS)",
+      "party": "D",
+      "state": "MS",
+      "bioguideIds": [
+        "T000193"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Watson Coleman",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "W000822"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bowman",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "B001223"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ocasio-Cortez",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "O000172"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Velazquez",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "V000081"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Blumenauer",
+      "party": "D",
+      "state": "OR",
+      "bioguideIds": [
+        "B000574"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lee (PA)",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "L000602"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Casar",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001131"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Castro (TX)",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001091"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Doggett",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "D000399"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Green, Al (TX)",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "G000553"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Beyer",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "B001292"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Balint",
+      "party": "D",
+      "state": "VT",
+      "bioguideIds": [
+        "B001318"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jayapal",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "J000298"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pocan",
+      "party": "D",
+      "state": "WI",
+      "bioguideIds": [
+        "P000607"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Greene (GA)",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "G000596"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Massie",
+      "party": "R",
+      "state": "KY",
+      "bioguideIds": [
+        "M001184"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sewell",
+      "party": "D",
+      "state": "AL",
+      "bioguideIds": [
+        "S001185"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gallego",
+      "party": "D",
+      "state": "AZ",
+      "bioguideIds": [
+        "G000574"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Stanton",
+      "party": "D",
+      "state": "AZ",
+      "bioguideIds": [
+        "S001211"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Aguilar",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "A000371"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Barragan",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "B001300"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bera",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "B001287"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Brownley",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "B001285"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Carbajal",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "C001112"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cardenas",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "C001097"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Correa",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "C001110"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Costa",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "C001059"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "DeSaulnier",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "D000623"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 0,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Eshoo",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "E000215"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garcia, Robert",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "G000598"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gomez",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "G000585"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Harder (CA)",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "H001090"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Huffman",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "H001068"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jacobs",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "J000305"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kamlager-Dove",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "K000400"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Khanna",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "K000389"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 2,
+      "yeaCount": 0,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Levin",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "L000593"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lieu",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "L000582"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lofgren",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "L000397"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Matsui",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "M001163"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Mullin",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "M001225"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Panetta",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "P000613"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pelosi",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "P000197"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Peters",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "P000608"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Porter",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "P000618"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ruiz",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "R000599"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sanchez",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "S001156"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Schiff",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "S001150"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sherman",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "S000344"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Swalwell",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "S001193"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Thompson (CA)",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "T000460"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Torres (CA)",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "T000474"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Caraveo",
+      "party": "D",
+      "state": "CO",
+      "bioguideIds": [
+        "C001134"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Crow",
+      "party": "D",
+      "state": "CO",
+      "bioguideIds": [
+        "C001121"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "DeGette",
+      "party": "D",
+      "state": "CO",
+      "bioguideIds": [
+        "D000197"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Neguse",
+      "party": "D",
+      "state": "CO",
+      "bioguideIds": [
+        "N000191"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pettersen",
+      "party": "D",
+      "state": "CO",
+      "bioguideIds": [
+        "P000620"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Courtney",
+      "party": "D",
+      "state": "CT",
+      "bioguideIds": [
+        "C001069"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "DeLauro",
+      "party": "D",
+      "state": "CT",
+      "bioguideIds": [
+        "D000216"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hayes",
+      "party": "D",
+      "state": "CT",
+      "bioguideIds": [
+        "H001081"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Himes",
+      "party": "D",
+      "state": "CT",
+      "bioguideIds": [
+        "H001047"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Larson (CT)",
+      "party": "D",
+      "state": "CT",
+      "bioguideIds": [
+        "L000557"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Blunt Rochester",
+      "party": "D",
+      "state": "DE",
+      "bioguideIds": [
+        "B001303"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Castor (FL)",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "C001066"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cherfilus-McCormick",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "C001127"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bishop (GA)",
+      "party": "D",
+      "state": "GA",
+      "bioguideIds": [
+        "B000490"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McBath",
+      "party": "D",
+      "state": "GA",
+      "bioguideIds": [
+        "M001208"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Williams (GA)",
+      "party": "D",
+      "state": "GA",
+      "bioguideIds": [
+        "W000788"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Case",
+      "party": "D",
+      "state": "HI",
+      "bioguideIds": [
+        "C001055"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Budzinski",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "B001315"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Casten",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "C001117"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Foster",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "F000454"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kelly (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "K000385"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Krishnamoorthi",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "K000391"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Quigley",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "Q000023"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Schakowsky",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "S001145"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Schneider",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "S001190"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sorensen",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "S001225"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Underwood",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "U000040"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Carson",
+      "party": "D",
+      "state": "IN",
+      "bioguideIds": [
+        "C001072"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 2,
+      "yeaCount": 0,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Mrvan",
+      "party": "D",
+      "state": "IN",
+      "bioguideIds": [
+        "M001214"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Davids (KS)",
+      "party": "D",
+      "state": "KS",
+      "bioguideIds": [
+        "D000629"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McGarvey",
+      "party": "D",
+      "state": "KY",
+      "bioguideIds": [
+        "M001220"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Carter (LA)",
+      "party": "D",
+      "state": "LA",
+      "bioguideIds": [
+        "C001125"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Auchincloss",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "A000148"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Clark (MA)",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "C001101"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Keating",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "K000375"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lynch",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "L000562"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Moulton",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "M001196"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Neal",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "N000015"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Trahan",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "T000482"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hoyer",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "H000874"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ivey",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "I000058"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Mfume",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "M000687"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ruppersberger",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "R000576"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sarbanes",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "S001168"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Dingell",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "D000624"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Not Voting",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 0,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Scholten",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "S001221"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Slotkin",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "S001208"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Thanedar",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "T000488"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McCollum",
+      "party": "D",
+      "state": "MN",
+      "bioguideIds": [
+        "M001143"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Adams",
+      "party": "D",
+      "state": "NC",
+      "bioguideIds": [
+        "A000370"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Foushee",
+      "party": "D",
+      "state": "NC",
+      "bioguideIds": [
+        "F000477"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jackson (NC)",
+      "party": "D",
+      "state": "NC",
+      "bioguideIds": [
+        "J000308"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Manning",
+      "party": "D",
+      "state": "NC",
+      "bioguideIds": [
+        "M001135"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Nickel",
+      "party": "D",
+      "state": "NC",
+      "bioguideIds": [
+        "N000194"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ross",
+      "party": "D",
+      "state": "NC",
+      "bioguideIds": [
+        "R000305"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kuster",
+      "party": "D",
+      "state": "NH",
+      "bioguideIds": [
+        "K000382"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pappas",
+      "party": "D",
+      "state": "NH",
+      "bioguideIds": [
+        "P000614"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kim (NJ)",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "K000394"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Menendez",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "M001226"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pascrell",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "P000096"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sherrill",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "S001207"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Leger Fernandez",
+      "party": "D",
+      "state": "NM",
+      "bioguideIds": [
+        "L000273"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Stansbury",
+      "party": "D",
+      "state": "NM",
+      "bioguideIds": [
+        "S001218"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Vasquez",
+      "party": "D",
+      "state": "NM",
+      "bioguideIds": [
+        "V000136"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Horsford",
+      "party": "D",
+      "state": "NV",
+      "bioguideIds": [
+        "H001066"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lee (NV)",
+      "party": "D",
+      "state": "NV",
+      "bioguideIds": [
+        "L000590"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Titus",
+      "party": "D",
+      "state": "NV",
+      "bioguideIds": [
+        "T000468"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Clarke (NY)",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "C001067"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Espaillat",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "E000297"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Goldman (NY)",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "G000599"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jeffries",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "J000294"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Meeks",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "M001137"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Meng",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "M001188"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Morelle",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "M001206"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Nadler",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "N000002"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ryan",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "R000579"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tonko",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "T000469"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Beatty",
+      "party": "D",
+      "state": "OH",
+      "bioguideIds": [
+        "B001281"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Brown",
+      "party": "D",
+      "state": "OH",
+      "bioguideIds": [
+        "B001313"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kaptur",
+      "party": "D",
+      "state": "OH",
+      "bioguideIds": [
+        "K000009"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sykes",
+      "party": "D",
+      "state": "OH",
+      "bioguideIds": [
+        "S001223"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bonamici",
+      "party": "D",
+      "state": "OR",
+      "bioguideIds": [
+        "B001278"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hoyle (OR)",
+      "party": "D",
+      "state": "OR",
+      "bioguideIds": [
+        "H001094"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Salinas",
+      "party": "D",
+      "state": "OR",
+      "bioguideIds": [
+        "S001226"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Boyle (PA)",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "B001296"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Dean (PA)",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "D000631"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Deluzio",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "D000530"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Houlahan",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "H001085"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Wild",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "W000826"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Clyburn",
+      "party": "D",
+      "state": "SC",
+      "bioguideIds": [
+        "C000537"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cohen",
+      "party": "D",
+      "state": "TN",
+      "bioguideIds": [
+        "C001068"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Allred",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "A000376"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Crockett",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001130"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Escobar",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "E000299"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fletcher",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "F000468"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garcia (TX)",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "G000587"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Veasey",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "V000131"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Connolly",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "C001078"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McClellan",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "M001227"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Scott (VA)",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "S000185"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Spanberger",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "S001209"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "DelBene",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "D000617"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kilmer",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "K000381"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Larsen (WA)",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "L000560"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Schrier",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "S001216"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Smith (WA)",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "S000510"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Strickland",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "S001159"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Moore (WI)",
+      "party": "D",
+      "state": "WI",
+      "bioguideIds": [
+        "M001160"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Davidson",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "D000626"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 2,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Peltola",
+      "party": "D",
+      "state": "AK",
+      "bioguideIds": [
+        "P000619"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Grijalva",
+      "party": "D",
+      "state": "AZ",
+      "bioguideIds": [
+        "G000551"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Not Voting",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 0,
+      "notVotingCount": 2
+    },
+    {
+      "name": "Napolitano",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "N000179"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Vargas",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "V000130"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Wasserman Schultz",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "W000797"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Scott, David",
+      "party": "D",
+      "state": "GA",
+      "bioguideIds": [
+        "S001157"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Davis (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "D000096"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Trone",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "T000483"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Stevens",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "S001215"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Phillips",
+      "party": "D",
+      "state": "MN",
+      "bioguideIds": [
+        "P000616"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Cleaver",
+      "party": "D",
+      "state": "MO",
+      "bioguideIds": [
+        "C001061"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Norcross",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "N000188"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Pallone",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "P000034"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Payne",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "P000604"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 0,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Higgins (NY)",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "H001038"
+      ],
+      "votes": {
+        "hr6126": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kennedy",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "K000402"
+      ],
+      "votes": {
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Torres (NY)",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "T000486"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cartwright",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "C001090"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Evans",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "E000296"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Scanlon",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "S001205"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Amo",
+      "party": "D",
+      "state": "RI",
+      "bioguideIds": [
+        "A000380"
+      ],
+      "votes": {
+        "hr8034": "Yea",
+        "hr8369": "Nay"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Magaziner",
+      "party": "D",
+      "state": "RI",
+      "bioguideIds": [
+        "M001223"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Cuellar",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001063"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gonzalez, Vicente",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "G000581"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Perez",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "G000600"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Biggs",
+      "party": "R",
+      "state": "AZ",
+      "bioguideIds": [
+        "B001302"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Crane",
+      "party": "R",
+      "state": "AZ",
+      "bioguideIds": [
+        "C001132"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gosar",
+      "party": "R",
+      "state": "AZ",
+      "bioguideIds": [
+        "G000565"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Boebert",
+      "party": "R",
+      "state": "CO",
+      "bioguideIds": [
+        "B000825"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Gaetz",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "G000578"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 1,
+      "yeaCount": 1,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Mills",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "M001216"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Clyde",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "C001116"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Harris",
+      "party": "R",
+      "state": "MD",
+      "bioguideIds": [
+        "H001052"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Rosendale",
+      "party": "R",
+      "state": "MT",
+      "bioguideIds": [
+        "R000103"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Zinke",
+      "party": "R",
+      "state": "MT",
+      "bioguideIds": [
+        "Z000018"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Perry",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "P000605"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Norman",
+      "party": "R",
+      "state": "SC",
+      "bioguideIds": [
+        "N000190"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Burchett",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "B001309"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "DesJarlais",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "D000616"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Nehls",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "N000026"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Roy",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "R000614"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Good (VA)",
+      "party": "R",
+      "state": "VA",
+      "bioguideIds": [
+        "G000595"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tiffany",
+      "party": "R",
+      "state": "WI",
+      "bioguideIds": [
+        "T000165"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Nay",
+        "hr8369": "Yea"
+      },
+      "nayCount": 1,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Frankel, Lois",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "F000462"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Moskowitz",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "M001217"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Soto",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "S001200"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Wilson (FL)",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "W000808"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Golden (ME)",
+      "party": "D",
+      "state": "ME",
+      "bioguideIds": [
+        "G000592"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Craig",
+      "party": "D",
+      "state": "MN",
+      "bioguideIds": [
+        "C001119"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Davis (NC)",
+      "party": "D",
+      "state": "NC",
+      "bioguideIds": [
+        "D000230"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gottheimer",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "G000583"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Suozzi",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "S001201"
+      ],
+      "votes": {
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Landsman",
+      "party": "D",
+      "state": "OH",
+      "bioguideIds": [
+        "L000601"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jackson Lee",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "J000032"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 0,
+      "yeaCount": 1,
+      "notVotingCount": 2
+    },
+    {
+      "name": "Wexton",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "W000825"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 0,
+      "yeaCount": 1,
+      "notVotingCount": 2
+    },
+    {
+      "name": "Aderholt",
+      "party": "R",
+      "state": "AL",
+      "bioguideIds": [
+        "A000055"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Carl",
+      "party": "R",
+      "state": "AL",
+      "bioguideIds": [
+        "C001054"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Moore (AL)",
+      "party": "R",
+      "state": "AL",
+      "bioguideIds": [
+        "M001212"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Palmer",
+      "party": "R",
+      "state": "AL",
+      "bioguideIds": [
+        "P000609"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Rogers (AL)",
+      "party": "R",
+      "state": "AL",
+      "bioguideIds": [
+        "R000575"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Strong",
+      "party": "R",
+      "state": "AL",
+      "bioguideIds": [
+        "S001220"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Crawford",
+      "party": "R",
+      "state": "AR",
+      "bioguideIds": [
+        "C001087"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hill",
+      "party": "R",
+      "state": "AR",
+      "bioguideIds": [
+        "H001072"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Westerman",
+      "party": "R",
+      "state": "AR",
+      "bioguideIds": [
+        "W000821"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Womack",
+      "party": "R",
+      "state": "AR",
+      "bioguideIds": [
+        "W000809"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ciscomani",
+      "party": "R",
+      "state": "AZ",
+      "bioguideIds": [
+        "C001133"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lesko",
+      "party": "R",
+      "state": "AZ",
+      "bioguideIds": [
+        "L000589"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Schweikert",
+      "party": "R",
+      "state": "AZ",
+      "bioguideIds": [
+        "S001183"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Calvert",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "C000059"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Duarte",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "D000633"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garcia, Mike",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "G000061"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Issa",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "I000056"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kiley",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "K000401"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kim (CA)",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "K000397"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "LaMalfa",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "L000578"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McCarthy",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "M001165"
+      ],
+      "votes": {
+        "hr6126": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McClintock",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "M001177"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Obernolte",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "O000019"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Steel",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "S001135"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Valadao",
+      "party": "R",
+      "state": "CA",
+      "bioguideIds": [
+        "V000129"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Buck",
+      "party": "R",
+      "state": "CO",
+      "bioguideIds": [
+        "B001297"
+      ],
+      "votes": {
+        "hr6126": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lamborn",
+      "party": "R",
+      "state": "CO",
+      "bioguideIds": [
+        "L000564"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bean (FL)",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "B001314"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bilirakis",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "B001257"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Buchanan",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "B001260"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cammack",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "C001039"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Diaz-Balart",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "D000600"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Donalds",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "D000032"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Dunn (FL)",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "D000628"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Franklin, Scott",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "F000472"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gimenez",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "G000593"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Lee (FL)",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "L000597"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Luna",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "L000596"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Mast",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "M001199"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Posey",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "P000599"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Rutherford",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "R000609"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Salazar",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "S000168"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Steube",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "S001214"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Waltz",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "W000823"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Webster (FL)",
+      "party": "R",
+      "state": "FL",
+      "bioguideIds": [
+        "W000806"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Allen",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "A000372"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Carter (GA)",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "C001103"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Collins",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "C001129"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ferguson",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "F000465"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Loudermilk",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "L000583"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McCormick",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "M001218"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Scott, Austin",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "S001189"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Feenstra",
+      "party": "R",
+      "state": "IA",
+      "bioguideIds": [
+        "F000446"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hinson",
+      "party": "R",
+      "state": "IA",
+      "bioguideIds": [
+        "H001091"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Miller-Meeks",
+      "party": "R",
+      "state": "IA",
+      "bioguideIds": [
+        "M001215"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Nunn (IA)",
+      "party": "R",
+      "state": "IA",
+      "bioguideIds": [
+        "N000193"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fulcher",
+      "party": "R",
+      "state": "ID",
+      "bioguideIds": [
+        "F000469"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Simpson",
+      "party": "R",
+      "state": "ID",
+      "bioguideIds": [
+        "S001148"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bost",
+      "party": "R",
+      "state": "IL",
+      "bioguideIds": [
+        "B001295"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "LaHood",
+      "party": "R",
+      "state": "IL",
+      "bioguideIds": [
+        "L000585"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Miller (IL)",
+      "party": "R",
+      "state": "IL",
+      "bioguideIds": [
+        "M001211"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Baird",
+      "party": "R",
+      "state": "IN",
+      "bioguideIds": [
+        "B001307"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Banks",
+      "party": "R",
+      "state": "IN",
+      "bioguideIds": [
+        "B001299"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bucshon",
+      "party": "R",
+      "state": "IN",
+      "bioguideIds": [
+        "B001275"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Houchin",
+      "party": "R",
+      "state": "IN",
+      "bioguideIds": [
+        "H001093"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pence",
+      "party": "R",
+      "state": "IN",
+      "bioguideIds": [
+        "P000615"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Spartz",
+      "party": "R",
+      "state": "IN",
+      "bioguideIds": [
+        "S000929"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Yakym",
+      "party": "R",
+      "state": "IN",
+      "bioguideIds": [
+        "Y000067"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Estes",
+      "party": "R",
+      "state": "KS",
+      "bioguideIds": [
+        "E000298"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "LaTurner",
+      "party": "R",
+      "state": "KS",
+      "bioguideIds": [
+        "L000266"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Mann",
+      "party": "R",
+      "state": "KS",
+      "bioguideIds": [
+        "M000871"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Barr",
+      "party": "R",
+      "state": "KY",
+      "bioguideIds": [
+        "B001282"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Comer",
+      "party": "R",
+      "state": "KY",
+      "bioguideIds": [
+        "C001108"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Guthrie",
+      "party": "R",
+      "state": "KY",
+      "bioguideIds": [
+        "G000558"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Rogers (KY)",
+      "party": "R",
+      "state": "KY",
+      "bioguideIds": [
+        "R000395"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Graves (LA)",
+      "party": "R",
+      "state": "LA",
+      "bioguideIds": [
+        "G000577"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Higgins (LA)",
+      "party": "R",
+      "state": "LA",
+      "bioguideIds": [
+        "H001077"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Letlow",
+      "party": "R",
+      "state": "LA",
+      "bioguideIds": [
+        "L000595"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Scalise",
+      "party": "R",
+      "state": "LA",
+      "bioguideIds": [
+        "S001176"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bergman",
+      "party": "R",
+      "state": "MI",
+      "bioguideIds": [
+        "B001301"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Huizenga",
+      "party": "R",
+      "state": "MI",
+      "bioguideIds": [
+        "H001058"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "James",
+      "party": "R",
+      "state": "MI",
+      "bioguideIds": [
+        "J000307"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McClain",
+      "party": "R",
+      "state": "MI",
+      "bioguideIds": [
+        "M001136"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Not Voting"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Moolenaar",
+      "party": "R",
+      "state": "MI",
+      "bioguideIds": [
+        "M001194"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Walberg",
+      "party": "R",
+      "state": "MI",
+      "bioguideIds": [
+        "W000798"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Emmer",
+      "party": "R",
+      "state": "MN",
+      "bioguideIds": [
+        "E000294"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Finstad",
+      "party": "R",
+      "state": "MN",
+      "bioguideIds": [
+        "F000475"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fischbach",
+      "party": "R",
+      "state": "MN",
+      "bioguideIds": [
+        "F000470"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Stauber",
+      "party": "R",
+      "state": "MN",
+      "bioguideIds": [
+        "S001212"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Alford",
+      "party": "R",
+      "state": "MO",
+      "bioguideIds": [
+        "A000379"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Burlison",
+      "party": "R",
+      "state": "MO",
+      "bioguideIds": [
+        "B001316"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Graves (MO)",
+      "party": "R",
+      "state": "MO",
+      "bioguideIds": [
+        "G000546"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Luetkemeyer",
+      "party": "R",
+      "state": "MO",
+      "bioguideIds": [
+        "L000569"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Not Voting",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Smith (MO)",
+      "party": "R",
+      "state": "MO",
+      "bioguideIds": [
+        "S001195"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Wagner",
+      "party": "R",
+      "state": "MO",
+      "bioguideIds": [
+        "W000812"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ezell",
+      "party": "R",
+      "state": "MS",
+      "bioguideIds": [
+        "E000235"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Guest",
+      "party": "R",
+      "state": "MS",
+      "bioguideIds": [
+        "G000591"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kelly (MS)",
+      "party": "R",
+      "state": "MS",
+      "bioguideIds": [
+        "K000388"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bishop (NC)",
+      "party": "R",
+      "state": "NC",
+      "bioguideIds": [
+        "B001311"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Edwards",
+      "party": "R",
+      "state": "NC",
+      "bioguideIds": [
+        "E000246"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Foxx",
+      "party": "R",
+      "state": "NC",
+      "bioguideIds": [
+        "F000450"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hudson",
+      "party": "R",
+      "state": "NC",
+      "bioguideIds": [
+        "H001067"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McHenry",
+      "party": "R",
+      "state": "NC",
+      "bioguideIds": [
+        "M001156"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Murphy",
+      "party": "R",
+      "state": "NC",
+      "bioguideIds": [
+        "M001210"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Rouzer",
+      "party": "R",
+      "state": "NC",
+      "bioguideIds": [
+        "R000603"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Armstrong",
+      "party": "R",
+      "state": "ND",
+      "bioguideIds": [
+        "A000377"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bacon",
+      "party": "R",
+      "state": "NE",
+      "bioguideIds": [
+        "B001298"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Flood",
+      "party": "R",
+      "state": "NE",
+      "bioguideIds": [
+        "F000474"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Smith (NE)",
+      "party": "R",
+      "state": "NE",
+      "bioguideIds": [
+        "S001172"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kean (NJ)",
+      "party": "R",
+      "state": "NJ",
+      "bioguideIds": [
+        "K000398"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Smith (NJ)",
+      "party": "R",
+      "state": "NJ",
+      "bioguideIds": [
+        "S000522"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Van Drew",
+      "party": "R",
+      "state": "NJ",
+      "bioguideIds": [
+        "V000133"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Amodei",
+      "party": "R",
+      "state": "NV",
+      "bioguideIds": [
+        "A000369"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "D'Esposito",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "D000632"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garbarino",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "G000597"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "LaLota",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "L000598"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Langworthy",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "L000600"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lawler",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "L000599"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Malliotakis",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "M000317"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Molinaro",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "M001221"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Santos",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "S001222"
+      ],
+      "votes": {
+        "hr6126": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Stefanik",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "S001196"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tenney",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "T000478"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Williams (NY)",
+      "party": "R",
+      "state": "NY",
+      "bioguideIds": [
+        "W000828"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Not Voting",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Balderson",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "B001306"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Carey",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "C001126"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Johnson (OH)",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "J000292"
+      ],
+      "votes": {
+        "hr6126": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 1,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jordan",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "J000289"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Joyce (OH)",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "J000295"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Latta",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "L000566"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Miller (OH)",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "M001222"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Turner",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "T000463"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Wenstrup",
+      "party": "R",
+      "state": "OH",
+      "bioguideIds": [
+        "W000815"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bice",
+      "party": "R",
+      "state": "OK",
+      "bioguideIds": [
+        "B000740"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Brecheen",
+      "party": "R",
+      "state": "OK",
+      "bioguideIds": [
+        "B001317"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cole",
+      "party": "R",
+      "state": "OK",
+      "bioguideIds": [
+        "C001053"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hern",
+      "party": "R",
+      "state": "OK",
+      "bioguideIds": [
+        "H001082"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lucas",
+      "party": "R",
+      "state": "OK",
+      "bioguideIds": [
+        "L000491"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bentz",
+      "party": "R",
+      "state": "OR",
+      "bioguideIds": [
+        "B000668"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Chavez-DeRemer",
+      "party": "R",
+      "state": "OR",
+      "bioguideIds": [
+        "C001135"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fitzpatrick",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "F000466"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Joyce (PA)",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "J000302"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kelly (PA)",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "K000376"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Meuser",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "M001204"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Reschenthaler",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "R000610"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Smucker",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "S001199"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Thompson (PA)",
+      "party": "R",
+      "state": "PA",
+      "bioguideIds": [
+        "T000467"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Duncan",
+      "party": "R",
+      "state": "SC",
+      "bioguideIds": [
+        "D000615"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fry",
+      "party": "R",
+      "state": "SC",
+      "bioguideIds": [
+        "F000478"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Mace",
+      "party": "R",
+      "state": "SC",
+      "bioguideIds": [
+        "M000194"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Timmons",
+      "party": "R",
+      "state": "SC",
+      "bioguideIds": [
+        "T000480"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Wilson (SC)",
+      "party": "R",
+      "state": "SC",
+      "bioguideIds": [
+        "W000795"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Johnson (SD)",
+      "party": "R",
+      "state": "SD",
+      "bioguideIds": [
+        "J000301"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fleischmann",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "F000459"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Green (TN)",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "G000590"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Harshbarger",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "H001086"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kustoff",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "K000392"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ogles",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "O000175"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Rose",
+      "party": "R",
+      "state": "TN",
+      "bioguideIds": [
+        "R000612"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Arrington",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "A000375"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Babin",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "B001291"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Burgess",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "B001248"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Carter (TX)",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "C001051"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cloud",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "C001115"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Crenshaw",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "C001120"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "De La Cruz",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "D000594"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ellzey",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "E000071"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fallon",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "F000246"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gonzales, Tony",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "G000594"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gooden (TX)",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "G000589"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Granger",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "G000377"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Hunt",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "H001095"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Not Voting",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Jackson (TX)",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "J000304"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Luttrell",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "L000603"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McCaul",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "M001157"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Moran",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "M001224"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pfluger",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "P000048"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Self",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "S001224"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Sessions",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "S000250"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Van Duyne",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "V000134"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Weber (TX)",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "W000814"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Williams (TX)",
+      "party": "R",
+      "state": "TX",
+      "bioguideIds": [
+        "W000816"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Curtis",
+      "party": "R",
+      "state": "UT",
+      "bioguideIds": [
+        "C001114"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Maloy",
+      "party": "R",
+      "state": "UT",
+      "bioguideIds": [
+        "M001228"
+      ],
+      "votes": {
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Moore (UT)",
+      "party": "R",
+      "state": "UT",
+      "bioguideIds": [
+        "M001213"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Owens",
+      "party": "R",
+      "state": "UT",
+      "bioguideIds": [
+        "O000086"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Cline",
+      "party": "R",
+      "state": "VA",
+      "bioguideIds": [
+        "C001118"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Griffith",
+      "party": "R",
+      "state": "VA",
+      "bioguideIds": [
+        "G000568"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kiggans (VA)",
+      "party": "R",
+      "state": "VA",
+      "bioguideIds": [
+        "K000399"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Wittman",
+      "party": "R",
+      "state": "VA",
+      "bioguideIds": [
+        "W000804"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Newhouse",
+      "party": "R",
+      "state": "WA",
+      "bioguideIds": [
+        "N000189"
+      ],
+      "votes": {
+        "hr6126": "Not Voting",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Rodgers (WA)",
+      "party": "R",
+      "state": "WA",
+      "bioguideIds": [
+        "M001159"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Fitzgerald",
+      "party": "R",
+      "state": "WI",
+      "bioguideIds": [
+        "F000471"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Gallagher",
+      "party": "R",
+      "state": "WI",
+      "bioguideIds": [
+        "G000579"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Grothman",
+      "party": "R",
+      "state": "WI",
+      "bioguideIds": [
+        "G000576"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Steil",
+      "party": "R",
+      "state": "WI",
+      "bioguideIds": [
+        "S001213"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Van Orden",
+      "party": "R",
+      "state": "WI",
+      "bioguideIds": [
+        "V000135"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Miller (WV)",
+      "party": "R",
+      "state": "WV",
+      "bioguideIds": [
+        "M001205"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Mooney",
+      "party": "R",
+      "state": "WV",
+      "bioguideIds": [
+        "M001195"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Not Voting",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 2,
+      "notVotingCount": 1
+    },
+    {
+      "name": "Hageman",
+      "party": "R",
+      "state": "WY",
+      "bioguideIds": [
+        "H001096"
+      ],
+      "votes": {
+        "hr6126": "Yea",
+        "hr8034": "Yea",
+        "hr8369": "Yea"
+      },
+      "nayCount": 0,
+      "yeaCount": 3,
+      "notVotingCount": 0
+    }
+  ],
+  "allNayMembers": [
+    {
+      "name": "Chu",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "C001080"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garamendi",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "G000559"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lee (CA)",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "L000551"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Takano",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "T000472"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Waters",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "W000187"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Frost",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "F000476"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Johnson (GA)",
+      "party": "D",
+      "state": "GA",
+      "bioguideIds": [
+        "J000288"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tokuda",
+      "party": "D",
+      "state": "HI",
+      "bioguideIds": [
+        "T000487"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garcia (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "G000586"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jackson (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "J000309"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ramirez",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "R000617"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McGovern",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "M000312"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pressley",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "P000617"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Raskin",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "R000606"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pingree",
+      "party": "D",
+      "state": "ME",
+      "bioguideIds": [
+        "P000597"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kildee",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "K000380"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tlaib",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "T000481"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Omar",
+      "party": "D",
+      "state": "MN",
+      "bioguideIds": [
+        "O000173"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bush",
+      "party": "D",
+      "state": "MO",
+      "bioguideIds": [
+        "B001224"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Thompson (MS)",
+      "party": "D",
+      "state": "MS",
+      "bioguideIds": [
+        "T000193"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Watson Coleman",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "W000822"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bowman",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "B001223"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ocasio-Cortez",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "O000172"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Velazquez",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "V000081"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Blumenauer",
+      "party": "D",
+      "state": "OR",
+      "bioguideIds": [
+        "B000574"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lee (PA)",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "L000602"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Casar",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001131"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Castro (TX)",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001091"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Doggett",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "D000399"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Green, Al (TX)",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "G000553"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Beyer",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "B001292"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Balint",
+      "party": "D",
+      "state": "VT",
+      "bioguideIds": [
+        "B001318"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jayapal",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "J000298"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pocan",
+      "party": "D",
+      "state": "WI",
+      "bioguideIds": [
+        "P000607"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Greene (GA)",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "G000596"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Massie",
+      "party": "R",
+      "state": "KY",
+      "bioguideIds": [
+        "M001184"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    }
+  ],
+  "republicanAllNayMembers": [
+    {
+      "name": "Greene (GA)",
+      "party": "R",
+      "state": "GA",
+      "bioguideIds": [
+        "G000596"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Massie",
+      "party": "R",
+      "state": "KY",
+      "bioguideIds": [
+        "M001184"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    }
+  ],
+  "democratAllNayMembers": [
+    {
+      "name": "Chu",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "C001080"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garamendi",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "G000559"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lee (CA)",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "L000551"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Takano",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "T000472"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Waters",
+      "party": "D",
+      "state": "CA",
+      "bioguideIds": [
+        "W000187"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Frost",
+      "party": "D",
+      "state": "FL",
+      "bioguideIds": [
+        "F000476"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Johnson (GA)",
+      "party": "D",
+      "state": "GA",
+      "bioguideIds": [
+        "J000288"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tokuda",
+      "party": "D",
+      "state": "HI",
+      "bioguideIds": [
+        "T000487"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Garcia (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "G000586"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jackson (IL)",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "J000309"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ramirez",
+      "party": "D",
+      "state": "IL",
+      "bioguideIds": [
+        "R000617"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "McGovern",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "M000312"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pressley",
+      "party": "D",
+      "state": "MA",
+      "bioguideIds": [
+        "P000617"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Raskin",
+      "party": "D",
+      "state": "MD",
+      "bioguideIds": [
+        "R000606"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pingree",
+      "party": "D",
+      "state": "ME",
+      "bioguideIds": [
+        "P000597"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Kildee",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "K000380"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Tlaib",
+      "party": "D",
+      "state": "MI",
+      "bioguideIds": [
+        "T000481"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Omar",
+      "party": "D",
+      "state": "MN",
+      "bioguideIds": [
+        "O000173"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bush",
+      "party": "D",
+      "state": "MO",
+      "bioguideIds": [
+        "B001224"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Thompson (MS)",
+      "party": "D",
+      "state": "MS",
+      "bioguideIds": [
+        "T000193"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Watson Coleman",
+      "party": "D",
+      "state": "NJ",
+      "bioguideIds": [
+        "W000822"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Bowman",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "B001223"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Ocasio-Cortez",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "O000172"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Velazquez",
+      "party": "D",
+      "state": "NY",
+      "bioguideIds": [
+        "V000081"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Blumenauer",
+      "party": "D",
+      "state": "OR",
+      "bioguideIds": [
+        "B000574"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Lee (PA)",
+      "party": "D",
+      "state": "PA",
+      "bioguideIds": [
+        "L000602"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Casar",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001131"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Castro (TX)",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "C001091"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Doggett",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "D000399"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Green, Al (TX)",
+      "party": "D",
+      "state": "TX",
+      "bioguideIds": [
+        "G000553"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Beyer",
+      "party": "D",
+      "state": "VA",
+      "bioguideIds": [
+        "B001292"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Balint",
+      "party": "D",
+      "state": "VT",
+      "bioguideIds": [
+        "B001318"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Jayapal",
+      "party": "D",
+      "state": "WA",
+      "bioguideIds": [
+        "J000298"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    },
+    {
+      "name": "Pocan",
+      "party": "D",
+      "state": "WI",
+      "bioguideIds": [
+        "P000607"
+      ],
+      "votes": {
+        "hr6126": "Nay",
+        "hr8034": "Nay",
+        "hr8369": "Nay"
+      },
+      "nayCount": 3,
+      "yeaCount": 0,
+      "notVotingCount": 0
+    }
+  ]
+}

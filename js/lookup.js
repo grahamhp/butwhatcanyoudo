@@ -157,6 +157,19 @@ const ZIP_TO_DISTRICT = {
   '98686': 'WA-03', '98687': 'WA-03'
 };
 
+const STATE_FIPS_TO_ABBR = {
+  '01': 'AL', '02': 'AK', '04': 'AZ', '05': 'AR', '06': 'CA',
+  '08': 'CO', '09': 'CT', '10': 'DE', '11': 'DC', '12': 'FL',
+  '13': 'GA', '15': 'HI', '16': 'ID', '17': 'IL', '18': 'IN',
+  '19': 'IA', '20': 'KS', '21': 'KY', '22': 'LA', '23': 'ME',
+  '24': 'MD', '25': 'MA', '26': 'MI', '27': 'MN', '28': 'MS',
+  '29': 'MO', '30': 'MT', '31': 'NE', '32': 'NV', '33': 'NH',
+  '34': 'NJ', '35': 'NM', '36': 'NY', '37': 'NC', '38': 'ND',
+  '39': 'OH', '40': 'OK', '41': 'OR', '42': 'PA', '44': 'RI',
+  '45': 'SC', '46': 'SD', '47': 'TN', '48': 'TX', '49': 'UT',
+  '50': 'VT', '51': 'VA', '53': 'WA', '54': 'WV', '55': 'WI',
+  '56': 'WY'
+};
 // Demographic-based messaging templates
 // Each template type corresponds to district demographics
 const MESSAGING_TEMPLATES = {
@@ -319,38 +332,182 @@ function getStateDeadlineInfo(stateCode) {
   };
 }
 
+function normalizeStateCode(state) {
+  const rawState = String(state || '').trim();
+  if (!rawState) return null;
+
+  const upperState = rawState.toUpperCase();
+  const states = typeof US_STATES !== 'undefined' && Array.isArray(US_STATES)
+    ? US_STATES
+    : [];
+  const knownState = states.find(s =>
+    s.abbr === upperState || s.name.toUpperCase() === upperState
+  );
+  if (knownState) return knownState.abbr;
+
+  return Object.values(STATE_FIPS_TO_ABBR).includes(upperState) ? upperState : null;
+}
+
+// Normalize district input into labels like "OH-01"
+function normalizeDistrictLabel(state, districtNumber) {
+  if (!state || districtNumber === null || districtNumber === undefined || districtNumber === '') return null;
+
+  const stateCode = normalizeStateCode(state);
+  const numericDistrict = parseInt(String(districtNumber).replace(/[^0-9]/g, ''), 10);
+  if (!stateCode || Number.isNaN(numericDistrict) || numericDistrict < 1) return null;
+
+  return stateCode + '-' + String(numericDistrict).padStart(2, '0');
+}
+
+function parseDistrictLabel(districtLabel) {
+  const match = String(districtLabel || '').trim().toUpperCase().match(/^([A-Z]{2})-?(\d{1,2})$/);
+  if (!match) return null;
+  const district = normalizeDistrictLabel(match[1], match[2]);
+  if (!district) return null;
+
+  return {
+    state: district.split('-')[0],
+    districtNumber: parseInt(match[2], 10),
+    district
+  };
+}
+
+// Lookup a congressional district label and return full district info
+function lookupDistrictLabel(districtLabel, options = {}) {
+  const parsed = parseDistrictLabel(districtLabel);
+  if (!parsed) return null;
+
+  const candidates = CANDIDATES.filter(c =>
+    c.state === parsed.state && c.district === parsed.districtNumber
+  );
+  const primaryCandidate = candidates[0] || null;
+  const messaging = getMessagingForDistrict(primaryCandidate);
+  const deadlineInfo = getStateDeadlineInfo(parsed.state);
+
+  return {
+    district: parsed.district,
+    state: parsed.state,
+    districtNumber: parsed.districtNumber,
+    candidates,
+    primaryCandidate,
+    messaging,
+    deadlines: deadlineInfo,
+    lookupMethod: options.lookupMethod || 'district',
+    isEstimate: !!options.isEstimate,
+    precisionNote: options.precisionNote || null,
+    sourceLabel: options.sourceLabel || parsed.district
+  };
+}
+
+function lookupByDistrict(state, districtNumber) {
+  const district = normalizeDistrictLabel(state, districtNumber);
+  if (!district) return null;
+  return lookupDistrictLabel(district, {
+    lookupMethod: 'district',
+    isEstimate: false,
+    precisionNote: 'You entered the congressional district directly.'
+  });
+}
+
 // Lookup a zip code and return full district info
 function lookupDistrict(zip) {
-  const district = ZIP_TO_DISTRICT[zip];
+  const cleanZip = String(zip || '').trim();
+  const district = ZIP_TO_DISTRICT[cleanZip];
   if (!district) {
     return null; // Zip not in our coverage area yet
   }
 
-  // Parse state and district number from label like "CA-13"
-  const [state, distNum] = district.split('-');
-  const districtNumber = parseInt(distNum, 10);
+  const result = lookupDistrictLabel(district, {
+    lookupMethod: 'zip',
+    isEstimate: true,
+    sourceLabel: 'ZIP ' + cleanZip,
+    precisionNote: 'ZIP codes can cross congressional district lines. This is our best estimate from the current ZIP-to-district coverage. Use address for the most precise result, or enter your district directly.'
+  });
 
-  // Find matching candidate(s)
-  const candidates = CANDIDATES.filter(c =>
-    c.state === state && c.district === districtNumber
-  );
+  if (result) result.zip = cleanZip;
+  return result;
+}
 
-  if (candidates.length === 0) {
-    return { district, state, districtNumber, candidates: [], messaging: MESSAGING_TEMPLATES['default'] };
+function getCensusDistrictGeography(geographies) {
+  if (!geographies) return null;
+  const preferredLayers = [
+    '119th Congressional Districts',
+    '118th Congressional Districts',
+    '117th Congressional Districts',
+    '116th Congressional Districts',
+    'Congressional Districts'
+  ];
+
+  for (const layer of preferredLayers) {
+    if (Array.isArray(geographies[layer]) && geographies[layer].length > 0) {
+      return geographies[layer][0];
+    }
   }
 
-  const primaryCandidate = candidates[0];
-  const messaging = getMessagingForDistrict(primaryCandidate);
-
-  const deadlineInfo = getStateDeadlineInfo(state);
-
-  return {
-    district,
-    state,
-    districtNumber,
-    candidates,
-    primaryCandidate,
-    messaging,
-    deadlines: deadlineInfo
-  };
+  const fallbackLayer = Object.keys(geographies).find(key => key.toLowerCase().includes('congressional district'));
+  return fallbackLayer && geographies[fallbackLayer] && geographies[fallbackLayer][0]
+    ? geographies[fallbackLayer][0]
+    : null;
 }
+
+function districtLabelFromCensusGeo(geo) {
+  if (!geo) return null;
+
+  const geoid = geo.GEOID || geo.GEOIDFQ || '';
+  const stateFips = geo.STATE || geoid.slice(0, 2);
+  const state = STATE_FIPS_TO_ABBR[stateFips];
+  if (!state) return null;
+
+  let district = geo.CD119 || geo.CD118 || geo.CD117 || geo.CD116 || geo.CD || geo.DISTRICT;
+  if (!district && geoid.length >= 4) district = geoid.slice(-2);
+  if (!district && geo.BASENAME) {
+    const match = String(geo.BASENAME).match(/\d+/);
+    if (match) district = match[0];
+  }
+  if (!district && geo.NAMELSAD) {
+    const match = String(geo.NAMELSAD).match(/(\d+|at large)/i);
+    if (match) district = match[1].toLowerCase() === 'at large' ? '0' : match[1];
+  }
+
+  if (district === null || district === undefined || district === '') return null;
+  return normalizeDistrictLabel(state, district);
+}
+
+async function lookupAddress(address) {
+  const cleanAddress = String(address || '').trim();
+  if (!cleanAddress) return null;
+
+  const endpoint = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress';
+  const params = new URLSearchParams({
+    address: cleanAddress,
+    benchmark: 'Public_AR_Current',
+    vintage: 'Current_Current',
+    layers: 'all',
+    format: 'json'
+  });
+
+  const response = await fetch(endpoint + '?' + params.toString());
+  if (!response.ok) throw new Error('The address lookup service did not respond.');
+
+  const data = await response.json();
+  const matches = data && data.result && Array.isArray(data.result.addressMatches)
+    ? data.result.addressMatches
+    : [];
+  if (matches.length === 0) return null;
+
+  const geo = getCensusDistrictGeography(matches[0].geographies);
+  const district = districtLabelFromCensusGeo(geo);
+  if (!district) return null;
+
+  const result = lookupDistrictLabel(district, {
+    lookupMethod: 'address',
+    isEstimate: false,
+    sourceLabel: 'Address lookup',
+    precisionNote: 'Most precise result. We do not save your address or anything you enter here.'
+  });
+
+  if (result) result.matchedAddress = matches[0].matchedAddress || null;
+  return result;
+}
+
+

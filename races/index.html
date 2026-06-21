@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Races | But What Can You Do?</title>
-  <meta name="description" content="Search the full database of 2026 congressional races. See who took foreign lobby money, how they voted on weapons packages, and which toss-up seats are in play this November.">
+  <meta name="description" content="Search the growing 2026 race database: House, Senate, governor context, voting records, funding signals, and research status by highlighted state.">
   <meta property="og:title" content="The Races | But What Can You Do?">
-  <meta property="og:description" content="Every member of Congress who voted yes. The foreign lobby money. The votes. The races to watch in November 2026.">
+  <meta property="og:description" content="House, Senate, governor, and redistricting context for 2026. The votes, the money, the research status, and the races to watch.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/style.css?v=3">
 </head>
@@ -32,7 +32,7 @@
   <section class="page-header">
     <div class="container">
       <h1 class="fade-in">The <span class="text-red">Races</span></h1>
-      <p class="fade-in text-muted">Every toss-up seat where your vote can replace a foreign lobby-funded incumbent. The money they took. The votes they cast. The races to watch in November 2026.</p>
+      <p class="fade-in text-muted">Federal, governor, and priority House races where votes, money, and public silence need daylight. The database is growing state by state, with source-backed records and honest research status.</p>
     </div>
   </section>
 
@@ -46,11 +46,11 @@
         </div>
         <div>
           <div class="text-red text-mono" style="font-size: 2rem; font-weight: 700;" id="statRacesCount">18</div>
-          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Toss-up races tracked</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">House races in database</div>
         </div>
         <div>
-          <div class="text-blue text-mono" style="font-size: 2rem; font-weight: 700;">6</div>
-          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">States redistricted</div>
+          <div class="text-blue text-mono" style="font-size: 2rem; font-weight: 700;" id="statStateCount">16</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Highlighted states</div>
         </div>
         <div>
           <div class="text-red text-mono" style="font-size: 2rem; font-weight: 700;">$32M</div>
@@ -66,7 +66,7 @@
     <div class="container">
       <div class="fade-in" style="max-width: 960px; margin: 0 auto;">
         <h2 style="margin-bottom: 8px;">Find your <span class="text-red">state</span></h2>
-        <p class="text-muted" style="margin-bottom: 24px;">14 states. 18 toss-up races. Click a highlighted state to see the full picture — who represents you, how they voted, who funds them, and what you can do.</p>
+        <p class="text-muted" style="margin-bottom: 24px;">16 highlighted states. House, Senate, governor, and redistricting context. Click a highlighted state to see what is known, what is sourced, and what still needs research.</p>
         <div id="usMapContainer" style="width: 100%; max-width: 960px; margin: 0 auto;"></div>
       </div>
     </div>
@@ -110,6 +110,28 @@
             <p class="text-mono text-muted" style="font-size: 0.75rem; margin-top: 12px;">Source: NYC Board of Elections, AP</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- People, Not Parties -->
+  <section class="section section-darker" id="positiveExamplesSection">
+    <div class="container">
+      <div class="fade-in" style="max-width: 960px; margin: 0 auto;">
+        <h2 style="margin-bottom: 8px;">People, <span class="text-blue">not parties</span></h2>
+        <p class="text-muted" style="margin-bottom: 24px;">The campaign cannot feel like one party in different clothes. These are issue-specific examples: people whose public records show where voters can support, pressure, or learn from a break with the weapons-funding consensus.</p>
+        <div id="positiveExamplesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Evidence Standard -->
+  <section class="section section-dark" id="evidenceStandardSection">
+    <div class="container">
+      <div class="fade-in" style="max-width: 900px; margin: 0 auto;">
+        <h2 style="margin-bottom: 8px;">The evidence <span class="text-yellow">standard</span></h2>
+        <p class="text-muted" style="margin-bottom: 22px;">The site should move quickly, but it cannot move carelessly. Source-backed facts are the backbone; unknowns stay marked unknown until researched.</p>
+        <div id="evidenceStandardGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;"></div>
       </div>
     </div>
   </section>
@@ -208,6 +230,7 @@
   </footer>
 
   <script src="/js/candidates.js?v=6"></script>
+  <script src="/js/race-context.js?v=1"></script>
   <script src="/js/map.js?v=4"></script>
   <script src="/js/main.js?v=3"></script>
   <script>
@@ -300,6 +323,15 @@
       `;
     }
 
+    function renderStats() {
+      const raceCount = typeof CANDIDATES !== 'undefined' ? CANDIDATES.length : 0;
+      const stateCount = typeof HIGHLIGHTED_STATE_KEYS !== 'undefined' ? HIGHLIGHTED_STATE_KEYS.length : 16;
+      const raceEl = document.getElementById('statRacesCount');
+      const stateEl = document.getElementById('statStateCount');
+      if (raceEl) raceEl.textContent = raceCount;
+      if (stateEl) stateEl.textContent = stateCount;
+    }
+
     // Apply filters and render results
     function applyFilters() {
       const query = document.getElementById('raceSearch').value;
@@ -345,6 +377,53 @@
         <div class="card" style="padding: 20px;">
           <h3 class="text-yellow" style="font-size: 1.1rem;">${s.state} <span class="text-muted" style="font-size: 0.8em;">(${s.abbreviation})</span></h3>
           <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">${s.notes}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderPositiveExamples() {
+      const container = document.getElementById('positiveExamplesGrid');
+      if (!container) return;
+      const examples = typeof CAMPAIGN_POSITIVE_EXAMPLES !== 'undefined' ? CAMPAIGN_POSITIVE_EXAMPLES : [];
+      if (!examples.length) {
+        container.innerHTML = '<div class="card" style="padding: 24px;"><p class="text-muted">Positive examples are being researched and source-checked.</p></div>';
+        return;
+      }
+
+      container.innerHTML = examples.map(ex => {
+        const partyClass = ex.party === 'D' ? 'text-blue' : 'text-red';
+        const voteRows = ex.votes ? Object.keys(ex.votes).map(voteId => {
+          const label = getVoteLabel(ex.votes[voteId]);
+          return `<span class="${label.class}" style="display: inline-block; margin-right: 10px; font-size: 0.78rem;">${voteId.toUpperCase()}: <strong>${label.text}</strong></span>`;
+        }).join('') : '';
+        return `
+          <div class="card" style="padding: 24px; border-left: 3px solid ${ex.party === 'D' ? 'var(--blue)' : 'var(--red)'};">
+            <p class="text-mono ${partyClass}" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">${ex.party === 'D' ? 'Democrat' : 'Republican'} - ${ex.district}</p>
+            <h3 style="margin-bottom: 8px;">${ex.name}</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 10px;"><strong>${ex.recommendation}</strong></p>
+            <p class="text-muted" style="font-size: 0.86rem; line-height: 1.6; margin-bottom: 12px;">${ex.why}</p>
+            <div style="margin-bottom: 12px;">${voteRows}</div>
+            <p class="text-muted" style="font-size: 0.78rem; line-height: 1.55; font-style: italic;">${ex.caveat}</p>
+            <p class="text-mono text-muted" style="font-size: 0.65rem; margin-top: 12px;">Sources: ${ex.sources.join(' | ')}</p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderEvidenceStandard() {
+      const container = document.getElementById('evidenceStandardGrid');
+      if (!container) return;
+      const standard = typeof RACE_EVIDENCE_STANDARD !== 'undefined' ? RACE_EVIDENCE_STANDARD : {};
+      const items = [
+        ['Source first', standard.sourceFirst],
+        ['Manual updates', standard.noNightlySync],
+        ['Unknown stays unknown', standard.unknownMeansUnknown],
+        ['People are not targets', standard.distinction]
+      ];
+      container.innerHTML = items.map(item => `
+        <div class="card" style="padding: 20px;">
+          <h3 class="text-yellow" style="font-size: 0.95rem; margin-bottom: 8px;">${item[0]}</h3>
+          <p class="text-muted" style="font-size: 0.84rem; line-height: 1.6;">${item[1] || ''}</p>
         </div>
       `).join('');
     }
@@ -459,7 +538,7 @@
           </h3>
           ${race.redistrictingImpact ? '<p class="text-muted" style="font-size: 0.8rem;">' + race.redistrictingImpact + '</p>' : ''}
         </div>
-        <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${race.rating}</span>
+        <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${race.rating || 'Research pending'}</span>
       </div>`;
 
       if (isOpen) {
@@ -639,13 +718,22 @@
       let html = `<div class="card" style="padding: 28px; margin-bottom: 24px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
           <h3>${raceType}${race.type === 'special' ? ' <span class="text-yellow" style="font-size: 0.75em;">(Special Election)</span>' : ''}</h3>
-          <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${race.rating}</span>
+          <span class="text-mono" style="font-size: 0.8rem; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 1px;">${race.rating || 'Research pending'}</span>
         </div>`;
       if (race.note) {
         html += `<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 16px;">${race.note}</p>`;
       }
       if (note) {
         html += `<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 16px;">${note}</p>`;
+      }
+      if (race.researchStatus) {
+        html += `<p class="text-yellow" style="font-size: 0.8rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">${race.researchStatus}</p>`;
+      }
+      if (race.source) {
+        html += `<p class="text-mono text-muted" style="font-size: 0.65rem; margin-bottom: 14px;">Source status: ${race.source}</p>`;
+      }
+      if (!race.candidates || race.candidates.length === 0) {
+        html += `<p class="text-muted" style="font-size: 0.85rem; line-height: 1.6;">Candidate stance research is not complete yet. Do not use this race for a public recommendation until candidate websites, public statements, donor records, endorsements, and reliable coverage have been checked.</p>`;
       }
       if (race.candidates) {
         race.candidates.forEach(c => {
@@ -714,10 +802,21 @@
           </div>`;
         }
 
+        // Context notes
+        if (sr.contextNotes && sr.contextNotes.length) {
+          html += `<div class="card" style="padding: 18px; margin-bottom: 20px; border-left: 3px solid var(--blue);">
+            <h3 class="text-blue" style="font-size: 0.95rem; margin-bottom: 10px;">Context to keep straight</h3>
+            <ul class="text-muted" style="font-size: 0.85rem; line-height: 1.75; margin-left: 18px;">${sr.contextNotes.map(n => `<li>${n}</li>`).join('')}</ul>
+          </div>`;
+        }
+
         // Governor
         if (sr.governor) {
           html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: var(--mid-gray);">Governor</h2>`;
           html += renderStatewideRace(sr.governor, 'Governor');
+        } else if (sr.governorNote) {
+          html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: var(--mid-gray);">Governor</h2>`;
+          html += `<div class="card" style="padding: 20px; margin-bottom: 24px;"><p class="text-muted">${sr.governorNote}</p></div>`;
         }
 
         // Senate
@@ -736,6 +835,11 @@
           html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; color: var(--mid-gray);">Competitive House Races</h2>`;
           sr.competitiveHouse.forEach(race => {
             html += renderHouseRace(race);
+          });
+        } else if (stateCandidates.length) {
+          html += `<h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin: 32px 0 16px; color: var(--mid-gray);">Tracked House Races</h2>`;
+          stateCandidates.forEach(c => {
+            html += renderRaceCard(c);
           });
         }
 
@@ -842,9 +946,12 @@
     };
 
     // Initialize
+    renderStats();
     applyFilters();
     renderRacesToWatch();
     renderRedistricted();
+    renderPositiveExamples();
+    renderEvidenceStandard();
 
     // Live search on typing
     document.getElementById('raceSearch').addEventListener('input', applyFilters);

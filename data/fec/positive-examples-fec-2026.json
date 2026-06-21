@@ -1,0 +1,16 @@
+﻿{
+    "attemptedAt":  "2026-06-21T06:05:06.3174464Z",
+    "source":  "Federal Election Commission API: /v1/candidates/search/",
+    "status":  "pending-rate-limited",
+    "note":  "The FEC DEMO_KEY returned HTTP 429 during the manual snapshot attempt. Use scripts/fetch-fec-highlighted.js with FEC_API_KEY for a complete official source snapshot.",
+    "intendedQueries":  [
+                            {
+                                "id":  "summer-lee-pa12",
+                                "url":  "https://api.open.fec.gov/v1/candidates/search/?api_key=DEMO_KEY\u0026election_year=2026\u0026office=H\u0026state=PA\u0026district=12\u0026per_page=20"
+                            },
+                            {
+                                "id":  "warren-davidson-oh08",
+                                "url":  "https://api.open.fec.gov/v1/candidates/search/?api_key=DEMO_KEY\u0026election_year=2026\u0026office=H\u0026state=OH\u0026district=08\u0026per_page=20"
+                            }
+                        ]
+}

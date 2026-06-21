@@ -4,11 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Find Your Voice | But What Can You Do?</title>
-  <meta name="description" content="Enter your zip code to find your congressional district, see who represents you, how much foreign lobby money they took, and what you can do about it in November 2026.">
+  <meta name="description" content="Find your congressional district by ZIP estimate, district entry, or address. See who represents you, how they voted, and what you can do about it in November 2026.">
   <meta property="og:title" content="Find Your Voice | But What Can You Do?">
-  <meta property="og:description" content="Enter your zip code. Find out who your rep is and what they voted for.">
+  <meta property="og:description" content="Find your district. See who your rep is and what they voted for.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/style.css?v=3">
+  <style>
+    .lookup-shell {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .lookup-mode-tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .lookup-mode-tab {
+      padding: 12px 18px;
+      font-size: 0.85rem;
+    }
+    .lookup-mode-panel {
+      display: none;
+    }
+    .lookup-mode-panel.active {
+      display: block;
+    }
+    .lookup-copy {
+      max-width: 560px;
+      margin: 0 auto 18px;
+      font-size: 0.9rem;
+    }
+    .district-input-group {
+      display: grid;
+      grid-template-columns: minmax(160px, 1fr) minmax(120px, 180px) auto;
+      gap: 8px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .address-input-group {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .lookup-note {
+      max-width: 640px;
+      margin: 14px auto 0;
+      font-size: 0.82rem;
+      color: var(--mid-gray);
+    }
+    @media (max-width: 768px) {
+      .district-input-group,
+      .address-input-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -32,30 +86,57 @@
   <section class="page-header">
     <div class="container">
       <h1 class="fade-in">Find Your <span class="text-red">Voice</span></h1>
-      <p class="fade-in text-muted">Enter your zip code. We’ll tell you who represents you, how they voted, and what you can do about it.</p>
+      <p class="fade-in text-muted">Use a ZIP estimate, enter your district, or use an address for the most precise result. We’ll tell you who represents you, how they voted, and what you can do about it.</p>
     </div>
   </section>
 
-  <!-- Zip Code Lookup -->
+  <!-- District Lookup -->
   <section class="section section-dark">
     <div class="container text-center">
-      <div class="fade-in">
-        <div class="zip-input-group">
-          <input type="text" id="zipInput" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
-          <button class="btn btn-red" id="zipSubmit" onclick="performLookup()">Go</button>
+      <div class="fade-in lookup-shell">
+        <div class="lookup-mode-tabs" role="tablist" aria-label="Choose lookup method">
+          <button class="btn btn-red lookup-mode-tab active-filter" type="button" data-mode="zip" onclick="setLookupMode('zip', this)">ZIP estimate</button>
+          <button class="btn btn-outline lookup-mode-tab" type="button" data-mode="district" onclick="setLookupMode('district', this)">Enter district</button>
+          <button class="btn btn-outline lookup-mode-tab" type="button" data-mode="address" onclick="setLookupMode('address', this)">Use address</button>
         </div>
-        <p class="text-muted" style="font-size: 0.8rem; margin-top: 12px;">We cover toss-up districts where your vote has the most impact. More districts added regularly.</p>
+
+        <div class="lookup-mode-panel active" id="zipPanel">
+          <p class="text-muted lookup-copy">Fast and privacy-friendly. ZIP codes can cross congressional district lines, so this is an estimate.</p>
+          <div class="zip-input-group">
+            <input type="text" id="zipInput" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+            <button class="btn btn-red" id="zipSubmit" type="button" onclick="performZipLookup()">Go</button>
+          </div>
+        </div>
+
+        <div class="lookup-mode-panel" id="districtPanel">
+          <p class="text-muted lookup-copy">Already know your congressional district? Enter it directly.</p>
+          <div class="district-input-group">
+            <select id="districtState" aria-label="State"></select>
+            <input type="number" id="districtNumber" min="1" max="53" placeholder="District #" inputmode="numeric">
+            <button class="btn btn-red" type="button" onclick="performDistrictLookup()">Go</button>
+          </div>
+        </div>
+
+        <div class="lookup-mode-panel" id="addressPanel">
+          <p class="text-muted lookup-copy"><strong class="text-blue">Most precise.</strong> We do not save your address or anything you enter here.</p>
+          <div class="address-input-group">
+            <input type="text" id="addressInput" placeholder="Street address, city, state">
+            <button class="btn btn-red" type="button" onclick="performAddressLookup()">Go</button>
+          </div>
+          <p class="lookup-note">Address lookup is sent to the U.S. Census geocoder only to identify your congressional district. This site does not store it.</p>
+        </div>
+
+        <p class="text-muted lookup-note">We cover priority toss-up and accountability races first. More districts will be added as research is verified in GitHub.</p>
         <div id="lookupResult" class="mt-4"></div>
       </div>
     </div>
   </section>
-
   <!-- What You'll See -->
   <section class="section section-darker" id="aboutLookup">
     <div class="container">
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
         <h2 style="margin-bottom: 16px;">What you'll get</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">When you enter your zip code, we cross-reference it against our database of toss-up congressional races. If your district is one of the 18 competitive seats we're tracking, you'll see:</p>
+        <p class="text-muted" style="margin-bottom: 24px;">Use ZIP estimate, enter your district, or use a full address for the most precise result. If your district is in our researched database, you'll see:</p>
         <div class="action-grid">
           <div class="card" style="padding: 24px;">
             <h3 class="text-blue">Your representative</h3>
@@ -151,97 +232,140 @@
   <script src="/js/lookup.js?v=3"></script>
   <script src="/js/main.js?v=3"></script>
   <script>
-    function performLookup() {
-      const zip = document.getElementById('zipInput').value.trim();
-      const resultDiv = document.getElementById('lookupResult');
+    const TRACKED_RACE_COUNT = typeof CANDIDATES !== 'undefined' ? CANDIDATES.length : 0;
 
-      if (!zip || zip.length !== 5 || !/^\d{5}$/.test(zip)) {
-        resultDiv.innerHTML = '<p style="color: var(--red);">Please enter a valid 5-digit zip code.</p>';
+    function escapeHtml(value) {
+      return String(value === null || value === undefined ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function populateDistrictStates() {
+      const select = document.getElementById('districtState');
+      if (!select || select.options.length > 0) return;
+
+      US_STATES.forEach(s => {
+        const option = document.createElement('option');
+        option.value = s.abbr;
+        option.textContent = s.name;
+        select.appendChild(option);
+      });
+    }
+
+    function setLookupMode(mode, button) {
+      document.querySelectorAll('.lookup-mode-panel').forEach(panel => panel.classList.remove('active'));
+      document.querySelectorAll('.lookup-mode-tab').forEach(tab => {
+        tab.classList.remove('active-filter');
+        tab.className = tab.className.replace('btn-red', 'btn-outline');
+      });
+
+      const panel = document.getElementById(mode + 'Panel');
+      if (panel) panel.classList.add('active');
+
+      if (button) {
+        button.classList.add('active-filter');
+        button.className = button.className.replace('btn-outline', 'btn-red');
+      }
+    }
+
+    function showLookupMessage(html) {
+      document.getElementById('lookupResult').innerHTML = html;
+    }
+
+    function renderNoCoverageResult(label, result) {
+      const districtText = result && result.district ? 'We found ' + escapeHtml(result.district) + '.' : escapeHtml(label);
+      showLookupMessage(`
+        <div class="card" style="max-width: 640px; margin: 0 auto; text-align: left; padding: 28px;">
+          <p class="text-mono text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">${escapeHtml(label)}</p>
+          <h3 style="margin-bottom: 12px;">${districtText}</h3>
+          <p class="text-muted" style="margin-bottom: 16px;">This district is not fully researched in our public database yet. We are prioritizing the closest and most important races first, then expanding state by state.</p>
+          ${result && result.isEstimate ? '<p class="text-yellow" style="font-size: 0.9rem; margin-bottom: 16px;">ZIP codes can include more than one congressional district. Use address for the most precise result, or enter your district directly.</p>' : ''}
+          <ul class="text-muted" style="margin-bottom: 20px; line-height: 2;">
+            <li><a href="/races/" style="color: var(--blue);">Browse tracked races</a></li>
+            <li><a href="/posters/" style="color: var(--blue);">Download general campaign posters</a></li>
+            <li><a href="/volunteer/" style="color: var(--blue);">Help research candidate positions</a></li>
+          </ul>
+          <form name="zip-notify" method="POST" data-netlify="true" style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+            <input type="hidden" name="lookup" value="${escapeHtml(label)}">
+            <input type="email" name="email" placeholder="Your email" required style="flex: 1; min-width: 180px; padding: 10px 14px; font-size: 0.9rem;">
+            <button type="submit" class="btn btn-red" style="padding: 10px 20px; font-size: 0.85rem;">Notify me</button>
+          </form>
+        </div>
+      `);
+    }
+
+    function renderLookupResult(result) {
+      if (!result) {
+        renderNoCoverageResult('No district found', null);
         return;
       }
 
-      const result = lookupDistrict(zip);
-
-      if (!result || !result.candidates || result.candidates.length === 0) {
-        // District not in our toss-up coverage
-        resultDiv.innerHTML = `
-          <div class="card" style="max-width: 600px; margin: 0 auto; text-align: left; padding: 28px;">
-            <p class="text-mono text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">ZIP ${zip}</p>
-            <h3 style="margin-bottom: 12px;">Your district isn't in our toss-up database yet.</h3>
-            <p class="text-muted" style="margin-bottom: 16px;">We're currently tracking the 18 most competitive House races — the seats where your vote has the most impact. We're expanding coverage regularly.</p>
-            <p class="text-muted" style="margin-bottom: 16px;">In the meantime, you can still help:</p>
-            <ul class="text-muted" style="margin-bottom: 20px; line-height: 2;">
-              <li><a href="/races/" style="color: var(--blue);">Browse all tracked races</a> — someone you know may live in a toss-up district</li>
-              <li><a href="/posters/" style="color: var(--blue);">Download general campaign posters</a></li>
-              <li><a href="/volunteer/" style="color: var(--blue);">Volunteer</a> — we need help everywhere</li>
-            </ul>
-            <p class="text-muted" style="font-size: 0.85rem;">Want to be notified when your district is added?</p>
-            <form name="zip-notify" method="POST" data-netlify="true" style="margin-top: 12px; display: flex; gap: 8px;">
-              <input type="hidden" name="zip" value="${zip}">
-              <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 10px 14px; font-size: 0.9rem;">
-              <button type="submit" class="btn btn-red" style="padding: 10px 20px; font-size: 0.85rem;">Notify me</button>
-            </form>
-          </div>
-        `;
-        // Scroll the about section into view
+      if (!result.candidates || result.candidates.length === 0 || !result.primaryCandidate) {
+        renderNoCoverageResult(result.sourceLabel || result.district, result);
         return;
       }
 
-      // We have data! Show full results
       const c = result.primaryCandidate;
       const messaging = result.messaging;
       const partyColor = c.party === 'D' ? 'text-blue' : 'text-red';
       const partyLabel = c.party === 'D' ? 'Democrat' : 'Republican';
 
-      // Build vote records
       let voteRows = '';
       KEY_VOTES.forEach(v => {
         const vote = c.keyVotes[v.id];
         const label = getVoteLabel(vote);
         voteRows += `
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
             <div>
-              <p style="font-weight: 500; font-size: 0.9rem;">${v.title}</p>
-              <p class="text-muted" style="font-size: 0.8rem;">${v.date} —  ${v.result}</p>
+              <p style="font-weight: 500; font-size: 0.9rem;">${escapeHtml(v.title)}</p>
+              <p class="text-muted" style="font-size: 0.8rem;">${escapeHtml(v.date)} — ${escapeHtml(v.result)}</p>
             </div>
-            <span class="${label.class}" style="font-weight: 700; font-size: 0.95rem; white-space: nowrap;">${label.icon} ${label.text}</span>
+            <span class="${label.class}" style="font-weight: 700; font-size: 0.95rem; white-space: nowrap;">${label.icon} ${escapeHtml(label.text)}</span>
           </div>
         `;
       });
 
-      // Build talking points
-      let talkingPointsHtml = '';
-      messaging.talkingPoints.forEach((tp, i) => {
-        talkingPointsHtml += `<li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">${tp}</li>`;
-      });
+      const talkingPointsHtml = messaging.talkingPoints.map(tp =>
+        `<li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">${escapeHtml(tp)}</li>`
+      ).join('');
 
-      // AIPAC status
-      let aipacSection = '';
+      let lobbySection = '';
       if (c.aipacEndorsed || c.aipacTrip || c.aipacFunding) {
-        let badges = [];
+        const badges = [];
         if (c.aipacEndorsed) badges.push('<span class="text-yellow" style="font-weight: 600;">Foreign Lobby Endorsed</span>');
         if (c.aipacTrip) badges.push('<span class="text-muted">Foreign lobby-funded trip</span>');
-        if (c.aipacFunding) badges.push('<span class="text-yellow text-mono">' + formatCurrency(c.aipacFunding) + ' in foreign lobby funding</span>');
-        aipacSection = `
+        if (c.aipacFunding) badges.push('<span class="text-yellow text-mono">' + escapeHtml(formatCurrency(c.aipacFunding)) + ' in foreign lobby funding</span>');
+        lobbySection = `
           <div class="card" style="padding: 20px; margin-bottom: 16px; border-left: 3px solid var(--yellow);">
             <h3 class="text-yellow" style="margin-bottom: 8px;">Lobby Connection</h3>
             <p>${badges.join(' &nbsp;&bull;&nbsp; ')}</p>
-            ${c.notableActions ? '<p class="text-muted" style="margin-top: 8px; font-size: 0.85rem; font-style: italic;">' + c.notableActions + '</p>' : ''}
+            ${c.notableActions ? '<p class="text-muted" style="margin-top: 8px; font-size: 0.85rem; font-style: italic;">' + escapeHtml(c.notableActions) + '</p>' : ''}
           </div>
         `;
       }
 
-      // Redistricting notice
-      let redistrictNotice = '';
-      if (c.redistricted) {
-        redistrictNotice = `
-          <div class="card" style="padding: 16px; margin-bottom: 16px; border-left: 3px solid var(--blue);">
-            <p style="font-size: 0.9rem;"><strong class="text-blue">Redistricted District</strong> — This district has new boundaries for 2026. If you recently moved or if your district number changed, you may have a different representative than before.</p>
-          </div>
-        `;
-      }
+      const estimateNotice = result.isEstimate ? `
+        <div class="card" style="padding: 16px; margin-bottom: 16px; border-left: 3px solid var(--yellow);">
+          <p style="font-size: 0.9rem;"><strong class="text-yellow">ZIP estimate</strong> — ZIP codes can include more than one congressional district. Use address for the most precise result, or enter your district directly.</p>
+        </div>
+      ` : '';
 
-      // Deadline info
+      const privacyNotice = result.lookupMethod === 'address' ? `
+        <div class="card" style="padding: 16px; margin-bottom: 16px; border-left: 3px solid var(--blue);">
+          <p style="font-size: 0.9rem;"><strong class="text-blue">Most precise result</strong> — We do not save your address or anything you enter here.</p>
+          ${result.matchedAddress ? '<p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Matched by Census as: ' + escapeHtml(result.matchedAddress) + '</p>' : ''}
+        </div>
+      ` : '';
+
+      const redistrictNotice = c.redistricted ? `
+        <div class="card" style="padding: 16px; margin-bottom: 16px; border-left: 3px solid var(--blue);">
+          <p style="font-size: 0.9rem;"><strong class="text-blue">Redistricted District</strong> — This district has new boundaries for 2026. If you recently moved or if your district number changed, you may have a different representative than before.</p>
+        </div>
+      ` : '';
+
       let deadlineHtml = '';
       if (result.deadlines) {
         const dl = result.deadlines;
@@ -249,18 +373,18 @@
         const urgencyBorder = dl.urgency === 'urgent' ? 'var(--red)' : dl.urgency === 'soon' ? 'var(--yellow)' : 'rgba(255,255,255,0.06)';
         deadlineHtml = `
           <div class="card" style="padding: 20px; margin-bottom: 16px; border-left: 3px solid ${urgencyBorder};">
-            <h3 style="font-size: 1rem; margin-bottom: 12px; color: ${urgencyColor};">${dl.urgency === 'urgent' ? '⚠ REGISTRATION DEADLINE APPROACHING' : dl.urgency === 'passed' ? 'Registration deadline has passed' : 'Key Dates for Your State'}</h3>
+            <h3 style="font-size: 1rem; margin-bottom: 12px; color: ${urgencyColor};">${dl.urgency === 'urgent' ? 'REGISTRATION DEADLINE APPROACHING' : dl.urgency === 'passed' ? 'Registration deadline has passed' : 'Key Dates for Your State'}</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
               <div>
                 <p class="text-muted" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Register by</p>
-                <p style="font-weight: 600; color: ${urgencyColor};">${dl.regDeadlineFormatted}</p>
+                <p style="font-weight: 600; color: ${urgencyColor};">${escapeHtml(dl.regDeadlineFormatted)}</p>
                 ${dl.daysUntilReg > 0 ? '<p class="text-muted" style="font-size: 0.8rem;">' + dl.daysUntilReg + ' days left</p>' : ''}
                 ${dl.sameDay ? '<p style="font-size: 0.8rem; color: var(--blue);">Same-day registration available</p>' : ''}
               </div>
-              ${dl.earlyVoteFormatted ? '<div><p class="text-muted" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Early voting starts</p><p style="font-weight: 600;">' + dl.earlyVoteFormatted + '</p></div>' : ''}
+              ${dl.earlyVoteFormatted ? '<div><p class="text-muted" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Early voting starts</p><p style="font-weight: 600;">' + escapeHtml(dl.earlyVoteFormatted) + '</p></div>' : ''}
               <div>
                 <p class="text-muted" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Election Day</p>
-                <p style="font-weight: 600; color: var(--red);">${dl.electionDayFormatted}</p>
+                <p style="font-weight: 600; color: var(--red);">${escapeHtml(dl.electionDayFormatted)}</p>
                 <p class="text-muted" style="font-size: 0.8rem;">${dl.daysUntilElection} days away</p>
               </div>
             </div>
@@ -269,87 +393,128 @@
         `;
       }
 
-      resultDiv.innerHTML = `
+      showLookupMessage(`
         <div style="max-width: 700px; margin: 0 auto; text-align: left;">
-          <!-- District Header -->
           <div class="card" style="padding: 28px; margin-bottom: 16px;">
-            <p class="text-mono text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">ZIP ${zip} → ${result.district}</p>
-            <h2 style="margin-bottom: 4px;">${c.name}</h2>
+            <p class="text-mono text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">${escapeHtml(result.sourceLabel || result.district)} -> ${escapeHtml(result.district)}</p>
+            <h2 style="margin-bottom: 4px;">${escapeHtml(c.name)}</h2>
             <p>
               <span class="${partyColor}" style="font-weight: 600;">${partyLabel}</span>
-              <span class="text-muted"> — ${c.districtLabel}</span>
+              <span class="text-muted"> — ${escapeHtml(c.districtLabel)}</span>
               ${c.isOpenSeat ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(0,168,232,0.15); color: var(--blue); font-size: 0.75rem; border-radius: 2px; margin-left: 8px;">OPEN SEAT</span>' : ''}
               ${c.redistricted ? '<span style="display: inline-block; padding: 2px 8px; background: rgba(255,197,0,0.15); color: var(--yellow); font-size: 0.75rem; border-radius: 2px; margin-left: 8px;">REDISTRICTED</span>' : ''}
             </p>
-            <p class="text-mono text-muted" style="font-size: 0.8rem; margin-top: 4px;">Race rating: ${c.rating}</p>
+            <p class="text-mono text-muted" style="font-size: 0.8rem; margin-top: 4px;">Race rating: ${escapeHtml(c.rating)}</p>
           </div>
 
+          ${estimateNotice}
+          ${privacyNotice}
           ${deadlineHtml}
           ${redistrictNotice}
-          ${aipacSection}
+          ${lobbySection}
 
-          <!-- Vote Record -->
           <div class="card" style="padding: 24px; margin-bottom: 16px;">
             <h3 class="text-red" style="margin-bottom: 12px;">Vote Record</h3>
             ${voteRows}
             <p class="text-mono text-muted" style="font-size: 0.7rem; margin-top: 12px;">Source: clerk.house.gov roll call records</p>
           </div>
 
-          <!-- Tailored Talking Points -->
           <div class="card" style="padding: 24px; margin-bottom: 16px; border-left: 3px solid var(--red);">
-            <h3 style="margin-bottom: 4px;">${messaging.headline}</h3>
-            <p class="text-muted" style="margin-bottom: 16px;">${messaging.subtext}</p>
+            <h3 style="margin-bottom: 4px;">${escapeHtml(messaging.headline)}</h3>
+            <p class="text-muted" style="margin-bottom: 16px;">${escapeHtml(messaging.subtext)}</p>
             <h4 class="text-blue" style="font-size: 0.85rem; margin-bottom: 8px;">TALKING POINTS FOR YOUR AREA</h4>
-            <ul style="list-style: none; padding: 0;">
-              ${talkingPointsHtml}
-            </ul>
+            <ul style="list-style: none; padding: 0;">${talkingPointsHtml}</ul>
           </div>
 
-          <!-- Challenger Info -->
           ${c.challenger && c.challenger !== 'TBD' ? `
           <div class="card" style="padding: 20px; margin-bottom: 16px;">
             <h3 class="text-blue" style="margin-bottom: 8px;">Challenger</h3>
-            <p><strong>${c.challenger}</strong></p>
-          </div>
-          ` : ''}
+            <p><strong>${escapeHtml(c.challenger)}</strong></p>
+          </div>` : ''}
 
-          <!-- What You Can Do -->
           <div class="card" style="padding: 24px; margin-bottom: 16px; background: rgba(255,65,54,0.05); border: 1px solid rgba(255,65,54,0.15);">
             <h3 style="margin-bottom: 12px;">What you can do <span class="text-red">right now</span></h3>
             <ul style="list-style: none; padding: 0; line-height: 2.2;">
-              <li>→ <a href="/posters/" style="color: var(--blue);">Download a poster</a> for your district and hang it where people will see it</li>
-              <li>→ <a href="/talk/" style="color: var(--blue);">Read the talking points</a> and share what you've learned with 3 people</li>
-              <li>→ <a href="/volunteer/" style="color: var(--blue);">Volunteer</a> to help organize in your area</li>
-              <li>→ Share this page — copy the URL and send it to someone in your district</li>
-              <li>→ <strong class="text-red">Vote in November 2026</strong> — and make sure everyone you know does too</li>
+              <li>-> <a href="/posters/" style="color: var(--blue);">Download a poster</a> for your district and hang it where people will see it</li>
+              <li>-> <a href="/talk/" style="color: var(--blue);">Read the talking points</a> and share what you've learned with 3 people</li>
+              <li>-> <a href="/volunteer/" style="color: var(--blue);">Volunteer</a> to help organize in your area</li>
+              <li>-> Share this page — copy the URL and send it to someone in your district</li>
+              <li>-> <strong class="text-red">Vote in November 2026</strong> — and make sure everyone you know does too</li>
             </ul>
           </div>
 
-          <!-- Share -->
           <div style="text-align: center; margin-top: 24px;">
-            <button class="btn btn-outline" onclick="shareResult('${c.districtLabel}', '${c.name}')">Share this result</button>
+            <button class="btn btn-outline" onclick="shareResult('${escapeHtml(c.districtLabel)}', '${escapeHtml(c.name)}', event)">Share this result</button>
           </div>
         </div>
-      `;
+      `);
 
-      // Hide the about section once results show
       document.getElementById('aboutLookup').style.display = 'none';
     }
 
-    // Share functionality
-    function shareResult(district, name) {
+    function performLookup() {
+      performZipLookup();
+    }
+
+    function performZipLookup() {
+      const zip = document.getElementById('zipInput').value.trim();
+      if (!zip || zip.length !== 5 || !/^\d{5}$/.test(zip)) {
+        showLookupMessage('<p style="color: var(--red);">Please enter a valid 5-digit zip code.</p>');
+        return;
+      }
+
+      const result = lookupDistrict(zip);
+      if (!result) {
+        renderNoCoverageResult('ZIP ' + zip, null);
+        return;
+      }
+      renderLookupResult(result);
+    }
+
+    function performDistrictLookup() {
+      const state = document.getElementById('districtState').value;
+      const districtNumber = document.getElementById('districtNumber').value;
+      const result = lookupByDistrict(state, districtNumber);
+      if (!result) {
+        showLookupMessage('<p style="color: var(--red);">Please choose a state and enter a district number.</p>');
+        return;
+      }
+      renderLookupResult(result);
+    }
+
+    async function performAddressLookup() {
+      const address = document.getElementById('addressInput').value.trim();
+      if (!address || address.length < 8) {
+        showLookupMessage('<p style="color: var(--red);">Please enter a full street address, city, and state.</p>');
+        return;
+      }
+
+      showLookupMessage('<p class="text-muted">Looking up your congressional district...</p>');
+      try {
+        const result = await lookupAddress(address);
+        if (!result) {
+          renderNoCoverageResult('Address lookup', null);
+          return;
+        }
+        renderLookupResult(result);
+      } catch (error) {
+        showLookupMessage('<div class="card" style="max-width: 640px; margin: 0 auto; text-align: left; padding: 24px;"><h3 style="margin-bottom: 8px;">Address lookup is unavailable right now.</h3><p class="text-muted">You can still use ZIP estimate or enter your district directly. This site did not save your address.</p></div>');
+      }
+    }
+
+    function shareResult(district, name, event) {
       const text = `I just looked up my congressional district (${district}) on butwhatcanyoudo.org. ${name} took money from the foreign lobby for the government of Israel and voted to send weapons to the government of Israel while it kills civilians. Check yours: #ButWhatCanYouDo #WhoVotedYes`;
-      
+
       if (navigator.share) {
         navigator.share({
           title: 'But What Can You Do?',
           text: text,
           url: 'https://butwhatcanyoudo.org/lookup/'
         });
-      } else {
-        // Fallback: copy to clipboard
+      } else if (navigator.clipboard) {
         navigator.clipboard.writeText(text + ' https://butwhatcanyoudo.org/lookup/').then(() => {
-          const btn = event.target;
+          const btn = event && event.target;
+          if (!btn) return;
           const originalText = btn.textContent;
           btn.textContent = 'Copied to clipboard!';
           btn.style.borderColor = 'var(--blue)';
@@ -363,10 +528,25 @@
       }
     }
 
-    // Enter key support
-    document.getElementById('zipInput').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') performLookup();
+    populateDistrictStates();
+
+    document.getElementById('zipInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') performZipLookup();
     });
+    document.getElementById('districtNumber').addEventListener('keypress', e => {
+      if (e.key === 'Enter') performDistrictLookup();
+    });
+    document.getElementById('addressInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') performAddressLookup();
+    });
+
+    const urlZip = new URLSearchParams(window.location.search).get('zip');
+    if (urlZip) {
+      document.getElementById('zipInput').value = urlZip;
+      performZipLookup();
+    }
   </script>
 </body>
 </html>
+
+
