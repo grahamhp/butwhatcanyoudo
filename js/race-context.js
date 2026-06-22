@@ -308,6 +308,57 @@ const STATE_RACE_EXPANSIONS = {
   }
 };
 
+
+const STATE_OFFICIAL_RESEARCH_SOURCES = {
+  AZ: [
+    { label: 'Arizona Secretary of State elections portal', url: 'https://azsos.gov/elections', useFor: 'Governor ballot/candidate verification, state election calendar, official filings.' }
+  ],
+  CA: [
+    { label: 'California Secretary of State elections portal', url: 'https://www.sos.ca.gov/elections', useFor: 'Top-two primary results, governor candidate verification, statewide election rules.' }
+  ],
+  CO: [
+    { label: 'Colorado Secretary of State elections portal', url: 'https://www.coloradosos.gov/pubs/elections/main.html', useFor: 'Governor and Senate candidate verification, ballot access, official election calendar.' }
+  ],
+  IA: [
+    { label: 'Iowa Secretary of State elections portal', url: 'https://sos.iowa.gov/elections/', useFor: 'Governor and Senate candidate verification, official filings, voter deadlines.' }
+  ],
+  ME: [
+    { label: 'Maine Bureau of Corporations, Elections and Commissions', url: 'https://www.maine.gov/sos/cec/elec/', useFor: 'Governor, Senate, and House ballot/candidate verification.' }
+  ],
+  MI: [
+    { label: 'Michigan Department of State elections portal', url: 'https://www.michigan.gov/sos/elections', useFor: 'Governor, Senate, and House candidate verification, official ballot information.' }
+  ],
+  MO: [
+    { label: 'Missouri Secretary of State elections portal', url: 'https://www.sos.mo.gov/elections', useFor: 'Congressional candidate verification and redistricting-related ballot checks.' }
+  ],
+  NC: [
+    { label: 'North Carolina State Board of Elections', url: 'https://www.ncsbe.gov/', useFor: 'Senate and House candidate verification, NC-01 ballot information, official election notices.' }
+  ],
+  NE: [
+    { label: 'Nebraska Secretary of State elections portal', url: 'https://sos.nebraska.gov/elections', useFor: 'Governor, Senate, and NE-02 candidate verification.' }
+  ],
+  NM: [
+    { label: 'New Mexico Secretary of State voting and elections portal', url: 'https://www.sos.nm.gov/voting-and-elections/', useFor: 'Governor, Senate, and NM-02 candidate verification.' }
+  ],
+  NY: [
+    { label: 'New York State Board of Elections', url: 'https://elections.ny.gov/', useFor: 'Governor and House candidate verification, official election information.' }
+  ],
+  OH: [
+    { label: 'Ohio Secretary of State elections portal', url: 'https://www.ohiosos.gov/elections/', useFor: 'Governor, special Senate, and redistricted House candidate verification.' }
+  ],
+  PA: [
+    { label: 'Pennsylvania voting and elections portal', url: 'https://www.pa.gov/agencies/vote.html', useFor: 'Governor and House candidate verification, state election rules.' }
+  ],
+  TX: [
+    { label: 'Texas Secretary of State elections portal', url: 'https://www.sos.state.tx.us/elections/', useFor: 'Governor, Senate, and redistricted House candidate verification.' }
+  ],
+  UT: [
+    { label: 'Utah elections portal', url: 'https://vote.utah.gov/', useFor: 'Redistricting-impact candidate verification, write-in and ballot rules.' }
+  ],
+  WA: [
+    { label: 'Washington Secretary of State elections portal', url: 'https://www.sos.wa.gov/elections', useFor: 'House candidate verification and official election information.' }
+  ]
+};
 if (typeof STATE_RACES !== 'undefined') {
   Object.keys(STATE_RACE_EXPANSIONS).forEach(state => {
     STATE_RACES[state] = Object.assign({}, STATE_RACE_EXPANSIONS[state], STATE_RACES[state] || {});

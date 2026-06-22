@@ -112,7 +112,7 @@
           <p class="text-muted lookup-copy">Already know your congressional district? Enter it directly.</p>
           <div class="district-input-group">
             <select id="districtState" aria-label="State"></select>
-            <input type="number" id="districtNumber" min="1" max="53" placeholder="District #" inputmode="numeric">
+            <input type="text" id="districtNumber" placeholder="District # or AL" inputmode="numeric">
             <button class="btn btn-red" type="button" onclick="performDistrictLookup()">Go</button>
           </div>
         </div>
@@ -120,7 +120,7 @@
         <div class="lookup-mode-panel" id="addressPanel">
           <p class="text-muted lookup-copy"><strong class="text-blue">Most precise.</strong> We do not save your address or anything you enter here.</p>
           <div class="address-input-group">
-            <input type="text" id="addressInput" placeholder="Street address, city, state">
+            <input type="text" id="addressInput" placeholder="Street address, city, state, ZIP">
             <button class="btn btn-red" type="button" onclick="performAddressLookup()">Go</button>
           </div>
           <p class="lookup-note">Address lookup is sent to the U.S. Census geocoder only to identify your congressional district. This site does not store it.</p>
@@ -456,19 +456,26 @@
       performZipLookup();
     }
 
-    function performZipLookup() {
+    async function performZipLookup() {
       const zip = document.getElementById('zipInput').value.trim();
       if (!zip || zip.length !== 5 || !/^\d{5}$/.test(zip)) {
         showLookupMessage('<p style="color: var(--red);">Please enter a valid 5-digit zip code.</p>');
         return;
       }
 
-      const result = lookupDistrict(zip);
-      if (!result) {
-        renderNoCoverageResult('ZIP ' + zip, null);
-        return;
+      showLookupMessage('<p class="text-muted">Estimating your congressional district...</p>');
+      try {
+        const result = typeof lookupZipEstimate === 'function'
+          ? await lookupZipEstimate(zip)
+          : lookupDistrict(zip);
+        if (!result) {
+          renderNoCoverageResult('ZIP ' + zip, null);
+          return;
+        }
+        renderLookupResult(result);
+      } catch (error) {
+        showLookupMessage('<div class="card" style="max-width: 640px; margin: 0 auto; text-align: left; padding: 24px;"><h3 style="margin-bottom: 8px;">ZIP estimate is unavailable right now.</h3><p class="text-muted">You can still use address for the most precise Census match, or enter your congressional district directly.</p></div>');
       }
-      renderLookupResult(result);
     }
 
     function performDistrictLookup() {
@@ -498,7 +505,7 @@
         }
         renderLookupResult(result);
       } catch (error) {
-        showLookupMessage('<div class="card" style="max-width: 640px; margin: 0 auto; text-align: left; padding: 24px;"><h3 style="margin-bottom: 8px;">Address lookup is unavailable right now.</h3><p class="text-muted">You can still use ZIP estimate or enter your district directly. This site did not save your address.</p></div>');
+        showLookupMessage('<div class="card" style="max-width: 640px; margin: 0 auto; text-align: left; padding: 24px;"><h3 style="margin-bottom: 8px;">Address lookup is unavailable right now.</h3><p class="text-muted">You can still use ZIP estimate or enter your district directly. If you are using a local static preview, include your ZIP in the address so we can estimate from the official Census ZCTA file. This site did not save your address.</p></div>');
       }
     }
 

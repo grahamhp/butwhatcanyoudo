@@ -348,26 +348,32 @@ function normalizeStateCode(state) {
   return Object.values(STATE_FIPS_TO_ABBR).includes(upperState) ? upperState : null;
 }
 
-// Normalize district input into labels like "OH-01"
+// Normalize district input into labels like "OH-01" or "AK-AL"
 function normalizeDistrictLabel(state, districtNumber) {
   if (!state || districtNumber === null || districtNumber === undefined || districtNumber === '') return null;
 
   const stateCode = normalizeStateCode(state);
-  const numericDistrict = parseInt(String(districtNumber).replace(/[^0-9]/g, ''), 10);
-  if (!stateCode || Number.isNaN(numericDistrict) || numericDistrict < 1) return null;
+  const rawDistrict = String(districtNumber).trim().toUpperCase();
+  if (!stateCode) return null;
+  if (rawDistrict === 'AL' || rawDistrict === 'AT LARGE') return stateCode + '-AL';
+
+  const numericDistrict = parseInt(rawDistrict.replace(/[^0-9]/g, ''), 10);
+  if (Number.isNaN(numericDistrict) || numericDistrict < 0) return null;
+  if (numericDistrict === 0 || (stateCode === 'DC' && numericDistrict === 98)) return stateCode + '-AL';
 
   return stateCode + '-' + String(numericDistrict).padStart(2, '0');
 }
 
 function parseDistrictLabel(districtLabel) {
-  const match = String(districtLabel || '').trim().toUpperCase().match(/^([A-Z]{2})-?(\d{1,2})$/);
+  const match = String(districtLabel || '').trim().toUpperCase().match(/^([A-Z]{2})-?(AL|AT LARGE|\d{1,2})$/);
   if (!match) return null;
   const district = normalizeDistrictLabel(match[1], match[2]);
   if (!district) return null;
+  const isAtLarge = district.endsWith('-AL');
 
   return {
     state: district.split('-')[0],
-    districtNumber: parseInt(match[2], 10),
+    districtNumber: isAtLarge ? 0 : parseInt(match[2], 10),
     district
   };
 }
@@ -414,17 +420,62 @@ function lookupDistrict(zip) {
   const cleanZip = String(zip || '').trim();
   const district = ZIP_TO_DISTRICT[cleanZip];
   if (!district) {
-    return null; // Zip not in our coverage area yet
+    return null; // Zip not in our hand-reviewed priority coverage yet
   }
 
   const result = lookupDistrictLabel(district, {
     lookupMethod: 'zip',
     isEstimate: true,
     sourceLabel: 'ZIP ' + cleanZip,
-    precisionNote: 'ZIP codes can cross congressional district lines. This is our best estimate from the current ZIP-to-district coverage. Use address for the most precise result, or enter your district directly.'
+    precisionNote: 'ZIP codes can cross congressional district lines. This is our hand-reviewed estimate for a priority district. Use address for the most precise result, or enter your district directly.'
   });
 
   if (result) result.zip = cleanZip;
+  return result;
+}
+
+let zctaDistrictDataPromise = null;
+
+async function loadZctaDistricts() {
+  if (!zctaDistrictDataPromise) {
+    zctaDistrictDataPromise = fetch('/data/geo/zcta-to-district-119.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Could not load Census ZIP-to-district data.');
+        return response.json();
+      });
+  }
+  return zctaDistrictDataPromise;
+}
+
+async function lookupZipEstimate(zip) {
+  const cleanZip = String(zip || '').trim();
+  if (!/^\d{5}$/.test(cleanZip)) return null;
+
+  const reviewed = lookupDistrict(cleanZip);
+  if (reviewed) {
+    reviewed.lookupMethod = 'zip';
+    reviewed.isEstimate = true;
+    reviewed.estimateSource = 'hand-reviewed priority ZIP mapping';
+    return reviewed;
+  }
+
+  const zctaData = await loadZctaDistricts();
+  const entry = zctaData && zctaData.zctas ? zctaData.zctas[cleanZip] : null;
+  if (!entry || !entry.district) return null;
+
+  const result = lookupDistrictLabel(entry.district, {
+    lookupMethod: 'zip',
+    isEstimate: true,
+    sourceLabel: 'ZIP estimate ' + cleanZip,
+    precisionNote: 'ZIP estimates use the official Census 119th Congressional District-to-ZCTA relationship file. ZIPs can cross district lines, and USPS ZIPs are not identical to Census ZCTAs. Use address for the most precise result, or enter your district directly.'
+  });
+
+  if (result) {
+    result.zip = cleanZip;
+    result.estimateSource = 'Census CD119-to-ZCTA relationship file';
+    result.zipAlternatives = entry.alternatives || [];
+    result.zipSpansMultipleDistricts = !!entry.spansMultipleDistricts;
+  }
   return result;
 }
 
@@ -477,37 +528,41 @@ async function lookupAddress(address) {
   const cleanAddress = String(address || '').trim();
   if (!cleanAddress) return null;
 
-  const endpoint = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress';
-  const params = new URLSearchParams({
-    address: cleanAddress,
-    benchmark: 'Public_AR_Current',
-    vintage: 'Current_Current',
-    layers: 'all',
-    format: 'json'
-  });
+  const params = new URLSearchParams({ address: cleanAddress });
+  try {
+    const response = await fetch('/.netlify/functions/district-lookup?' + params.toString());
+    if (response.ok) {
+      const data = await response.json();
+      if (!data || !data.district) return null;
 
-  const response = await fetch(endpoint + '?' + params.toString());
-  if (!response.ok) throw new Error('The address lookup service did not respond.');
+      const result = lookupDistrictLabel(data.district, {
+        lookupMethod: 'address',
+        isEstimate: false,
+        sourceLabel: 'Address lookup',
+        precisionNote: 'Most precise result. We do not save your address or anything you enter here.'
+      });
 
-  const data = await response.json();
-  const matches = data && data.result && Array.isArray(data.result.addressMatches)
-    ? data.result.addressMatches
-    : [];
-  if (matches.length === 0) return null;
+      if (result) result.matchedAddress = data.matchedAddress || null;
+      return result;
+    }
+  } catch (error) {
+    // Fall through to ZIP fallback below for static local previews.
+  }
 
-  const geo = getCensusDistrictGeography(matches[0].geographies);
-  const district = districtLabelFromCensusGeo(geo);
-  if (!district) return null;
+  const zipMatch = cleanAddress.match(/\b\d{5}(?:-\d{4})?\b/);
+  if (zipMatch) {
+    const fallback = await lookupZipEstimate(zipMatch[0].slice(0, 5));
+    if (fallback) {
+      fallback.lookupMethod = 'address';
+      fallback.isEstimate = true;
+      fallback.sourceLabel = 'Address ZIP estimate';
+      fallback.precisionNote = 'Precise address lookup requires the same-origin Census lookup function. This result uses the ZIP in the address as an estimate; ZIPs can cross district lines.';
+      fallback.addressFallback = true;
+      return fallback;
+    }
+  }
 
-  const result = lookupDistrictLabel(district, {
-    lookupMethod: 'address',
-    isEstimate: false,
-    sourceLabel: 'Address lookup',
-    precisionNote: 'Most precise result. We do not save your address or anything you enter here.'
-  });
-
-  if (result) result.matchedAddress = matches[0].matchedAddress || null;
-  return result;
+  throw new Error('The precise address lookup service is not available from this static preview.');
 }
 
 

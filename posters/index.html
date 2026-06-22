@@ -247,12 +247,12 @@
       {
         id: 'p1',
         headline: 'The government<br>of Israel told us to.',
-        subtext: '- Every foreign lobby-funded politician',
+        subtext: '— Every foreign lobby-funded politician',
         headlineColor: '#FF4136',
         themes: ['accountability', 'foreign lobby funding'],
         districtTargets: ['general'],
         careLevel: 'normal',
-        description: 'General accountability poster - works everywhere.',
+        description: 'General accountability poster — works everywhere.',
         bgStyle: 'background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0d0d0d 100%);'
       },
       {
@@ -263,7 +263,7 @@
         themes: ['tax dollars', 'weapons funding'],
         districtTargets: ['general', 'fiscal', 'libertarian', 'working-class'],
         careLevel: 'normal',
-        description: 'Fiscal impact poster - strong for tax-accountability districts.',
+        description: 'Fiscal impact poster — great for conservative areas.',
         bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);'
       },
       {
@@ -274,7 +274,7 @@
         themes: ['churches', 'faith communities'],
         districtTargets: ['faith', 'christian', 'interfaith'],
         careLevel: 'normal',
-        description: 'Faith-based poster - for Christian and interfaith communities.',
+        description: 'Faith-based poster — for Christian communities.',
         bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);'
       },
       {
@@ -285,7 +285,7 @@
         themes: ['children', 'family accountability'],
         districtTargets: ['parent', 'suburban', 'general'],
         careLevel: 'normal',
-        description: 'For suburban neighborhoods and family-heavy districts.',
+        description: 'For suburban neighborhoods and schools.',
         bgStyle: 'background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);'
       },
       {
@@ -313,12 +313,12 @@
       {
         id: 'p7',
         headline: '$126.9 Million.',
-        subtext: 'That is how much one foreign lobbying group spent in 2024 to buy Congress.',
+        subtext: 'That’s how much one foreign lobbying group spent in 2024 to buy Congress.',
         headlineColor: '#FFC500',
         themes: ['money in politics', 'lobby spending'],
         districtTargets: ['general', 'fiscal', 'libertarian'],
         careLevel: 'normal',
-        description: 'Money-in-politics poster - works with accountability audiences.',
+        description: 'Money-in-politics poster — works with all audiences.',
         bgStyle: 'background: linear-gradient(135deg, #111 0%, #0d0d0d 100%);'
       },
       {
@@ -329,7 +329,7 @@
         themes: ['Massie', 'political punishment'],
         districtTargets: ['general', 'libertarian', 'fiscal'],
         careLevel: 'normal',
-        description: 'The Massie story - shows both parties punish dissent.',
+        description: 'The Massie story — shows both parties punish dissent.',
         bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);'
       },
       {
@@ -340,13 +340,13 @@
         themes: ['hospitals', 'schools', 'churches'],
         districtTargets: ['faith', 'christian', 'general'],
         careLevel: 'normal',
-        description: 'Adapted historical framework - powerful for faith communities.',
+        description: 'Adapted Niemöller framework — powerful for faith communities.',
         bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #111 100%);'
       },
       {
         id: 'p10',
         headline: 'Your rep<br>voted yes.',
-        subtext: 'butwhatcanyoudo.org - Look them up.',
+        subtext: 'butwhatcanyoudo.org — Look them up.',
         headlineColor: '#00A8E8',
         themes: ['district lookup', 'vote record'],
         districtTargets: ['general'],
@@ -357,23 +357,23 @@
       {
         id: 'p11',
         headline: '6 votes.',
-        subtext: 'That is how close it was in Iowa. Your vote matters.',
+        subtext: 'That’s how close it was in Iowa. Your vote matters.',
         headlineColor: '#FFC500',
         themes: ['close elections', 'voter motivation'],
         districtTargets: ['general', 'fiscal', 'working-class'],
         careLevel: 'normal',
-        description: 'Voter motivation poster - shows elections are decided by small margins.',
+        description: 'Voter motivation poster — shows elections are decided by small margins.',
         bgStyle: 'background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);'
       },
       {
         id: 'p12',
         headline: 'Not left.<br>Not right.<br>Just right.',
-        subtext: 'This is not partisan. It is human. November 2026.',
+        subtext: 'This isn’t partisan. It’s human. November 2026.',
         headlineColor: '#00A8E8',
         themes: ['nonpartisan', 'humanitarian'],
         districtTargets: ['general', 'suburban', 'interfaith'],
         careLevel: 'normal',
-        description: 'Nonpartisan framing poster - bridges political divides.',
+        description: 'Nonpartisan framing poster — bridges political divides.',
         bgStyle: 'background: linear-gradient(180deg, #0d0d0d 0%, #111 100%);'
       },
       {
@@ -467,7 +467,11 @@
 
     function renderPosters(filter) {
       const grid = document.getElementById('posterGrid');
+      if (!grid) return;
       const filtered = POSTERS.filter(p => posterMatchesFilter(p, filter));
+
+      const fadeParent = grid.closest('.fade-in');
+      if (fadeParent) fadeParent.classList.add('visible');
 
       grid.innerHTML = filtered.map(p => {
         const targetTags = p.districtTargets.map(t => {
@@ -551,7 +555,7 @@
       `;
     }
 
-    function generateCustomPoster() {
+    async function generateCustomPoster() {
       const zip = document.getElementById('posterZip').value.trim();
       const resultDiv = document.getElementById('customPosterResult');
 
@@ -560,37 +564,57 @@
         return;
       }
 
-      const result = lookupDistrict(zip);
+      resultDiv.innerHTML = '<p class="text-muted" style="margin-top: 18px;">Estimating your congressional district...</p>';
 
-      if (result && result.primaryCandidate) {
-        const c = result.primaryCandidate;
-        const aipacStatus = c.aipacEndorsed ? 'Foreign Lobby Endorsed.' : '';
-        const votedYes = Object.values(c.keyVotes).some(v => v === 'Yes');
-        const recommendations = getRecommendedPostersForDistrict(c);
+      try {
+        const result = typeof lookupZipEstimate === 'function'
+          ? await lookupZipEstimate(zip)
+          : lookupDistrict(zip);
 
-        resultDiv.innerHTML = `
-          <div class="poster-card" style="max-width: 460px; margin: 24px auto 0;">
-            <div class="poster-preview" style="background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);">
-              <h2 style="color: #FF4136; font-size: 1.8rem;">${c.name}<br><span style="color: #FFC500; font-size: 1.2rem;">${c.districtLabel}</span></h2>
-              <p class="poster-sub">${aipacStatus} ${votedYes ? 'Voted yes on weapons packages.' : ''}<br>butwhatcanyoudo.org</p>
+        if (result && result.primaryCandidate) {
+          const c = result.primaryCandidate;
+          const aipacStatus = c.aipacEndorsed ? 'Foreign Lobby Endorsed.' : '';
+          const votedYes = Object.values(c.keyVotes).some(v => v === 'Yes');
+          const recommendations = getRecommendedPostersForDistrict(c);
+          const estimateNote = result.isEstimate
+            ? '<p class="text-yellow" style="font-size: 0.8rem; margin-top: 8px;">ZIP estimate. ZIP codes can cross district lines; address lookup is most precise.</p>'
+            : '';
+
+          resultDiv.innerHTML = `
+            <div class="poster-card" style="max-width: 460px; margin: 24px auto 0;">
+              <div class="poster-preview" style="background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);">
+                <h2 style="color: #FF4136; font-size: 1.8rem;">${c.name}<br><span style="color: #FFC500; font-size: 1.2rem;">${c.districtLabel}</span></h2>
+                <p class="poster-sub">${aipacStatus} ${votedYes ? 'Voted yes on weapons packages.' : ''}<br>butwhatcanyoudo.org</p>
+              </div>
+              <div class="poster-info">
+                <h3>Custom poster for ${c.districtLabel}</h3>
+                <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">Personalized with your representative's name and record. Print at 11x17 in. for best results.</p>
+                <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px; font-style: italic;">Full-resolution PDF downloads coming before launch. For now, this preview shows the data and district-targeting direction.</p>
+                ${estimateNote}
+                ${renderPosterRecommendationList(recommendations)}
+              </div>
             </div>
-            <div class="poster-info">
-              <h3>Custom poster for ${c.districtLabel}</h3>
-              <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">Personalized with your representative's name and record. Print at 11x17 in. for best results.</p>
-              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px; font-style: italic;">Full-resolution PDF downloads coming before launch. For now, this preview shows the data and district-targeting direction.</p>
-              ${renderPosterRecommendationList(recommendations)}
+          `;
+        } else {
+          const districtLine = result && result.district
+            ? `<p class="text-yellow" style="font-size: 0.9rem; margin-bottom: 10px;">Estimated district: ${result.district}</p>`
+            : '';
+          resultDiv.innerHTML = `
+            <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
+              ${districtLine}
+              <p class="text-muted">This district is not fully researched in our public database yet, but you can still use any of the general posters above.</p>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px;">ZIPs can cross district lines. Use the lookup page if you want the most precise address match or direct district entry.</p>
             </div>
-          </div>
-        `;
-      } else {
+          `;
+        }
+      } catch (error) {
         resultDiv.innerHTML = `
-          <div class="card" style="padding: 20px; max-width: 400px; margin: 24px auto 0;">
-            <p class="text-muted">Your district is not in our toss-up database yet, but you can still use any of the general posters above.</p>
+          <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
+            <p class="text-muted">ZIP estimate is unavailable right now. You can still use any of the general posters above, or use the lookup page to enter your district directly.</p>
           </div>
         `;
       }
     }
-
     renderPosters('all');
   </script>
 </body>

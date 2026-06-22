@@ -251,12 +251,12 @@ const CANDIDATES = [
     incumbent: true,
     running: true,
     rating: 'Toss-up',
-    aipacFunding: 4000000,
+    aipacFunding: 3760000,
     aipacEndorsed: true,
     aipacTrip: false,
     keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: '#8 highest recipient of foreign lobby funding in all of Congress (~$4M career). Voted Yes on every weapons package. Endorsed by the foreign lobby for the government of Israel.',
+    notableActions: '#8 highest recipient of foreign lobby funding in all of Congress (~$3.76M career including $846K direct + $313K+ in United Democracy Project Super PAC ads). Voted Yes on every weapons package. Endorsed by the foreign lobby for the government of Israel. Visited Israel in January 2024.',
     challenger: 'Laurie Buckhout (R)',
     redistricted: true,
     demographics: {
@@ -521,8 +521,8 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: null, hr8034: null, hr815: null, hr8369: null },
     quotes: [],
-    notableActions: 'Freshman — won 2024 after losing to Elissa Slotkin in 2022. No 118th Congress voting record on weapons packages. Predecessor district represented by Slotkin who ran for Senate.',
-    challenger: 'TBD',
+    notableActions: 'Freshman — won 2024 by 3.7 points after losing to Elissa Slotkin in 2022. No 118th Congress voting record on weapons packages. Predecessor district represented by Slotkin who ran for Senate.',
+    challenger: 'TBD (Dem primary Aug 4 — frontrunner Bridget Brink)',
     redistricted: false,
     demographics: {
       type: 'suburban-rural',
@@ -576,7 +576,7 @@ const CANDIDATES = [
     aipacTrip: false,
     keyVotes: { hr6126: null, hr8034: null, hr815: null, hr8369: null },
     quotes: [],
-    notableActions: 'Freshman. Unopposed in May 19 primary. Won 2024 race narrowly.',
+    notableActions: 'Freshman (elected 2024). No 118th Congress voting record. Sits on House Foreign Affairs Committee. Introduced the Solidify Iran Sanctions Act of 2025 (H.R. 1800) to permanently extend Iran sanctions. Publicly applauded Israel-Hamas hostage deal. Unopposed in May 19, 2026 primary.',
     challenger: 'Bob Brooks (D)',
     redistricted: false,
     demographics: {
@@ -585,7 +585,7 @@ const CANDIDATES = [
       urbanRural: 'Suburban',
       notes: 'Lehigh Valley, Pennsylvania. Suburban swing district.'
     },
-    source: 'Cook Political Report, Ballotpedia'
+    source: 'Cook Political Report, Ballotpedia, mackenzie.house.gov'
   },
   {
     id: 'pa10-perry',
@@ -598,11 +598,11 @@ const CANDIDATES = [
     running: true,
     rating: 'Toss-up',
     aipacFunding: 132000,
-    aipacEndorsed: false,
+    aipacEndorsed: true,
     aipacTrip: false,
     keyVotes: { hr6126: 'Yes', hr8034: 'No', hr815: null, hr8369: 'Yes' },
     quotes: [],
-    notableActions: 'Former Freedom Caucus chair. Voted Yes on first weapons package (Nov 2023), No on combined $26.38B package (April 2024), then Yes on H.R. 8369 bomb delivery bill (May 2024). The foreign lobby for the government of Israel paused fundraising for Perry after his No vote on the combined package. Career foreign lobby funding ~$132K.',
+    notableActions: 'Former Freedom Caucus chair. Voted Yes on first weapons package (Nov 2023), No on combined $26.38B Israel/Ukraine/Taiwan package (April 2024), then Yes on H.R. 8369 bomb delivery bill (May 2024). The foreign lobby for the government of Israel paused fundraising for Perry after his No vote but did not withdraw their endorsement. Perry stated his objection was to humanitarian aid provisions he described as "funding for Hamas." Career foreign lobby funding ~$132K.',
     challenger: 'Janelle Stelson (D) — rematch from 2024',
     redistricted: false,
     demographics: {
@@ -611,7 +611,7 @@ const CANDIDATES = [
       urbanRural: 'Mixed',
       notes: 'Harrisburg/York area. Former Freedom Caucus chair.'
     },
-    source: 'Cook Political Report, Ballotpedia'
+    source: 'Cook Political Report, Ballotpedia, Jewish Insider, Just the News'
   }
 ];
 
@@ -947,6 +947,113 @@ const STATE_RACES = {
     otherNotableMembers: [
       { name: 'Eli Crane', party: 'R', district: 2, label: 'AZ-02', keyVotes: { hr6126: 'Yes', hr8034: 'No', hr815: null, hr8369: 'Yes' }, note: 'Former Navy SEAL. Voted Yes on standalone Israel weapons packages (Nov 2023, May 2024) but No on H.R. 8034, the combined Israel/Ukraine/Taiwan package (April 2024).', source: 'clerk.house.gov Roll Call 577, 152, and 217' },
       { name: 'Paul Gosar', party: 'R', district: 9, label: 'AZ-09', keyVotes: { hr6126: 'Yes', hr8034: 'No', hr815: null, hr8369: 'Yes' }, note: 'Voted Yes on standalone Israel weapons packages (Nov 2023, May 2024) but No on H.R. 8034, the combined Israel/Ukraine/Taiwan package (April 2024). Often characterized as non-interventionist but voted for Israel-specific aid.', source: 'clerk.house.gov Roll Call 577, 152, and 217' }
+    ]
+  },
+  PA: {
+    name: 'Pennsylvania',
+    redistricted: false,
+    redistrictingNote: null,
+    governor: {
+      rating: 'Likely D',
+      note: 'Both candidates hold strong pro-Israel positions. Josh Shapiro is one of the most vocal pro-Israel Democratic governors in the country. Stacy Garrity invested state treasury funds in Israel Bonds.',
+      candidates: [
+        { name: 'Josh Shapiro', party: 'D', background: 'Incumbent governor seeking second term. Jewish faith is central to his public life. Was vetted as VP candidate in 2024; his views on Israel were a major factor in that process.', incumbentOrChallenger: 'incumbent', foreignPolicyPosition: 'Strong pro-Israel stance. Supported Israel\'s right to take action against Hamas. Called use of military aid as "leverage" to ensure Israel acts in accordance with "American values." In May 2026, warned Democrats against vilifying AIPAC, calling it "dangerous." Centers his Jewish faith in governance.', lobbyConnection: 'Has actively defended AIPAC against Democratic Party criticism. Described as supporting candidates favored by pro-Israel groups in state-level Democratic primaries.', source: 'Times of Israel, Jewish Insider, Algemeiner, WHYY, Common Dreams' },
+        { name: 'Stacy Garrity', party: 'R', background: 'Pennsylvania State Treasurer. Ran unopposed in Republican primary. Army Reserve veteran. Endorsed by President Trump. Trump hosted a fundraiser for Garrity at Mar-a-Lago in March 2026.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Strong pro-Israel stance as State Treasurer. Invested $45 million in taxpayer money into Israel Bonds since the Oct. 7, 2023 attacks, overriding earlier concerns within the Treasury that the bonds could be a risky investment. Participated in virtual briefings to "Support Israel Bonds During Its War Effort." Described Israel as "our greatest ally in the Middle East."', lobbyConnection: 'Invested $45M of PA state treasury funds in Israel Bonds. Faced ethics questions from Spotlight PA about attending events hosted by firms tied to state bond investments.', source: 'PA Treasury, Spotlight PA, Times of Israel, Jewish Exponent, WHYY' }
+      ]
+    },
+    senateNote: 'No regularly scheduled U.S. Senate race in Pennsylvania in 2026.',
+    competitiveHouse: [
+      {
+        district: 7, label: 'PA-07', area: 'Lehigh Valley', rating: 'Toss-up', redistricted: false,
+        incumbent: { name: 'Ryan Mackenzie', party: 'R', termStart: 2025, keyVotes: { hr6126: null, hr8034: null, hr815: null, hr8369: null }, lobbyFunding: null, lobbyEndorsed: false, lobbyTrip: false, notableActions: ['Freshman — elected 2024, no 118th Congress voting record on weapons packages', 'Sits on House Foreign Affairs Committee', 'Introduced the Solidify Iran Sanctions Act of 2025 (H.R. 1800) to permanently extend Iran sanctions and restrict Iran\'s ability to finance terrorist proxies', 'Publicly applauded Israel-Hamas hostage deal, stating: "We join the peoples of Israel, Gaza, and the entire world in praying for peace to finally touch this region"', 'Unopposed in May 19, 2026 Republican primary'], source: 'mackenzie.house.gov, Ballotpedia, Cook Political Report' },
+        challenger: { name: 'Bob Brooks', party: 'D', background: 'Union leader and president of the Pennsylvania Professional Fire Fighters Association. Won Democratic primary May 19, 2026.', foreignPolicyPosition: 'Did not solicit donations from AIPAC during primary campaign. Endorsed by JStreetPAC — a pro-Israel, pro-peace organization that supports a two-state solution and often opposes AIPAC-backed candidates. Faced controversy when his campaign deleted a social media post expressing condolences to the Jewish community following a tragedy in Australia, then reposted a version without the Jewish mention. Campaign stated the posts were separated to "condemn antisemitism as a separate issue."', quotes: [{ text: 'Posts were separated to condemn antisemitism as a separate issue to highlight its seriousness.', source: 'Brooks campaign statement via JNS', date: '2025' }], lobbyFunding: null, lobbyEndorsed: false, source: 'City & State PA, JStreetPAC, JNS, Spotlight PA' }
+      },
+      {
+        district: 10, label: 'PA-10', area: 'Harrisburg / York', rating: 'Toss-up', redistricted: false,
+        redistrictingImpact: null,
+        incumbent: { name: 'Scott Perry', party: 'R', termStart: 2019, keyVotes: { hr6126: 'Yes', hr8034: 'No', hr815: null, hr8369: 'Yes' }, lobbyFunding: 132000, lobbyEndorsed: true, lobbyTrip: false, notableActions: ['Former Freedom Caucus chair', 'Voted Yes on H.R. 6126 standalone Israel weapons package (Nov 2023)', 'Voted No on H.R. 8034 combined Israel/Ukraine/Taiwan $26.38B package (April 2024) — stated objection was to humanitarian aid provisions he described as "funding for Hamas"', 'Voted Yes on H.R. 8369 to force delivery of paused 2,000-lb bombs (May 2024)', 'The foreign lobby for the government of Israel paused fundraising for Perry after his No vote on H.R. 8034 but did not withdraw their endorsement', 'Career foreign lobby funding approximately $132,000'], source: 'clerk.house.gov Roll Call 577, 152, and 217; Jewish Insider, Just the News, FEC, OpenSecrets' },
+        challenger: { name: 'Janelle Stelson', party: 'D', background: 'Former WGAL TV news anchor (30-year career). Lost to Perry by ~5,133 votes (49.4% to 50.6%) in 2024. Won Democratic primary May 19, 2026 with 69% of the vote. Raised $2.1M in Q1 2026; $3.3M cash on hand.', foreignPolicyPosition: 'Staunchly pro-Israel. Endorsed by Democratic Majority for Israel (DMFI) PAC in both 2024 and 2026. Has criticized Perry for voting against supplemental Israel aid. Doubled down on support for Israel\'s military operations when pressed on arms shipment pauses.', quotes: [{ text: 'I have got to say, I also agree absolutely with Israel\'s right to root out Hamas and decimate it.', source: 'Jewish Insider', date: 'June 2024' }, { text: 'Israel needs to do what it needs to do to defend itself. I support Israel\'s right to decimate Hamas however it sees fit.', source: 'Jewish Insider', date: 'June 2024' }], lobbyFunding: null, lobbyEndorsed: true, source: 'Jewish Insider, DMFI PAC, janellestelson.com, Jewish Federation of Greater Harrisburg' }
+      }
+    ],
+    otherNotableMembers: [
+      { name: 'Summer Lee', party: 'D', district: 12, label: 'PA-12', keyVotes: { hr6126: 'No', hr8034: 'No', hr815: null, hr8369: 'No' }, note: 'POSITIVE EXAMPLE — Voted No on all three House weapons packages. One of the most consistent voices against weapons transfers to the government of Israel. Survived an AIPAC-backed primary challenge in 2024. If she is on the 2026 ballot, she is a candidate this campaign can recommend.', source: 'clerk.house.gov Roll Call 577, 152, and 217; data/rollcalls/member-vote-summary-2024.json' },
+      { name: 'Brian Fitzpatrick', party: 'R', district: 1, label: 'PA-01', keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, note: 'Voted Yes on all three House weapons packages. Bucks County moderate Republican — represents a swing district but has been consistent in supporting every weapons transfer.', source: 'clerk.house.gov Roll Call 577, 152, and 217' },
+      { name: 'Matt Cartwright', party: 'D', district: 8, label: 'PA-08', keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, note: 'Voted No on first weapons package (Nov 2023) but Yes on both subsequent bills including the bomb delivery bill (H.R. 8369). One of only 16 Democrats who voted to force delivery of paused 2,000-lb bombs.', source: 'clerk.house.gov Roll Call 577, 152, and 217' }
+    ]
+  },
+  NC: {
+    name: 'North Carolina',
+    redistricted: true,
+    redistrictingNote: 'NC-01 redrawn by state Republicans in October 2025 to lean more Republican. Shifted from Trump+1 (2024) to roughly Trump+5 under new map. Don Davis is widely considered the most vulnerable House Democrat in the country.',
+    governor: null,
+    governorNote: 'No governor race in 2026. Gov. Josh Stein (D) won in November 2024.',
+    senate: {
+      type: 'open',
+      note: 'Open seat — Thom Tillis (R) not seeking re-election after Trump threatened to back a primary challenger. One of Democrats\' best pickup opportunities.',
+      rating: 'Lean D',
+      candidates: [
+        { name: 'Roy Cooper', party: 'D', background: 'Former two-term governor of North Carolina (2017–2025). High name recognition and favorability. Won Democratic primary with 92% of the vote. Led May 2026 polls by 11 points.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Endorsed by Democratic Majority for Israel (DMFI) PAC. His campaign told Jewish Insider he "generally does not believe we should withhold aid from a critical ally like Israel when they have to defend themselves against countries like Iran." Rejected the NC Democratic Party\'s resolution calling Israel guilty of apartheid and genocide — but only after entering the Senate race. Did not take a public stance on the resolution during his final year as governor.', quotes: [{ text: 'The Governor generally does not believe we should withhold aid from a critical ally like Israel when they have to defend themselves against countries like Iran.', source: 'Cooper campaign statement to Jewish Insider', date: 'August 2025' }], lobbyFunding: null, lobbyEndorsed: true, source: 'Jewish Insider, DMFI PAC, NC Newsline, Carolina Journal' },
+        { name: 'Michael Whatley', party: 'R', background: 'Former chairman of the Republican National Committee (2024–2025) and NC Republican Party (2019–2024). Endorsed by President Trump. Won primary with 64.6%. Lower name recognition than Cooper — a major challenge.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Asked social media followers to pray for Israel after October 7. Aligns with standard Republican pro-Israel stance. No detailed Israel policy papers or specific statements found on arms transfers.', lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, Roll Call, WUNC, Carolina Journal' }
+      ]
+    },
+    competitiveHouse: [
+      {
+        district: 1, label: 'NC-01', area: 'Northeastern NC / Greenville / Outer Banks', rating: 'Toss-up', redistricted: true,
+        redistrictingImpact: 'Redrawn from Trump+1 to roughly Trump+5. Makes Davis the single most vulnerable Democrat in the U.S. House.',
+        incumbent: { name: 'Don Davis', party: 'D', termStart: 2023, keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, lobbyFunding: 3760000, lobbyEndorsed: true, lobbyTrip: false, notableActions: ['Voted Yes on every weapons package — all three House bills', '#8 highest recipient of foreign lobby funding in all of Congress', 'Received approximately $3.76 million from the foreign lobby for the government of Israel and aligned groups, including over $846,000 in direct contributions and $313,000+ in United Democracy Project Super PAC ads', 'Visited Israel in January 2024', 'Endorsed by the foreign lobby for the government of Israel'], source: 'clerk.house.gov Roll Call 577, 152, and 217; OpenSecrets, TrackAIPAC, FEC filings, boughtbyzionism.org' },
+        challenger: { name: 'Laurie Buckhout', party: 'R', background: 'Retired U.S. Army Colonel, Bronze Star and Distinguished Service Medal recipient. Served as DOD acting assistant secretary of cybersecurity (March–September 2025). Lost to Davis 47.8% to 49.5% in 2024. Won 2026 Republican primary with 39.4%. Added to NRCC "MAGA Majority" program.', foreignPolicyPosition: 'Stated the U.S. "must have the strength by all means necessary to protect itself from countries like China, Iran, and Russia and to defend its allies like Israel." Pointed to the Hamas attack on October 7 as evidence that "projecting weakness emboldens adversaries." Standard Republican pro-Israel posture — strong military, defend allies.', quotes: [{ text: 'The United States must have the strength by all means necessary to protect itself from countries like China, Iran, and Russia and to defend its allies like Israel.', source: 'WCTI12 candidate profile', date: '2026' }], lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, WCTI12, NC Newsline, NRCC, WUNC' }
+      }
+    ],
+    otherNotableMembers: [
+      { name: 'Chuck Edwards', party: 'R', district: 11, label: 'NC-11', keyVotes: { hr6126: 'Yes', hr8034: 'Yes', hr815: null, hr8369: 'Yes' }, note: 'Voted Yes on all three weapons packages. Facing well-funded Democratic challenger Jamie Ager in a race that Cook Political Report says is trending toward Democrats. R+9 district but Ager outraised Edwards in Q1 2026 ($1.6M+). DCCC "Red to Blue" program. House Majority PAC reserved $4.3M in ads.', source: 'clerk.house.gov Roll Call 577, 152, and 217; Cook Political Report, WLOS, Carolina Journal' },
+      { name: 'Valerie Foushee', party: 'D', district: 4, label: 'NC-04', keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' }, note: 'Voted No on first weapons package (Nov 2023), Yes on $26.38B combined package (April 2024), then No on H.R. 8369 bomb delivery bill (May 2024). Received foreign lobby-aligned funding to boost her campaign.', source: 'clerk.house.gov Roll Call 577, 152, and 217; Business North Carolina, FEC' },
+      { name: 'Alma Adams', party: 'D', district: 12, label: 'NC-12', keyVotes: { hr6126: 'No', hr8034: 'Yes', hr815: null, hr8369: 'No' }, note: 'NOTABLE PATTERN — Like every NC Democrat except Davis, voted No on the first and third weapons packages but Yes on the combined package. This is the common NC Democratic pattern: only Davis broke ranks to vote Yes on all three.', source: 'clerk.house.gov Roll Call 577, 152, and 217' }
+    ]
+  },
+  MI: {
+    name: 'Michigan',
+    redistricted: false,
+    redistrictingNote: null,
+    governor: {
+      rating: 'Toss-up',
+      note: 'Open seat — Gov. Gretchen Whitmer (D) is term-limited. Primary August 4, 2026. The Republican frontrunner, John James, is a sitting U.S. Representative with a voting record on weapons packages to the government of Israel.',
+      candidates: [
+        { name: 'Jocelyn Benson', party: 'D', background: 'Michigan Secretary of State (2019–present). Leading in Democratic primary polling and fundraising. Former dean of Wayne State University Law School. Visited Israel in 2019 with a bipartisan cybersecurity delegation organized by the American Jewish Committee\'s Project Interchange.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Has not publicly articulated detailed positions on arms transfers to the government of Israel. State-level office does not involve foreign policy votes.', lobbyConnection: 'Participated in AJC-organized Israel delegation trip (2019)', source: 'Ballotpedia, Michigan Secretary of State, AJC' },
+        { name: 'John James', party: 'R', background: 'U.S. Representative MI-10 (2023–present). West Point graduate, Army Apache helicopter pilot with combat tours in Iraq. Running for governor creates an open seat in MI-10 (R+3 district). Republican frontrunner.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Voted Yes on all three House weapons packages to the government of Israel: H.R. 6126 (Nov 2023), H.R. 8034 (April 2024), and H.R. 8369 (May 2024). Consistent supporter of military aid.', houseVotes: { hr6126: 'Yes', hr8034: 'Yes', hr8369: 'Yes' }, lobbyConnection: null, source: 'clerk.house.gov Roll Call 577, 152, and 217; Ballotpedia, congress.gov' }
+      ]
+    },
+    senate: {
+      type: 'open',
+      note: 'Open seat — Sen. Gary Peters (D) not seeking re-election. Michigan is ground zero for this issue — largest Arab-American population in the country, and the Democratic primary is a direct referendum on whether the foreign lobby for the government of Israel can buy Senate seats. Primary August 4, 2026.',
+      rating: 'Toss-up',
+      candidates: [
+        { name: 'Abdul El-Sayed', party: 'D', background: 'Physician and epidemiologist. Former Detroit Health Director. Leading Democratic primary polls by ~10 points. Endorsed by Sen. Bernie Sanders, Rep. Alexandria Ocasio-Cortez, and Rep. Summer Lee. Would be the first Muslim U.S. Senator from Michigan.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Characterized the government of Israel\'s actions in Gaza as genocide. Called it a "public health catastrophe" and demanded a ceasefire (January 2024). Said Netanyahu is a war criminal. Questioned whether Israel should exist as a Jewish state — said the question "overlooks the rights of people who\'ve been displaced by Israeli action." Does not accept foreign lobby funding.', lobbyFunding: null, lobbyEndorsed: false, source: 'Jewish Insider, Mondoweiss, Forward, abdulforsenate.com' },
+        { name: 'Haley Stevens', party: 'D', background: 'U.S. Representative MI-11 (2019–present). Four-term congresswoman from Birmingham. Self-described "Zionist" and "proud pro-Israel Democrat." Booed at the 2026 Michigan Democratic Party State Endorsement Convention over her positions on the government of Israel.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Voted Yes on H.R. 6126 (Nov 2023) and H.R. 8034 (April 2024), No on H.R. 8369 bomb delivery bill (May 2024). Received over $1.2 million from the foreign lobby for the government of Israel since 2022, plus $5 million in independent expenditures from aligned groups in 2022 alone. In 2026, United Democracy Project reserved $2.3 million in Michigan ad buys to boost her candidacy. Endorsed by DMFI PAC. Stated she would "support Israel\'s security" and "ensure the ceasefire holds in Gaza."', houseVotes: { hr6126: 'Yes', hr8034: 'Yes', hr8369: 'No' }, lobbyFunding: 1200000, lobbyEndorsed: true, source: 'clerk.house.gov Roll Call 577, 152, and 217; Jewish Insider, Detroit News, Metro Times, OpenSecrets' },
+        { name: 'Mallory McMorrow', party: 'D', background: 'Michigan State Senator. Went viral in 2022 for speech defending LGBTQ community. Positioning herself between Stevens and El-Sayed. Endorsed by J Street PAC (pro-Israel, pro-peace).', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Believes the government of Israel\'s actions in Gaza meet "the legal definition" of genocide but avoids the word publicly. Supports legislation to block offensive weapons sales to the government of Israel. Proposed an "Iron Dome for Palestinians" — defensive systems for Palestinian civilians. Stated: "We need to be able to state very clearly that what the Netanyahu government is doing is wrong." J Street endorsed.', lobbyFunding: null, lobbyEndorsed: false, source: 'Jewish Insider, Bridge Michigan, J Street PAC' },
+        { name: 'Mike Rogers', party: 'R', background: 'Former U.S. Representative and former chairman of the House Intelligence Committee. Lost 2024 Senate race to Elissa Slotkin. Republican frontrunner. Strong supporter of the government of Israel.', incumbentOrChallenger: 'challenger', foreignPolicyPosition: 'Staunch supporter of the government of Israel. Described opposition to the war in Gaza as "very short-sighted and politically naive." Told the Republican Jewish Coalition: "We\'re trying to do outreach in the Muslim community, but I also tell them where I\'m at. I never walk away from where I\'m at on Israel." Called Iran\'s multi-front assault on Israel "the existential threat we all wondered about."', quotes: [{ text: 'It is very short-sighted and politically naive to walk in and say we\'re not going to allow Israel to defend itself.', source: 'Jewish Insider', date: 'April 2026' }], lobbyFunding: null, lobbyEndorsed: false, source: 'Jewish Insider, Republican Jewish Coalition, Washington Examiner' }
+      ]
+    },
+    competitiveHouse: [
+      {
+        district: 7, label: 'MI-07', area: 'Lansing / Livingston County', rating: 'Toss-up', redistricted: false,
+        note: 'Barrett won by only 3.7 points in 2024. Democratic primary August 4 — frontrunner is Bridget Brink, former U.S. Ambassador to Ukraine who resigned under Trump.',
+        incumbent: { name: 'Tom Barrett', party: 'R', termStart: 2025, keyVotes: { hr6126: null, hr8034: null, hr815: null, hr8369: null }, lobbyFunding: null, lobbyEndorsed: false, lobbyTrip: false, notableActions: ['Freshman — elected 2024, no 118th Congress voting record on weapons packages', 'Former state senator who previously lost to Elissa Slotkin in MI-07 in 2022'], source: 'Ballotpedia, Cook Political Report' },
+        challengerNote: 'Democratic primary August 4, 2026',
+        democraticCandidates: [
+          { name: 'Bridget Brink', note: 'Former U.S. Ambassador to Ukraine (2022–2025). Resigned under Trump. Career diplomat (28 years). Endorsed by EMILY\'s List and Michigan Education Association. Frontrunner in fundraising and endorsements.' },
+          { name: 'Matt Maarsdam', note: 'Former Navy SEAL, former Obama White House aide.' },
+          { name: 'William Lawrence', note: 'Progressive activist.' }
+        ],
+        predecessorVotes: { hr6126: 'No', hr8034: 'Yes', hr8369: 'No' },
+        retiredIncumbent: 'Elissa Slotkin',
+        predecessorNote: 'Slotkin (now Senator) voted No/Yes/No — voted No on the first weapons package and the bomb delivery bill, but Yes on the combined $26.38B package.',
+        source: 'Ballotpedia, Detroit News, Michigan Advance, Cook Political Report'
+      }
+    ],
+    otherNotableMembers: [
+      { name: 'Rashida Tlaib', party: 'D', district: 12, label: 'MI-12', keyVotes: { hr6126: 'No', hr8034: 'No', hr815: null, hr8369: 'No' }, note: 'POSITIVE EXAMPLE — The only Palestinian-American in Congress. Voted No on all three House weapons packages. Censured by the House for criticizing the government of Israel. If she is on the 2026 ballot, she is a candidate this campaign can recommend.', source: 'clerk.house.gov Roll Call 577, 152, and 217' },
+      { name: 'Dan Kildee', party: 'D', district: 8, label: 'MI-08', keyVotes: { hr6126: 'No', hr8034: 'No', hr815: null, hr8369: 'No' }, note: 'Voted No on all three House weapons packages. One of only a handful of Democrats to vote No on every bill. Retiring — not seeking re-election in 2026.', source: 'clerk.house.gov Roll Call 577, 152, and 217' },
+      { name: 'Debbie Dingell', party: 'D', district: 6, label: 'MI-06', keyVotes: { hr6126: 'No', hr8034: null, hr815: null, hr8369: 'No' }, note: 'Voted No on first and third weapons packages. Did Not Vote on H.R. 8034 (April 2024). Represents Dearborn area — one of the largest Arab-American communities in the country.', source: 'clerk.house.gov Roll Call 577, 152, and 217' }
     ]
   }
 };

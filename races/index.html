@@ -53,6 +53,10 @@
           <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Highlighted states</div>
         </div>
         <div>
+          <div class="text-yellow text-mono" style="font-size: 2rem; font-weight: 700;" id="statFecCandidates">1,944</div>
+          <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">FEC filed federal candidates surfaced</div>
+        </div>
+        <div>
           <div class="text-red text-mono" style="font-size: 2rem; font-weight: 700;">$32M</div>
           <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Spent to defeat ONE dissenter</div>
         </div>
@@ -229,11 +233,25 @@
     </div>
   </footer>
 
-  <script src="/js/candidates.js?v=6"></script>
+  <script src="/js/candidates.js?v=8"></script>
+  <script src="/js/fec-candidate-snapshot.js?v=1"></script>
   <script src="/js/race-context.js?v=1"></script>
   <script src="/js/map.js?v=4"></script>
   <script src="/js/main.js?v=3"></script>
   <script>
+    function escapeHtml(value) {
+      return String(value === null || value === undefined ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function formatInteger(value) {
+      return Number(value || 0).toLocaleString();
+    }
+
     // Populate state dropdown
     const stateFilter = document.getElementById('stateFilter');
     US_STATES.forEach(s => {
@@ -326,10 +344,15 @@
     function renderStats() {
       const raceCount = typeof CANDIDATES !== 'undefined' ? CANDIDATES.length : 0;
       const stateCount = typeof HIGHLIGHTED_STATE_KEYS !== 'undefined' ? HIGHLIGHTED_STATE_KEYS.length : 16;
+      const fecCount = typeof FEC_HIGHLIGHTED_CANDIDATES_2026 !== 'undefined'
+        ? FEC_HIGHLIGHTED_CANDIDATES_2026.counts.highlightedCandidates
+        : 0;
       const raceEl = document.getElementById('statRacesCount');
       const stateEl = document.getElementById('statStateCount');
+      const fecEl = document.getElementById('statFecCandidates');
       if (raceEl) raceEl.textContent = raceCount;
       if (stateEl) stateEl.textContent = stateCount;
+      if (fecEl && fecCount) fecEl.textContent = formatInteger(fecCount);
     }
 
     // Apply filters and render results
@@ -712,6 +735,82 @@
       return html;
     }
 
+    function renderOfficialResearchSources(stateAbbr) {
+      if (typeof STATE_OFFICIAL_RESEARCH_SOURCES === 'undefined') return '';
+      const sources = STATE_OFFICIAL_RESEARCH_SOURCES[stateAbbr] || [];
+      if (!sources.length) return '';
+      return `<div class="card" style="padding: 18px; margin-bottom: 24px; border-left: 3px solid var(--blue);">
+        <h3 class="text-blue" style="font-size: 0.95rem; margin-bottom: 8px;">Official state source portals</h3>
+        <p class="text-muted" style="font-size: 0.84rem; line-height: 1.6; margin-bottom: 10px;">Use these for governor candidates, ballot-certified lists, state election rules, and final verification. Federal filings come from FEC; governor races have to be verified through state sources.</p>
+        ${sources.map(source => `<p style="font-size: 0.84rem; margin-bottom: 8px;"><a href="${escapeHtml(source.url)}" style="color: var(--blue); font-weight: 600;">${escapeHtml(source.label)}</a><br><span class="text-muted">${escapeHtml(source.useFor)}</span></p>`).join('')}
+      </div>`;
+    }
+    function renderFecCandidateLine(candidate) {
+      const partyClass = candidate.party === 'DEM' ? 'text-blue' : candidate.party === 'REP' ? 'text-red' : 'text-muted';
+      const finance = candidate.finance && candidate.finance.totalReceipts !== null
+        ? '<span class="text-muted">Receipts: ' + escapeHtml(formatCurrency(candidate.finance.totalReceipts)) + '</span>'
+        : '<span class="text-muted">Receipts pending/not itemized</span>';
+      return `<li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <span><strong>${escapeHtml(candidate.name)}</strong> <span class="${partyClass}">(${escapeHtml(candidate.party || 'UNK')})</span></span>
+          <span class="text-muted" style="font-size: 0.78rem;">${escapeHtml(candidate.incumbentChallengerLabel)} &middot; ${escapeHtml(candidate.candidateStatusLabel)}</span>
+        </div>
+        <div style="font-size: 0.76rem; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap;">
+          ${finance}
+          ${candidate.principalCommitteeName ? '<span class="text-muted">Committee: ' + escapeHtml(candidate.principalCommitteeName) + '</span>' : ''}
+        </div>
+      </li>`;
+    }
+
+    function renderFecFederalSnapshot(stateAbbr) {
+      if (typeof FEC_HIGHLIGHTED_CANDIDATES_2026 === 'undefined') return '';
+      const snapshot = FEC_HIGHLIGHTED_CANDIDATES_2026;
+      const stateData = snapshot.states[stateAbbr];
+      if (!stateData) return '';
+
+      const counts = stateData.counts;
+      const generated = new Date(snapshot.generatedAt).toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric'
+      });
+      const houseDistricts = Object.keys(stateData.houseDistricts || {}).sort((a, b) => {
+        const an = Number((a.split('-')[1] || '').replace('AL', '0'));
+        const bn = Number((b.split('-')[1] || '').replace('AL', '0'));
+        return an - bn || a.localeCompare(b);
+      });
+
+      const senateHtml = stateData.senateCandidates && stateData.senateCandidates.length
+        ? `<details style="margin-top: 12px;">
+            <summary style="cursor: pointer; color: var(--blue); font-weight: 600;">U.S. Senate filed candidates (${stateData.senateCandidates.length})</summary>
+            <ul style="list-style: none; padding: 10px 0 0; margin: 0;">${stateData.senateCandidates.map(renderFecCandidateLine).join('')}</ul>
+          </details>`
+        : '<p class="text-muted" style="font-size: 0.84rem; margin-top: 10px;">No U.S. Senate filed candidates in this FEC snapshot.</p>';
+
+      const houseHtml = houseDistricts.length
+        ? houseDistricts.map(label => {
+            const candidates = stateData.houseDistricts[label] || [];
+            return `<details style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
+              <summary style="cursor: pointer; color: var(--yellow); font-weight: 600;">${escapeHtml(label)} filed candidates (${candidates.length})</summary>
+              <ul style="list-style: none; padding: 10px 0 0; margin: 0;">${candidates.map(renderFecCandidateLine).join('')}</ul>
+            </details>`;
+          }).join('')
+        : '<p class="text-muted" style="font-size: 0.84rem; margin-top: 10px;">No U.S. House filed candidates in this FEC snapshot.</p>';
+
+      return `<div class="card" style="padding: 22px; margin-bottom: 24px; border-left: 3px solid var(--yellow);">
+        <h3 class="text-yellow" style="font-size: 1rem; margin-bottom: 8px;">Official FEC federal candidate snapshot</h3>
+        <p class="text-muted" style="font-size: 0.85rem; line-height: 1.65; margin-bottom: 12px;">${escapeHtml(snapshot.sourceType)} This is the broad federal filing layer, not a stance assessment and not final ballot certification.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 12px;">
+          <div><p class="text-mono text-yellow" style="font-size: 1.25rem; font-weight: 700;">${formatInteger(counts.totalFederalCandidates)}</p><p class="text-muted" style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.5px;">Federal filings</p></div>
+          <div><p class="text-mono text-blue" style="font-size: 1.25rem; font-weight: 700;">${formatInteger(counts.houseCandidates)}</p><p class="text-muted" style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.5px;">House filings</p></div>
+          <div><p class="text-mono text-red" style="font-size: 1.25rem; font-weight: 700;">${formatInteger(counts.senateCandidates)}</p><p class="text-muted" style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.5px;">Senate filings</p></div>
+        </div>
+        <p class="text-mono text-muted" style="font-size: 0.68rem; margin-bottom: 10px;">Generated ${escapeHtml(generated)} from <a href="${escapeHtml(snapshot.sourceUrls.candidateMaster)}" style="color: var(--blue);">FEC candidate master</a> and <a href="${escapeHtml(snapshot.sourceUrls.candidateSummary)}" style="color: var(--blue);">FEC candidate summary</a>.</p>
+        ${senateHtml}
+        <details style="margin-top: 14px;">
+          <summary style="cursor: pointer; color: var(--yellow); font-weight: 600;">U.S. House filed candidates by district (${houseDistricts.length} districts)</summary>
+          <div style="margin-top: 8px;">${houseHtml}</div>
+        </details>
+      </div>`;
+    }
     // Helper: render a statewide race (governor or senate)
     function renderStatewideRace(race, raceType, note) {
       if (!race) return '';
@@ -802,13 +901,8 @@
           </div>`;
         }
 
-        // Context notes
-        if (sr.contextNotes && sr.contextNotes.length) {
-          html += `<div class="card" style="padding: 18px; margin-bottom: 20px; border-left: 3px solid var(--blue);">
-            <h3 class="text-blue" style="font-size: 0.95rem; margin-bottom: 10px;">Context to keep straight</h3>
-            <ul class="text-muted" style="font-size: 0.85rem; line-height: 1.75; margin-left: 18px;">${sr.contextNotes.map(n => `<li>${n}</li>`).join('')}</ul>
-          </div>`;
-        }
+        html += renderFecFederalSnapshot(stateAbbr);
+        html += renderOfficialResearchSources(stateAbbr);
 
         // Governor
         if (sr.governor) {
