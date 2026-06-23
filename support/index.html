@@ -8,6 +8,11 @@
   <meta property="og:title" content="Support | But What Can You Do?">
   <meta property="og:description" content="No PAC money. No corporate sponsors. Just people. Help keep this running.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <meta property="og:image" content="https://butwhatcanyoudo.org/img/og-share.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/css/style.css?v=3">
 </head>
 <body>
@@ -45,15 +50,15 @@
         <div class="action-grid">
           <div class="card" style="padding: 24px;">
             <h3 class="text-blue">Hosting &amp; tools</h3>
-            <p class="text-muted">Domain registration, hosting, and the software tools that keep the site and data running.</p>
+            <p class="text-muted">The website, domain, and production tools like Canva Pro that keep content going out the door.</p>
           </div>
           <div class="card" style="padding: 24px;">
             <h3 class="text-yellow">Printing</h3>
-            <p class="text-muted">Large-format poster runs for community distribution and events.</p>
+            <p class="text-muted">Subsidizing poster printing in swing districts so volunteers can put them up without paying out of pocket.</p>
           </div>
           <div class="card" style="padding: 24px;">
-            <h3 class="text-red">Outreach</h3>
-            <p class="text-muted">Getting the word out to people who haven't heard of the campaign yet.</p>
+            <h3 class="text-red">Targeted outreach</h3>
+            <p class="text-muted">Instagram and social media ads in key districts, video and content production to share widely.</p>
           </div>
         </div>
       </div>
@@ -67,12 +72,10 @@
         <h2 style="margin-bottom: 16px;">Buy me a coffee</h2>
         <p class="text-muted" style="margin-bottom: 32px;">The easiest way to support the campaign. No account needed. Any amount helps.</p>
 
-        <!-- Placeholder for Buy Me a Coffee embed/link -->
         <div class="card" style="padding: 40px; text-align: center;">
           <p style="font-size: 2rem; margin-bottom: 16px;">&#9749;</p>
-          <p class="text-muted" style="margin-bottom: 24px;">Buy Me a Coffee widget will be embedded here.</p>
-          <a href="#" class="btn btn-yellow" style="background: var(--yellow); color: var(--black); font-weight: 700; font-size: 1.1rem; padding: 14px 32px;">Support on Buy Me a Coffee</a>
-          <p class="text-muted" style="margin-top: 16px; font-size: 0.85rem;">[Link will be updated with actual Buy Me a Coffee URL before launch]</p>
+          <p class="text-muted" style="margin-bottom: 24px;">Every dollar goes into the campaign &mdash; hosting, printing posters in swing districts, targeted social media in the districts that matter most, and content production. Nothing else.</p>
+          <a href="https://buymeacoffee.com/coralgraham" target="_blank" rel="noopener" class="btn btn-yellow" style="background: var(--yellow); color: var(--black); font-weight: 700; font-size: 1.1rem; padding: 14px 32px;">Support on Buy Me a Coffee</a>
         </div>
       </div>
     </div>
@@ -110,10 +113,11 @@
     <div class="footer-inner" style="flex-direction: column; gap: 32px;">
       <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
         <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
-        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
-          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+        <form class="email-signup-form" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" aria-label="Email address for updates" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
           <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
         </form>
+        <p class="email-signup-status" style="font-size: 0.8rem; margin-top: 6px;"></p>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
         <div>
@@ -123,15 +127,4 @@
           <li><a href="/about/">About</a></li>
           <li><a href="/talk/">Talking Points</a></li>
           <li><a href="/support/">Support</a></li>
-          <li><a href="/how-to/">How to Print</a></li>
-        </ul>
-        <div class="footer-hashtag">
-          #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/js/main.js?v=3"></script>
-</body>
-</html>
+          <li>

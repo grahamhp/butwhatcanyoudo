@@ -161,17 +161,12 @@ async function lookupZip() {
     `;
   }
 }
-// Allow Enter key to trigger zip lookup
+// Allow Enter key to trigger zip lookup (homepage only — lookup page has its own handler)
 const zipInput = document.getElementById('zipInput');
-if (zipInput) {
+if (zipInput && typeof performZipLookup === 'undefined') {
   zipInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-      // Check if we're on the homepage or lookup page
-      if (typeof performLookup === 'function') {
-        performLookup();
-      } else {
-        lookupZip();
-      }
+      lookupZip();
     }
   });
 }

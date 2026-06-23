@@ -11,14 +11,15 @@
   'use strict';
 
   var TRACKED_STATES = {
-    AZ: true, CA: true, CO: true, IA: true, ME: true, MI: true, NC: true,
-    NE: true, NM: true, NY: true, OH: true, PA: true, TX: true, WA: true, MO: true, UT: true
+    AL: true, AZ: true, CA: true, CO: true, FL: true, IA: true, IL: true,
+    LA: true, ME: true, MI: true, MO: true, NC: true, NE: true, NM: true,
+    NY: true, OH: true, PA: true, TN: true, TX: true, UT: true, VA: true, WA: true
   };
 
   var RACE_COUNTS = {
-    AZ: 2, CA: 2, CO: 1, IA: 1, ME: 1, MI: 1,
-    NC: 1, NE: 1, NM: 1, NY: 1, OH: 3, PA: 2,
-    TX: 1, WA: 1, MO: 0, UT: 0
+    AL: 0, AZ: 2, CA: 2, CO: 1, FL: 0, IA: 1, IL: 0, LA: 0,
+    ME: 1, MI: 1, MO: 0, NC: 1, NE: 1, NM: 1, NY: 1, OH: 3,
+    PA: 2, TN: 0, TX: 1, UT: 0, VA: 0, WA: 1
   };
 
   var STATE_NAMES = {
@@ -258,9 +259,9 @@
 
     var NS = 'http://www.w3.org/2000/svg';
     var svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '60 100 900 520');
+    svg.setAttribute('viewBox', '-10 3 985 613');
     svg.setAttribute('xmlns', NS);
-    svg.style.cssText = 'width:100%;height:auto;display:block;overflow:visible;';
+    svg.style.cssText = 'width:100%;height:auto;display:block;overflow:hidden;';
 
     var tooltip = createTooltip();
     document.body.appendChild(tooltip);
@@ -290,6 +291,7 @@
         hideTip(tooltip);
       });
       p.addEventListener('click', function (e) {
+        if (typeof SupaAnalytics !== 'undefined') SupaAnalytics.logEvent('map_click', { state: abbr, tracked: !!tr });
         if (tr && typeof window.showStateDetail === 'function') {
           window.showStateDetail(abbr);
         } else if (!tr) {
@@ -390,19 +392,4 @@
     r2.setAttribute('x','200'); r2.setAttribute('y','0');
     r2.setAttribute('width','14'); r2.setAttribute('height','10');
     r2.setAttribute('fill', CLR_DEFAULT); r2.setAttribute('rx','2');
-    r2.setAttribute('stroke', CLR_STROKE_D); r2.setAttribute('stroke-width','0.75');
-    g.appendChild(r2);
-
-    var t2 = document.createElementNS(NS, 'text');
-    t2.setAttribute('x','220'); t2.setAttribute('y','9');
-    t2.setAttribute('font-family', "'Inter',system-ui,sans-serif");
-    t2.setAttribute('font-size','9'); t2.setAttribute('fill','#666666');
-    t2.textContent = 'Coming soon';
-    g.appendChild(t2);
-
-    return g;
-  }
-
-  window.renderUSMap = renderUSMap;
-
-})();
+    r2.setAttribute('stroke',

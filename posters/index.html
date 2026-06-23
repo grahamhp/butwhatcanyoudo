@@ -8,6 +8,11 @@
   <meta property="og:title" content="Posters | But What Can You Do?">
   <meta property="og:description" content="High-impact posters for the campaign. Black and white reality. Bold, bright truth. Print them. Hang them.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <meta property="og:image" content="https://butwhatcanyoudo.org/img/og-share.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/css/style.css?v=3">
   <style>
     .poster-grid {
@@ -172,7 +177,7 @@
         <h2 style="margin-bottom: 16px;">Make it <span class="text-blue">personal</span></h2>
         <p class="text-muted" style="margin-bottom: 16px;">Want a poster with your representative’s name, foreign lobby funding amount, and voting record? Enter a ZIP code for an estimated district preview.</p>
         <div class="zip-input-group" style="max-width: 400px; margin: 0 auto 16px;">
-          <input type="text" id="posterZip" placeholder="ZIP code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+          <input type="text" id="posterZip" placeholder="ZIP code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" aria-label="Enter your ZIP code for local posters">
           <button class="btn btn-red" onclick="generateCustomPoster()">Create poster</button>
         </div>
         <div id="customPosterResult"></div>
@@ -196,10 +201,11 @@
     <div class="footer-inner" style="flex-direction: column; gap: 32px;">
       <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
         <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep’s votes and what’s happening in your district.</p>
-        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
-          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+        <form class="email-signup-form" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" aria-label="Email address for updates" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
           <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
         </form>
+        <p class="email-signup-status" style="font-size: 0.8rem; margin-top: 6px;"></p>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
         <div>
@@ -218,9 +224,10 @@
     </div>
   </footer>
 
-  <script src="/js/candidates.js?v=3"></script>
+  <script src="/js/candidates.js?v=14"></script>
   <script src="/js/lookup.js?v=3"></script>
   <script src="/js/main.js?v=3"></script>
+  <script src="/js/supabase-client.js?v=1"></script>
   <script>
     const TARGET_LABELS = {
       general: 'General',
@@ -465,6 +472,11 @@
       return poster.districtTargets.includes(filter);
     }
 
+    // Convention: poster files go in /posters/files/ as {id}.pdf and {id}.png
+    // When a file exists at that path, the download button appears automatically.
+    // To enable downloads: place final designed poster at /posters/files/p1.pdf, etc.
+    const POSTER_FILE_BASE = '/posters/files/';
+
     function renderPosters(filter) {
       const grid = document.getElementById('posterGrid');
       if (!grid) return;
@@ -493,7 +505,11 @@
               <h3>${p.description}</h3>
               <p class="text-muted" style="font-size: 0.78rem; margin-top: 6px;">Best for district types:</p>
               <div class="poster-tags">${targetTags}${careTag}</div>
-              <p style="margin-top: 12px; font-size: 0.8rem;" class="text-muted">Print size: 11x17 in. (tabloid) - High-res PDF placeholder</p>
+              <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;" class="poster-downloads" data-poster-id="${p.id}">
+                <a href="${POSTER_FILE_BASE}${p.id}.pdf" download class="btn btn-red poster-dl-pdf" style="padding: 8px 16px; font-size: 0.75rem; display: none;">Download PDF (11×17)</a>
+                <a href="${POSTER_FILE_BASE}${p.id}.png" download class="btn btn-outline poster-dl-png" style="padding: 8px 16px; font-size: 0.75rem; display: none;">Download PNG</a>
+                <p class="poster-dl-soon text-muted" style="font-size: 0.78rem; font-style: italic;">Print-ready files coming soon</p>
+              </div>
             </div>
           </div>
         `;
@@ -597,26 +613,4 @@
           `;
         } else {
           const districtLine = result && result.district
-            ? `<p class="text-yellow" style="font-size: 0.9rem; margin-bottom: 10px;">Estimated district: ${result.district}</p>`
-            : '';
-          resultDiv.innerHTML = `
-            <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
-              ${districtLine}
-              <p class="text-muted">This district is not fully researched in our public database yet, but you can still use any of the general posters above.</p>
-              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px;">ZIPs can cross district lines. Use the lookup page if you want the most precise address match or direct district entry.</p>
-            </div>
-          `;
-        }
-      } catch (error) {
-        resultDiv.innerHTML = `
-          <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
-            <p class="text-muted">ZIP estimate is unavailable right now. You can still use any of the general posters above, or use the lookup page to enter your district directly.</p>
-          </div>
-        `;
-      }
-    }
-    renderPosters('all');
-  </script>
-</body>
-</html>
-
+            ? `<p class="text-yellow" style="font-size: 0.9rem; margin-bottom: 10px

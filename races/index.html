@@ -8,6 +8,11 @@
   <meta property="og:title" content="The Races | But What Can You Do?">
   <meta property="og:description" content="House, Senate, governor, and redistricting context for 2026. The votes, the money, the research status, and the races to watch.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <meta property="og:image" content="https://butwhatcanyoudo.org/img/og-share.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/css/style.css?v=3">
 </head>
 <body>
@@ -49,7 +54,7 @@
           <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">House races in database</div>
         </div>
         <div>
-          <div class="text-blue text-mono" style="font-size: 2rem; font-weight: 700;" id="statStateCount">16</div>
+          <div class="text-blue text-mono" style="font-size: 2rem; font-weight: 700;" id="statStateCount">22</div>
           <div class="text-muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Highlighted states</div>
         </div>
         <div>
@@ -70,8 +75,8 @@
     <div class="container">
       <div class="fade-in" style="max-width: 960px; margin: 0 auto;">
         <h2 style="margin-bottom: 8px;">Find your <span class="text-red">state</span></h2>
-        <p class="text-muted" style="margin-bottom: 24px;">16 highlighted states. House, Senate, governor, and redistricting context. Click a highlighted state to see what is known, what is sourced, and what still needs research.</p>
-        <div id="usMapContainer" style="width: 100%; max-width: 960px; margin: 0 auto;"></div>
+        <p class="text-muted" style="margin-bottom: 24px;">22 highlighted states. House, Senate, governor, and redistricting context. Click a highlighted state to see what is known and what still needs research.</p>
+        <div id="usMapContainer" style="width: 100%; max-width: 960px; margin: 0 auto; overflow: hidden;"></div>
       </div>
     </div>
   </section>
@@ -89,53 +94,13 @@
     </div>
   </section>
 
-  <!-- The Massie + Mamdani Story -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="fade-in" style="max-width: 900px; margin: 0 auto;">
-        <h2 style="margin-bottom: 24px;">The proof it <span class="text-blue">works</span></h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-          <div class="card" style="padding: 28px;">
-            <p class="text-mono text-red" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">They removed their own</p>
-            <h3 style="margin-bottom: 12px;">Thomas Massie <span class="text-muted" style="font-size: 0.8em;">(R-KY)</span></h3>
-            <p class="text-muted" style="margin-bottom: 12px;">The only Republican who consistently voted against weapons packages to the government of Israel. He introduced a bill to require the foreign lobby for the government of Israel to register as a foreign agent.</p>
-            <p style="margin-bottom: 12px;">Foreign lobby groups spent <span class="text-yellow text-mono" style="font-weight: 700;">$9 million</span> to defeat him. Total outside spending in his primary: <span class="text-yellow text-mono" style="font-weight: 700;">$32 million</span>.</p>
-            <p class="text-muted" style="font-size: 0.85rem;">He lost his primary on May 19, 2026 to Trump-backed Ed Gallrein (57,822 to 47,539 votes).</p>
-            <p style="margin-top: 12px; font-size: 0.9rem; font-weight: 500;" class="text-red">Both parties punish dissent on this issue.</p>
-            <p class="text-mono text-muted" style="font-size: 0.75rem; margin-top: 12px;">Source: KY Secretary of State, AP, FEC filings</p>
-          </div>
-          <div class="card" style="padding: 28px;">
-            <p class="text-mono text-blue" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">The people won anyway</p>
-            <h3 style="margin-bottom: 12px;">Zohran Mamdani <span class="text-muted" style="font-size: 0.8em;">(D-NYC)</span></h3>
-            <p class="text-muted" style="margin-bottom: 12px;">The Democratic establishment poured millions into backing Andrew Cuomo against Mamdani, who opposed weapons packages to the government of Israel.</p>
-            <p style="margin-bottom: 12px;">Voters chose Mamdani anyway: <span class="text-blue text-mono" style="font-weight: 700;">50.78%</span> to Cuomo's 41.32%.</p>
-            <p class="text-muted" style="font-size: 0.85rem;">He became the first Muslim mayor of NYC, the first of South Asian heritage, and the youngest mayor in over a century. Took office January 1, 2026.</p>
-            <p style="margin-top: 12px; font-size: 0.9rem; font-weight: 500;" class="text-blue">When enough people show up, they win.</p>
-            <p class="text-mono text-muted" style="font-size: 0.75rem; margin-top: 12px;">Source: NYC Board of Elections, AP</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- People, Not Parties -->
   <section class="section section-darker" id="positiveExamplesSection">
     <div class="container">
       <div class="fade-in" style="max-width: 960px; margin: 0 auto;">
         <h2 style="margin-bottom: 8px;">People, <span class="text-blue">not parties</span></h2>
-        <p class="text-muted" style="margin-bottom: 24px;">The campaign cannot feel like one party in different clothes. These are issue-specific examples: people whose public records show where voters can support, pressure, or learn from a break with the weapons-funding consensus.</p>
+        <p class="text-muted" style="margin-bottom: 24px;">Some people have been brave enough to say no — even when the cost is high. Here are a few examples, from both parties.</p>
         <div id="positiveExamplesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Evidence Standard -->
-  <section class="section section-dark" id="evidenceStandardSection">
-    <div class="container">
-      <div class="fade-in" style="max-width: 900px; margin: 0 auto;">
-        <h2 style="margin-bottom: 8px;">The evidence <span class="text-yellow">standard</span></h2>
-        <p class="text-muted" style="margin-bottom: 22px;">The site should move quickly, but it cannot move carelessly. Source-backed facts are the backbone; unknowns stay marked unknown until researched.</p>
-        <div id="evidenceStandardGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;"></div>
       </div>
     </div>
   </section>
@@ -147,13 +112,13 @@
         <h2 style="margin-bottom: 8px;">The database</h2>
         <p class="text-muted" style="margin-bottom: 24px;">Search toss-up races where foreign lobby-funded incumbents are most vulnerable. Every data point is sourced from public records.</p>
         <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
-          <input type="text" id="raceSearch" placeholder="Search by name, state, or district..." style="flex: 1; min-width: 200px;">
-          <select id="partyFilter">
+          <input type="text" id="raceSearch" placeholder="Search by name, state, or district..." aria-label="Search candidates" style="flex: 1; min-width: 200px;">
+          <select id="partyFilter" aria-label="Filter by party">
             <option value="all">All Parties</option>
             <option value="D">Democrat</option>
             <option value="R">Republican</option>
           </select>
-          <select id="stateFilter">
+          <select id="stateFilter" aria-label="Filter by state">
             <option value="all">All States</option>
           </select>
           <button class="btn btn-red" onclick="applyFilters()">Search</button>
@@ -186,7 +151,7 @@
     <div class="container">
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
         <h2 style="margin-bottom: 16px;">Redistricted <span class="text-red">states</span></h2>
-        <p class="text-muted" style="margin-bottom: 24px;">Six states have new congressional district maps for 2026 — the largest coordinated mid-decade redistricting in modern American history. If you live in one of these states, your district may have changed. New voters, new lines, new opportunities.</p>
+        <p class="text-muted" style="margin-bottom: 24px;">Eleven states have new congressional district maps for 2026 — the largest wave of mid-decade redistricting in modern American history. Six were redrawn in 2025; five more followed in spring 2026 after the Supreme Court's <em>Louisiana v. Callais</em> decision weakened Voting Rights Act protections. If you live in one of these states, your district may have changed. New voters, new lines, new opportunities.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;" id="redistrictedGrid"></div>
       </div>
     </div>
@@ -211,10 +176,11 @@
     <div class="footer-inner" style="flex-direction: column; gap: 32px;">
       <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
         <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
-        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
-          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+        <form class="email-signup-form" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" aria-label="Email address for updates" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
           <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
         </form>
+        <p class="email-signup-status" style="font-size: 0.8rem; margin-top: 6px;"></p>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
         <div>
@@ -233,11 +199,12 @@
     </div>
   </footer>
 
-  <script src="/js/candidates.js?v=8"></script>
+  <script src="/js/candidates.js?v=14"></script>
   <script src="/js/fec-candidate-snapshot.js?v=1"></script>
   <script src="/js/race-context.js?v=1"></script>
   <script src="/js/map.js?v=4"></script>
   <script src="/js/main.js?v=3"></script>
+  <script src="/js/supabase-client.js?v=1"></script>
   <script>
     function escapeHtml(value) {
       return String(value === null || value === undefined ? '' : value)
@@ -343,7 +310,7 @@
 
     function renderStats() {
       const raceCount = typeof CANDIDATES !== 'undefined' ? CANDIDATES.length : 0;
-      const stateCount = typeof HIGHLIGHTED_STATE_KEYS !== 'undefined' ? HIGHLIGHTED_STATE_KEYS.length : 16;
+      const stateCount = typeof HIGHLIGHTED_STATE_KEYS !== 'undefined' ? HIGHLIGHTED_STATE_KEYS.length : 22;
       const fecCount = typeof FEC_HIGHLIGHTED_CANDIDATES_2026 !== 'undefined'
         ? FEC_HIGHLIGHTED_CANDIDATES_2026.counts.highlightedCandidates
         : 0;
@@ -414,13 +381,14 @@
       }
 
       container.innerHTML = examples.map(ex => {
-        const partyClass = ex.party === 'D' ? 'text-blue' : 'text-red';
+        const colorVar = ex.color || (ex.party === 'D' ? 'blue' : 'red');
+        const partyClass = 'text-' + colorVar;
         const voteRows = ex.votes ? Object.keys(ex.votes).map(voteId => {
           const label = getVoteLabel(ex.votes[voteId]);
           return `<span class="${label.class}" style="display: inline-block; margin-right: 10px; font-size: 0.78rem;">${voteId.toUpperCase()}: <strong>${label.text}</strong></span>`;
         }).join('') : '';
         return `
-          <div class="card" style="padding: 24px; border-left: 3px solid ${ex.party === 'D' ? 'var(--blue)' : 'var(--red)'};">
+          <div class="card" style="padding: 24px; border-left: 3px solid var(--${colorVar});">
             <p class="text-mono ${partyClass}" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">${ex.party === 'D' ? 'Democrat' : 'Republican'} - ${ex.district}</p>
             <h3 style="margin-bottom: 8px;">${ex.name}</h3>
             <p style="font-size: 0.9rem; margin-bottom: 10px;"><strong>${ex.recommendation}</strong></p>
@@ -431,24 +399,6 @@
           </div>
         `;
       }).join('');
-    }
-
-    function renderEvidenceStandard() {
-      const container = document.getElementById('evidenceStandardGrid');
-      if (!container) return;
-      const standard = typeof RACE_EVIDENCE_STANDARD !== 'undefined' ? RACE_EVIDENCE_STANDARD : {};
-      const items = [
-        ['Source first', standard.sourceFirst],
-        ['Manual updates', standard.noNightlySync],
-        ['Unknown stays unknown', standard.unknownMeansUnknown],
-        ['People are not targets', standard.distinction]
-      ];
-      container.innerHTML = items.map(item => `
-        <div class="card" style="padding: 20px;">
-          <h3 class="text-yellow" style="font-size: 0.95rem; margin-bottom: 8px;">${item[0]}</h3>
-          <p class="text-muted" style="font-size: 0.84rem; line-height: 1.6;">${item[1] || ''}</p>
-        </div>
-      `).join('');
     }
 
     // Initialize map
@@ -877,9 +827,11 @@
     // MAIN: Show state detail when a state is clicked on the map
     window.showStateDetail = function(stateAbbr) {
       const stateNames = {
-        AZ:'Arizona', CA:'California', CO:'Colorado', IA:'Iowa', ME:'Maine',
-        MI:'Michigan', NC:'North Carolina', NE:'Nebraska', NM:'New Mexico',
-        NY:'New York', OH:'Ohio', PA:'Pennsylvania', TX:'Texas', WA:'Washington'
+        AL:'Alabama', AZ:'Arizona', CA:'California', CO:'Colorado', FL:'Florida',
+        IA:'Iowa', IL:'Illinois', LA:'Louisiana', ME:'Maine', MI:'Michigan',
+        MO:'Missouri', NC:'North Carolina', NE:'Nebraska', NM:'New Mexico',
+        NY:'New York', OH:'Ohio', PA:'Pennsylvania', TN:'Tennessee', TX:'Texas',
+        UT:'Utah', VA:'Virginia', WA:'Washington'
       };
 
       const sr = (typeof STATE_RACES !== 'undefined') ? STATE_RACES[stateAbbr] : null;
@@ -1045,7 +997,6 @@
     renderRacesToWatch();
     renderRedistricted();
     renderPositiveExamples();
-    renderEvidenceStandard();
 
     // Live search on typing
     document.getElementById('raceSearch').addEventListener('input', applyFilters);
@@ -1057,5 +1008,27 @@
       if (e.key === 'Enter') applyFilters();
     });
   </script>
+  <script>
+    // Footer email signup
+    document.querySelectorAll('.email-signup-form').forEach(function(form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var emailInput = form.querySelector('input[type="email"]');
+        var statusP = form.nextElementSibling;
+        var email = emailInput.value.trim();
+        if (!email) return;
+        try {
+          await SupaEmail.subscribe({ email: email, source: window.location.pathname });
+          statusP.textContent = "You're subscribed!";
+          statusP.style.color = 'var(--blue)';
+          emailInput.value = '';
+        } catch (err) {
+          statusP.textContent = err.message || 'Something went wrong.';
+          statusP.style.color = 'var(--red)';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

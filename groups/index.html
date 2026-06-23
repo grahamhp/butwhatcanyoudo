@@ -8,7 +8,61 @@
   <meta property="og:title" content="Local Groups | But What Can You Do?">
   <meta property="og:description" content="Find people near you who are doing the work. Or start your own group.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <meta property="og:image" content="https://butwhatcanyoudo.org/img/og-share.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/css/style.css?v=3">
+  <style>
+    .group-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 24px;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+    .group-card:hover { border-color: rgba(255,255,255,0.15); }
+    .group-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    .group-badge {
+      font-size: 0.7rem; padding: 2px 8px; border-radius: 2px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .badge-state { background: rgba(0,168,232,0.15); color: var(--blue); }
+    .badge-platform { background: rgba(255,197,0,0.15); color: var(--yellow); }
+    .tab-bar { display: flex; gap: 0; margin-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .tab-btn {
+      padding: 12px 24px; background: none; border: none; border-bottom: 2px solid transparent;
+      color: var(--mid-gray); font-family: var(--font-headline); font-size: 0.9rem;
+      text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.2s;
+    }
+    .tab-btn:hover { color: var(--white); }
+    .tab-btn.active { color: var(--white); border-bottom-color: var(--red); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .form-row { margin-bottom: 20px; }
+    .form-row label { display: block; margin-bottom: 6px; font-weight: 500; }
+    .form-row input, .form-row select, .form-row textarea {
+      width: 100%; padding: 12px 16px; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);
+      color: var(--white); font-size: 1rem; font-family: var(--font-body);
+    }
+    .form-row textarea { min-height: 80px; resize: vertical; }
+    .checkbox-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 20px; }
+    .checkbox-row input[type="checkbox"] { width: auto; margin-top: 4px; accent-color: var(--red); }
+    .report-toggle {
+      font-size: 0.8rem; color: var(--mid-gray); cursor: pointer; border: none;
+      background: none; text-decoration: underline; padding: 0; font-family: var(--font-body);
+    }
+    .report-toggle:hover { color: var(--white); }
+    .report-form { display: none; margin-top: 12px; padding: 16px; background: rgba(255,65,54,0.05); border-radius: 4px; }
+    .report-form.open { display: block; }
+    .status-msg { padding: 16px; border-radius: 4px; margin-top: 16px; text-align: center; }
+    .status-success { background: rgba(0,168,232,0.1); color: var(--blue); }
+    .status-error { background: rgba(255,65,54,0.1); color: var(--red); }
+    .empty-state { text-align: center; padding: 48px 24px; }
+    .group-grid { display: grid; gap: 16px; }
+  </style>
 </head>
 <body>
 
@@ -36,110 +90,49 @@
     </div>
   </section>
 
-  <!-- Find a Group -->
+  <!-- Tabs: Find / Register -->
   <section class="section section-dark">
-    <div class="container">
-      <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
-        <h2 style="margin-bottom: 16px;">Find a group near you</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">Enter your zip code or state to see if there's already a local chapter organizing in your area.</p>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px;">
-          <input type="text" placeholder="Zip code or state..." style="flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--white);">
-          <button class="btn btn-blue">Search</button>
-        </div>
-        <p class="text-muted" style="font-style: italic; text-align: center;">[Local group directory will be populated after launch]</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Start a Group -->
-  <section class="section section-darker">
     <div class="container">
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
-        <h2 style="margin-bottom: 16px;">Start your own</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">No group in your area? Start one. Here's what a local chapter does:</p>
-        <div class="action-grid">
-          <div class="card" style="padding: 24px;">
-            <h3 class="text-blue">Coordinate poster drops</h3>
-            <p class="text-muted">Organize group printing sessions and coordinate where posters go up across your community.</p>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab('find')">Find a group</button>
+          <button class="tab-btn" onclick="switchTab('register')">Register a group</button>
+        </div>
+
+        <!-- FIND TAB -->
+        <div class="tab-panel active" id="tab-find">
+          <p class="text-muted" style="margin-bottom: 20px;">Select your state to see if there's already a chapter organizing in your area.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+            <select id="groupStateSearch" aria-label="Select state to search" style="flex: 1; min-width: 200px; padding: 12px 16px;">
+              <option value="">All states</option>
+            </select>
+            <input type="text" id="groupCitySearch" placeholder="City (optional)" aria-label="Filter by city" style="flex: 1; min-width: 160px; padding: 12px 16px;">
+            <button class="btn btn-blue" onclick="searchGroups()">Search</button>
           </div>
-          <div class="card" style="padding: 24px;">
-            <h3 class="text-yellow">Share resources</h3>
-            <p class="text-muted">Pool money for large-format prints, share printer access, and split costs on materials.</p>
-          </div>
-          <div class="card" style="padding: 24px;">
-            <h3 class="text-red">Build local momentum</h3>
-            <p class="text-muted">Host meetups, canvass your neighborhood, and make sure everyone knows their rep's record before November.</p>
+          <div id="groupResults" class="group-grid">
+            <div class="empty-state">
+              <p class="text-muted" style="font-size: 1.05rem; margin-bottom: 8px;">Select a state above to find groups near you.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- How to Start -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
-        <h2 style="margin-bottom: 24px;">How to start a chapter</h2>
-        <div style="margin-bottom: 20px;">
-          <h3><span class="text-yellow">1.</span> Sign up as a volunteer</h3>
-          <p class="text-muted">Fill out the <a href="/volunteer/" style="color: var(--blue);">volunteer form</a> and select "Organize locally."</p>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <h3><span class="text-yellow">2.</span> Recruit 2&ndash;3 people</h3>
-          <p class="text-muted">You don't need a crowd. You need a few committed people in your area to get started.</p>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <h3><span class="text-yellow">3.</span> Pick your first action</h3>
-          <p class="text-muted">A poster drop is the easiest first step. Download, print, and hang them together.</p>
-        </div>
-        <div>
-          <h3><span class="text-yellow">4.</span> Register your group</h3>
-          <p class="text-muted">Placeholder: A registration form and group listing system will be available after launch.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- REGISTER TAB (Application Form) -->
+        <div class="tab-panel" id="tab-register">
+          <p class="text-muted" style="margin-bottom: 8px;">No group in your area? Start one. Your group will appear in the directory after a quick review.</p>
+          <p class="text-muted" style="margin-bottom: 24px; font-size: 0.85rem; opacity: 0.7;">We review every application so that every group has the support it needs and stays true to the campaign's values. This usually takes 24&ndash;48 hours.</p>
 
-  <!-- CTA -->
-  <section class="section section-darker">
-    <div class="container text-center">
-      <div class="fade-in">
-        <h2 style="margin-bottom: 16px;">Ready to organize?</h2>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="/volunteer/" class="btn btn-blue">Sign up to volunteer</a>
-          <a href="/posters/" class="btn btn-outline">Get posters</a>
-        </div>
-      </div>
-    </div>
-  </section>
+          <form id="groupRegisterForm">
+            <!-- Group Details -->
+            <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 16px;">Group Details</h3>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner" style="flex-direction: column; gap: 32px;">
-      <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
-        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
-          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
-          <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
-        </form>
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
-        <div>
-          <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
-        </div>
-        <ul class="footer-links">
-          <li><a href="/about/">About</a></li>
-          <li><a href="/talk/">Talking Points</a></li>
-          <li><a href="/support/">Support</a></li>
-          <li><a href="/how-to/">How to Print</a></li>
-        </ul>
-        <div class="footer-hashtag">
-          #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
-        </div>
-      </div>
-    </div>
-  </footer>
+            <div class="form-row">
+              <label for="grpName">Group name</label>
+              <input type="text" id="grpName" required placeholder="e.g. But What Can You Do — Austin, TX">
+            </div>
 
-  <script src="/js/main.js?v=3"></script>
-</body>
-</html>
+            <div class="form-row">
+              <label for="grpType">What type of group?</label>
+              <select id="grpType" required>
+                <option value="general">General organizing</option>
+                <option value="poster_crew">Poster crew</option>
+                <option value="campus">Campus / universit

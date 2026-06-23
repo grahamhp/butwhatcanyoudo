@@ -8,6 +8,11 @@
   <meta property="og:title" content="Find Your Voice | But What Can You Do?">
   <meta property="og:description" content="Find your district. See who your rep is and what they voted for.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <meta property="og:image" content="https://butwhatcanyoudo.org/img/og-share.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/css/style.css?v=3">
   <style>
     .lookup-shell {
@@ -103,7 +108,7 @@
         <div class="lookup-mode-panel active" id="zipPanel">
           <p class="text-muted lookup-copy">Fast and privacy-friendly. ZIP codes can cross congressional district lines, so this is an estimate.</p>
           <div class="zip-input-group">
-            <input type="text" id="zipInput" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+            <input type="text" id="zipInput" aria-label="Enter your ZIP code" placeholder="Enter your zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
             <button class="btn btn-red" id="zipSubmit" type="button" onclick="performZipLookup()">Go</button>
           </div>
         </div>
@@ -111,8 +116,8 @@
         <div class="lookup-mode-panel" id="districtPanel">
           <p class="text-muted lookup-copy">Already know your congressional district? Enter it directly.</p>
           <div class="district-input-group">
-            <select id="districtState" aria-label="State"></select>
-            <input type="text" id="districtNumber" placeholder="District # or AL" inputmode="numeric">
+            <select id="districtState" aria-label="Select your state"></select>
+            <input type="text" id="districtNumber" aria-label="District number" placeholder="District # or AL" inputmode="numeric">
             <button class="btn btn-red" type="button" onclick="performDistrictLookup()">Go</button>
           </div>
         </div>
@@ -120,7 +125,7 @@
         <div class="lookup-mode-panel" id="addressPanel">
           <p class="text-muted lookup-copy"><strong class="text-blue">Most precise.</strong> We do not save your address or anything you enter here.</p>
           <div class="address-input-group">
-            <input type="text" id="addressInput" placeholder="Street address, city, state, ZIP">
+            <input type="text" id="addressInput" aria-label="Enter your street address" placeholder="Street address, city, state, ZIP">
             <button class="btn btn-red" type="button" onclick="performAddressLookup()">Go</button>
           </div>
           <p class="lookup-note">Address lookup is sent to the U.S. Census geocoder only to identify your congressional district. This site does not store it.</p>
@@ -206,10 +211,11 @@
     <div class="footer-inner" style="flex-direction: column; gap: 32px;">
       <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
         <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
-        <form name="email-list" method="POST" data-netlify="true" style="display: flex; gap: 8px;">
-          <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+        <form class="email-signup-form" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" aria-label="Email address for updates" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
           <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
         </form>
+        <p class="email-signup-status" style="font-size: 0.8rem; margin-top: 6px;"></p>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
         <div>
@@ -228,9 +234,10 @@
     </div>
   </footer>
 
-  <script src="/js/candidates.js?v=3"></script>
+  <script src="/js/candidates.js?v=14"></script>
   <script src="/js/lookup.js?v=3"></script>
   <script src="/js/main.js?v=3"></script>
+  <script src="/js/supabase-client.js?v=1"></script>
   <script>
     const TRACKED_RACE_COUNT = typeof CANDIDATES !== 'undefined' ? CANDIDATES.length : 0;
 
@@ -290,7 +297,7 @@
           </ul>
           <form name="zip-notify" method="POST" data-netlify="true" style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
             <input type="hidden" name="lookup" value="${escapeHtml(label)}">
-            <input type="email" name="email" placeholder="Your email" required style="flex: 1; min-width: 180px; padding: 10px 14px; font-size: 0.9rem;">
+            <input type="email" name="email" aria-label="Email address" placeholder="Your email" required style="flex: 1; min-width: 180px; padding: 10px 14px; font-size: 0.9rem;">
             <button type="submit" class="btn btn-red" style="padding: 10px 20px; font-size: 0.85rem;">Notify me</button>
           </form>
         </div>
@@ -464,6 +471,11 @@
       }
 
       showLookupMessage('<p class="text-muted">Estimating your congressional district...</p>');
+      // Track zip lookup
+      if (typeof SupaAnalytics !== 'undefined') {
+        sessionStorage.setItem('bwcyd_zip', zip);
+        SupaAnalytics.logEvent('zip_lookup', { zip: zip });
+      }
       try {
         const result = typeof lookupZipEstimate === 'function'
           ? await lookupZipEstimate(zip)
@@ -540,20 +552,4 @@
     document.getElementById('zipInput').addEventListener('keypress', e => {
       if (e.key === 'Enter') performZipLookup();
     });
-    document.getElementById('districtNumber').addEventListener('keypress', e => {
-      if (e.key === 'Enter') performDistrictLookup();
-    });
-    document.getElementById('addressInput').addEventListener('keypress', e => {
-      if (e.key === 'Enter') performAddressLookup();
-    });
-
-    const urlZip = new URLSearchParams(window.location.search).get('zip');
-    if (urlZip) {
-      document.getElementById('zipInput').value = urlZip;
-      performZipLookup();
-    }
-  </script>
-</body>
-</html>
-
-
+    document.getElementById('districtNumber').addEventListener('k

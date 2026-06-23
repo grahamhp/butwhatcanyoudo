@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Red checkmark -->
+  <path d="M 60 340 L 175 430 L 380 60" fill="none" stroke="#E8192C" stroke-width="95" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Yellow heart -->
+  <path d="M 255 260 
+    C 255 220, 210 180, 190 200 
+    C 170 220, 170 250, 190 275 
+    L 255 350 
+    L 320 275 
+    C 340 250, 340 220, 320 200 
+    C 300 180, 255 220, 255 260 Z" 
+    fill="#F5C518"/>
+  
+  <!-- Blue bird body -->
+  <ellipse cx="350" cy="260" rx="75" ry="55" fill="#1DA1F2" transform="rotate(-10, 350, 260)"/>
+  
+  <!-- Blue bird wing -->
+  <path d="M 320 240 C 370 170, 430 150, 480 160 C 450 190, 420 210, 370 230 Z" fill="#1DA1F2"/>
+  <path d="M 340 225 C 380 155, 440 130, 500 135 C 465 170, 430 195, 380 218 Z" fill="#1DA1F2"/>
+  
+  <!-- Blue bird tail -->
+  <path d="M 275 275 C 250 250, 240 230, 250 210 C 270 240, 285 260, 290 270 Z" fill="#1DA1F2"/>
+  
+  <!-- Bird beak -->
+  <path d="M 420 250 L 445 260 L 420 270 Z" fill="#1DA1F2"/>
+  
+  <!-- Bird eye -->
+  <circle cx="400" cy="248" r="6" fill="white"/>
+  
+  <!-- Olive branch on heart -->
+  <path d="M 230 290 C 230 270, 245 260, 250 250" fill="none" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="238" cy="265" rx="8" ry="5" fill="#222" transform="rotate(-30, 238, 265)"/>
+  <ellipse cx="245" cy="275" rx="8" ry="5" fill="#222" transform="rotate(20, 245, 275)"/>
+  <ellipse cx="234" cy="280" rx="7" ry="4" fill="#222" transform="rotate(-40, 234, 280)"/>
+</svg>

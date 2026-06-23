@@ -53,6 +53,24 @@ a:hover {
   opacity: 0.8;
 }
 
+/* --- Accessibility --- */
+*:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -533,6 +551,11 @@ select option {
 
   .zip-input-group .btn {
     border-radius: 2px;
+  }
+
+  /* Collapse inline 2-column grids on mobile */
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
   }
 }
 
