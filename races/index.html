@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Races | But What Can You Do?</title>
-  <meta name="description" content="Search the growing 2026 race database: House, Senate, governor context, voting records, funding signals, and research status by highlighted state.">
-  <meta property="og:title" content="The Races | But What Can You Do?">
-  <meta property="og:description" content="House, Senate, governor, and redistricting context for 2026. The votes, the money, the research status, and the races to watch.">
-  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://butwhatcanyoudo.org/races/" />
+  <meta property="og:url" content="https://butwhatcanyoudo.org/races/" />
+  <title>Key 2026 Congressional Races | But What Can You Do?</title>
+  <meta name="description" content="Explore our database of key 2026 House and Senate races. Find out who is running, who is funding them, and where your vote has the highest impact." />
+  <meta property="og:title" content="Key 2026 Congressional Races | But What Can You Do?" />
+  <meta property="og:description" content="Explore our database of key 2026 House and Senate races. Find out who is running, who is funding them, and where your vote has the highest impact." />
+  <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -198,7 +200,7 @@
       </div>
     </div>
   </footer>
-
+  <script src="/js/shared.js?v=1"></script>
   <script src="/js/candidates.js?v=14"></script>
   <script src="/js/fec-candidate-snapshot.js?v=1"></script>
   <script src="/js/race-context.js?v=1"></script>
@@ -1008,27 +1010,5 @@
       if (e.key === 'Enter') applyFilters();
     });
   </script>
-  <script>
-    // Footer email signup
-    document.querySelectorAll('.email-signup-form').forEach(function(form) {
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        var emailInput = form.querySelector('input[type="email"]');
-        var statusP = form.nextElementSibling;
-        var email = emailInput.value.trim();
-        if (!email) return;
-        try {
-          await SupaEmail.subscribe({ email: email, source: window.location.pathname });
-          statusP.textContent = "You're subscribed!";
-          statusP.style.color = 'var(--blue)';
-          emailInput.value = '';
-        } catch (err) {
-          statusP.textContent = err.message || 'Something went wrong.';
-          statusP.style.color = 'var(--red)';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

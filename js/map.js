@@ -392,4 +392,19 @@
     r2.setAttribute('x','200'); r2.setAttribute('y','0');
     r2.setAttribute('width','14'); r2.setAttribute('height','10');
     r2.setAttribute('fill', CLR_DEFAULT); r2.setAttribute('rx','2');
-    r2.setAttribute('stroke',
+    r2.setAttribute('stroke', CLR_STROKE_D); r2.setAttribute('stroke-width','0.75');
+    g.appendChild(r2);
+
+    var t2 = document.createElementNS(NS, 'text');
+    t2.setAttribute('x','220'); t2.setAttribute('y','9');
+    t2.setAttribute('font-family', "'Inter',system-ui,sans-serif");
+    t2.setAttribute('font-size','9'); t2.setAttribute('fill','#666666');
+    t2.textContent = 'Coming soon';
+    g.appendChild(t2);
+
+    return g;
+  }
+
+  window.renderUSMap = renderUSMap;
+
+})();

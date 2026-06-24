@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Local Groups | But What Can You Do?</title>
-  <meta name="description" content="Find or create a local chapter of the But What Can You Do campaign in your area. Coordinate poster drops, share resources, and organize together.">
-  <meta property="og:title" content="Local Groups | But What Can You Do?">
-  <meta property="og:description" content="Find people near you who are doing the work. Or start your own group.">
-  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://butwhatcanyoudo.org/groups/" />
+  <meta property="og:url" content="https://butwhatcanyoudo.org/groups/" />
+  <title>Find a Local Group | But What Can You Do?</title>
+  <meta name="description" content="Connect with local organizers, allied print shops, and friendly businesses in your city working to hold politicians accountable. Join or start a group today." />
+  <meta property="og:title" content="Find a Local Group | But What Can You Do?" />
+  <meta property="og:description" content="Connect with local organizers, allied print shops, and friendly businesses in your city working to hold politicians accountable. Join or start a group today." />
+  <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -90,8 +92,57 @@
     </div>
   </section>
 
-  <!-- Tabs: Find / Register -->
+  <!-- What chapters do -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 16px;">What a local chapter does</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">You don't need permission. You don't need a budget. You need a few committed people.</p>
+        <div class="action-grid">
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-blue">Coordinate poster drops</h3>
+            <p class="text-muted">Organize group printing sessions and coordinate where posters go up across your community.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-yellow">Share resources</h3>
+            <p class="text-muted">Pool money for large-format prints, share printer access, and split costs on materials.</p>
+          </div>
+          <div class="card" style="padding: 24px;">
+            <h3 class="text-red">Show up at events</h3>
+            <p class="text-muted">Go to town halls and rallies together. Ask the questions that need asking. Film the answers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Start -->
   <section class="section section-dark">
+    <div class="container">
+      <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
+        <h2 style="margin-bottom: 24px;">How to start a chapter</h2>
+        <div style="margin-bottom: 20px;">
+          <h3><span class="text-yellow">1.</span> Register below</h3>
+          <p class="text-muted">Fill out the registration form. Your group will be listed in the directory after a quick review.</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <h3><span class="text-yellow">2.</span> Set up a group chat</h3>
+          <p class="text-muted">Facebook Groups, Discord, Signal, GroupMe &mdash; whatever works for your area. Younger organizers tend toward Discord; broader groups do well on Facebook.</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <h3><span class="text-yellow">3.</span> Recruit 2&ndash;3 people</h3>
+          <p class="text-muted">You don't need a crowd. You need a few committed people in your area to get started.</p>
+        </div>
+        <div>
+          <h3><span class="text-yellow">4.</span> Pick your first action</h3>
+          <p class="text-muted">A poster drop is the easiest first step. Download, print, and hang them together. <a href="/posters/" style="color: var(--blue);">Get posters here</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs: Find / Register -->
+  <section class="section section-darker">
     <div class="container">
       <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
         <div class="tab-bar">
@@ -135,4 +186,403 @@
               <select id="grpType" required>
                 <option value="general">General organizing</option>
                 <option value="poster_crew">Poster crew</option>
-                <option value="campus">Campus / universit
+                <option value="campus">Campus / university</option>
+                <option value="faith">Faith-based</option>
+                <option value="print_partner">Print shop (at-cost printing)</option>
+                <option value="business_partner">Business (willing to display posters)</option>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-row">
+                <label for="grpState">State</label>
+                <select id="grpState" required>
+                  <option value="" disabled selected>Select state</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="grpCity">City</label>
+                <input type="text" id="grpCity" required placeholder="Your city">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="grpZip">Zip code (optional)</label>
+              <input type="text" id="grpZip" placeholder="12345" maxlength="10" style="max-width: 200px;">
+            </div>
+
+            <div class="form-row">
+              <label for="grpDesc">What will your group focus on?</label>
+              <textarea id="grpDesc" placeholder="Poster drops, canvassing, event attendance, content creation — whatever you plan to do."></textarea>
+            </div>
+
+            <div class="form-row">
+              <label for="grpContactMethod">How should members contact the group?</label>
+              <select id="grpContactMethod">
+                <option value="email">Email</option>
+                <option value="signal">Signal</option>
+                <option value="form">Through this site (we'll forward requests)</option>
+              </select>
+            </div>
+
+            <div class="form-row" id="publicContactRow">
+              <label for="grpPublicContact">Public contact info (shown to visitors after approval)</label>
+              <input type="text" id="grpPublicContact" placeholder="e.g. austingroup@gmail.com or @signalhandle">
+            </div>
+
+            <div class="form-row">
+              <label for="grpLink">External group link (Facebook, Discord, Signal — if you have one)</label>
+              <input type="url" id="grpLink" placeholder="https://...">
+            </div>
+
+            <!-- Organizer Verification -->
+            <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--yellow); margin-top: 32px; margin-bottom: 16px;">About You</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-row">
+                <label for="grpOrgName">Your name</label>
+                <input type="text" id="grpOrgName" required placeholder="Your name">
+              </div>
+              <div class="form-row">
+                <label for="grpOrgEmail">Your email</label>
+                <input type="email" id="grpOrgEmail" required placeholder="you@example.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="grpSocialUrl">Link to a public profile (LinkedIn, Instagram, etc.)</label>
+              <input type="url" id="grpSocialUrl" placeholder="https://linkedin.com/in/yourprofile">
+              <p class="text-muted" style="font-size: 0.75rem; margin-top: 4px;">This helps us verify that every group organizer is who they say they are. Your profile is never shared publicly.</p>
+            </div>
+
+            <div class="form-row">
+              <label for="grpWhy">Why do you want to start this group? <span class="text-muted" style="font-size: 0.8rem;">(a sentence or two is fine)</span></label>
+              <textarea id="grpWhy" required placeholder="What motivated you, and what do you hope to accomplish in your community?" style="min-height: 100px;"></textarea>
+            </div>
+
+            <!-- Agreements -->
+            <div class="checkbox-row" style="margin-top: 24px;">
+              <input type="checkbox" id="grpAgreeContact" required>
+              <label for="grpAgreeContact" style="font-weight: 400; font-size: 0.9rem; color: var(--light-gray);">I agree to be contacted by people who want to join this group. My personal email will not be displayed publicly.</label>
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="grpAgreeGuidelines" required>
+              <label for="grpAgreeGuidelines" style="font-weight: 400; font-size: 0.9rem; color: var(--light-gray);">I understand this campaign is nonpartisan, explicitly welcoming of all backgrounds including Jewish allies, and focused only on accountability for votes that send weapons to governments killing civilians.</label>
+            </div>
+
+            <button type="submit" class="btn btn-blue" style="width: 100%; font-size: 1.05rem; padding: 14px;">Submit application</button>
+          </form>
+          <div id="registerStatus"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-darker">
+    <div class="container text-center">
+      <div class="fade-in">
+        <h2 style="margin-bottom: 16px;">Ready to organize?</h2>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/volunteer/" class="btn btn-blue">Sign up to volunteer</a>
+          <a href="/posters/" class="btn btn-outline">Get posters</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner" style="flex-direction: column; gap: 32px;">
+      <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
+        <form class="email-signup-form" style="display: flex; gap: 8px;">
+          <input type="email" name="email" placeholder="Your email" aria-label="Email address for updates" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
+          <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
+        </form>
+        <p class="email-signup-status" style="font-size: 0.8rem; margin-top: 6px;"></p>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;">
+        <div>
+          <a href="/" class="nav-logo" style="font-size: 0.85rem;">But What Can You <span style="color: var(--red);">Do</span>?</a>
+        </div>
+        <ul class="footer-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/talk/">Talking Points</a></li>
+          <li><a href="/support/">Support</a></li>
+          <li><a href="/how-to/">How to Print</a></li>
+        </ul>
+        <div class="footer-hashtag">
+          #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/shared.js?v=1"></script>
+  <script src="/js/main.js?v=3"></script>
+  <script src="/js/supabase-client.js?v=1"></script>
+  <script>
+    // ========================================================
+    // GROUPS PAGE — Full Supabase integration
+    // ========================================================
+
+    const TYPE_LABELS = {
+      general: 'General', poster_crew: 'Poster crew', campus: 'Campus',
+      faith: 'Faith-based', print_partner: 'Print shop', business_partner: 'Business partner'
+    };
+
+    // Populate state dropdowns
+    function populateStateDropdowns() {
+      ['groupStateSearch', 'grpState'].forEach(id => {
+        const sel = document.getElementById(id);
+        if (!sel) return;
+        if (typeof US_STATES !== 'undefined') {
+          US_STATES.forEach(state => {
+            const opt = document.createElement('option');
+            opt.value = state.name;
+            opt.textContent = state.name;
+            sel.appendChild(opt);
+          });
+        }
+      });
+    }
+    populateStateDropdowns();
+
+    // --- Tab switching ---
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
+    }
+
+    // --- Escape HTML ---
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // --- Search groups ---
+    async function searchGroups() {
+      const resultsDiv = document.getElementById('groupResults');
+      const state = document.getElementById('groupStateSearch').value;
+      const city = document.getElementById('groupCitySearch').value.trim();
+
+      if (!state) {
+        resultsDiv.innerHTML = '<div class="empty-state"><p class="text-muted" style="font-size: 1.05rem;">Select a state above to find groups near you.</p></div>';
+        return;
+      }
+
+      resultsDiv.innerHTML = '<p class="text-muted" style="text-align: center; padding: 24px;">Searching...</p>';
+
+      try {
+        const data = await SupaGroups.search({ state, city });
+
+        if (!data || data.length === 0) {
+          resultsDiv.innerHTML = `
+            <div class="empty-state">
+              <p style="font-size: 1.1rem; margin-bottom: 12px;">No groups found in ${escapeHtml(state)} yet.</p>
+              <p class="text-muted" style="margin-bottom: 16px;">Be the first. Start a group and begin organizing in your area.</p>
+              <button class="btn btn-blue" onclick="switchTab('register')">Start a group</button>
+            </div>`;
+          return;
+        }
+
+        resultsDiv.innerHTML = `<p class="text-muted" style="font-size: 0.85rem; margin-bottom: 16px;">${data.length} group${data.length !== 1 ? 's' : ''} in ${escapeHtml(state)}</p>` +
+          data.map(g => renderGroupCard(g)).join('');
+      } catch (err) {
+        console.error('Group search error:', err);
+        resultsDiv.innerHTML = '<div class="status-msg status-error">Something went wrong loading groups. Please try again.</div>';
+      }
+    }
+
+    function renderGroupCard(g) {
+      const typeLabel = TYPE_LABELS[g.type] || 'General';
+      const memberText = g.member_count === 1 ? '1 member' : `${g.member_count} members`;
+
+      // Build join/contact button
+      let joinBtn;
+      if (g.external_link) {
+        joinBtn = `<a href="${escapeHtml(g.external_link)}" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Join group</a>`;
+      } else if (g.public_contact) {
+        const isEmail = g.public_contact.includes('@');
+        if (isEmail) {
+          joinBtn = `<a href="mailto:${escapeHtml(g.public_contact)}?subject=Joining%20${encodeURIComponent(g.name)}" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.8rem;">Contact group</a>`;
+        } else {
+          joinBtn = `<span class="text-muted" style="font-size: 0.8rem;">${escapeHtml(g.public_contact)}</span>`;
+        }
+      } else {
+        joinBtn = `<button class="btn btn-outline" style="padding: 8px 16px; font-size: 0.8rem;" onclick="showJoinModal('${g.id}', '${escapeHtml(g.name).replace(/'/g, "\\'")}')">Request to join</button>`;
+      }
+
+      return `
+        <div class="group-card" data-group-id="${g.id}">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+            <div style="flex: 1; min-width: 200px;">
+              <h3 style="font-size: 1.05rem; margin-bottom: 4px;">${escapeHtml(g.name)}</h3>
+              <div class="group-meta">
+                <span class="group-badge badge-state">${escapeHtml(g.state)}</span>
+                <span class="text-muted" style="font-size: 0.85rem;">${escapeHtml(g.city)}</span>
+                <span class="group-badge" style="background: rgba(255,255,255,0.06); color: var(--light-gray);">${typeLabel}</span>
+                <span class="text-muted" style="font-size: 0.8rem;">${memberText}</span>
+              </div>
+            </div>
+            ${joinBtn}
+          </div>
+          ${g.description ? `<p class="text-muted" style="font-size: 0.9rem; margin-top: 12px;">${escapeHtml(g.description)}</p>` : ''}
+        </div>`;
+    }
+
+    // --- Join modal (for groups without external link or public contact) ---
+    function showJoinModal(groupId, groupName) {
+      // Create modal overlay
+      const existing = document.getElementById('joinModal');
+      if (existing) existing.remove();
+
+      const modal = document.createElement('div');
+      modal.id = 'joinModal';
+      modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;';
+      modal.innerHTML = `
+        <div style="background:var(--charcoal);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:32px;max-width:480px;width:100%;">
+          <h3 style="margin-bottom:4px;">Join ${escapeHtml(groupName)}</h3>
+          <p class="text-muted" style="font-size:0.85rem;margin-bottom:20px;">The organizer will receive your info and get back to you.</p>
+          <div class="form-row">
+            <label for="joinName">Your name</label>
+            <input type="text" id="joinName" required placeholder="Your name">
+          </div>
+          <div class="form-row">
+            <label for="joinEmail">Your email</label>
+            <input type="email" id="joinEmail" required placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="joinZip">Zip code (optional)</label>
+            <input type="text" id="joinZip" placeholder="12345" maxlength="10" style="max-width:200px;">
+          </div>
+          <div class="form-row">
+            <label for="joinMsg">Short message (optional)</label>
+            <textarea id="joinMsg" placeholder="Why you want to join, what you can contribute, etc." style="min-height:60px;"></textarea>
+          </div>
+          <div id="joinStatus"></div>
+          <div style="display:flex;gap:12px;margin-top:16px;">
+            <button class="btn btn-blue" style="flex:1;" onclick="submitJoin('${groupId}')">Send request</button>
+            <button class="btn btn-outline" onclick="document.getElementById('joinModal').remove()">Cancel</button>
+          </div>
+        </div>`;
+      document.body.appendChild(modal);
+      modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+      document.getElementById('joinName').focus();
+    }
+
+    async function submitJoin(groupId) {
+      const name = document.getElementById('joinName').value.trim();
+      const email = document.getElementById('joinEmail').value.trim();
+      const zip = document.getElementById('joinZip').value.trim();
+      const msg = document.getElementById('joinMsg').value.trim();
+      const statusDiv = document.getElementById('joinStatus');
+
+      if (!name || !email) {
+        statusDiv.innerHTML = '<p style="color:var(--red);font-size:0.85rem;margin-top:8px;">Name and email are required.</p>';
+        return;
+      }
+
+      try {
+        await SupaGroups.join({
+          groupId,
+          name,
+          email,
+          zipCode: zip || null,
+          message: msg || null
+        });
+        statusDiv.innerHTML = '<p class="text-blue" style="font-size:0.9rem;margin-top:8px;">You\'re in! The group organizer will be in touch.</p>';
+        setTimeout(() => document.getElementById('joinModal')?.remove(), 2500);
+        // Refresh results to show updated count
+        searchGroups();
+      } catch (err) {
+        statusDiv.innerHTML = `<p style="color:var(--red);font-size:0.85rem;margin-top:8px;">${escapeHtml(err.message || 'Something went wrong. Please try again.')}</p>`;
+      }
+    }
+
+    // --- Registration form handler ---
+    const regForm = document.getElementById('groupRegisterForm');
+    if (regForm) {
+      regForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const statusDiv = document.getElementById('registerStatus');
+        const submitBtn = regForm.querySelector('button[type="submit"]');
+
+        // Validate required fields
+        const orgName = document.getElementById('grpOrgName').value.trim();
+        const orgEmail = document.getElementById('grpOrgEmail').value.trim();
+        const grpName = document.getElementById('grpName').value.trim();
+        const state = document.getElementById('grpState').value;
+        const city = document.getElementById('grpCity').value.trim();
+        const whyMsg = document.getElementById('grpWhy').value.trim();
+
+        if (!orgName || !orgEmail || !grpName || !state || !city || !whyMsg) {
+          statusDiv.innerHTML = '<div class="status-msg status-error">Please fill in all required fields.</div>';
+          return;
+        }
+
+        if (!document.getElementById('grpAgreeContact').checked || !document.getElementById('grpAgreeGuidelines').checked) {
+          statusDiv.innerHTML = '<div class="status-msg status-error">Please agree to both checkboxes to continue.</div>';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        statusDiv.innerHTML = '';
+
+        try {
+          await SupaGroups.apply({
+            name: grpName,
+            description: document.getElementById('grpDesc').value.trim() || null,
+            type: document.getElementById('grpType').value,
+            city,
+            state,
+            zipCode: document.getElementById('grpZip').value.trim() || null,
+            organizerName: orgName,
+            organizerEmail: orgEmail,
+            socialProfileUrl: document.getElementById('grpSocialUrl').value.trim() || null,
+            whyMessage: whyMsg,
+            contactMethod: document.getElementById('grpContactMethod').value,
+            publicContact: document.getElementById('grpPublicContact').value.trim() || null,
+            externalLink: document.getElementById('grpLink').value.trim() || null
+          });
+
+          // Log analytics
+          SupaAnalytics.logEvent('group_application', { state, type: document.getElementById('grpType').value });
+
+          statusDiv.innerHTML = `
+            <div class="status-msg status-success">
+              <p style="font-size: 1.05rem; margin-bottom: 8px;">Application submitted!</p>
+              <p style="font-size: 0.9rem; opacity: 0.8;">We'll review your application and get back to you at <strong>${escapeHtml(orgEmail)}</strong> within 24&ndash;48 hours. Once approved, your group will appear in the directory for others to find and join.</p>
+            </div>`;
+          regForm.reset();
+        } catch (err) {
+          console.error('Registration error:', err);
+          statusDiv.innerHTML = `<div class="status-msg status-error">Something went wrong: ${escapeHtml(err.message || 'Please try again.')}. If this persists, email us directly.</div>`;
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit application';
+        }
+      });
+    }
+
+    // Search on state change
+    document.getElementById('groupStateSearch').addEventListener('change', searchGroups);
+    document.getElementById('groupCitySearch').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); searchGroups(); }
+    });
+
+    // Toggle public contact field visibility based on contact method
+    const contactMethodSel = document.getElementById('grpContactMethod');
+    if (contactMethodSel) {
+      contactMethodSel.addEventListener('change', function() {
+        const row = document.getElementById('publicContactRow');
+        row.style.display = this.value === 'form' ? 'none' : 'block';
+      });
+    }
+  </script>
+</body>
+</html>

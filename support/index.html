@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support | But What Can You Do?</title>
-  <meta name="description" content="Support the But What Can You Do campaign. This is a zero-budget grassroots effort. Every dollar goes directly to printing materials and keeping the site running.">
-  <meta property="og:title" content="Support | But What Can You Do?">
-  <meta property="og:description" content="No PAC money. No corporate sponsors. Just people. Help keep this running.">
-  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://butwhatcanyoudo.org/support/" />
+  <meta property="og:url" content="https://butwhatcanyoudo.org/support/" />
+  <title>Support the Campaign | But What Can You Do?</title>
+  <meta name="description" content="No PAC money. No corporate sponsors. Support our grassroots movement with full financial transparency to print posters and reach persuadable voters." />
+  <meta property="og:title" content="Support the Campaign | But What Can You Do?" />
+  <meta property="og:description" content="No PAC money. No corporate sponsors. Support our grassroots movement with full financial transparency to print posters and reach persuadable voters." />
+  <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -37,7 +39,7 @@
   <section class="page-header">
     <div class="container">
       <h1 class="fade-in"><span class="text-yellow">Support</span></h1>
-      <p class="fade-in text-muted">No PAC money. No corporate sponsors. Just people who give a damn.</p>
+      <p class="fade-in text-muted">No PAC money. No corporate sponsors. Just people who are finally ready to say, enough.</p>
     </div>
   </section>
 
@@ -46,7 +48,7 @@
     <div class="container">
       <div class="fade-in" style="max-width: 700px; margin: 0 auto; text-align: center;">
         <h2 style="margin-bottom: 16px;">Where the money goes</h2>
-        <p class="text-muted" style="margin-bottom: 24px;">This campaign has zero budget. It was built by one person on nights and weekends. Every dollar donated goes directly to:</p>
+        <p class="text-muted" style="margin-bottom: 24px;">This campaign has zero budget. It was built by two people on nights and weekends. Every dollar donated goes directly to:</p>
         <div class="action-grid">
           <div class="card" style="padding: 24px;">
             <h3 class="text-blue">Hosting &amp; tools</h3>
@@ -98,8 +100,40 @@
     </div>
   </section>
 
-  <!-- Transparency -->
+  <!-- Contact Form -->
   <section class="section section-darker">
+    <div class="container">
+      <div class="fade-in" style="max-width: 600px; margin: 0 auto;">
+        <h2 style="margin-bottom: 8px;">Get in touch</h2>
+        <p class="text-muted" style="margin-bottom: 24px;">Question, idea, media inquiry, or just want to say something? Send it here.</p>
+        <form id="contactForm">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+            <div>
+              <label for="ctName" style="display: block; margin-bottom: 6px; font-weight: 500;">Name</label>
+              <input type="text" id="ctName" required placeholder="Your name" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem;">
+            </div>
+            <div>
+              <label for="ctEmail" style="display: block; margin-bottom: 6px; font-weight: 500;">Email</label>
+              <input type="email" id="ctEmail" required placeholder="you@example.com" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem;">
+            </div>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <label for="ctSubject" style="display: block; margin-bottom: 6px; font-weight: 500;">Subject</label>
+            <input type="text" id="ctSubject" required placeholder="What's this about?" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem;">
+          </div>
+          <div style="margin-bottom: 24px;">
+            <label for="ctMessage" style="display: block; margin-bottom: 6px; font-weight: 500;">Message</label>
+            <textarea id="ctMessage" required placeholder="What do you want us to know?" style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--white); font-size: 1rem; min-height: 120px; resize: vertical; font-family: var(--font-body);"></textarea>
+          </div>
+          <button type="submit" class="btn btn-blue" style="width: 100%; font-size: 1.05rem; padding: 14px;">Send message</button>
+          <div id="contactStatus" style="margin-top: 12px;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparency -->
+  <section class="section section-dark">
     <div class="container text-center">
       <div class="fade-in" style="max-width: 600px; margin: 0 auto;">
         <h2 style="margin-bottom: 16px;">Full transparency</h2>
@@ -127,4 +161,50 @@
           <li><a href="/about/">About</a></li>
           <li><a href="/talk/">Talking Points</a></li>
           <li><a href="/support/">Support</a></li>
-          <li>
+          <li><a href="/how-to/">How to Print</a></li>
+        </ul>
+        <div class="footer-hashtag">
+          #ButWhatCanYouDo &nbsp;&middot;&nbsp; #WhoVotedYes
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/shared.js?v=1"></script>
+  <script src="/js/main.js?v=3"></script>
+  <script src="/js/supabase-client.js?v=1"></script>
+  <script>
+    // Contact form handler
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const statusDiv = document.getElementById('contactStatus');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const name = document.getElementById('ctName').value.trim();
+        const email = document.getElementById('ctEmail').value.trim();
+        const subject = document.getElementById('ctSubject').value.trim();
+        const message = document.getElementById('ctMessage').value.trim();
+
+        if (!name || !email || !subject || !message) {
+          statusDiv.innerHTML = '<div style="padding:12px;background:rgba(255,65,54,0.1);color:var(--red);border-radius:4px;">All fields are required.</div>';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+          await SupaContact.send({ name, email, subject, message, pageSource: '/support/' });
+          statusDiv.innerHTML = '<div style="padding:14px;background:rgba(0,168,232,0.1);color:var(--blue);border-radius:4px;text-align:center;">Message sent. We\'ll get back to you.</div>';
+          contactForm.reset();
+        } catch (err) {
+          statusDiv.innerHTML = '<div style="padding:12px;background:rgba(255,65,54,0.1);color:var(--red);border-radius:4px;">' + (err.message || 'Something went wrong. Please try again.') + '</div>';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send message';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

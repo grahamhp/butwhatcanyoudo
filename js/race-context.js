@@ -8,16 +8,9 @@
    ============================================ */
 
 const HIGHLIGHTED_STATE_KEYS = [
-  'AZ', 'CA', 'CO', 'IA', 'ME', 'MI', 'MO', 'NC',
-  'NE', 'NM', 'NY', 'OH', 'PA', 'TX', 'UT', 'WA'
+  'AL', 'AZ', 'CA', 'CO', 'FL', 'IA', 'IL', 'LA', 'ME', 'MI', 'MO', 'NC',
+  'NE', 'NM', 'NY', 'OH', 'PA', 'TN', 'TX', 'UT', 'VA', 'WA'
 ];
-
-const RACE_EVIDENCE_STANDARD = {
-  sourceFirst: 'Votes, funding, endorsements, and quotes must be source-linked before they are used as claims.',
-  noNightlySync: 'No nightly sync. Official/public datasets are refreshed manually, reviewed, then committed.',
-  unknownMeansUnknown: 'If a candidate has no voting record and no clear public statement, the stance is marked unknown until researched.',
-  distinction: 'The campaign targets votes, funding, weapons policy, and lobbying pressure - never Jewish people or any identity group.'
-};
 
 const CAMPAIGN_POSITIVE_EXAMPLES = [
   {
@@ -34,22 +27,23 @@ const CAMPAIGN_POSITIVE_EXAMPLES = [
     sources: ['Official House Clerk XML snapshots and generated data/rollcalls/member-vote-summary-2024.json', 'FEC candidate-filing snapshot is pending after DEMO_KEY rate limiting; verify ballot status before public endorsement copy.']
   },
   {
-    id: 'warren-davidson-oh08',
-    name: 'Warren Davidson',
+    id: 'niki-conforti-il06',
+    name: 'Niki Conforti',
     party: 'R',
     office: 'U.S. House',
-    state: 'OH',
-    district: 'OH-08',
-    recommendation: 'Issue-relevant Republican example to support or pressure where he is confirmed on the ballot, depending on local alternatives.',
-    why: 'Voted Nay on H.R. 8034 and H.R. 8369, including the bill to force paused bomb shipments. He voted Yea on H.R. 6126, so the record is not perfect.',
-    caveat: 'Use carefully: this shows the campaign is not partisan, but the recommendation should stay tied to the weapons-funding record and any 2026 challenger research.',
-    votes: { hr6126: 'Yea', hr8034: 'Nay', hr8369: 'Nay' },
-    sources: ['Official House Clerk XML snapshots and generated data/rollcalls/member-vote-summary-2024.json', 'FEC candidate-filing snapshot is pending after DEMO_KEY rate limiting; verify ballot status before public endorsement copy.']
+    state: 'IL',
+    district: 'IL-06',
+    recommendation: 'Issue-aligned Republican to support. Won her primary and is on the November ballot.',
+    why: 'Publicly refused foreign lobby funding: "I\'m not somebody who can be bought." Advocates redirecting military aid spending to domestic needs — veterans, healthcare, infrastructure. Running against a Democrat who accepted nearly $300,000 from the foreign lobby.',
+    caveat: 'No congressional voting record yet. The recommendation is based on public statements and her refusal of foreign lobby money, not a legislative track record. Verify her positions remain consistent as the campaign progresses.',
+    votes: null,
+    sources: ['Arab News interview, Jan 12 2026', 'FEC candidate filings, Ballotpedia IL-06 2026']
   },
   {
     id: 'thomas-massie-proof-point',
     name: 'Thomas Massie',
     party: 'R',
+    color: 'yellow',
     office: 'U.S. House',
     state: 'KY',
     district: 'KY-04',
@@ -305,6 +299,71 @@ const STATE_RACE_EXPANSIONS = {
     ],
     governorNote: 'No regularly scheduled governor race in Washington in 2026.',
     senateNote: 'No regularly scheduled U.S. Senate race in Washington in 2026.'
+  },
+  // ── 2026 redistricting wave (post-Callais) ──
+  AL: {
+    name: 'Alabama',
+    redistricted: true,
+    redistrictingNote: 'New map finalized June 2, 2026 following racial gerrymandering litigation. Eliminates a previous Democratic advantage. Projected +1 Republican shift.',
+    contextNotes: [
+      'The Supreme Court\'s Louisiana v. Callais decision weakened Section 2 of the Voting Rights Act, enabling this redraw.',
+      'Candidate stances and affected districts need research.'
+    ],
+    governorNote: 'No regularly scheduled governor race in Alabama in 2026.',
+    senateNote: 'No regularly scheduled U.S. Senate race in Alabama in 2026.'
+  },
+  FL: {
+    name: 'Florida',
+    redistricted: true,
+    redistrictingNote: 'Gov. DeSantis called a special session in anticipation of the Callais ruling. Map signed May 4, 2026. Projected +4 Republican shift across four districts.',
+    contextNotes: [
+      'One of the most aggressive redraws of the 2026 wave.',
+      'Candidate stances and affected districts need research.'
+    ],
+    governorNote: 'No regularly scheduled governor race in Florida in 2026.',
+    senateNote: 'No regularly scheduled U.S. Senate race in Florida in 2026.'
+  },
+  IL: {
+    name: 'Illinois',
+    redistricted: false,
+    contextNotes: [
+      'Illinois is highlighted because IL-06 features Niki Conforti (R), who publicly refused foreign lobby money, running against incumbent Sean Casten (D) who accepted nearly $300,000 from the foreign lobby.'
+    ],
+    governorNote: 'No regularly scheduled governor race in Illinois in 2026.',
+    senateNote: 'No regularly scheduled U.S. Senate race in Illinois in 2026.'
+  },
+  LA: {
+    name: 'Louisiana',
+    redistricted: true,
+    redistrictingNote: 'Gov. Landry signed new map May 29, 2026, directly utilizing the Callais precedent. Projected +1 Republican shift.',
+    contextNotes: [
+      'Louisiana v. Callais was the Supreme Court case that triggered the 2026 redistricting wave.',
+      'Candidate stances and affected districts need research.'
+    ],
+    governorNote: 'No regularly scheduled governor race in Louisiana in 2026.',
+    senateNote: 'No regularly scheduled U.S. Senate race in Louisiana in 2026.'
+  },
+  TN: {
+    name: 'Tennessee',
+    redistricted: true,
+    redistrictingNote: 'Signed May 7, 2026 by Gov. Lee. Fractures the Memphis-based 9th district — the state\'s only majority-Black, Democratic-held seat. Projected +1 Republican.',
+    contextNotes: [
+      'This redraw targets the state\'s sole remaining Democratic-held congressional district.',
+      'Candidate stances and affected districts need research.'
+    ],
+    governorNote: 'No regularly scheduled governor race in Tennessee in 2026.',
+    senateNote: 'No regularly scheduled U.S. Senate race in Tennessee in 2026.'
+  },
+  VA: {
+    name: 'Virginia',
+    redistricted: true,
+    redistrictingNote: 'Voters approved a Democratic-led map via ballot referendum on April 21, 2026 (51.6% to 48.4%). Projected +4 Democratic seat advantage.',
+    contextNotes: [
+      'Virginia is the only 2026 redistricting state where the new map favors Democrats.',
+      'Candidate stances and affected districts need research.'
+    ],
+    governorNote: 'No regularly scheduled governor race in Virginia in 2026.',
+    senateNote: 'No regularly scheduled U.S. Senate race in Virginia in 2026.'
   }
 };
 

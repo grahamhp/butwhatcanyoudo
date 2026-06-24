@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Posters | But What Can You Do?</title>
-  <meta name="description" content="Download high-impact posters designed to reach people who aren’t already convinced. Black and white reality. Bold, bright truth. Print them. Hang them. Start conversations.">
-  <meta property="og:title" content="Posters | But What Can You Do?">
-  <meta property="og:description" content="High-impact posters for the campaign. Black and white reality. Bold, bright truth. Print them. Hang them.">
-  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://butwhatcanyoudo.org/posters/" />
+  <meta property="og:url" content="https://butwhatcanyoudo.org/posters/" />
+  <title>Free Campaign Posters | But What Can You Do?</title>
+  <meta name="description" content="Download high-impact, demographic-targeted posters to hold your representative accountable. Free PDFs for faith, veteran, college, and suburban districts." />
+  <meta property="og:title" content="Free Campaign Posters | But What Can You Do?" />
+  <meta property="og:description" content="Download high-impact, demographic-targeted posters to hold your representative accountable. Free PDFs for faith, veteran, college, and suburban districts." />
+  <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -200,7 +202,7 @@
   <footer class="footer">
     <div class="footer-inner" style="flex-direction: column; gap: 32px;">
       <div style="width: 100%; max-width: 500px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep’s votes and what’s happening in your district.</p>
+        <p style="font-size: 0.9rem; color: var(--light-gray); margin-bottom: 12px;">Stay informed. Get updates on your rep's votes and what's happening in your district.</p>
         <form class="email-signup-form" style="display: flex; gap: 8px;">
           <input type="email" name="email" placeholder="Your email" aria-label="Email address for updates" required style="flex: 1; padding: 12px 14px; font-size: 0.9rem;">
           <button type="submit" class="btn btn-red" style="padding: 12px 20px; font-size: 0.85rem;">Sign up</button>
@@ -223,7 +225,7 @@
       </div>
     </div>
   </footer>
-
+  <script src="/js/shared.js?v=1"></script>
   <script src="/js/candidates.js?v=14"></script>
   <script src="/js/lookup.js?v=3"></script>
   <script src="/js/main.js?v=3"></script>
@@ -613,4 +615,57 @@
           `;
         } else {
           const districtLine = result && result.district
-            ? `<p class="text-yellow" style="font-size: 0.9rem; margin-bottom: 10px
+            ? `<p class="text-yellow" style="font-size: 0.9rem; margin-bottom: 10px;">Estimated district: ${result.district}</p>`
+            : '';
+          resultDiv.innerHTML = `
+            <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
+              ${districtLine}
+              <p class="text-muted">This district is not fully researched in our public database yet, but you can still use any of the general posters above.</p>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px;">ZIPs can cross district lines. Use the lookup page if you want the most precise address match or direct district entry.</p>
+            </div>
+          `;
+        }
+      } catch (error) {
+        resultDiv.innerHTML = `
+          <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
+            <p class="text-muted">ZIP estimate is unavailable right now. You can still use any of the general posters above, or use the lookup page to enter your district directly.</p>
+          </div>
+        `;
+      }
+    }
+    renderPosters('all');
+
+    // Auto-detect which poster files exist and show download buttons
+    function checkPosterFiles() {
+      document.querySelectorAll('.poster-downloads').forEach(container => {
+        const id = container.dataset.posterId;
+        const pdfBtn = container.querySelector('.poster-dl-pdf');
+        const pngBtn = container.querySelector('.poster-dl-png');
+        const soonMsg = container.querySelector('.poster-dl-soon');
+
+        // Check PDF
+        fetch(POSTER_FILE_BASE + id + '.pdf', { method: 'HEAD' })
+          .then(r => { if (r.ok) { pdfBtn.style.display = ''; if (soonMsg) soonMsg.style.display = 'none'; } })
+          .catch(() => {});
+        // Check PNG
+        fetch(POSTER_FILE_BASE + id + '.png', { method: 'HEAD' })
+          .then(r => { if (r.ok) { pngBtn.style.display = ''; if (soonMsg) soonMsg.style.display = 'none'; } })
+          .catch(() => {});
+      });
+    }
+    checkPosterFiles();
+
+    // Track poster downloads
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('.poster-dl-pdf, .poster-dl-png');
+      if (!link) return;
+      const container = link.closest('.poster-downloads');
+      const posterId = container ? container.dataset.posterId : 'unknown';
+      const format = link.classList.contains('poster-dl-pdf') ? 'pdf' : 'png';
+      if (typeof SupaPosters !== 'undefined') SupaPosters.logEvent(posterId, 'download');
+      if (typeof SupaAnalytics !== 'undefined') SupaAnalytics.logEvent('poster_download', { poster_id: posterId, format: format });
+    });
+  </script>
+</body>
+</html>
+
