@@ -1,99 +1,40 @@
 -- =========================================================
--- But What Can You Do — Groups Directory Schema
--- Run this in your Supabase SQL Editor (supabase.com)
+-- But What Can You Do — Full Supabase Schema Reference
+-- Last updated: June 2026
+--
+-- The authoritative schema lives in the Supabase dashboard.
+-- This file is a reference copy. If you need to recreate
+-- the database, run the migration at:
+--   outputs/supabase-migration.sql
 -- =========================================================
 
--- 1. Groups table
-CREATE TABLE groups (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  state TEXT NOT NULL,
-  city TEXT NOT NULL,
-  description TEXT,
-  contact_email TEXT NOT NULL,
-  contact_name TEXT NOT NULL,
-  platform TEXT CHECK (platform IN ('facebook','discord','signal','whatsapp','groupme','other','none')),
-  platform_link TEXT,
-  agree_to_contact BOOLEAN NOT NULL DEFAULT true,
-  approved BOOLEAN DEFAULT false,
-  active BOOLEAN DEFAULT true,
-  created_at TIMESTAMPTZ DEFAULT now()
-);
+-- Tables:
+--   groups            — local organizing groups (application/approval workflow)
+--   group_members     — join requests for groups without external links
+--   volunteers        — volunteer signup form submissions
+--   email_subscribers — newsletter / action alert signups
+--   contact_messages  — contact form submissions
+--   poster_events     — poster download/print tracking
+--   site_events       — lightweight analytics (pageviews, clicks)
 
--- 2. Reports table (for unresponsive groups)
-CREATE TABLE group_reports (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  group_id UUID REFERENCES groups(id) ON DELETE CASCADE,
-  reporter_email TEXT NOT NULL,
-  report_type TEXT NOT NULL DEFAULT 'unresponsive',
-  message TEXT,
-  resolved BOOLEAN DEFAULT false,
-  created_at TIMESTAMPTZ DEFAULT now()
-);
+-- Views:
+--   public_groups     — approved groups only, hides organizer PII
 
--- 3. Inquiries table (contact requests forwarded to organizers)
-CREATE TABLE group_inquiries (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  group_id UUID REFERENCES groups(id) ON DELETE CASCADE,
-  requester_email TEXT NOT NULL,
-  forwarded BOOLEAN DEFAULT false,
-  created_at TIMESTAMPTZ DEFAULT now()
-);
+-- Key RLS policies:
+--   anon can SELECT approved groups and public_groups
+--   anon can INSERT into all tables (groups require status='pending')
+--   anon can UPDATE email_subscribers (unsubscribe only)
+--   No anon DELETE or UPDATE on other tables
+--   Admin access via Supabase dashboard or service_role key
 
--- 4. Indexes
-CREATE INDEX idx_groups_state ON groups(state);
-CREATE INDEX idx_groups_approved ON groups(approved, active);
-CREATE INDEX idx_reports_group ON group_reports(group_id);
-CREATE INDEX idx_inquiries_group ON group_inquiries(group_id);
+-- Functions (RPC):
+--   get_nearby_groups(lat, lng, radius_miles)
+--   get_group_counts_by_state()
+--   get_public_stats()
+--   get_dashboard_stats()
+--   verify_group_email(token)
 
--- 5. Row Level Security (RLS)
-ALTER TABLE groups ENABLE ROW LEVEL SECURITY;
-ALTER TABLE group_reports ENABLE ROW LEVEL SECURITY;
-ALTER TABLE group_inquiries ENABLE ROW LEVEL SECURITY;
-
--- Public can read approved, active groups (no email exposed)
-CREATE POLICY "Public can view approved groups"
-  ON groups FOR SELECT
-  USING (approved = true AND active = true);
-
--- Public can insert new groups (pending approval)
-CREATE POLICY "Anyone can register a group"
-  ON groups FOR INSERT
-  WITH CHECK (approved = false);
-
--- Public can insert reports
-CREATE POLICY "Anyone can report a group"
-  ON group_reports FOR INSERT
-  WITH CHECK (true);
-
--- Public can insert inquiries
-CREATE POLICY "Anyone can inquire about a group"
-  ON group_inquiries FOR INSERT
-  WITH CHECK (true);
-
--- =========================================================
--- ADMIN ACCESS: Use the Supabase dashboard or service_role
--- key to approve groups, view reports, etc.
---
--- To approve a group from the dashboard:
---   UPDATE groups SET approved = true WHERE id = '...';
---
--- To view pending groups:
---   SELECT * FROM groups WHERE approved = false ORDER BY created_at DESC;
---
--- To view unresolved reports:
---   SELECT r.*, g.name, g.contact_email
---   FROM group_reports r JOIN groups g ON r.group_id = g.id
---   WHERE r.resolved = false ORDER BY r.created_at DESC;
--- =========================================================
-
--- NOTE: The SELECT policy above exposes all columns of approved groups.
--- contact_email is NOT shown on the frontend (the JS doesn't render it),
--- but it IS technically accessible via the API. If you want to hide it
--- from the API entirely, create a view:
---
--- CREATE VIEW public_groups AS
---   SELECT id, name, state, city, description, platform, platform_link, created_at
---   FROM groups WHERE approved = true AND active = true;
---
--- Then query 'public_groups' instead of 'groups' in the frontend JS.
+-- Triggers:
+--   trigger_groups_updated_at     — auto-update updated_at on groups
+--   trigger_update_member_count   — auto-count group_members
+--   trigger_generate_slug         — auto-generate URL slug for groups

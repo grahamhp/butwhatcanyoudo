@@ -215,9 +215,9 @@ const SupaEmail = {
 
   async unsubscribe(token) {
     const sb = await initSupabase();
-    const { data, error } = await sb.from('email_subscribers')
-      .update({ unsubscribed: true, unsubscribed_at: new Date().toISOString() })
-      .eq('unsubscribe_token', token);
+    const { data, error } = await sb.rpc('unsubscribe_by_token', {
+      unsub_token: token
+    });
 
     if (error) throw error;
     return data;
