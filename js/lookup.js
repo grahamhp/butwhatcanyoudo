@@ -536,9 +536,12 @@ async function lookupAddress(address) {
     // Fall through to ZIP fallback below for static local previews.
   }
 
-  const zipMatch = cleanAddress.match(/\b\d{5}(?:-\d{4})?\b/);
+  // Use the LAST 5-digit match — house numbers can be 5 digits too,
+  // and the ZIP code is always at the end of a US address.
+  const zipMatches = cleanAddress.match(/\b\d{5}(?:-\d{4})?\b/g);
+  const zipMatch = zipMatches ? zipMatches[zipMatches.length - 1] : null;
   if (zipMatch) {
-    const fallback = await lookupZipEstimate(zipMatch[0].slice(0, 5));
+    const fallback = await lookupZipEstimate(zipMatch.slice(0, 5));
     if (fallback) {
       fallback.lookupMethod = 'address';
       fallback.isEstimate = true;
@@ -553,3 +556,4 @@ async function lookupAddress(address) {
 }
 
 
+  
