@@ -1154,7 +1154,7 @@ const STATE_RACES = {
         note: 'ANOTHER GERRYMANDERING STORY. This was a competitive district until the 2025 redistricting stretched it into deep-red East Texas. The sitting Democratic representative, Julie Johnson, was forced to abandon it. Jace Yarbrough (R) won the Republican primary unopposed after his only opponent dropped out. Democrats have little chance here under the new map.',
         incumbent: null,
         openSeatCandidates: [
-          { name: 'TBD', party: 'D', background: 'Democratic candidates for the redrawn TX-32 are running but face an extremely uphill battle in the new R-leaning configuration.', foreignPolicyPosition: null, lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, The Texan' },
+          { name: 'Dan Barrios', party: 'D', background: 'Richardson City Councilman. Former teacher. Grew up in Brownsville, TX. Won Democratic primary March 3, 2026 over Anthony Bridges. Faces an extremely uphill battle in the redrawn R-leaning district.', foreignPolicyPosition: null, lobbyFunding: null, lobbyEndorsed: false, source: 'Ballotpedia, Texas Tribune, NBC News' },
           { name: 'Jace Yarbrough', party: 'R', background: 'Won the nine-way Republican primary. Opponent Ryan Binkley dropped out of the runoff, making Yarbrough the nominee.', foreignPolicyPosition: null, lobbyFunding: null, lobbyEndorsed: false, source: 'The Texan, Ballotpedia' }
         ],
         predecessorVotes: { hr6126: null, hr8034: null, hr8369: null },
