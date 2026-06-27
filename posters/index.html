@@ -179,17 +179,17 @@
     </div>
   </section>
 
-  <!-- Custom Poster CTA -->
+  <!-- Know Your Area -->
   <section class="section section-dark">
     <div class="container">
       <div class="fade-in" style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <h2 style="margin-bottom: 16px;">Make it <span class="text-blue">personal</span></h2>
-        <p class="text-muted" style="margin-bottom: 16px;">Want a poster with your representative’s name, foreign lobby funding amount, and voting record? Enter a ZIP code for an estimated district preview.</p>
+        <h2 style="margin-bottom: 16px;">Know your <span class="text-blue">area</span></h2>
+        <p class="text-muted" style="margin-bottom: 16px;">Before you choose a poster, look up the demographics where you plan to hang it. Age, income, religion, education — these tell you which message will land. Census Reporter gives you a full profile for any ZIP code.</p>
         <div class="zip-input-group" style="max-width: 400px; margin: 0 auto 16px;">
-          <input type="text" id="posterZip" placeholder="ZIP code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" aria-label="Enter your ZIP code for local posters">
-          <button class="btn btn-red" onclick="generateCustomPoster()">Create poster</button>
+          <input type="text" id="demoZip" placeholder="ZIP code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" aria-label="Enter ZIP code to look up demographics">
+          <button class="btn btn-red" onclick="openDemographics()">Look up demographics</button>
         </div>
-        <div id="customPosterResult"></div>
+        <p class="text-muted" style="font-size: 0.85rem;">Opens <a href="https://censusreporter.org/" target="_blank" rel="noopener" style="color: var(--blue);">Census Reporter</a> in a new tab — a free, nonpartisan tool built on U.S. Census data.</p>
       </div>
     </div>
   </section>
@@ -580,66 +580,18 @@
       `;
     }
 
-    async function generateCustomPoster() {
-      const zip = document.getElementById('posterZip').value.trim();
-      const resultDiv = document.getElementById('customPosterResult');
-
+    function openDemographics() {
+      const zip = document.getElementById('demoZip').value.trim();
       if (!zip || zip.length !== 5 || !/^\d{5}$/.test(zip)) {
-        resultDiv.innerHTML = '<p style="color: var(--red);">Please enter a valid 5-digit zip code.</p>';
         return;
       }
-
-      resultDiv.innerHTML = '<p class="text-muted" style="margin-top: 18px;">Estimating your congressional district...</p>';
-
-      try {
-        const result = typeof lookupZipEstimate === 'function'
-          ? await lookupZipEstimate(zip)
-          : lookupDistrict(zip);
-
-        if (result && result.primaryCandidate) {
-          const c = result.primaryCandidate;
-          const aipacStatus = c.aipacEndorsed ? 'Foreign Lobby Endorsed.' : '';
-          const votedYes = Object.values(c.keyVotes).some(v => v === 'Yes');
-          const recommendations = getRecommendedPostersForDistrict(c);
-          const estimateNote = result.isEstimate
-            ? '<p class="text-yellow" style="font-size: 0.8rem; margin-top: 8px;">ZIP estimate. ZIP codes can cross district lines; address lookup is most precise.</p>'
-            : '';
-
-          resultDiv.innerHTML = `
-            <div class="poster-card" style="max-width: 460px; margin: 24px auto 0;">
-              <div class="poster-preview" style="background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);">
-                <h2 style="color: #FF4136; font-size: 1.8rem;">${c.name}<br><span style="color: #FFC500; font-size: 1.2rem;">${c.districtLabel}</span></h2>
-                <p class="poster-sub">${aipacStatus} ${votedYes ? 'Voted yes on weapons packages.' : ''}<br>butwhatcanyoudo.org</p>
-              </div>
-              <div class="poster-info">
-                <h3>Custom poster for ${c.districtLabel}</h3>
-                <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">Personalized with your representative's name and record. Print at 11x17 in. for best results.</p>
-                <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px; font-style: italic;">Full-resolution PDF downloads coming before launch. For now, this preview shows the data and district-targeting direction.</p>
-                ${estimateNote}
-                ${renderPosterRecommendationList(recommendations)}
-              </div>
-            </div>
-          `;
-        } else {
-          const districtLine = result && result.district
-            ? `<p class="text-yellow" style="font-size: 0.9rem; margin-bottom: 10px;">Estimated district: ${result.district}</p>`
-            : '';
-          resultDiv.innerHTML = `
-            <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
-              ${districtLine}
-              <p class="text-muted">This district is not fully researched in our public database yet, but you can still use any of the general posters above.</p>
-              <p class="text-muted" style="font-size: 0.8rem; margin-top: 8px;">ZIPs can cross district lines. Use the lookup page if you want the most precise address match or direct district entry.</p>
-            </div>
-          `;
-        }
-      } catch (error) {
-        resultDiv.innerHTML = `
-          <div class="card" style="padding: 20px; max-width: 440px; margin: 24px auto 0;">
-            <p class="text-muted">ZIP estimate is unavailable right now. You can still use any of the general posters above, or use the lookup page to enter your district directly.</p>
-          </div>
-        `;
-      }
+      window.open('https://censusreporter.org/profiles/86000US' + zip + '/', '_blank', 'noopener');
     }
+
+    document.getElementById('demoZip').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') openDemographics();
+    });
+
     renderPosters('all');
 
     // Auto-detect which poster files exist and show download buttons
