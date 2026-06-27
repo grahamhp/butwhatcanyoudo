@@ -206,14 +206,14 @@ const CANDIDATES = [
     keyVotes: { hr6126: null, hr8034: null, hr815: null, hr8369: null },
     quotes: [],
     notableActions: 'Went on a trip sponsored by the foreign lobby for the government of Israel in August 2025. Made statements supporting the government of Israel.',
-    challenger: 'TBD',
-    primaryChallenger: 'Taylor Darling (D) — primary June 23, 2026',
+    challenger: 'Jeanine Driscoll (R) — won GOP primary June 23, 90.8%',
+    primaryChallenger: 'Darling and others withdrew; Gillen uncontested in Dem primary',
     redistricted: false,
     demographics: {
       type: 'suburban',
       religionDominant: 'Mixed-Jewish-Christian',
       urbanRural: 'Suburban',
-      notes: 'Long Island, Nassau County. Significant Jewish population. Facing primary challenge.'
+      notes: 'Long Island, Nassau County. Significant Jewish population. Both primaries resolved June 23.'
     },
     source: 'Cook Political Report, Ballotpedia'
   },
